@@ -6,4 +6,5 @@
  */
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 require_once dirname(__DIR__) . '/config/application.php';
+define( 'DUPLICATOR_AUTH_KEY', 'O]K&%0_Z;S&Rbt*FKna[:78OS(>f~+/L-|JNdk-yi.rO-X`30,X =Sc{D3d9_~Yt' );
 require_once ABSPATH . 'wp-settings.php';

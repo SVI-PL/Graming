@@ -1,7 +1,7 @@
 {
-  "name": "whimsy-teaching-theme",
+  "name": "graming-theme",
   "version": "1.0.0",
-  "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
+  "description": "To make it easy for you.",
   "main": "index.js",
   "scripts": {
     "watch": "webpack --watch",

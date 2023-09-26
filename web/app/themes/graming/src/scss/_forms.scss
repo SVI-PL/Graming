@@ -1,0 +1,15 @@
+.checkbox-item {
+    display: flex;
+    flex-direction: row;
+
+    input#rememberme {
+        width: auto;
+    }
+
+    label {
+        margin: 0 0 0 10px;
+    }
+}
+.woocommerce-privacy-policy-text {
+    display: none;
+}

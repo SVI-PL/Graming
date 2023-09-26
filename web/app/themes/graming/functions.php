@@ -58,7 +58,7 @@ add_action( 'widgets_init', 'graming_widgets_init' );
  */
 function graming_scripts() {
 	wp_enqueue_style( 'graming-style', get_stylesheet_uri(), array(), _S_VERSION );
-	
+	wp_enqueue_style( 'graming-main-style', get_template_directory_uri() . '/dist/main.css', array(), _S_VERSION );
 	wp_enqueue_script("jquery");
-	wp_enqueue_script( 'graming-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'graming-main-js', get_template_directory_uri() . '/dist/main.js', array(), _S_VERSION, true );
 }add_action( 'wp_enqueue_scripts', 'graming_scripts' );
