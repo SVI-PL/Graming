@@ -10,7 +10,7 @@
  */
 
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
 <head>
@@ -70,7 +70,7 @@
 											<i class="fa-brands fa-instagram" style="color: #e4405f;"></i> Інстаграм
 										</a>
 										<ul class="sub-menu">
-											<li><a href="http://easylikes.test/service/details/1">Інстаграм Лайки</a>
+											<li><a href="/service/instagram-likes/">Інстаграм Лайки</a>
 											</li>
 										</ul>
 									</li>
@@ -79,7 +79,7 @@
 											<i class="fa-brands fa-telegram" style="color: #0088cc;"></i> Телеграм
 										</a>
 										<ul class="sub-menu">
-											<li><a href="http://easylikes.test/service/details/2">Телеграм перегляди</a>
+											<li><a href="/service/telegram-views/">Телеграм перегляди</a>
 											</li>
 										</ul>
 									</li>
@@ -88,11 +88,11 @@
 											<i class="fa-brands fa-tiktok" style="color: #ff0050;"></i> ТікТок
 										</a>
 										<ul class="sub-menu">
-											<li><a href="http://easylikes.test/service/details/3">ТікТок Лайки</a></li>
+											<li><a href="/service/tiktok-likes/">ТікТок Лайки</a></li>
 										</ul>
 									</li>
-									<li><a href="#testimonial">Відгуки</a></li>
-									<li><a href="http://easylikes.test/contact">Контакти</a>
+									<li><a href="/#testimonial">Відгуки</a></li>
+									<li><a href="/contact">Контакти</a>
 									</li>
 									<li class="menu_has_children">
 										<a href="javascript:void(0)">Обліковий запис</a>

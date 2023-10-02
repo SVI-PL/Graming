@@ -15,7 +15,7 @@
  * @version 3.6.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 global $product;
 
@@ -24,53 +24,208 @@ global $product;
  *
  * @hooked woocommerce_output_all_notices - 10
  */
-do_action( 'woocommerce_before_single_product' );
+do_action('woocommerce_before_single_product');
 
-if ( post_password_required() ) {
+if (post_password_required()) {
 	echo get_the_password_form(); // WPCS: XSS ok.
 	return;
 }
 ?>
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
-
-	<?php
-	/**
-	 * Hook: woocommerce_before_single_product_summary.
-	 *
-	 * @hooked woocommerce_show_product_sale_flash - 10
-	 * @hooked woocommerce_show_product_images - 20
-	 */
-	do_action( 'woocommerce_before_single_product_summary' );
-	?>
-
-	<div class="summary entry-summary">
-		<?php
-		/**
-		 * Hook: woocommerce_single_product_summary.
-		 *
-		 * @hooked woocommerce_template_single_title - 5
-		 * @hooked woocommerce_template_single_rating - 10
-		 * @hooked woocommerce_template_single_price - 10
-		 * @hooked woocommerce_template_single_excerpt - 20
-		 * @hooked woocommerce_template_single_add_to_cart - 30
-		 * @hooked woocommerce_template_single_meta - 40
-		 * @hooked woocommerce_template_single_sharing - 50
-		 * @hooked WC_Structured_Data::generate_product_data() - 60
-		 */
-		do_action( 'woocommerce_single_product_summary' );
-		?>
+<div class="single_product">
+	<div class="single_prod_header">
+		<div class="single_content">
+			<?php
+			do_action('woocommerce_single_product_summary');
+			?>
+		</div>
+		<div class="single_additional">
+			<div class="premium_block">
+				<div class="premium_header">
+					<?php echo get_field("premium_header"); ?>
+				</div>
+				<div class="premium_content">
+					<?php echo get_field("premium_content"); ?>
+				</div>
+			</div>
+			<div class="trusted_block">
+				<div class="trust_img">
+					<img src="<?php echo get_field("trusted_img")["url"]; ?>" alt="">
+				</div>
+				<div class="trust_title">
+					<?php echo get_field("trusted_title"); ?>
+				</div>
+				<div class="trust_link"><a href="<?php echo get_field("trusted_link"); ?>">
+						<?php echo get_field("trusted_link_title"); ?>
+					</a></div>
+			</div>
+		</div>
 	</div>
+	<div class="single_banner">
+		<div class="banner_title">DId you know you can register and get promocode for first
+			<span>purchase of 10%?</span>
+		</div>
+		<div class="banner-btn btn-red"><a href="#">Click here to sign in!</a></div>
+	</div>
+	<div class="promo_block_wraper">
+		<div class="promo_title">Ready to buy Instagram likes?</div>
+		<div class="promo_descr">Buying likes for your Instagram posts is the best way to reach a wideraudience,
+			encourage engagement, and ensure greater success.</div>
+		<div class="promo_blocks">
+			<div class="promo_block">
+				<div class="block_title">Instant Delivery Guaranteed</div>
+				<div class="block_desc">Don't wait to get your likes. Orders typically process within minutes of
+					purchase</div>
+			</div>
+			<div class="promo_block">
+				<div class="block_title">100% Real Likes</div>
+				<div class="block_desc">High-quality likes delivered instantly from real users with real accounts (no
+					bots or fake accounts). We guarantee a quality service.</div>
+			</div>
+			<div class="promo_block">
+				<div class="block_title">24/7 Customer Support</div>
+				<div class="block_desc">Graming's experienced staff prides itself on providing the best service
+					possible.</div>
+			</div>
+		</div>
+		<div class="promo_footer">
+			<div class="footer_text">More than 1,000 Customers trust us every day to deliver real Instagram likes.</div>
+			<div class="footer_img">
+				<img src="<?php echo get_template_directory_uri(); ?>/src/images/promo_img.png" alt="Promo image">
+			</div>
+		</div>
+	</div>
+	<div class="testimonials">
+		<div class="testimonials_title">What our customers say</div>
+		<div class="testimonials_header">
+			<div class="header_left">
+				<div class="header_img"><img src="<?php echo get_template_directory_uri(); ?>/src/images/5.svg" alt="">
+				</div>
+				<div class="header_wraper">
+					<div class="header_title">Customers rate us <span>Superb</span></div>
+					<div class="header_subtitle">5/5 - based on 54 reviews</div>
+				</div>
+			</div>
+			<div class="header_right">
+				<div class="testimonials_btn btn-red">Submit Your Review</div>
+			</div>
+		</div>
+		<div class="testimonials_slider">
+			<div class="testimonial_slider_wraper">
+				<div class="slick_slide">
+					<div class="slider_inner">
+						<div class="rating"><img src="<?php echo get_template_directory_uri(); ?>/src/images/rating.png"
+								alt=""></div>
+						<div class="name">awesome support</div>
+						<div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+							incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+							exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
+						<div class="verify">Verified Purchase</div>
+					</div>
+				</div>
+				<div class="slick_slide">
+					<div class="slider_inner">
+						<div class="rating"><img src="<?php echo get_template_directory_uri(); ?>/src/images/rating.png"
+								alt=""></div>
+						<div class="name">awesome support</div>
+						<div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+							incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+							exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
+						<div class="verify">Verified Purchase</div>
+					</div>
+				</div>
+				<div class="slick_slide">
+					<div class="slider_inner">
+						<div class="rating"><img src="<?php echo get_template_directory_uri(); ?>/src/images/rating.png"
+								alt=""></div>
+						<div class="name">awesome support</div>
+						<div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+							incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+							exercitation
+							ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
+						<div class="verify">Verified Purchase</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tabs_section">
+		<div class="title">Buy Instagram Likes with <span>Graming</span></div>
+		<div class="tabs_desc">Over 12,000 daily customers trust us as the best site to deliver real Instagram likes
+		</div>
+		<div class="tabs_block">
+			<div class="tab_wraper">
+				<div class="tab_title">
+					Why SHOULD I BUY INSTAGRAM LIKES?
+					<div class="tab_dropdown"></div>
+				</div>
+				<div class="tab_content">
+					Instagram likes aren't just a vanity metric — the number of likes you get directly affects
+					Instagram's core algorithm. The more likes and engagement your content has, the more people you're
+					going to reach.
 
-	<?php
-	/**
-	 * Hook: woocommerce_after_single_product_summary.
-	 *
-	 * @hooked woocommerce_output_product_data_tabs - 10
-	 * @hooked woocommerce_upsell_display - 15
-	 * @hooked woocommerce_output_related_products - 20
-	 */
-	do_action( 'woocommerce_after_single_product_summary' );
-	?>
+					Buying likes is the single best way of boosting your presence on social media — earning you more
+					recognition, more followers, and ultimately, more conversions.
+
+					The more likes a photo or video receives, the higher the chance of reaching the explore page —
+					opening you up to millions of new viewers.
+
+					Likes also serve as social proof for viewers that see your content. When a photo has a high number
+					of likes, they're more likely to engage with it further. Buying likes is a good way to catalyze this
+					interaction — boosting the organic engagement your content is capable of throughout its lifetime.
+
+					You can also <a href="#">buy Instagram followers</a> at Graming.
+				</div>
+			</div>
+			<div class="tab_wraper">
+				<div class="tab_title">
+					Which PACKAGE SHOULD I CHOOSE?
+					<div class="tab_dropdown"></div>
+				</div>
+				<div class="tab_content">
+					Instagram likes aren't just a vanity metric — the number of likes you get directly affects
+					Instagram's core algorithm. The more likes and engagement your content has, the more people you're
+					going to reach.
+
+					Buying likes is the single best way of boosting your presence on social media — earning you more
+					recognition, more followers, and ultimately, more conversions.
+
+					The more likes a photo or video receives, the higher the chance of reaching the explore page —
+					opening you up to millions of new viewers.
+
+					Likes also serve as social proof for viewers that see your content. When a photo has a high number
+					of likes, they're more likely to engage with it further. Buying likes is a good way to catalyze this
+					interaction — boosting the organic engagement your content is capable of throughout its lifetime.
+
+					You can also <a href="#">buy Instagram followers</a> at Graming.
+				</div>
+			</div>
+			<div class="tab_wraper">
+				<div class="tab_title">
+					What INFORMATION DO I NEED TO PROVIDE?
+					<div class="tab_dropdown"></div>
+				</div>
+				<div class="tab_content">
+					Instagram likes aren't just a vanity metric — the number of likes you get directly affects
+					Instagram's core algorithm. The more likes and engagement your content has, the more people you're
+					going to reach.
+
+					Buying likes is the single best way of boosting your presence on social media — earning you more
+					recognition, more followers, and ultimately, more conversions.
+
+					The more likes a photo or video receives, the higher the chance of reaching the explore page —
+					opening you up to millions of new viewers.
+
+					Likes also serve as social proof for viewers that see your content. When a photo has a high number
+					of likes, they're more likely to engage with it further. Buying likes is a good way to catalyze this
+					interaction — boosting the organic engagement your content is capable of throughout its lifetime.
+
+					You can also <a href="#">buy Instagram followers</a> at Graming.
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
-<?php do_action( 'woocommerce_after_single_product' ); ?>
+<?php do_action('woocommerce_after_single_product'); ?>

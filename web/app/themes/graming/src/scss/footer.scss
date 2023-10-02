@@ -1,0 +1,38 @@
+.footer {
+    border-radius: 15px;
+    border: 1px solid #FE5A13;
+    background: #FFF;
+    box-shadow: 6px 6px 0px 0px #FE5A13;
+    width: 100%;
+    max-width: 1215px;
+    margin: 0 auto 50px;
+
+    .footer-area {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 50px;
+        justify-items: center;
+
+        .footer_block {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            color: #161616;
+            font-family: Fixel Display;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 145%;
+
+            .footer_block_title {
+                color: #85C316;
+                font-family: Fixel Display;
+                font-size: 25px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                text-transform: capitalize;
+            }
+        }
+    }
+}

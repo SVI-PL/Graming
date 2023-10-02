@@ -1,0 +1,695 @@
+
+.single_product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1215px;
+    width: 100%;
+    margin: 94px auto 0;
+    gap: 150px;
+
+    .single_prod_header {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: flex-start;
+        width: 100%;
+
+        .single_content {
+            width: 100%;
+            max-width: 635px;
+            flex-shrink: 0;
+            border: 1px solid #161616;
+            border-radius: 10px;
+            overflow: hidden;
+
+            .title_product {
+                color: #161616;
+                font-family: Fixel Display;
+                font-size: 53px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120.5%;
+                padding: 28px 50px;
+
+                span {
+                    color: #FE5A13;
+                }
+            }
+
+            .woocommerce-product-details__short-description {
+                color: #646464;
+                font-family: Fixel Display;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 120.5%;
+                border-bottom: 1px solid #161616;
+                padding: 0 50px 25px;
+            }
+
+            .discount_blocks {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                gap: 20px;
+                padding: 25px 50px 25px;
+
+                .discount_block {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    border-radius: 15px;
+                    border: 1px solid #161616;
+                    box-shadow: 6px 6px 0px 0px transparent;
+                    overflow: hidden;
+                    cursor: pointer;
+
+                    &.active {
+                        border: 1px solid #FE5A13;
+                        box-shadow: 6px 6px 0px 0px #FE5A13;
+
+                        .product_quantity {
+                            color: #FFF;
+                            background-color: #FE5A13;
+                            border-bottom: 1px solid #FE5A13;
+                        }
+                    }
+
+                    .product_quantity {
+                        color: #161616;
+                        text-align: center;
+                        font-family: Fixel Display;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                        padding: 14px 0 6px;
+                        border-bottom: 1px solid #161616;
+                        width: 100%;
+                    }
+
+                    .product_discount {
+                        color: #646464;
+                        text-align: center;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                        padding: 10px 0 13px;
+                    }
+                }
+            }
+
+            .price {
+                display: flex;
+                flex-direction: column;
+                padding: 0 50px 25px;
+                color: #161616;
+                font-family: Fixel Display;
+                font-size: 30px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                margin: 0;
+
+                .price_all {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+
+                    del {
+                        color: #FE5A13;
+                        text-align: center;
+                        font-family: Fixel Display;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                        position: relative;
+
+                        &::after {
+                            content: "";
+                            display: block;
+                            width: 100%;
+                            border-bottom: 1px solid #FE5A13;
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-1px);
+                        }
+                    }
+                }
+
+                .saving {
+                    color: #85C316;
+                    font-family: Fixel Display;
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                }
+            }
+
+            form.cart {
+                display: none;
+            }
+
+            .custom_buy {
+                margin: 0 50px 32px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+
+                .price {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0;
+                    margin: 0;
+                    color: #FE5A13;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    text-transform: capitalize;
+
+                    .price_all {
+                        del {
+                            display: none;
+                        }
+                    }
+                    .saving {
+                        display: none;
+                    }
+                }
+
+                span {
+                    color: #FE5A13;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    text-transform: capitalize;
+
+                    &.woocommerce-Price-amount {
+                        font-size: 25px;
+                    }
+                }
+            }
+        }
+
+        .single_additional {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+
+            .premium_block {
+                border: 1px solid #161616;
+                border-radius: 10px;
+
+                .premium_header {
+                    display: flex;
+                    justify-content: center;
+                    color: #161616;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 40px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 120.5%;
+                    margin: 27px 0 16px;
+                    border-bottom: 1px solid #161616;
+                }
+
+                .premium_content {
+                    color: #161616;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    padding: 26px 38px 17px;
+
+                    ul {
+                        li {
+                            display: flex;
+                            align-items: center;
+                            flex-direction: row;
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+
+                            span {
+                                display: contents;
+                                font-weight: 600;
+                            }
+
+                            &::before {
+                                content: "";
+                                margin-right: 15px;
+                                display: flex;
+                                background: url(../images/guidance_up-arrow.svg) no-repeat;
+                                width: 34px;
+                                height: 34px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .trusted_block {
+                border: 1px solid #161616;
+                border-radius: 10px;
+                padding: 23px 50px;
+
+                .trust_img {
+                    display: flex;
+                }
+
+                .trust_title {
+                    color: #161616;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    margin-top: 26px;
+                }
+
+                .trust_link {
+                    color: #85C316;
+                    font-family: Fixel Display;
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                }
+            }
+        }
+    }
+
+    .single_banner {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding: 38px 0 61px 48px;
+        border: 1px solid #161616;
+        border-radius: 10px;
+        background: url(../images/dinosavr.svg) no-repeat;
+        background-position: right center;
+        background-size: auto;
+
+        .banner_title {
+            color: #161616;
+            font-family: Fixel Display;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            max-width: 788px;
+
+            span {
+                color: #85C316;
+            }
+        }
+
+        .banner-btn {
+            width: 100%;
+            max-width: 540px;
+            margin-top: 40px;
+            color: #FE5A13;
+            text-align: center;
+            font-family: Fixel Display;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            text-transform: capitalize;
+        }
+    }
+
+    .promo_block_wraper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+
+        .promo_title {
+            color: #161616;
+            font-family: Fixel Display;
+            font-size: 53px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 120.5%;
+        }
+
+        .promo_descr {
+            color: #646464;
+            text-align: center;
+            font-family: Fixel Display;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            max-width: 620px;
+        }
+
+        .promo_blocks {
+            display: grid;
+            align-items: stretch;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 25px;
+
+            .promo_block {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border-radius: 15px;
+                border: 1px solid #FE5A13;
+                background: #FFF;
+                box-shadow: 6px 6px 0px 0px #FE5A13;
+
+                .block_title {
+                    width: 100%;
+                    padding: 37px 15px;
+                    border-bottom: 1px solid #FE5A13;
+                    color: #161616;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 25px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 120.5%;
+                }
+
+                .block_desc {
+                    padding: 22px 15px 33px;
+                    color: #646464;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                }
+            }
+        }
+
+        .promo_footer {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .footer_text {
+                color: #85C316;
+                text-align: center;
+                font-family: Fixel Display;
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+
+            .footer_img {
+                display: flex;
+            }
+        }
+    }
+
+    .testimonials {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        .testimonials_title {
+            color: #161616;
+            font-family: Fixel Display;
+            font-size: 53px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 120.5%;
+            margin-bottom: 40px;
+        }
+
+        .testimonials_header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 50px;
+
+            .header_left {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 27px;
+
+                .header_img {
+                    display: flex;
+                }
+
+                .header_wraper {
+                    display: flex;
+                    flex-direction: column;
+
+                    .header_title {
+                        color: #161616;
+                        font-family: Fixel Display;
+                        font-size: 25px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 120.5%;
+
+                        span {
+                            color: #FE5A13;
+                        }
+                    }
+
+                    .header_subtitle {
+                        color: #85C316;
+                        font-family: Fixel Display;
+                        font-size: 15px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                    }
+                }
+            }
+
+            .header_right {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+
+                .testimonials_btn {
+                    color: #FE5A13;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                }
+            }
+        }
+
+        .testimonials_slider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            .testimonial_slider_wraper {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+
+                .slick_slide {
+                    .slider_inner {
+                        border-radius: 15px;
+                        border: 1px solid #161616;
+                        margin: 10px;
+                        padding: 20px 25px;
+                        position: relative;
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            right: 40px;
+                            transform: translateY(-50%);
+                            width: 42px;
+                            height: 25px;
+                            background: url(../images/quote.svg) center;
+                            background-repeat: no-repeat;
+                        }
+
+                        .name {
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 20px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                            text-transform: capitalize;
+                        }
+
+                        .text {
+                            color: #646464;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                            margin-top: 25px;
+                        }
+
+                        .verify {
+                            display: flex;
+                            align-items: flex-end;
+                            gap: 5px;
+                            color: #85C316;
+                            font-family: Fixel Display;
+                            font-size: 15px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                            margin-top: 25px;
+
+                            &::before {
+                                content: "";
+                                width: 25px;
+                                height: 25px;
+                                background: url(../images/mdi_verified.svg) center;
+                                background-repeat: no-repeat;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .tabs_section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        margin-bottom: 150px;
+
+        .title {
+            color: #161616;
+            font-family: Fixel Display;
+            font-size: 53px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 120.5%;
+
+            span {
+                color: #FE5A13;
+            }
+        }
+
+        .tabs_desc {
+            color: #646464;
+            text-align: center;
+            font-family: Fixel Display;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            max-width: 530px;
+        }
+
+        .tabs_block {
+            width: 100%;
+            position: relative;
+            display: flex;
+            gap: 25px;
+            flex-direction: column;
+            max-width: 905px;
+
+            .tab_wraper {
+                border-radius: 15px;
+                border: 1px solid #161616;
+                background: #FFF;
+
+                &.active {
+                    box-shadow: 6px 6px 0px 0px #FE5A13;
+
+                    .tab_title {
+                        border-bottom: 1px solid #161616;
+                        padding-bottom: 15px;
+                    }
+                }
+
+                .tab_title {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    color: #161616;
+                    font-family: Fixel Display;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    text-transform: capitalize;
+                    padding: 15px 20px;
+
+                    .tab_dropdown {
+                        display: flex;
+                        height: 25px;
+                        width: 25px;
+                        cursor: pointer;
+                        background: url(../images/open_tab.svg) center center;
+                        background-repeat: no-repeat;
+                        background-size: auto;
+
+                        &.active {
+                            background: url(../images/close_tab.svg) center center;
+                            background-repeat: no-repeat;
+                            background-size: auto;
+                        }
+                    }
+                }
+
+                .tab_content {
+                    color: #646464;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    opacity: 0;
+                    visibility: hidden;
+                    height: 0;
+                    transition: height 0.5s ease-in-out, opacity 0.2s ease-in-out, visibility 0s ease-in-out;
+
+
+                    a {
+                        color: #85C316;
+                        text-decoration-line: underline;
+                    }
+
+                    &.active {
+                        height: auto;
+                        visibility: visible;
+                        opacity: 1;
+                        transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.7s ease-in-out;
+                        padding: 15px 20px;
+                    }
+                }
+            }
+        }
+    }
+}

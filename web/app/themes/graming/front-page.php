@@ -42,9 +42,9 @@ get_header();
                         довіри до свого профілю в соціальних мережах за допомогою реальних підписників, лайків і
                         переглядів від Easylikes 👇</p>
                     <div class="banner-btn">
-                        <a href="/service/details/1" class="btn--base">Інстаграм</a>
-                        <a href="/service/details/2" class="btn--base">Телеграм</a>
-                        <a href="user/register" class="btn--base">Тік Ток</a>
+                        <a href="/service/instagram-likes/" class="btn--base">Інстаграм</a>
+                        <a href="/service/telegram-views/" class="btn--base">Телеграм</a>
+                        <a href="/service/tiktok-likes/" class="btn--base">Тік Ток</a>
                     </div>
                 </div>
             </div>
@@ -174,9 +174,9 @@ get_header();
                     </p>
                 </div>
                 <div class="banner-btn" style="padding-top: 30px;">
-                    <a href="/service/details/1" class="btn--base">Інстаграм</a>
-                    <a href="/service/details/2" class="btn--base">Телеграм</a>
-                    <a href="user/register" class="btn--base">Тік Ток</a>
+                    <a href="/service/instagram-likes/" class="btn--base">Інстаграм</a>
+                    <a href="/service/telegram-views/" class="btn--base">Телеграм</a>
+                    <a href="/service/tiktok-likes/" class="btn--base">Тік Ток</a>
                 </div>
 
             </div>

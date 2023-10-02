@@ -18,5 +18,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
+?>
+<div class="title_product">Buy <?php the_title();?> with <span>Instant Delivery</span></div>
 
-the_title( '<h1 class="product_title entry-title">', '</h1>' );
