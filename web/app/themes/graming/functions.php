@@ -109,24 +109,19 @@ add_action('woocommerce_single_product_summary', 'woocommerce_custom_quantity', 
 add_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 20);
 add_action('woocommerce_single_product_summary', 'woocommerce_custom_buy_now', 30);
 
-// function redirect_cart_to_checkout() {
-//     // Проверяем, находимся ли мы на странице корзины
-//     if ( is_cart() && ! is_wc_endpoint_url( 'order-pay' ) ) {
-//         $checkout_url = wc_get_checkout_url();
-//         wp_safe_redirect( $checkout_url );
-//         exit;
-//     }
-// }
-// add_action( 'template_redirect', 'redirect_cart_to_checkout' );
-
+ 
+function checkout_redirect( $redirect ) {
+	return wc_get_checkout_url();
+}
+add_filter( 'woocommerce_add_to_cart_redirect', 'checkout_redirect' );
  
 function fields_filter( $fields ) {
  
 	// оставляем эти поля
-	// unset( $fields[ 'billing' ][ 'billing_first_name' ] ); // имя
-	// unset( $fields[ 'billing' ][ 'billing_last_name' ] ); // фамилия
-	// unset( $fields[ 'billing' ][ 'billing_phone' ] ); // телефон
-	// unset( $fields[ 'billing' ][ 'billing_email' ] ); // емайл
+	unset( $fields[ 'billing' ][ 'billing_first_name' ] ); // имя
+	unset( $fields[ 'billing' ][ 'billing_last_name' ] ); // фамилия
+	unset( $fields[ 'billing' ][ 'billing_phone' ] ); // телефон
+	//unset( $fields[ 'billing' ][ 'billing_email' ] ); // емайл
  
 	// удаляем все эти поля
 	unset( $fields[ 'billing' ][ 'billing_company' ] ); // компания
@@ -143,3 +138,42 @@ function fields_filter( $fields ) {
 }
 add_filter( 'woocommerce_checkout_fields', 'fields_filter', 25 );
 
+// function custom_woocommerce_checkout_remove_item( $product_name, $cart_item, $cart_item_key ) {
+//     if ( is_checkout() ) {
+//         $_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+//         $product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+ 
+//         $remove_link = apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
+//             '<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">×</a>',
+//             esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+//             __( 'Remove this item', 'woocommerce' ),
+//             esc_attr( $product_id ),
+//             esc_attr( $_product->get_sku() )
+//         ), $cart_item_key );
+ 
+//         return '<span>' . $remove_link . '</span> <span>' . $product_name . '</span>';
+//     }
+ 
+//     return $product_name;
+// }
+// add_filter( 'woocommerce_cart_item_name', 'custom_woocommerce_checkout_remove_item', 10, 3 );
+
+
+
+
+function save_custom_checkout_field($order_id) {
+    if (!empty($_POST['custom_link'])) {
+        update_post_meta($order_id, 'Target Link', sanitize_text_field($_POST['custom_link']));
+    }
+}
+add_action('woocommerce_checkout_update_order_meta', 'save_custom_checkout_field');
+
+
+function display_custom_checkout_field_in_admin($order) {
+    $custom_link = get_post_meta($order->get_id(), 'Target Link', true);
+    
+    if (!empty($custom_link)) {
+        echo '<p><strong>' . __('Target Link') . ':</strong> ' . $custom_link . '</p>';
+    }
+}
+add_action('woocommerce_admin_order_data_after_billing_address', 'display_custom_checkout_field_in_admin', 10, 1);

@@ -15,46 +15,83 @@
  * @version 3.5.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit;
 }
 
-do_action( 'woocommerce_before_checkout_form', $checkout );
-
-// If checkout registration is disabled and not logged in, the user cannot checkout.
-if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_required() && ! is_user_logged_in() ) {
-	echo esc_html( apply_filters( 'woocommerce_checkout_must_be_logged_in_message', __( 'You must be logged in to checkout.', 'woocommerce' ) ) );
-	return;
-}
-
+do_action('woocommerce_before_checkout_form', $checkout);
 ?>
-
-<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
-
-	<?php if ( $checkout->get_checkout_fields() ) : ?>
-
-		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
-
-			<div class="colss">
-				<?php do_action( 'woocommerce_checkout_billing' ); ?>
+<div class="checkout_block">
+	<form name="checkout" method="post" class="checkout woocommerce-checkout"
+		action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
+		<div class="get_started">
+			<div class="content_part">
+				<div class="get_started_title">Get Started</div>
+				<?php do_action('woocommerce_checkout_billing'); ?>
+				<?php do_action('woocommerce_checkout_order_review'); ?>
+				<div class="additiona_payment">
+					<div class="user_info">
+						<div class="user_img">
+							<img src="<?php echo get_template_directory_uri() . '/src/images/user_img.png' ?>" alt="">
+						</div>
+						<div class="user_right">
+							<div class="user_name">@partymaschine</div>
+							<div class="change_user">Change username</div>
+						</div>
+					</div>
+					<div class="user_item">
+						<div class="product_select">
+							<?php
+							foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+								$_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+								if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key)) {
+									?>
+									<div
+										class="<?php echo esc_attr(apply_filters('woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key)); ?>">
+										<div class="product-name">
+											<?php echo wp_kses_post(apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key)) . '&nbsp;'; ?>
+											<?php echo apply_filters('woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . sprintf('&times;&nbsp;%s', $cart_item['quantity']) . '</strong>', $cart_item, $cart_item_key); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+											<?php echo wc_get_formatted_cart_item_data($cart_item); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+										</div>
+										<div class="product-total">
+											<?php echo apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+										</div>
+									</div>
+									<?php
+								}
+							}
+							?>
+						</div>
+					</div>
+					<div class="total_to_pay">Total to pay
+						<div class="total">
+							<?php
+							foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+								$_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+								if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key)) {
+									?>
+									<?php echo apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+									<?php
+								}
+							}
+							?>
+						</div>
+					</div>
+					<div class="additional_items">
+						additionalproducts
+					</div>
+					<div class="add_coupon">
+						cupon
+					</div>
+					<div class="additional_info">
+						<ul>
+							<li><span>High quality</span> followers</li>
+							<li><span>No password</span> required</li>
+							<li><span>Fast Delivery</span>, up to 10 mins</li>
+							<li><span>24/7</span> support</li>
+						</ul>
+					</div>
+				</div>
 			</div>
-
-		<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
-
-	<?php endif; ?>
-	
-	<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
-	
-	<h3 id="order_review_heading"><?php esc_html_e( 'Your order', 'woocommerce' ); ?></h3>
-	
-	<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
-
-	<div id="order_review" class="woocommerce-checkout-review-order">
-		<?php do_action( 'woocommerce_checkout_order_review' ); ?>
-	</div>
-
-	<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
-
-</form>
-
-<?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
+	</form>
+</div>

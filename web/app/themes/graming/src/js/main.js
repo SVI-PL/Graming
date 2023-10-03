@@ -19,7 +19,10 @@ jQuery(document).ready(function ($) {
   $(".custom_buy").click(function () {
     $("button.single_add_to_cart_button").click();
   });
-
+  $('.continue_btn').on("click", function () {
+    $(".get_started").addClass("hidden");
+    $(".payment_wraper").addClass("active");
+  });
 });
 
 document.addEventListener('DOMContentLoaded', function () {

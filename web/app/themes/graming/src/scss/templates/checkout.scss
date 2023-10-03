@@ -1,0 +1,439 @@
+.checkout_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .woocommerce-checkout {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 1215px;
+
+        .get_started {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: auto;
+            opacity: 1;
+            visibility: visible;
+            transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.7s ease-in-out;
+
+            &.hidden {
+                height: 0px;
+                opacity: 0;
+                visibility: hidden;
+                transition: height 0.5s ease-in-out, opacity 0.2s ease-in-out, visibility 0s ease-in-out;
+            }
+
+            .content_part {
+                display: flex;
+                flex-direction: column;
+                border-radius: 15px;
+                border: 1px solid #161616;
+                width: 100%;
+                max-width: 635px;
+
+                .get_started_title {
+                    color: #161616;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 53px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 120.5%;
+                    padding: 25px;
+                    border-bottom: 1px solid #161616;
+                    width: 100%;
+                }
+
+                .woocommerce-billing-fields {
+                    padding: 25px 30px;
+                    display: flex;
+                    flex-direction: column;
+
+                    input {
+                        border-radius: 15px;
+                        border: 1px solid #646464;
+                        background: #FFF;
+                        color: #161616;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 20px;
+                        padding: 20px 25px 20px 65px;
+
+                        &::placeholder {
+                            color: #646464;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                        }
+                    }
+
+                    .input-link {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        position: relative;
+                        margin-bottom: 25px;
+
+                        &::before {
+                            content: "";
+                            display: block;
+                            background: url(../images/link-24.svg);
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            width: 28px;
+                            height: 28px;
+                            position: absolute;
+                            left: 20px;
+                        }
+                    }
+
+                    .input-text {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        position: relative;
+
+                        &::before {
+                            content: "";
+                            display: block;
+                            background: url(../images/mail-28-regular.svg);
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            width: 28px;
+                            height: 28px;
+                            position: absolute;
+                            left: 20px;
+                        }
+                    }
+                }
+
+                .product_select {
+                    margin: 0 30px 25px;
+                    border-radius: 15px;
+                    border: 1px solid #646464;
+
+                    .cart_item {
+                        border-radius: 15px;
+                        background: #FFF;
+                        color: #161616;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 20px;
+                        padding: 18px 25px 18px 65px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        position: relative;
+
+                        &::before {
+                            content: "";
+                            display: block;
+                            background: url(../images/person-28-regular.svg);
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            width: 28px;
+                            height: 28px;
+                            position: absolute;
+                            left: 20px;
+                        }
+
+                        .product-name {
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+
+                        .product-total {
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+                    }
+                }
+
+                .mail_send {
+                    margin: 0 30px 25px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+
+                    input#agree {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 20px;
+                    }
+
+                    label {
+                        color: #85C316;
+                        font-family: Fixel Display;
+                        font-size: 15px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                        margin: 0;
+                    }
+                }
+
+                .continue {
+                    margin: 0 30px 40px;
+
+                    .continue_btn {
+                        display: flex;
+                        color: #FE5A13;
+                        text-align: center;
+                        font-family: Fixel Display;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                        text-transform: capitalize;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 16px;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .dinosavr {
+                display: flex;
+                background: url(../images/dinosavr2.svg);
+                width: 100%;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position-y: center;
+                background-position-x: right;
+
+            }
+        }
+
+        .payment_wraper {
+            display: flex;
+            justify-items: end;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            height: 0px;
+            opacity: 0;
+            visibility: hidden;
+            transition: height 0.5s ease-in-out, opacity 0.2s ease-in-out, visibility 0s ease-in-out;
+
+            &.active {
+                height: auto;
+                opacity: 1;
+                visibility: visible;
+                transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.7s ease-in-out;
+            }
+
+            #payment {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border-radius: 15px;
+                border: 1px solid #161616;
+                background: #FFF;
+                width: 100%;
+                max-width: 635px;
+
+                .payment_title {
+                    color: #161616;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 53px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 120.5%;
+                    padding: 20px;
+                    width: 100%;
+                    border-bottom: 1px solid #161616;
+                }
+            }
+
+            .additiona_payment {
+                border-radius: 15px;
+                border: 1px solid #161616;
+                background: #FFF;
+                width: 100%;
+                max-width: 482px;
+                overflow: hidden;
+
+                .user_info {
+                    display: flex;
+                    align-items: center;
+                    padding: 15px 40px;
+                    border-bottom: 1px solid #161616;
+                    gap: 20px;
+
+                    .user_img {
+                        display: flex;
+                    }
+
+                    .user_right {
+                        display: flex;
+                        flex-direction: column;
+
+                        .user_name {
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+
+                        .change_user {
+                            color: #646464;
+                            font-family: Fixel Display;
+                            font-size: 15px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .user_item {
+                    margin: 35px 40px 25px;
+
+                    .product_select {
+                        border-radius: 15px;
+                        border: 1px solid #161616;
+
+                        .cart_item {
+                            border-radius: 15px;
+                            background: #FFF;
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: 20px;
+                            padding: 18px 25px 18px 65px;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-between;
+                            position: relative;
+
+                            &::before {
+                                content: "";
+                                display: block;
+                                background: url(../images/person-28-regular.svg);
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                width: 28px;
+                                height: 28px;
+                                position: absolute;
+                                left: 20px;
+                            }
+
+                            .product-name {
+                                color: #161616;
+                                font-family: Fixel Display;
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                            }
+
+                            .product-total {
+                                color: #161616;
+                                font-family: Fixel Display;
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                            }
+                        }
+                    }
+                }
+
+                .total_to_pay {
+                    margin: 0 40px 25px;
+                    display: flex;
+                    justify-content: space-between;
+                    color: #161616;
+                    font-family: Fixel Display;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+
+                    .total {
+                        color: #161616;
+                        text-align: right;
+                        font-family: Fixel Display;
+                        font-size: 25px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                    }
+                }
+
+                .additional_items {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 0 40px 25px;
+                }
+
+                .add_coupon {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 0 40px 25px;
+                }
+
+                .additional_info {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0 40px 25px;
+
+                    ul {
+                        li {
+                            display: flex;
+                            align-items: center;
+                            flex-direction: row;
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+
+                            span {
+                                display: contents;
+                                font-weight: 600;
+                            }
+
+                            &::before {
+                                content: "";
+                                margin-right: 15px;
+                                display: flex;
+                                background: url(../images/guidance_up-arrow.svg) no-repeat;
+                                width: 34px;
+                                height: 34px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
