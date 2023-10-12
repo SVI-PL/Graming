@@ -20,9 +20,89 @@ jQuery(document).ready(function ($) {
     $("button.single_add_to_cart_button").click();
   });
   $('.continue_btn').on("click", function () {
+    var customLink = $('#custom_link');
+    var billingEmail = $('#billing_email');
+    var terms = $('#terms');
+
+    var customLinkValue = customLink.val();
+    var billingEmailValue = billingEmail.val();
+    var TermsVal = terms.val();
+
+    if (customLinkValue === '' || !isValidURL(customLinkValue)) {
+      customLink.addClass('error');
+    } else {
+      customLink.removeClass('error');
+    }
+
+    if (billingEmailValue === '' || !isValidEmail(billingEmailValue)) {
+      billingEmail.addClass('error');
+    } else {
+      billingEmail.removeClass('error');
+    }
+
+    if (TermsVal === '') {
+      terms.addClass('error');
+    } else {
+      terms.removeClass('error');
+    }
+
+    if (customLink.hasClass('error') || billingEmail.hasClass('error') || terms.hasClass('error')) {
+      return;
+    }
+
+    var customLinkValue = customLink.val();
+    var billingEmailValue = billingEmail.val();
+
+    localStorage.setItem('custom_link', customLinkValue);
+    localStorage.setItem('billing_email', billingEmailValue);
+
     $(".get_started").addClass("hidden");
     $(".payment_wraper").addClass("active");
   });
+
+  function isValidEmail(email) {
+    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    return emailPattern.test(email);
+  }
+
+  function isValidURL(url) {
+    var urlPattern = /^(http|https):\/\/[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/;
+    return urlPattern.test(url);
+  }
+
+  $(window).on("scroll", function () {
+    var ScrollTop = $(".scrollToTop");
+    if ($(this).scrollTop() < 500) {
+      ScrollTop.removeClass("active");
+    } else {
+      ScrollTop.addClass("active");
+    }
+  });
+
+  $('.arrow_down').on("click", function () {
+    $(".dropdown_products").toggleClass("active");
+  });
+  $('.deals').on("click", function () {
+    $(".dropdown_products").toggleClass("active");
+  });
+  $(document).on('click', '.btn_apply', function () {
+    let $cupon = $("input.coupon_input").val();
+    $("input#coupon_code").val($cupon);
+    $(".checkout_coupon").submit();
+  });
+
+
+  //Local storage
+  var customLinkValue = localStorage.getItem('custom_link');
+  var billingEmailValue = localStorage.getItem('billing_email');
+
+  if (customLinkValue) {
+    $('#custom_link').val(customLinkValue);
+  }
+
+  if (billingEmailValue) {
+    $('#billing_email').val(billingEmailValue);
+  }
 });
 
 document.addEventListener('DOMContentLoaded', function () {

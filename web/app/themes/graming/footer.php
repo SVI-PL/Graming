@@ -42,26 +42,17 @@
 </footer>
 <!-- footer-section end -->
 
-<!-- cookies dark version start -->
-<div class="cookies-card hide text-center">
-	<div class="cookies-card__icon bg--base">
-		<i class="las la-cookie-bite"></i>
-	</div>
-	<p class="cookies-card__content mt-4"><a class="link-text" href="#" target="_blank">learn more</a></p>
-	<div class="cookies-card__btn mt-4">
-		<button class="btn submit-btn w-100 policy" type="button">Allow</button>
-	</div>
-</div>
+
 <script src="<?php echo get_template_directory_uri() . '/assets/global/js/bootstrap.bundle.min.js' ?>"></script>
-<script
-	src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/jquery.magnific-popup.js' ?>"></script>
+<script src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/jquery.magnific-popup.js' ?>"></script>
 <script src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/jquery.nice-select.js' ?>"></script>
 <script src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/swiper.min.js' ?>"></script>
-<!-- <script src="<?php //echo get_template_directory_uri() . '/assets/templates/basic/js/plugin.js' ?>"></script> -->
+<script src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/plugin.js' ?>"></script>
 <script src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/viewport.jquery.js' ?>"></script>
 <script src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/odometer.min.js' ?>"></script>
 <script src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/wow.min.js' ?>"></script>
-<!-- <script src="<?php //echo get_template_directory_uri() . '/assets/templates/basic/js/main.js' ?>"></script> -->
+<script src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/main.js' ?>"></script>
+
 <?php wp_footer(); ?>
 
 </body>

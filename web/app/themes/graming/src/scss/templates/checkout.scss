@@ -61,6 +61,7 @@
                         font-weight: 500;
                         line-height: 20px;
                         padding: 20px 25px 20px 65px;
+                        width: 100%;
 
                         &::placeholder {
                             color: #646464;
@@ -69,6 +70,10 @@
                             font-style: normal;
                             font-weight: 500;
                             line-height: normal;
+                        }
+
+                        &.error {
+                            border: 1px solid red;
                         }
                     }
 
@@ -152,15 +157,58 @@
                             font-style: normal;
                             font-weight: 600;
                             line-height: normal;
+
+                            .deals {
+                                color: #FE5A13;
+                                font-family: Fixel Display;
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: normal;
+                                cursor: pointer;
+                            }
                         }
 
                         .product-total {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
                             color: #161616;
                             font-family: Fixel Display;
                             font-size: 18px;
                             font-style: normal;
                             font-weight: 600;
                             line-height: normal;
+
+                            .arrow_down {
+                                width: 10px;
+                                height: 6px;
+                                margin-left: 5px;
+                                cursor: pointer;
+                                background-image: url(../images/arrow-down.svg);
+                            }
+                        }
+                    }
+
+                    .dropdown_products {
+                        display: flex;
+                        flex-direction: column;
+                        height: 0px;
+                        opacity: 0;
+                        visibility: hidden;
+                        overflow: hidden;
+                        animation: ease 0.7s;
+
+                        &.active {
+                            height: auto;
+                            opacity: 1;
+                            visibility: visible;
+                        }
+
+                        .cart_item {
+                            &::before {
+                                display: none;
+                            }
                         }
                     }
                 }
@@ -231,6 +279,7 @@
             height: 0px;
             opacity: 0;
             visibility: hidden;
+            overflow: hidden;
             transition: height 0.5s ease-in-out, opacity 0.2s ease-in-out, visibility 0s ease-in-out;
 
             &.active {
@@ -396,8 +445,98 @@
                 .add_coupon {
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
+                    align-items: flex-start;
                     margin: 0 40px 25px;
+
+                    .coupon_set {
+                        display: flex;
+                        justify-content: space-between;
+                        flex-direction: row;
+                        width: 100%;
+
+                        .coupon_name {
+                            font-family: Fixel Display;
+                            font-size: 15px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+
+                        .coupon_val {
+                            font-family: Fixel Display;
+                            font-size: 15px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                            display: flex;
+                            align-items: center;
+
+                            .woocommerce-remove-coupon {
+                                margin-left: 5px;
+                                font-size: 10px;
+                            }
+                        }
+                    }
+
+                    .add_coupon_title {
+                        display: flex;
+                        align-items: center;
+                        color: #161616;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+
+                        &::after {
+                            content: "";
+                            width: 10px;
+                            height: 6px;
+                            margin-left: 5px;
+                            cursor: pointer;
+                            background-image: url(../images/arrow-down.svg);
+                        }
+                    }
+
+                    .dropdown_coupon {
+                        display: flex;
+                        gap: 10px;
+                        flex-direction: row;
+                        align-items: center;
+                        width: 100%;
+                        margin-top: 15px;
+
+                        input.coupon_input {
+                            border-radius: 10px;
+                            border: 1px solid #646464;
+                            background: #FFF;
+                            color: #646464;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: 18px;
+                            padding: 10px;
+                            width: calc(50% - 5px);
+                            text-align: center;
+                        }
+
+                        .btn_apply {
+                            border-radius: 10px;
+                            border: 1px solid #FE5A13;
+                            background: #FFF;
+                            padding: 14px;
+                            color: #FE5A13;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: 18px;
+                            width: calc(50% - 5px);
+                            text-align: center;
+                            cursor: pointer;
+                        }
+                    }
                 }
 
                 .additional_info {
