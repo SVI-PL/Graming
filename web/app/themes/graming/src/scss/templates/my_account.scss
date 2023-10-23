@@ -1,0 +1,344 @@
+.account-wrapper {
+    margin-top: 65px;
+
+    .login-area {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+        transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.7s ease-in-out;
+        width: 100%;
+
+        .login_left {
+            display: flex;
+            flex-direction: column;
+            border-radius: 15px;
+            border: 1px solid #161616;
+            width: 100%;
+            max-width: 610px;
+
+            .login_title {
+                color: #161616;
+                text-align: center;
+                font-family: Fixel Display;
+                font-size: 53px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120.5%;
+                padding: 25px;
+                border-bottom: 1px solid #161616;
+                width: 100%;
+            }
+
+            .woocommerce-form-login,
+            .woocommerce-form-register {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                padding: 40px 35px;
+
+                .form_input {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0;
+                    margin-bottom: 25px;
+                    position: relative;
+
+                    label {
+                        color: #161616;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                        margin: 0;
+                        padding: 0;
+                        margin-bottom: 25px;
+                    }
+
+                    input {
+                        width: 100%;
+                        max-width: none;
+                        border-radius: 15px;
+                        border: 1px solid #161616;
+                        background: #FFF;
+                        padding: 19px 19px 19px 64px;
+                        color: #161616;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                        height: 65px;
+
+                        &::placeholder {
+                            color: #646464;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                        }
+                    }
+
+                    &.form_email {
+                        &::before {
+                            content: "";
+                            display: flex;
+                            position: absolute;
+                            bottom: 22px;
+                            left: 25px;
+                            background-size: contain;
+                            width: 19px;
+                            height: 23px;
+                            background: url(../images/contact_persone.svg);
+                        }
+                    }
+
+                    &.form_pass {
+                        &::before {
+                            content: "";
+                            display: flex;
+                            position: absolute;
+                            bottom: 25px;
+                            left: 25px;
+                            background-size: contain;
+                            width: 20px;
+                            height: 20px;
+                            background: url(../images/Password.svg);
+                        }
+                    }
+                }
+
+                a.text--base {
+                    color: #FE5A13;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    margin-bottom: 25px;
+                }
+
+                .privacy {
+                    margin-bottom: 25px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+
+                    input#privacy {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 20px;
+                    }
+
+                    label {
+                        color: #646464;
+                        font-family: Fixel Display;
+                        font-size: 15px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                        margin: 0;
+
+                        a {
+                            color: #85C316;
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                .submit-btn {
+                    color: #FE5A13;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 25px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    text-transform: capitalize;
+                    width: 100%;
+                }
+            }
+        }
+
+        .login_right {
+            display: flex;
+            flex-direction: column;
+            border-radius: 15px;
+            border: 1px solid #161616;
+            width: 100%;
+            max-width: 450px;
+            padding: 40px 35px;
+            background: #fff url(../images/log_in_bg2.svg);
+            background-position: center right;
+            background-repeat: no-repeat;
+            background-size: initial;
+
+            .signup_promo_text {
+                color: #161616;
+                font-family: Fixel Display;
+                font-size: 30px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+
+                span {
+                    color: #85C316;
+                    font-family: Fixel Display;
+                    font-size: 30px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                }
+            }
+
+            .log_in_bg {
+                display: flex;
+                background: url(../images/log_in_bg.svg);
+                width: 100%;
+                max-width: 140px;
+                height: 217px;
+                margin-top: 80px;
+                margin-bottom: 10px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: initial;
+            }
+
+            .btn-red {
+                a {
+                    padding: 12px 40px;
+                    color: #FE5A13;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+}
+
+.lost_reset_password {
+    display: flex;
+    justify-content: center;
+    margin-top: 65px;
+
+    .custom_block {
+        display: flex;
+        flex-direction: column;
+        border-radius: 15px;
+        border: 1px solid #161616;
+        width: 100%;
+        max-width: 635px;
+
+        .block_title {
+            color: #161616;
+            text-align: center;
+            font-family: Fixel Display;
+            font-size: 53px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 120.5%;
+            padding: 25px;
+            border-bottom: 1px solid #161616;
+            width: 100%;
+        }
+
+        .form_content {
+            padding: 40px 35px;
+            display: flex;
+            flex-direction: column;
+
+            .form_input {
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                margin-bottom: 25px;
+                position: relative;
+
+                label {
+                    color: #161616;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    margin: 0;
+                    padding: 0;
+                    margin-bottom: 25px;
+                }
+
+                input {
+                    width: 100%;
+                    max-width: none;
+                    border-radius: 15px;
+                    border: 1px solid #161616;
+                    background: #FFF;
+                    padding: 19px 19px 19px 64px;
+                    color: #161616;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    height: 65px;
+
+                    &::placeholder {
+                        color: #646464;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                    }
+                }
+
+                &.form_email {
+                    &::before {
+                        content: "";
+                        display: flex;
+                        position: absolute;
+                        bottom: 22px;
+                        left: 25px;
+                        background-size: contain;
+                        width: 19px;
+                        height: 23px;
+                        background: url(../images/contact_persone.svg);
+                    }
+                }
+            }
+
+            .submit-btn {
+                color: #FE5A13;
+                text-align: center;
+                font-family: Fixel Display;
+                font-size: 25px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                text-transform: capitalize;
+                width: 100%;
+            }
+        }
+    }
+}
+
+.woocommerce-MyAccount-navigation ul {
+    border-top: 1px solid #E1E1E1;
+    border-bottom: 1px solid #E1E1E1;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: space-between;
+    list-style: none;
+    padding: 10px 0;
+}

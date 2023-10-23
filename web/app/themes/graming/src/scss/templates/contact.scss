@@ -1,0 +1,185 @@
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 65px;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 615px;
+
+        .contact_header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+
+            .title {
+                color: #161616;
+                font-family: Fixel Display;
+                font-size: 53px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120.5%;
+                margin-bottom: 40px;
+            }
+
+            .text {
+                color: #646464;
+                text-align: center;
+                font-family: Fixel Display;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+        }
+
+        .contact_form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            .wpforms-container-full {
+                margin: 0;
+                border-radius: 15px;
+                border: 1px solid #161616;
+                padding: 40px 35px;
+
+                .wpforms-field-container {
+                    .wpforms-field {
+                        padding: 0;
+                        margin-bottom: 25px;
+                        position: relative;
+
+                        label {
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                            margin: 0;
+                            padding: 0;
+                            margin-bottom: 25px;
+                        }
+
+                        input,
+                        select,
+                        textarea {
+                            width: 100%;
+                            max-width: none;
+                            border-radius: 15px;
+                            border: 1px solid #161616;
+                            background: #FFF;
+                            padding: 19px 19px 19px 64px;
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                            height: 65px;
+
+                            &::placeholder {
+                                color: #646464;
+                                font-family: Fixel Display;
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: normal;
+                            }
+                        }
+
+                        textarea {
+                            height: auto;
+                            min-height: 200px;
+                        }
+
+                        &.form_name {
+                            &::before {
+                                content: "";
+                                display: flex;
+                                position: absolute;
+                                bottom: 22px;
+                                left: 25px;
+                                background-size: contain;
+                                width: 19px;
+                                height: 23px;
+                                background: url(../images/contact_persone.svg);
+                            }
+                        }
+
+                        &.form_email {
+                            &::before {
+                                content: "";
+                                display: flex;
+                                position: absolute;
+                                bottom: 22px;
+                                left: 25px;
+                                background-size: contain;
+                                width: 19px;
+                                height: 23px;
+                                background: url(../images/contact_persone.svg);
+                            }
+                        }
+
+                        &.form_optional {
+                            &::before {
+                                content: "";
+                                display: flex;
+                                position: absolute;
+                                bottom: 22px;
+                                left: 25px;
+                                background-size: contain;
+                                width: 26px;
+                                height: 26px;
+                                background: url(../images/Question.svg);
+                            }
+                        }
+
+                        &.form_message {
+                            &::before {
+                                content: "";
+                                display: flex;
+                                position: absolute;
+                                top: 70px;
+                                left: 25px;
+                                background-size: contain;
+                                width: 20px;
+                                height: 20px;
+                                background: url(../images/Review.svg);
+                            }
+                        }
+
+                        em.wpforms-error {
+                            position: absolute;
+                            top: 10px;
+                        }
+                    }
+                }
+
+                .wpforms-submit-container {
+                    button {
+                        border-radius: 15px;
+                        border: 1.5px solid #FE5A13;
+                        background: #FFF;
+                        color: #FE5A13;
+                        text-align: center;
+                        font-family: Fixel Display;
+                        font-size: 25px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                        text-transform: capitalize;
+                        padding: 14px;
+                        height: auto;
+                    }
+                }
+            }
+        }
+    }
+}

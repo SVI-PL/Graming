@@ -32,7 +32,11 @@ if (post_password_required()) {
 }
 ?>
 <div class="single_product">
+
 	<div class="single_prod_header">
+		<div class="trustpilot">
+			<img src="<?php echo get_template_directory_uri(); ?>/src/images/trustpilot.svg" alt="">
+		</div>
 		<div class="single_content">
 			<?php
 			do_action('woocommerce_single_product_summary');
@@ -64,7 +68,7 @@ if (post_password_required()) {
 		<div class="banner_title">DId you know you can register and get promocode for first
 			<span>purchase of 10%?</span>
 		</div>
-		<div class="banner-btn btn-red"><a href="#">Click here to sign in!</a></div>
+		<div class="banner-btn btn-red"><a href="/my-account/?register">Click here to sign up!</a></div>
 	</div>
 	<div class="promo_block_wraper">
 		<div class="promo_title">Ready to buy Instagram likes?</div>
@@ -225,6 +229,64 @@ if (post_password_required()) {
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
+
+<div class="mini_checkout" id="checkout">
+	<div class="checkout_top">
+		<div class="back_btn btn-red">Back</div>
+		<div class="live_on"><span>
+				<?php echo rand(150, 350); ?>
+			</span>&nbsp;- Live users on the website</div>
+	</div>
+	<div class="get_started">
+		<div class="content_part">
+			<div class="get_started_title">Get Started</div>
+			<div class="woocommerce-billing-fields">
+				<div class="input-link">
+					<input type="text" name="custom_link" id="custom_link" placeholder="https://..." value="">
+				</div>
+				<div class="input-text">
+					<input type="email" name="billing_email" id="billing_email" placeholder="email@gmail.com" value="<?php if (isset($user)) {
+						echo esc_attr($user->user_email);
+					} ?>" autocomplete="email username">
+				</div>
+			</div>
+			<div class="product_select">
+				<div class="cart_item first">
+					<div class="product-name">
+						<?php the_title(); ?>
+						<strong class="product-quantity">×&nbsp;??</strong>
+						<?php echo " - <span class='deals'>click for deals</span>"; ?>
+					</div>
+					<div class="product-total">
+						<div class="new_price">$ ??</div>
+						<div class="arrow_down"></div>
+					</div>
+				</div>
+				<div class="dropdown_products">
+					<?php echo custom_checkout_dropdown($product->get_id()); ?>
+				</div>
+			</div>
+
+			<div class="mail_send">
+				<input type="checkbox" id="agree" name="agree" checked="checked"> <label for="agree">Send me special
+					promotions and discounts</label>
+			</div>
+			<div class="privacy">
+				<input type="checkbox" id="privacy" name="privacy"> <label for="privacy">I agree to the <a
+						href="">Privacy Policy</a>, <a href="">Public Offering Agreement</a>, <a href="">Terms of
+						Use</a></label>
+			</div>
+			<div class="continue">
+				<div class="continue_btn btn-red">Continue</div>
+			</div>
+		</div>
+		<div class="get_started_img"><img src="<?php echo get_template_directory_uri(); ?>/src/images/get_started.png"
+				alt=""></div>
+	</div>
+	<div class="trustpilot">
+		<img src="<?php echo get_template_directory_uri(); ?>/src/images/trustpilot.svg" alt="">
 	</div>
 </div>
 

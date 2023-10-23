@@ -43,15 +43,6 @@
 <!-- footer-section end -->
 
 
-<script src="<?php echo get_template_directory_uri() . '/assets/global/js/bootstrap.bundle.min.js' ?>"></script>
-<script src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/jquery.magnific-popup.js' ?>"></script>
-<script src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/jquery.nice-select.js' ?>"></script>
-<script src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/swiper.min.js' ?>"></script>
-<script src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/plugin.js' ?>"></script>
-<script src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/viewport.jquery.js' ?>"></script>
-<script src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/odometer.min.js' ?>"></script>
-<script src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/wow.min.js' ?>"></script>
-<script src="<?php echo get_template_directory_uri() . '/assets/templates/basic/js/main.js' ?>"></script>
 
 <?php wp_footer(); ?>
 

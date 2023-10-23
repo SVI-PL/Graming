@@ -18,28 +18,6 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<!-- Required meta tags -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
-		<link href="<?php echo get_template_directory_uri() . '/assets/global/css/bootstrap.min.css' ?>" rel="stylesheet">
-		<link href="<?php echo get_template_directory_uri() . '/assets/global/css/all.min.css' ?>" rel="stylesheet">
-		<link href="<?php echo get_template_directory_uri() . '/assets/global/css/line-awesome.min.css' ?>"
-			rel="stylesheet" />
-
-		<link href="<?php echo get_template_directory_uri() . '/assets/templates/basic/css/magnific-popup.css' ?>"
-			rel="stylesheet">
-		<link href="<?php echo get_template_directory_uri() . '/assets/templates/basic/css/nice-select.css' ?>"
-			rel="stylesheet">
-		<link href="<?php echo get_template_directory_uri() . '/assets/templates/basic/css/swiper.min.css' ?>"
-			rel="stylesheet">
-		<link href="<?php echo get_template_directory_uri() . '/assets/templates/basic/css/odometer.css' ?>"
-			rel="stylesheet">
-		<link href="<?php echo get_template_directory_uri() . '/assets/templates/basic/css/animate.css' ?>"
-			rel="stylesheet">
-		<link href="<?php echo get_template_directory_uri() . '/assets/templates/basic/css/jquery.animatedheadline.css' ?>"
-			rel="stylesheet">
-		<link href="<?php echo get_template_directory_uri() . '/assets/templates/basic/css/style.css' ?>" rel="stylesheet">
-		<link href="<?php echo get_template_directory_uri() . '/assets/templates/basic/css/custom.css' ?>" rel="stylesheet">
-		<link href="<?php echo get_template_directory_uri() . '/assets/templates/basic/css/color.css' ?>" rel="stylesheet">
-	
 	<?php wp_head(); ?>
 </head>
 
@@ -79,14 +57,31 @@
 			</nav>
 			<div class="account_menu">
 				<?php if (!is_user_logged_in()): ?>
-					<div class="login_btn btn-red"><a href="/my-account">Log in</a></div>
+					<div class="login_btn btn-gray"><a href="/my-account">Log in</a></div>
+					<div class="signup_btn btn-red"><a href="/my-account/?register">Sign Up</a></div>
 				<?php else: ?>
-					<ul class="sub-menu">
-						<li><a href="/my-account">Панель</a></li>
-						<li><a href="<?php echo wp_logout_url("/"); ?>">Вийти</a></li>
-					</ul>
+					<div class="balance">$
+						<?php get_user_balance(); ?>
+					</div>
+					<div class="my_account">
+						<div class="account_icon"></div>
+						<ul class="sub-menu">
+							<li><?php echo get_user_email();?></li>
+							<li><a href="/my-account">Graming Panel</a></li>
+							<li><a href="/my-account">View Orders</a></li> 
+							<li><a href="<?php echo wp_logout_url("/"); ?>">Log Out</a></li>
+							<div class="btn-red"><a href="#">Top up</a></div>
+						</ul>
+					</div>
 				<?php endif; ?>
-
+				<div class="addditional_menu">
+					<div class="addditional_menu_icon"></div>
+					<ul class="sub-menu">
+						<li><a href="#">Contact Us</a></li>
+						<li><a href="#">Reviews</a></li>
+						<li><a href="#">Blog</a></li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</header>

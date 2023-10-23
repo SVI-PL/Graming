@@ -24,9 +24,6 @@ do_action('woocommerce_before_checkout_form', $checkout);
 <div class="checkout_block">
 	<form name="checkout" method="post" class="checkout woocommerce-checkout"
 		action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
-		<div class="get_started">
-			<div class="content_part">
-				<div class="get_started_title">Get Started</div>
 				<?php do_action('woocommerce_checkout_billing'); ?>
 				<?php do_action('woocommerce_checkout_order_review'); ?>
 				<div class="additiona_payment">

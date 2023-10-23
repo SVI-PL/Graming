@@ -4,7 +4,7 @@ jQuery(document).ready(function ($) {
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
-    arrows: false,
+    arrows: true,
     dots: false
   });
 
@@ -12,13 +12,14 @@ jQuery(document).ready(function ($) {
     $('.discount_block').removeClass('active');
     $(this).addClass('active');
     var productQuantity = $(this).find('.product_quantity').text();
+    $('input[name="quantity"]').trigger("focus").val(productQuantity).trigger('change').trigger("blur");
+    $(".cart_item.first>.product-name>.product-quantity").text("× " + productQuantity);
+  });
 
-    $('input[name="quantity"]').focus().val(productQuantity).trigger('change').blur();
-  });
-  $('.discount_block:first').click();
-  $(".custom_buy").click(function () {
-    $("button.single_add_to_cart_button").click();
-  });
+  setTimeout(function () {
+    $('.discount_block').first().trigger("click");
+  }, 1000);
+
   $('.continue_btn').on("click", function () {
     var customLink = $('#custom_link');
     var billingEmail = $('#billing_email');
@@ -56,8 +57,7 @@ jQuery(document).ready(function ($) {
     localStorage.setItem('custom_link', customLinkValue);
     localStorage.setItem('billing_email', billingEmailValue);
 
-    $(".get_started").addClass("hidden");
-    $(".payment_wraper").addClass("active");
+    $("button.single_add_to_cart_button").trigger("click");
   });
 
   function isValidEmail(email) {
@@ -91,6 +91,20 @@ jQuery(document).ready(function ($) {
     $(".checkout_coupon").submit();
   });
 
+  $(".addditional_menu_icon").on("click", function () {
+    $(".account_icon").removeClass("active");
+    $(".my_account").removeClass("active");
+
+    $(this).toggleClass("active");
+    $(".addditional_menu").toggleClass("active");
+  });
+  $(".account_icon").on("click", function () {
+    $(".addditional_menu_icon").removeClass("active");
+    $(".addditional_menu").removeClass("active");
+
+    $(this).toggleClass("active");
+    $(".my_account").toggleClass("active");
+  });
 
   //Local storage
   var customLinkValue = localStorage.getItem('custom_link');
@@ -106,30 +120,123 @@ jQuery(document).ready(function ($) {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+  //Dropdown Tabs
+  const tabTitle = document.querySelectorAll('.tab_title');
   const tabDropdowns = document.querySelectorAll('.tab_dropdown');
   const tabContents = document.querySelectorAll('.tab_content');
   const tabWrappers = document.querySelectorAll('.tab_wraper');
 
-  tabDropdowns.forEach(tabDropdown => {
-    tabDropdown.addEventListener('click', () => {
-      const tabWrapper = tabDropdown.closest('.tab_wraper');
+  tabTitle.forEach(tabTitle => {
+    tabTitle.addEventListener('click', () => {
+      const tabWrapper = tabTitle.closest('.tab_wraper');
+
       const tabContent = tabWrapper.querySelector('.tab_content');
-      const isActive = tabWrapper.classList.contains('active');
+      const tabDropdown = tabTitle.querySelector('.tab_dropdown');
+      const isActive = tabContent.classList.contains('active');
       tabWrappers.forEach(tw => {
         tw.classList.remove('active');
       });
-      tabContents.forEach(td => {
-        td.classList.remove('active');
+      tabContents.forEach(tabContent => {
+        tabContent.classList.remove('active');
       });
-      tabDropdowns.forEach(tabDropdowns => {
-        tabDropdowns.classList.remove('active');
+      tabDropdowns.forEach(td => {
+        td.classList.remove('active');
       });
 
       if (!isActive) {
-        tabWrapper.classList.add('active');
         tabContent.classList.add('active');
         tabDropdown.classList.add('active');
+        tabWrapper.classList.add('active');
       }
     });
   });
+
+  //Show mini checkout
+  const buyButton = document.querySelector('.custom_buy');
+  const urlParams = new URLSearchParams(window.location.search);
+  const checkoutBlock = document.getElementById('checkout');
+  const productBlock = document.querySelector('.single_product');
+  function showCheckoutBlock() {
+    checkoutBlock.style.display = 'flex';
+    productBlock.style.display = 'none';
+  }
+  function hideCheckoutBlock() {
+    checkoutBlock.style.display = 'none';
+    productBlock.style.display = 'flex';
+  }
+  if (buyButton) {
+    buyButton.addEventListener('click', function () {
+      urlParams.set('show_checkout', '1');
+      const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
+      history.pushState(null, null, newUrl);
+      showCheckoutBlock();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  if (urlParams.get('show_checkout') === '1') {
+    showCheckoutBlock();
+  } else {
+    hideCheckoutBlock();
+  }
+  window.addEventListener('popstate', function (event) {
+    if (event.state === null) {
+      hideCheckoutBlock();
+    }
+  });
+
+  //Check price status
+  var productPriceElement = document.querySelector('.price_all .woocommerce-Price-amount');
+  var productTotalElement = document.querySelector('.cart_item.first .product-total .new_price');
+
+  const priceElement = document.querySelector('p.price');
+  function handlePriceChange(mutationsList, observer) {
+    for (let mutation of mutationsList) {
+      if (mutation.type === 'childList' && mutation.target.classList.contains('price')) {
+        productPriceElement = document.querySelector('.price_all .woocommerce-Price-amount');
+
+        if (productPriceElement) {
+          var productPrice = productPriceElement.innerHTML;
+          productTotalElement.innerHTML = productPrice;
+        }
+      }
+    }
+  }
+  const observer = new MutationObserver(handlePriceChange);
+  observer.observe(priceElement, { childList: true, characterData: true, subtree: true });
+
+
+  //Change product quantity
+  const variantItems = document.querySelectorAll('.dropdown_products .cart_item');
+  const discountBlocks = document.querySelectorAll('.discount_blocks .discount_block');
+
+  variantItems.forEach(function (variant, index) {
+    variant.addEventListener('click', function () {
+      const quantityText = variant.querySelector('.product-quantity').textContent;
+      const quantityMatch = quantityText.match(/\d+/);
+      const quantity = parseInt(quantityMatch[0]);
+
+
+      discountBlocks.forEach(function (discountBlock) {
+        const productQuantity = parseInt(discountBlock.querySelector('.product_quantity').textContent);
+        if (quantity === productQuantity) {
+          discountBlock.click();
+        }
+      });
+    });
+  });
+
+  //Back btn
+  const backButton = document.querySelector('.back_btn');
+
+  if (backButton) {
+    backButton.addEventListener('click', function () {
+      history.back();
+    });
+  }
+
+
+
+
+
 });

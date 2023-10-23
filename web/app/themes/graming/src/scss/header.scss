@@ -116,5 +116,195 @@ header.header-section {
                 }
             }
         }
+
+        .account_menu {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+
+            .balance {
+                color: #FE5A13;
+                font-family: Fixel Display;
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                border-radius: 10px;
+                border: 1px solid #646464;
+                padding: 7px 13px;
+                height: 36px;
+                cursor: pointer;
+            }
+
+            .my_account {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+
+                .account_icon {
+                    border-radius: 63px;
+                    border: 1px solid #FE5A13;
+                    background: #FFF;
+                    box-shadow: 2px 1px 0px 0px #FE5A13;
+                    width: 35px;
+                    height: 35px;
+                    background: url(../images/account.svg);
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: auto;
+                    cursor: pointer;
+                    transition: all 0.3s ease-in-out;
+
+                    &.active {
+                        border: 1px solid #FE5A13;
+                        background: #FE5A13 url(../images/account-white.svg);
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: auto;
+                        box-shadow: none;
+                    }
+                }
+
+                .sub-menu {
+                    display: none;
+                }
+
+                &.active {
+                    .sub-menu {
+                        display: flex;
+                        flex-direction: column;
+                        position: absolute;
+                        top: calc(100% + 15px);
+                        right: 0;
+                        border-radius: 15px;
+                        border: 1px solid #000;
+                        background: #fff;
+                        padding: 20px;
+                        margin: 0;
+                        list-style: none;
+                        width: max-content;
+                        gap: 10px;
+
+                        li {
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 12px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                        }
+
+                        .btn-red {
+                            border-radius: 15px;
+                            border: 2px solid #FE5A13;
+                            background: #FFF;
+                            padding: 4px 30px;
+                            color: #FE5A13;
+                            transition: all 0.3s ease-in-out;
+                        }
+                    }
+                }
+            }
+
+            .addditional_menu {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+
+                .addditional_menu_icon {
+                    display: flex;
+                    border-radius: 63px;
+                    border: 1px solid #FE5A13;
+                    background: #FFF;
+                    box-shadow: 2px 1px 0px 0px #FE5A13;
+                    width: 35px;
+                    height: 35px;
+                    cursor: pointer;
+                    position: relative;
+                    transition: all 0.3s ease-in-out;
+
+                    &.active {
+                        border: 1px solid #FE5A13;
+                        background: #FE5A13;
+                        box-shadow: none;
+
+                        &::before {
+                            width: 50%;
+                            background-color: #fff;
+                            transform: translate(-50%, -50%) rotate(-45deg);
+                        }
+
+                        &::after {
+                            width: 50%;
+                            background-color: #fff;
+                            transform: translate(-50%, -50%) rotate(45deg);
+                        }
+                    }
+
+                    &::before {
+                        content: "";
+                        height: 2px;
+                        width: 60%;
+                        background-color: #FE5A13;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -200%);
+                    }
+
+                    &::after {
+                        content: "";
+                        height: 2px;
+                        width: 60%;
+                        background-color: #FE5A13;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, 100%);
+                    }
+                }
+
+                .sub-menu {
+                    display: none;
+                }
+
+                &.active {
+                    .sub-menu {
+                        display: flex;
+                        flex-direction: column;
+                        position: absolute;
+                        top: calc(100% + 15px);
+                        right: 0;
+                        border-radius: 15px;
+                        border: 1px solid #000;
+                        background: #fff;
+                        padding: 20px;
+                        margin: 0;
+                        list-style: none;
+                        width: max-content;
+                        gap: 10px;
+
+                        li {
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 12px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                        }
+
+                        .btn-red {
+                            border-radius: 15px;
+                            border: 2px solid #FE5A13;
+                            background: #FFF;
+                            padding: 4px 30px;
+                            color: #FE5A13;
+                            transition: all 0.3s ease-in-out;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

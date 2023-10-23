@@ -17,47 +17,4 @@
 
 defined('ABSPATH') || exit;
 ?>
-<div class="product_select">
-	<?php
-	foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
-		$_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
-		$product_id = $_product->get_id();
-
-
-		if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key)) {
-			?>
-			<div
-				class="<?php echo esc_attr(apply_filters('woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key)); ?>">
-				<div class="product-name">
-					<?php echo wp_kses_post(apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key)) . '&nbsp;'; ?>
-					<?php echo apply_filters('woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . sprintf('&times;&nbsp;%s', $cart_item['quantity']) . '</strong>', $cart_item, $cart_item_key); ?>
-					<?php echo wc_get_formatted_cart_item_data($cart_item); ?>
-					<?php echo " - <span class='deals'>click for deals</span>"; ?>
-				</div>
-				<div class="product-total">
-					<?php echo apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key); ?>
-					<div class="arrow_down"></div>
-				</div>
-
-			</div>
-			<?php
-		}
-	}
-	?>
-	<div class="dropdown_products">
-		<?php echo custom_checkout_dropdown($product_id); ?>
-	</div>
-</div>
-
-<div class="mail_send">
-	<input type="checkbox" id="agree" name="agree" checked="checked"> <label for="agree">Send me special promotions and
-		discounts</label>
-</div>
-<div class="continue">
-	<div class="continue_btn btn-red">Continue</div>
-</div>
-</div>
-<div class="dinosavr"></div>
-<!--- end --->
-</div>
 <div class="payment_wraper">

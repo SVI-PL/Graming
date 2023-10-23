@@ -1,11 +1,10 @@
-
 .single_product {
     display: flex;
     flex-direction: column;
     align-items: center;
     max-width: 1215px;
     width: 100%;
-    margin: 94px auto 0;
+    margin: 25px auto 0;
     gap: 150px;
 
     .single_prod_header {
@@ -13,7 +12,21 @@
         justify-content: space-between;
         flex-direction: row;
         align-items: flex-start;
+        flex-wrap: wrap;
         width: 100%;
+
+        .trustpilot {
+            display: flex;
+            width: 100%;
+            margin-bottom: 25px;
+            flex-direction: row;
+            justify-content: flex-end;
+
+            img {
+                width: auto;
+                height: 33px;
+            }
+        }
 
         .single_content {
             width: 100%;
@@ -180,6 +193,7 @@
                             display: none;
                         }
                     }
+
                     .saving {
                         display: none;
                     }
@@ -644,6 +658,7 @@
                     line-height: normal;
                     text-transform: capitalize;
                     padding: 15px 20px;
+                    cursor: pointer;
 
                     .tab_dropdown {
                         display: flex;
@@ -690,5 +705,367 @@
                 }
             }
         }
+    }
+}
+
+.mini_checkout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1215px;
+    width: 100%;
+    margin: 25px auto 0;
+
+    .checkout_top {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+
+        .back_btn {
+            color: #FE5A13;
+            font-family: Fixel Display;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 21px;
+            cursor: pointer;
+            padding: 12px 40px;
+        }
+
+        .live_on {
+            display: flex;
+            justify-content: center;
+            color: #161616;
+            font-family: Fixel Display;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            width: 100%;
+            max-width: 635px;
+
+            span {
+                color: #FE5A13;
+                font-family: Fixel Display;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+            }
+        }
+    }
+
+    .get_started {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        height: auto;
+        opacity: 1;
+        visibility: visible;
+        transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.7s ease-in-out;
+        width: 100%;
+
+        &.hidden {
+            height: 0px;
+            opacity: 0;
+            visibility: hidden;
+            transition: height 0.5s ease-in-out, opacity 0.2s ease-in-out, visibility 0s ease-in-out;
+        }
+
+        .content_part {
+            display: flex;
+            flex-direction: column;
+            border-radius: 15px;
+            border: 1px solid #161616;
+            width: 100%;
+            max-width: 635px;
+
+            .get_started_title {
+                color: #161616;
+                text-align: center;
+                font-family: Fixel Display;
+                font-size: 53px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120.5%;
+                padding: 25px;
+                border-bottom: 1px solid #161616;
+                width: 100%;
+            }
+
+            .woocommerce-billing-fields {
+                padding: 25px 30px;
+                display: flex;
+                flex-direction: column;
+
+                input {
+                    border-radius: 15px;
+                    border: 1px solid #646464;
+                    background: #FFF;
+                    color: #161616;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 20px;
+                    padding: 20px 25px 20px 65px;
+                    width: 100%;
+
+                    &::placeholder {
+                        color: #646464;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                    }
+
+                    &.error {
+                        border: 1px solid red;
+                    }
+                }
+
+                .input-link {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    position: relative;
+                    margin-bottom: 25px;
+
+                    &::before {
+                        content: "";
+                        display: block;
+                        background: url(../images/link-24.svg);
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        width: 28px;
+                        height: 28px;
+                        position: absolute;
+                        left: 20px;
+                    }
+                }
+
+                .input-text {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    position: relative;
+
+                    &::before {
+                        content: "";
+                        display: block;
+                        background: url(../images/mail-28-regular.svg);
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        width: 28px;
+                        height: 28px;
+                        position: absolute;
+                        left: 20px;
+                    }
+                }
+            }
+
+            .product_select {
+                margin: 0 30px 25px;
+                border-radius: 15px;
+                border: 1px solid #646464;
+
+                .cart_item {
+                    border-radius: 15px;
+                    background: #FFF;
+                    color: #161616;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 20px;
+                    padding: 18px 25px 18px 65px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    position: relative;
+
+                    &::before {
+                        content: "";
+                        display: block;
+                        background: url(../images/person-28-regular.svg);
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        width: 28px;
+                        height: 28px;
+                        position: absolute;
+                        left: 20px;
+                    }
+
+                    &.first {
+                        .product-name {
+                            cursor: default;
+                        }
+                    }
+
+                    .product-name {
+                        color: #161616;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                        cursor: pointer;
+
+                        .deals {
+                            color: #FE5A13;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .product-total {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        color: #161616;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+
+                        .arrow_down {
+                            width: 10px;
+                            height: 6px;
+                            margin-left: 5px;
+                            cursor: pointer;
+                            background-image: url(../images/arrow-down.svg);
+                        }
+                    }
+                }
+
+                .dropdown_products {
+                    display: flex;
+                    flex-direction: column;
+                    height: 0px;
+                    opacity: 0;
+                    visibility: hidden;
+                    overflow: hidden;
+                    animation: ease 0.7s;
+
+                    &.active {
+                        height: auto;
+                        opacity: 1;
+                        visibility: visible;
+                    }
+
+                    .cart_item {
+                        &::before {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            .mail_send {
+                margin: 0 30px 25px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+
+                input#agree {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 20px;
+                }
+
+                label {
+                    color: #646464;
+                    font-family: Fixel Display;
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    margin: 0;
+
+                    a {
+                        color: #85C316;
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            .privacy {
+                margin: 0 30px 25px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+
+                input#privacy {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 20px;
+                }
+
+                label {
+                    color: #646464;
+                    font-family: Fixel Display;
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    margin: 0;
+
+                    a {
+                        color: #85C316;
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            .continue {
+                margin: 0 30px 40px;
+
+                .continue_btn {
+                    display: flex;
+                    color: #FE5A13;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    text-transform: capitalize;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 16px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .get_started_img {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: flex-start;
+            width: auto;
+        }
+    }
+
+    .trustpilot {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-self: self-start;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 635px;
     }
 }

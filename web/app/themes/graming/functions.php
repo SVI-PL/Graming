@@ -11,6 +11,7 @@ if (!defined('_S_VERSION')) {
 	define('_S_VERSION', '1.0.0');
 }
 
+require_once('inc/user_function.php');
 // Sets up theme defaults and registers support for various WordPress features.
 function graming_setup()
 {
@@ -78,7 +79,7 @@ function woocommerce_custom_quantity()
 		if ($product->is_type('simple')) {
 			$custom_fields = get_field('quantity_options', $product->get_id());
 			echo '<div class="discount_blocks">';
-			if ($custom_fields) {
+			if (!empty($custom_fields)) {
 				foreach ($custom_fields as $field) {
 					$quantity = $field['quantity'];
 					$discount = $field['discount'];
@@ -240,21 +241,19 @@ function custom_checkout_dropdown($product_id)
 		foreach ($quantity_options as $option) {
 			$option_value = $option['quantity'];
 			$product_price = price_display_by_qty($option_value, $product->get_id());
-			$add_to_cart_url = wc_get_cart_url() . '?add-to-cart=' . $product_id . '&quantity=' . $option_value; ?>
-			<a href="<?php echo $add_to_cart_url; ?>">
-				<div class="cart_item">
-					<div class="product-name">
-						<?php echo $product->get_name(); ?>&nbsp;<strong class="product-quantity">×&nbsp;
-							<?php echo $option_value; ?>
-						</strong>
-					</div>
-					<div class="product-total">
-						<div class="new_price">
-							<?php echo $product_price[0]; ?>
-						</div>
+			//$add_to_cart_url = wc_get_cart_url() . '?add-to-cart=' . $product_id . '&quantity=' . $option_value; ?>
+			<div class="cart_item">
+				<div class="product-name">
+					<?php echo $product->get_name(); ?>&nbsp;<strong class="product-quantity">×&nbsp;
+						<?php echo $option_value; ?>
+					</strong>
+				</div>
+				<div class="product-total">
+					<div class="new_price">
+						<?php echo $product_price[0]; ?>
 					</div>
 				</div>
-			</a>
+			</div>
 			<?php
 		}
 	}
@@ -269,7 +268,7 @@ function clear_cart_before_adding_product($passed, $product_id, $quantity)
 	}
 	$product = wc_get_product($product_id);
 	$product_type = $product->get_type();
-	
+
 	foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
 		$cart_product = $cart_item['data'];
 		if ($cart_product->get_type() === $product_type) {
@@ -344,3 +343,124 @@ function create_user_account($order_id)
 	}
 }
 add_action('woocommerce_new_order', 'create_user_account');
+
+//Disable the emoji's
+function disable_emojis()
+{
+	remove_action('wp_head', 'print_emoji_detection_script', 7);
+	remove_action('admin_print_scripts', 'print_emoji_detection_script');
+	remove_action('wp_print_styles', 'print_emoji_styles');
+	remove_action('admin_print_styles', 'print_emoji_styles');
+	remove_filter('the_content_feed', 'wp_staticize_emoji');
+	remove_filter('comment_text_rss', 'wp_staticize_emoji');
+	remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
+	add_filter('tiny_mce_plugins', 'disable_emojis_tinymce');
+	add_filter('wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2);
+}
+add_action('init', 'disable_emojis');
+
+//Filter function used to remove the tinymce emoji plugin.
+function disable_emojis_tinymce($plugins)
+{
+	if (is_array($plugins)) {
+		return array_diff($plugins, array('wpemoji'));
+	} else {
+		return array();
+	}
+}
+
+//Remove emoji CDN hostname from DNS prefetching hints.
+function disable_emojis_remove_dns_prefetch($urls, $relation_type)
+{
+	if ('dns-prefetch' == $relation_type) {
+		$emoji_svg_url = apply_filters('emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/');
+		$urls = array_diff($urls, array($emoji_svg_url));
+	}
+	return $urls;
+}
+
+// Устанавливаем баланс в $10 для новых пользователей при регистрации
+function add_balance_to_database($user_id)
+{
+	$new_balance = 10.00;
+	$balance = new Balance();
+	$balance->add_user_balance($user_id, $new_balance);
+}
+
+add_action('woocommerce_created_customer', 'add_balance_to_database', 10, 1);
+
+// Шncrease user balance
+function increase_user_balance($order_id)
+{
+	$order = wc_get_order($order_id);
+	$user_id = $order->get_customer_id();
+	$items = $order->get_items();
+	$balance = new Balance();
+	foreach ($items as $item) {
+		$product_id = $item->get_product_id();
+		$quantity = $item->get_quantity();
+
+		if ($product_id == 75) {
+			$current_balance = $balance->get_user_balance($user_id);
+			$balance_increase = $quantity;
+			$new_balance = $current_balance + $balance_increase;
+
+			$balance->update_user_balance($user_id, $new_balance);
+		}
+	}
+}
+add_action('woocommerce_payment_complete', 'increase_user_balance');
+
+function get_user_balance()
+{
+	$user_id = get_current_user_id();
+	$balance = new Balance();
+	echo $balance->get_user_balance($user_id);
+}
+
+function get_user_email()
+{
+	$user_info = get_userdata(get_current_user_id());
+	$email = $user_info->user_email;
+	return $email;
+}
+
+function custom_wc_account_menu_items($items)
+{
+	$items["dashboard"] = "Panel";
+	$items["services"] = "Services";
+	$items["support"] = "Support";
+	$items["deposit"] = "Deposit History";
+	$items["orders"] = "Orders History";
+	$items["edit-account"] = "Account Settings";
+	$items["payment-methods"] = "Billing";
+	return $items;
+}
+
+add_filter('woocommerce_account_menu_items', 'custom_wc_account_menu_items');
+
+
+function customs_add_endpoint()
+{
+	add_rewrite_endpoint('services', EP_ROOT | EP_PAGES );
+	add_rewrite_endpoint('deposit', EP_ROOT | EP_PAGES );
+}
+add_action('init', 'customs_add_endpoint');
+
+function custom_services_query_vars($vars) {
+    $vars[] = 'services';
+	$vars[] = 'deposit';
+    return $vars;
+}
+add_filter('woocommerce_get_query_vars', 'custom_services_query_vars');
+function services_endpoint_content()
+{
+	 get_template_part('template-parts/services');
+}
+add_action('woocommerce_account_services_endpoint', 'services_endpoint_content');
+
+function deposit_endpoint_content()
+{
+	 get_template_part('template-parts/deposite');
+}
+add_action('woocommerce_account_deposit_endpoint', 'deposit_endpoint_content');

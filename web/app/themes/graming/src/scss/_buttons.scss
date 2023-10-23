@@ -1,9 +1,41 @@
 .btn-red {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     border-radius: 15px;
-    border: 1px solid #FE5A13;
+    border: 2px solid #FE5A13;
     background: #FFF;
-    box-shadow: 6px 6px 0px 0px #FE5A13;
-    padding: 12px 40px;
+    height: 49px;
+    transition: all 0.3s ease-in-out;
+
+    a {
+        padding: 12px 40px;
+    }
+
+    &:hover {
+        box-shadow: 6px 6px 0px 0px #FE5A13;
+    }
+}
+
+.btn-gray {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    border: 1.5px solid #646464;
+    background: #FFF;
+    height: 49px;
+    transition: all 0.3s ease-in-out;
+
+    a {
+        padding: 12px 40px;
+    }
+
+    &:hover {
+        box-shadow: 6px 6px 0px 0px #FE5A13;
+    }
 }
 
 a {
