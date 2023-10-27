@@ -17,4 +17,12 @@
 
 defined('ABSPATH') || exit;
 ?>
-<div class="payment_wraper">
+<?php
+$deposite = "";
+foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+	$_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+	$product_id = $_product->get_id();
+	if($product_id == 75){$deposite = true;}
+}
+?>
+<div class="payment_wraper <?php if($deposite){ echo 'deposite_true';}?>">

@@ -1,7 +1,10 @@
 .checkout_block {
     display: flex;
+    width: 100%;
+    max-width: 1215px;
     flex-direction: column;
     align-items: center;
+    margin-top: 65px;
 
     .woocommerce-checkout {
         display: flex;
@@ -19,6 +22,14 @@
             flex-direction: row;
             align-items: flex-start;
             justify-content: space-between;
+
+            &.deposite_true {
+                justify-content: center;
+
+                #payment {
+                    max-width: 912px;
+                }
+            }
 
             #payment {
                 display: flex;
@@ -41,6 +52,505 @@
                     padding: 20px;
                     width: 100%;
                     border-bottom: 1px solid #161616;
+                }
+
+                .false_checkout {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 40px 35px;
+                    gap: 25px;
+
+                    .balance_pay {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 25px;
+
+                        .pay_title {
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+
+                        .account_balance {
+                            color: #646464;
+                            text-align: center;
+                            font-family: Fixel Display;
+                            font-size: 15px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                            text-transform: capitalize;
+
+                            span {
+                                color: #FE5A13;
+                                font-family: Fixel Display;
+                                font-size: 20px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                                text-transform: capitalize;
+
+                                strong {
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+
+                        .pay_block {
+                            display: flex;
+                            flex-direction: row;
+                            gap: 25px;
+                            width: 100%;
+
+                            .balance {
+                                color: #FE5A13;
+                                text-align: center;
+                                font-family: Fixel Display;
+                                font-size: 20px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                                text-transform: capitalize;
+                                cursor: pointer;
+                                padding: 17px;
+                                width: 70%;
+
+                                strong {
+                                    font-weight: 600;
+                                }
+                            }
+
+                            .top_up_btn {
+                                color: #646464;
+                                text-align: center;
+                                font-family: Fixel Display;
+                                font-size: 20px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                                text-transform: capitalize;
+                                width: 30%;
+
+                                a {
+                                    padding: 17px;
+                                }
+                            }
+                        }
+                    }
+
+                    .deposite_info {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 25px;
+
+                        .total_to_pay {
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 20px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 10px;
+
+                            .total {
+                                color: #FE5A13;
+                                font-family: Fixel Display;
+                                font-size: 25px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                            }
+                        }
+
+                        .total_resive {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 20px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                            gap: 10px;
+
+                            .bonus_total {
+                                color: #85C316;
+                                font-family: Fixel Display;
+                                font-size: 25px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                            }
+
+                            .top_up_bonus {
+                                color: #646464;
+                                font-family: Fixel Display;
+                                font-size: 20px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: normal;
+                                border-radius: 15px;
+                                border: 1px solid #85C316;
+                                padding: 10px;
+                            }
+                        }
+                    }
+
+                    .add_coupon {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        width: 50%;
+
+                        .coupon_set {
+                            display: flex;
+                            justify-content: space-between;
+                            flex-direction: row;
+                            width: 100%;
+
+                            .coupon_name {
+                                font-family: Fixel Display;
+                                font-size: 15px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                            }
+
+                            .coupon_val {
+                                font-family: Fixel Display;
+                                font-size: 15px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                                display: flex;
+                                align-items: center;
+
+                                .woocommerce-remove-coupon {
+                                    margin-left: 5px;
+                                    font-size: 10px;
+                                }
+                            }
+                        }
+
+                        .add_coupon_title {
+                            display: flex;
+                            align-items: center;
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+
+                            &::after {
+                                content: "";
+                                width: 10px;
+                                height: 6px;
+                                margin-left: 5px;
+                                cursor: pointer;
+                                background-image: url(../images/arrow-down.svg);
+                            }
+                        }
+
+                        .dropdown_coupon {
+                            display: flex;
+                            gap: 10px;
+                            flex-direction: row;
+                            align-items: center;
+                            width: 100%;
+                            margin-top: 15px;
+
+                            input.coupon_input {
+                                border-radius: 10px;
+                                border: 1px solid #646464;
+                                background: #FFF;
+                                color: #646464;
+                                font-family: Fixel Display;
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: 18px;
+                                padding: 10px;
+                                width: calc(50% - 5px);
+                                text-align: center;
+                            }
+
+                            .btn_apply {
+                                border-radius: 10px;
+                                border: 1px solid #FE5A13;
+                                background: #FFF;
+                                padding: 14px;
+                                color: #FE5A13;
+                                font-family: Fixel Display;
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: 18px;
+                                width: calc(50% - 5px);
+                                text-align: center;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    .apple_pay {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 25px;
+
+                        .pay_title {
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+
+                        .btn-apple {
+                            border-radius: 15px;
+                            border: 1px solid #161616;
+                            width: 100%;
+                            height: 63px;
+                            background: #161616 url(../images/apple_pay.svg);
+                            background-repeat: no-repeat;
+                            background-position: center center;
+                            background-size: 70px;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .google_pay {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 25px;
+
+                        .pay_title {
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+
+                        .btn-google {
+                            border-radius: 15px;
+                            border: 1px solid #161616;
+                            width: 100%;
+                            height: 63px;
+                            background: #161616 url(../images/google_pay.svg);
+                            background-repeat: no-repeat;
+                            background-position: center center;
+                            background-size: 70px;
+                            cursor: pointer;
+                        }
+                    }
+
+                    .card_pay {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 25px;
+
+                        .pay_title {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            width: 100%;
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+
+                        }
+
+                        .card_form {
+                            display: flex;
+                            flex-direction: row;
+                            width: 100%;
+                            flex-wrap: wrap;
+                            gap: 25px;
+
+                            .form_input {
+                                display: flex;
+                                flex-direction: column;
+                                padding: 0;
+                                position: relative;
+
+                                input {
+                                    width: 100%;
+                                    max-width: none;
+                                    border-radius: 15px;
+                                    border: 1px solid #646464;
+                                    background: #FFF;
+                                    padding: 19px 19px 19px 64px;
+                                    color: #161616;
+                                    font-family: Fixel Display;
+                                    font-size: 18px;
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: normal;
+                                    height: 65px;
+
+                                    &::placeholder {
+                                        color: #646464;
+                                        font-family: Fixel Display;
+                                        font-size: 18px;
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        line-height: normal;
+                                    }
+
+                                    &:focus {
+                                        border: 1px solid #161616;
+                                    }
+
+                                    &::-webkit-outer-spin-button,
+                                    &::-webkit-inner-spin-button {
+                                        display: none;
+                                        -webkit-appearance: none;
+                                        margin: 0;
+                                    }
+                                }
+
+                                &.form_name {
+                                    width: 100%;
+
+                                    &::before {
+                                        content: "";
+                                        display: flex;
+                                        position: absolute;
+                                        bottom: 22px;
+                                        left: 25px;
+                                        background-size: contain;
+                                        width: 28px;
+                                        height: 28px;
+                                        background: url(../images/pen.svg);
+                                    }
+                                }
+
+                                &.form_number {
+                                    width: 100%;
+
+                                    &::before {
+                                        content: "";
+                                        display: flex;
+                                        position: absolute;
+                                        bottom: 22px;
+                                        left: 25px;
+                                        background-size: contain;
+                                        width: 29px;
+                                        height: 28px;
+                                        background: url(../images/credit-card.svg);
+                                    }
+                                }
+
+                                &.form_my {
+                                    width: calc(50% - 12.5px);
+                                    display: flex;
+                                    flex-direction: row;
+                                    border: 1px solid #646464;
+                                    border-radius: 15px;
+                                    align-items: center;
+
+                                    &::before {
+                                        content: "";
+                                        display: flex;
+                                        position: absolute;
+                                        bottom: 22px;
+                                        left: 25px;
+                                        background-size: contain;
+                                        width: 28px;
+                                        height: 28px;
+                                        background: url(../images/calendar-light.svg);
+                                    }
+
+                                    #card_month {
+                                        border: none;
+                                        text-align: center;
+                                    }
+
+                                    .sep {
+                                        background: #646464;
+                                        height: 50%;
+                                        width: 1px;
+                                        z-index: 1;
+                                    }
+
+                                    #card_year {
+                                        border: none;
+                                        text-align: center;
+                                        padding: 19px;
+                                    }
+                                }
+
+                                &.form_cv {
+                                    width: calc(50% - 12.5px);
+
+                                    &::before {
+                                        content: "";
+                                        display: flex;
+                                        position: absolute;
+                                        bottom: 22px;
+                                        left: 25px;
+                                        background-size: contain;
+                                        width: 28px;
+                                        height: 28px;
+                                        background: url(../images/clarity_lock-line.svg);
+                                    }
+                                }
+                            }
+
+                            .pay_btn {
+                                color: #FE5A13;
+                                text-align: center;
+                                font-family: Fixel Display;
+                                font-size: 25px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                                text-transform: capitalize;
+                                padding: 14px;
+                                width: 100%;
+                                cursor: pointer;
+
+                                strong {
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+                    }
+
+                    .additional_info_pay {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        align-items: center;
+                        text-align: center;
+
+                        p {
+                            color: #646464;
+                            text-align: center;
+                            font-family: Fixel Display;
+                            font-size: 15px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                        }
+                    }
                 }
             }
 
@@ -306,4 +816,178 @@
             }
         }
     }
+}
+
+.woocommerce-order {
+    .account-order-view {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        .buy_now_acc {
+            display: flex;
+            margin: 25px 0;
+            width: 100%;
+            justify-content: space-between;
+
+            .btn-gray {
+                a {
+                    padding: 15px;
+                    color: #646464;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                }
+            }
+        }
+
+        .account-orders {
+            display: flex;
+            flex-direction: row;
+            -moz-column-gap: 25px;
+            column-gap: 25px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 100%;
+            border-radius: 15px;
+            border: 1px solid #161616;
+            overflow: hidden;
+
+            .acc_title {
+                color: #161616;
+                text-align: center;
+                font-family: Fixel Display;
+                font-size: 45px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120.5%;
+                padding: 25px;
+                border-bottom: 1px solid #161616;
+                width: 100%;
+
+                span {
+                    color: #FE5A13;
+                    font-family: Fixel Display;
+                    font-size: 53px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 120.5%;
+                }
+
+                time {
+                    color: #161616;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 45px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 120.5%;
+                }
+            }
+
+            .order_bottom {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                padding: 40px 35px;
+
+                .order_status {
+                    display: flex;
+                    align-items: center;
+                    font-family: Fixel Display;
+                    font-size: 30px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+
+                    &::before {
+                        content: "";
+                        width: 30px;
+                        height: 30px;
+                        margin-right: 10px;
+
+                    }
+
+                    &.Completed {
+                        color: #85C316;
+
+                        &::before {
+                            background: url(../images/completed.svg);
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                        }
+                    }
+
+                    &.Cancelled {
+                        color: #C34016;
+
+                        &::before {
+                            background: url(../images/cancel.svg);
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                        }
+                    }
+
+                    &.Processing {
+                        color: #646464;
+
+                        &::before {
+                            background: url(../images/processing.svg);
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                        }
+                    }
+                }
+
+                .order_summ {
+                    display: flex;
+                    border-radius: 15px;
+                    border: 1px solid #646464;
+                    padding: 20px;
+                    flex-direction: column;
+                    width: 50%;
+                    margin-top: 25px;
+                    gap: 10px;
+
+                    .text {
+                        color: #646464;
+                        font-family: Fixel Display;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                    }
+
+                    .price {
+                        color: #161616;
+                        font-family: Fixel Display;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                    }
+
+                    .payment {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        color: #646464;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.woocommerce-message {
+    display: none;
 }

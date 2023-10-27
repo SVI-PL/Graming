@@ -50,7 +50,7 @@
 							<li><a href="/service/tiktok-likes/">ТікТок Лайки</a></li>
 						</ul>
 					</li>
-					<li><a href="/#testimonial">Reviews</a></li>
+					<li><a href="#testimonial">Reviews</a></li>
 					<li><a href="/contact">Contact</a>
 					</li>
 				</ul>
@@ -60,8 +60,8 @@
 					<div class="login_btn btn-gray"><a href="/my-account">Log in</a></div>
 					<div class="signup_btn btn-red"><a href="/my-account/?register">Sign Up</a></div>
 				<?php else: ?>
-					<div class="balance">$
-						<?php get_user_balance(); ?>
+					<div class="balance">
+						<a href="/service/usd/"><?php get_user_balance(); ?></a>
 					</div>
 					<div class="my_account">
 						<div class="account_icon"></div>
@@ -70,16 +70,16 @@
 							<li><a href="/my-account">Graming Panel</a></li>
 							<li><a href="/my-account">View Orders</a></li> 
 							<li><a href="<?php echo wp_logout_url("/"); ?>">Log Out</a></li>
-							<div class="btn-red"><a href="#">Top up</a></div>
+							<div class="btn-red"><a href="/service/usd/">Top up</a></div>
 						</ul>
 					</div>
 				<?php endif; ?>
 				<div class="addditional_menu">
 					<div class="addditional_menu_icon"></div>
 					<ul class="sub-menu">
-						<li><a href="#">Contact Us</a></li>
-						<li><a href="#">Reviews</a></li>
-						<li><a href="#">Blog</a></li>
+						<li><a href="/contact">Contact Us</a></li>
+						<li><a href="/#testimonial">Reviews</a></li>
+						<li><a href="/blog">Blog</a></li>
 					</ul>
 				</div>
 			</div>

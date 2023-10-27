@@ -21,12 +21,20 @@ if (!defined('ABSPATH')) {
 
 do_action('woocommerce_before_checkout_form', $checkout);
 ?>
+<?php
+$deposite = "";
+foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+	$_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+	$product_id = $_product->get_id();
+	if($product_id == 75){$deposite = true;}
+}
+?>
 <div class="checkout_block">
 	<form name="checkout" method="post" class="checkout woocommerce-checkout"
 		action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
 				<?php do_action('woocommerce_checkout_billing'); ?>
 				<?php do_action('woocommerce_checkout_order_review'); ?>
-				<div class="additiona_payment">
+				<div class="additiona_payment" <?php if($deposite){ echo 'style="display:none"';}?>>
 					<!-- <div class="user_info">
 						<div class="user_img">
 							<img src="<?php //echo get_template_directory_uri() . '/src/images/user_img.png' ?>" alt="">

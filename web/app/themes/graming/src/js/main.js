@@ -5,7 +5,9 @@ jQuery(document).ready(function ($) {
     slidesToShow: 2,
     slidesToScroll: 1,
     arrows: true,
-    dots: false
+    dots: false,
+    prevArrow: '.slider-newprev',
+    nextArrow: '.slider-newnext',
   });
 
   $('.discount_block').on("click", function () {
@@ -19,6 +21,17 @@ jQuery(document).ready(function ($) {
   setTimeout(function () {
     $('.discount_block').first().trigger("click");
   }, 1000);
+  $('#deposit-amount').mask('$000,000', { reverse: false });
+  $("#deposit-amount").on("mouseleave", function () {
+    let $deposit = $(this).val().replace(/[$,]/g, '');
+    $('input[name="quantity"]').trigger("focus").val($deposit).trigger('change').trigger("blur");
+  });
+
+  $(".add_deposit").on("click", function () {
+    let $deposit = $("#deposit-amount").val().replace(/[$,]/g, '');
+    $('input[name="quantity"]').trigger("focus").val($deposit).trigger('change').trigger("blur");
+    $("button.single_add_to_cart_button").trigger("click");
+  });
 
   $('.continue_btn').on("click", function () {
     var customLink = $('#custom_link');
@@ -117,6 +130,34 @@ jQuery(document).ready(function ($) {
   if (billingEmailValue) {
     $('#billing_email').val(billingEmailValue);
   }
+
+  //Add pay with balance
+
+  $(document).on("mouseenter", ".balance_pay", function () {
+    let $balance = $('#payment_method_my_balance_payment');
+    $balance.trigger("click");
+    console.log("enter");
+  });
+
+  $(document).on("click", ".balance", function () {
+    let $place_order = $("#place_order");
+    $place_order.trigger("click");
+  });
+
+  $(document).ajaxComplete(function (event, xhr, settings) {
+    // Проверяем, что это AJAX-запрос, который обновляет элемент .bonus_total
+    if (settings.url && settings.url.indexOf("update_order_review") !== -1) {
+      // Обработка изменений в элементе .bonus_total
+      const bonusElement = document.querySelector('.bonus_total');
+      if (bonusElement) {
+        let bonusText = bonusElement.textContent;
+        let bonusValue = parseFloat(bonusText.replace(/[$,]/g, ''));
+        let bonusCalc = bonusValue * 1.1;
+        let formattedBonus = "$" + bonusCalc.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        bonusElement.textContent = formattedBonus;
+      }
+    }
+  });
 });
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -157,12 +198,20 @@ document.addEventListener('DOMContentLoaded', function () {
   const checkoutBlock = document.getElementById('checkout');
   const productBlock = document.querySelector('.single_product');
   function showCheckoutBlock() {
-    checkoutBlock.style.display = 'flex';
-    productBlock.style.display = 'none';
+    if (checkoutBlock) {
+      checkoutBlock.style.display = 'flex';
+    }
+    if (productBlock) {
+      productBlock.style.display = 'none';
+    }
   }
   function hideCheckoutBlock() {
-    checkoutBlock.style.display = 'none';
-    productBlock.style.display = 'flex';
+    if (checkoutBlock) {
+      checkoutBlock.style.display = 'none';
+    }
+    if (productBlock) {
+      productBlock.style.display = 'flex';
+    }
   }
   if (buyButton) {
     buyButton.addEventListener('click', function () {
@@ -190,20 +239,23 @@ document.addEventListener('DOMContentLoaded', function () {
   var productTotalElement = document.querySelector('.cart_item.first .product-total .new_price');
 
   const priceElement = document.querySelector('p.price');
-  function handlePriceChange(mutationsList, observer) {
-    for (let mutation of mutationsList) {
-      if (mutation.type === 'childList' && mutation.target.classList.contains('price')) {
-        productPriceElement = document.querySelector('.price_all .woocommerce-Price-amount');
+  if (priceElement) {
+    function handlePriceChange(mutationsList, observer) {
+      for (let mutation of mutationsList) {
+        if (mutation.type === 'childList' && mutation.target.classList.contains('price')) {
+          productPriceElement = document.querySelector('.price_all .woocommerce-Price-amount');
 
-        if (productPriceElement) {
-          var productPrice = productPriceElement.innerHTML;
-          productTotalElement.innerHTML = productPrice;
+          if (productPriceElement) {
+            var productPrice = productPriceElement.innerHTML;
+            productTotalElement.innerHTML = productPrice;
+          }
         }
       }
     }
+
+    const observer = new MutationObserver(handlePriceChange);
+    observer.observe(priceElement, { childList: true, characterData: true, subtree: true });
   }
-  const observer = new MutationObserver(handlePriceChange);
-  observer.observe(priceElement, { childList: true, characterData: true, subtree: true });
 
 
   //Change product quantity
@@ -234,9 +286,4 @@ document.addEventListener('DOMContentLoaded', function () {
       history.back();
     });
   }
-
-
-
-
-
 });

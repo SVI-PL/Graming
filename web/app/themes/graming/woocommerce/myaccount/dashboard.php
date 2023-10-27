@@ -20,62 +20,32 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
-
-$allowed_html = array(
-	'a' => array(
-		'href' => array(),
-	),
-);
 ?>
-
-<p>
-	<?php
-	printf(
-		/* translators: 1: user display name 2: logout url */
-		wp_kses( __( 'Hello %1$s (not %1$s? <a href="%2$s">Log out</a>)', 'woocommerce' ), $allowed_html ),
-		'<strong>' . esc_html( $current_user->display_name ) . '</strong>',
-		esc_url( wc_logout_url() )
-	);
-	?>
-</p>
-
-<p>
-	<?php
-	/* translators: 1: Orders URL 2: Address URL 3: Account URL. */
-	$dashboard_desc = __( 'From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">billing address</a>, and <a href="%3$s">edit your password and account details</a>.', 'woocommerce' );
-	if ( wc_shipping_enabled() ) {
-		/* translators: 1: Orders URL 2: Addresses URL 3: Account URL. */
-		$dashboard_desc = __( 'From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">shipping and billing addresses</a>, and <a href="%3$s">edit your password and account details</a>.', 'woocommerce' );
-	}
-	printf(
-		wp_kses( $dashboard_desc, $allowed_html ),
-		esc_url( wc_get_endpoint_url( 'orders' ) ),
-		esc_url( wc_get_endpoint_url( 'edit-address' ) ),
-		esc_url( wc_get_endpoint_url( 'edit-account' ) )
-	);
-	?>
-</p>
-
-<?php
-	/**
-	 * My Account dashboard.
-	 *
-	 * @since 2.6.0
-	 */
-	do_action( 'woocommerce_account_dashboard' );
-
-	/**
-	 * Deprecated woocommerce_before_my_account action.
-	 *
-	 * @deprecated 2.6.0
-	 */
-	do_action( 'woocommerce_before_my_account' );
-
-	/**
-	 * Deprecated woocommerce_after_my_account action.
-	 *
-	 * @deprecated 2.6.0
-	 */
-	do_action( 'woocommerce_after_my_account' );
-
-/* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
+<div class="info_panel">
+	<div class="panel_header">
+		<div class="header_text">
+		Welcome to the Graming Panel! <br>
+		Every time you deposit, Dino Gramy will generously add an <span>extra 10% top up bonus!</span>
+		</div>
+		<div class="header_btns">
+			<div class="btn-black"><a href="/service/usd/">Top Up your Balance</a></div>
+			<div class="btn-black"><a href="/my-account/services/">Make a new order</a></div>
+		</div>
+	</div>
+	<div class="panel_bottom">
+		<div class="balance">
+			<div class="title">Balance</div>
+			<div class="content"><?php get_user_balance(); ?></div>
+		</div>
+			
+		<div class="orders">
+			<div class="title">Total Orders</div>
+			<div class="content"><?php get_user_order_count(); ?></div>
+		</div>
+			
+		<div class="bonus">
+			<div class="title">Bonus Received</div>
+			<div class="content">$0</div>
+		</div>
+	</div>
+</div>

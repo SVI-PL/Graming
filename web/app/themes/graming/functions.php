@@ -69,6 +69,8 @@ function graming_scripts()
 	wp_enqueue_script("jquery");
 	wp_enqueue_script('graming-main-js', get_template_directory_uri() . '/dist/main.js', array(), _S_VERSION, true);
 	wp_enqueue_script('graming-slick-js', get_template_directory_uri() . '/assets/slick/slick.js', array(), _S_VERSION, true);
+	wp_enqueue_script('graming-mask-js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js', array(), _S_VERSION, true);
+
 }
 add_action('wp_enqueue_scripts', 'graming_scripts');
 
@@ -161,9 +163,6 @@ add_filter('woocommerce_checkout_fields', 'fields_filter', 25);
 //     return $product_name;
 // }
 // add_filter( 'woocommerce_cart_item_name', 'custom_woocommerce_checkout_remove_item', 10, 3 );
-
-
-
 
 function save_custom_checkout_field($order_id)
 {
@@ -380,44 +379,61 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type)
 }
 
 // Устанавливаем баланс в $10 для новых пользователей при регистрации
-function add_balance_to_database($user_id)
-{
-	$new_balance = 10.00;
-	$balance = new Balance();
-	$balance->add_user_balance($user_id, $new_balance);
-}
+// function add_balance_to_database($user_id)
+// {
+// 	$new_balance = 10.00;
+// 	$balance = new Balance();
+// 	$balance->add_user_balance($user_id, $new_balance);
+// }
 
-add_action('woocommerce_created_customer', 'add_balance_to_database', 10, 1);
+// add_action('woocommerce_created_customer', 'add_balance_to_database', 10, 1);
 
-// Шncrease user balance
+// Increase user balance
 function increase_user_balance($order_id)
 {
-	$order = wc_get_order($order_id);
-	$user_id = $order->get_customer_id();
-	$items = $order->get_items();
-	$balance = new Balance();
-	foreach ($items as $item) {
-		$product_id = $item->get_product_id();
-		$quantity = $item->get_quantity();
 
-		if ($product_id == 75) {
-			$current_balance = $balance->get_user_balance($user_id);
-			$balance_increase = $quantity;
-			$new_balance = $current_balance + $balance_increase;
+}
+add_action('woocommerce_completed', 'increase_user_balance');
 
-			$balance->update_user_balance($user_id, $new_balance);
+function my_custom_order_status_changed($order_id, $from_status, $to_status, $order)
+{
+	if ($to_status === 'processing') {
+		$order = wc_get_order($order_id);
+		$user_id = $order->get_customer_id();
+		$items = $order->get_items();
+		$balance = new Balance();
+		$balance_increased = false;
+
+		foreach ($items as $item) {
+			$product_id = $item->get_product_id();
+			$quantity = $item->get_quantity();
+
+			if ($product_id == 75) {
+				$current_balance = $balance->get_user_balance($user_id);
+				$balance_increase = $quantity * 1.1;
+				$new_balance = $current_balance + $balance_increase;
+
+				$balance->update_user_balance($user_id, $new_balance);
+				$balance_increased = true;
+			}
 		}
+
+		if ($balance_increased) {
+            $order->update_status('completed');
+        }
 	}
 }
-add_action('woocommerce_payment_complete', 'increase_user_balance');
+add_action('woocommerce_order_status_changed', 'my_custom_order_status_changed', 10, 4);
 
+// Get user balance
 function get_user_balance()
 {
 	$user_id = get_current_user_id();
 	$balance = new Balance();
-	echo $balance->get_user_balance($user_id);
+	echo "$" . $balance->get_user_balance($user_id);
 }
 
+//Get user email
 function get_user_email()
 {
 	$user_info = get_userdata(get_current_user_id());
@@ -425,6 +441,7 @@ function get_user_email()
 	return $email;
 }
 
+//My account menu
 function custom_wc_account_menu_items($items)
 {
 	$items["dashboard"] = "Panel";
@@ -434,33 +451,76 @@ function custom_wc_account_menu_items($items)
 	$items["orders"] = "Orders History";
 	$items["edit-account"] = "Account Settings";
 	$items["payment-methods"] = "Billing";
-	return $items;
+	$items["top_up"] = "Top Up Now";
+
+	unset($items["downloads"]);
+	unset($items["edit-address"]);
+	unset($items["customer-logout"]);
+
+	$new_order = array(
+		"dashboard" => $items["dashboard"],
+		"services" => $items["services"],
+		"support" => $items["support"],
+		"deposit" => $items["deposit"],
+		"orders" => $items["orders"],
+		"edit-account" => $items["edit-account"],
+		"payment-methods" => $items["payment-methods"],
+		"top_up" => $items["top_up"],
+	);
+	return $new_order;
 }
 
 add_filter('woocommerce_account_menu_items', 'custom_wc_account_menu_items');
-
-
 function customs_add_endpoint()
 {
-	add_rewrite_endpoint('services', EP_ROOT | EP_PAGES );
-	add_rewrite_endpoint('deposit', EP_ROOT | EP_PAGES );
+	add_rewrite_endpoint('services', EP_ROOT | EP_PAGES);
+	add_rewrite_endpoint('deposit', EP_ROOT | EP_PAGES);
+	add_rewrite_endpoint('support', EP_ROOT | EP_PAGES);
 }
 add_action('init', 'customs_add_endpoint');
-
-function custom_services_query_vars($vars) {
-    $vars[] = 'services';
+function custom_services_query_vars($vars)
+{
+	$vars[] = 'services';
 	$vars[] = 'deposit';
-    return $vars;
+	$vars[] = 'support';
+
+	return $vars;
 }
 add_filter('woocommerce_get_query_vars', 'custom_services_query_vars');
 function services_endpoint_content()
 {
-	 get_template_part('template-parts/services');
+	get_template_part('template-parts/services');
 }
 add_action('woocommerce_account_services_endpoint', 'services_endpoint_content');
 
 function deposit_endpoint_content()
 {
-	 get_template_part('template-parts/deposite');
+	get_template_part('template-parts/deposite');
 }
 add_action('woocommerce_account_deposit_endpoint', 'deposit_endpoint_content');
+function support_endpoint_content()
+{
+	get_template_part('template-parts/support');
+}
+add_action('woocommerce_account_support_endpoint', 'support_endpoint_content');
+
+function custom_top_up_endpoint_url($url, $endpoint, $value)
+{
+	if ($endpoint === 'top_up') {
+		$custom_url = '/service/usd/';
+		return $custom_url;
+	}
+
+	return $url;
+}
+
+add_filter('woocommerce_get_endpoint_url', 'custom_top_up_endpoint_url', 10, 3);
+
+//User orders count
+function get_user_order_count()
+{
+	$user_id = get_current_user_id();
+	$order_count = wc_get_customer_order_count($user_id);
+
+	echo $order_count;
+}

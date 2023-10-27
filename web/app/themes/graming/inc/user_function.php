@@ -61,5 +61,28 @@ class Balance
         $balance = $wpdb->get_var($query);
         return floatval($balance);
     }
+    // Функция для вычета средств с баланса пользователя
+    public static function subtract_user_balance($user_id, $amount)
+    {
+        global $wpdb;
+        $table_name = $wpdb->prefix . self::$table_name;
 
+        $current_balance = self::get_user_balance($user_id);
+
+        if ($current_balance >= $amount) {
+            $new_balance = $current_balance - $amount;
+            $update_balance = $wpdb->update(
+                $table_name,
+                array('balance' => $new_balance),
+                array('user_id' => $user_id),
+                array('%f'),
+                array('%d')
+            );
+
+            if ($update_balance !== false) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

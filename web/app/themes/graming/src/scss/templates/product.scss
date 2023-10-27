@@ -33,7 +33,7 @@
             max-width: 635px;
             flex-shrink: 0;
             border: 1px solid #161616;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
 
             .title_product {
@@ -43,7 +43,7 @@
                 font-style: normal;
                 font-weight: 600;
                 line-height: 120.5%;
-                padding: 28px 50px;
+                padding: 25px 45px 20px;
 
                 span {
                     color: #FE5A13;
@@ -173,6 +173,7 @@
                 align-items: center;
                 justify-content: center;
                 cursor: pointer;
+                padding: 14px;
 
                 .price {
                     display: flex;
@@ -223,7 +224,7 @@
 
             .premium_block {
                 border: 1px solid #161616;
-                border-radius: 10px;
+                border-radius: 15px;
 
                 .premium_header {
                     display: flex;
@@ -235,7 +236,7 @@
                     font-style: normal;
                     font-weight: 600;
                     line-height: 120.5%;
-                    margin: 27px 0 16px;
+                    padding: 27px 0 16px;
                     border-bottom: 1px solid #161616;
                 }
 
@@ -246,7 +247,7 @@
                     font-style: normal;
                     font-weight: 600;
                     line-height: normal;
-                    padding: 26px 38px 17px;
+                    padding: 26px 38px;
 
                     ul {
                         li {
@@ -280,7 +281,7 @@
 
             .trusted_block {
                 border: 1px solid #161616;
-                border-radius: 10px;
+                border-radius: 15px;
                 padding: 23px 50px;
 
                 .trust_img {
@@ -304,404 +305,6 @@
                     font-style: normal;
                     font-weight: 500;
                     line-height: normal;
-                }
-            }
-        }
-    }
-
-    .single_banner {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        padding: 38px 0 61px 48px;
-        border: 1px solid #161616;
-        border-radius: 10px;
-        background: url(../images/dinosavr.svg) no-repeat;
-        background-position: right center;
-        background-size: auto;
-
-        .banner_title {
-            color: #161616;
-            font-family: Fixel Display;
-            font-size: 40px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: normal;
-            max-width: 788px;
-
-            span {
-                color: #85C316;
-            }
-        }
-
-        .banner-btn {
-            width: 100%;
-            max-width: 540px;
-            margin-top: 40px;
-            color: #FE5A13;
-            text-align: center;
-            font-family: Fixel Display;
-            font-size: 20px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: normal;
-            text-transform: capitalize;
-        }
-    }
-
-    .promo_block_wraper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-
-        .promo_title {
-            color: #161616;
-            font-family: Fixel Display;
-            font-size: 53px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 120.5%;
-        }
-
-        .promo_descr {
-            color: #646464;
-            text-align: center;
-            font-family: Fixel Display;
-            font-size: 18px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: normal;
-            max-width: 620px;
-        }
-
-        .promo_blocks {
-            display: grid;
-            align-items: stretch;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 25px;
-
-            .promo_block {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                border-radius: 15px;
-                border: 1px solid #FE5A13;
-                background: #FFF;
-                box-shadow: 6px 6px 0px 0px #FE5A13;
-
-                .block_title {
-                    width: 100%;
-                    padding: 37px 15px;
-                    border-bottom: 1px solid #FE5A13;
-                    color: #161616;
-                    text-align: center;
-                    font-family: Fixel Display;
-                    font-size: 25px;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: 120.5%;
-                }
-
-                .block_desc {
-                    padding: 22px 15px 33px;
-                    color: #646464;
-                    text-align: center;
-                    font-family: Fixel Display;
-                    font-size: 18px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: normal;
-                }
-            }
-        }
-
-        .promo_footer {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-
-            .footer_text {
-                color: #85C316;
-                text-align: center;
-                font-family: Fixel Display;
-                font-size: 15px;
-                font-style: normal;
-                font-weight: 500;
-                line-height: normal;
-            }
-
-            .footer_img {
-                display: flex;
-            }
-        }
-    }
-
-    .testimonials {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-
-        .testimonials_title {
-            color: #161616;
-            font-family: Fixel Display;
-            font-size: 53px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 120.5%;
-            margin-bottom: 40px;
-        }
-
-        .testimonials_header {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            margin-bottom: 50px;
-
-            .header_left {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                gap: 27px;
-
-                .header_img {
-                    display: flex;
-                }
-
-                .header_wraper {
-                    display: flex;
-                    flex-direction: column;
-
-                    .header_title {
-                        color: #161616;
-                        font-family: Fixel Display;
-                        font-size: 25px;
-                        font-style: normal;
-                        font-weight: 600;
-                        line-height: 120.5%;
-
-                        span {
-                            color: #FE5A13;
-                        }
-                    }
-
-                    .header_subtitle {
-                        color: #85C316;
-                        font-family: Fixel Display;
-                        font-size: 15px;
-                        font-style: normal;
-                        font-weight: 500;
-                        line-height: normal;
-                    }
-                }
-            }
-
-            .header_right {
-                display: flex;
-                flex-direction: row;
-                justify-content: flex-end;
-
-                .testimonials_btn {
-                    color: #FE5A13;
-                    font-family: Fixel Display;
-                    font-size: 18px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: normal;
-                }
-            }
-        }
-
-        .testimonials_slider {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-
-            .testimonial_slider_wraper {
-                display: flex;
-                width: 100%;
-                flex-direction: column;
-
-                .slick_slide {
-                    .slider_inner {
-                        border-radius: 15px;
-                        border: 1px solid #161616;
-                        margin: 10px;
-                        padding: 20px 25px;
-                        position: relative;
-
-                        &::after {
-                            content: "";
-                            position: absolute;
-                            top: 0;
-                            right: 40px;
-                            transform: translateY(-50%);
-                            width: 42px;
-                            height: 25px;
-                            background: url(../images/quote.svg) center;
-                            background-repeat: no-repeat;
-                        }
-
-                        .name {
-                            color: #161616;
-                            font-family: Fixel Display;
-                            font-size: 20px;
-                            font-style: normal;
-                            font-weight: 600;
-                            line-height: normal;
-                            text-transform: capitalize;
-                        }
-
-                        .text {
-                            color: #646464;
-                            font-family: Fixel Display;
-                            font-size: 18px;
-                            font-style: normal;
-                            font-weight: 500;
-                            line-height: normal;
-                            margin-top: 25px;
-                        }
-
-                        .verify {
-                            display: flex;
-                            align-items: flex-end;
-                            gap: 5px;
-                            color: #85C316;
-                            font-family: Fixel Display;
-                            font-size: 15px;
-                            font-style: normal;
-                            font-weight: 500;
-                            line-height: normal;
-                            margin-top: 25px;
-
-                            &::before {
-                                content: "";
-                                width: 25px;
-                                height: 25px;
-                                background: url(../images/mdi_verified.svg) center;
-                                background-repeat: no-repeat;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .tabs_section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-
-        .title {
-            color: #161616;
-            font-family: Fixel Display;
-            font-size: 53px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 120.5%;
-
-            span {
-                color: #FE5A13;
-            }
-        }
-
-        .tabs_desc {
-            color: #646464;
-            text-align: center;
-            font-family: Fixel Display;
-            font-size: 18px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: normal;
-            max-width: 530px;
-        }
-
-        .tabs_block {
-            width: 100%;
-            position: relative;
-            display: flex;
-            gap: 25px;
-            flex-direction: column;
-            max-width: 905px;
-
-            .tab_wraper {
-                border-radius: 15px;
-                border: 1px solid #161616;
-                background: #FFF;
-
-                &.active {
-                    box-shadow: 6px 6px 0px 0px #FE5A13;
-
-                    .tab_title {
-                        border-bottom: 1px solid #161616;
-                        padding-bottom: 15px;
-                    }
-                }
-
-                .tab_title {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    align-items: center;
-                    color: #161616;
-                    font-family: Fixel Display;
-                    font-size: 20px;
-                    font-style: normal;
-                    font-weight: 600;
-                    line-height: normal;
-                    text-transform: capitalize;
-                    padding: 15px 20px;
-                    cursor: pointer;
-
-                    .tab_dropdown {
-                        display: flex;
-                        height: 25px;
-                        width: 25px;
-                        cursor: pointer;
-                        background: url(../images/open_tab.svg) center center;
-                        background-repeat: no-repeat;
-                        background-size: auto;
-
-                        &.active {
-                            background: url(../images/close_tab.svg) center center;
-                            background-repeat: no-repeat;
-                            background-size: auto;
-                        }
-                    }
-                }
-
-                .tab_content {
-                    color: #646464;
-                    font-family: Fixel Display;
-                    font-size: 18px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: normal;
-                    opacity: 0;
-                    visibility: hidden;
-                    height: 0;
-                    transition: height 0.5s ease-in-out, opacity 0.2s ease-in-out, visibility 0s ease-in-out;
-
-
-                    a {
-                        color: #85C316;
-                        text-decoration-line: underline;
-                    }
-
-                    &.active {
-                        height: auto;
-                        visibility: visible;
-                        opacity: 1;
-                        transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.7s ease-in-out;
-                        padding: 15px 20px;
-                    }
                 }
             }
         }
@@ -1067,5 +670,98 @@
         margin-top: 20px;
         width: 100%;
         max-width: 635px;
+    }
+}
+
+.deposite_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 912px;
+    width: 100%;
+    margin: 25px auto 0;
+    border-radius: 15px;
+    border: 1px solid #161616;
+
+    .title {
+        border-bottom: 1px solid #161616;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        padding: 25px;
+        color: #161616;
+        text-align: center;
+        font-family: Fixel Display;
+        font-size: 53px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 120.5%;
+    }
+
+    .content_block {
+        padding: 40px 35px;
+        width: 100%;
+
+        .form_input {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            margin-bottom: 25px;
+            position: relative;
+
+            label {
+                color: #161616;
+                font-family: Fixel Display;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                margin: 0;
+                padding: 0;
+                margin-bottom: 25px;
+            }
+
+            input {
+                width: 100%;
+                max-width: none;
+                border-radius: 15px;
+                border: 1px solid #161616;
+                background: #FFF;
+                padding: 19px;
+                color: #161616;
+                font-family: Fixel Display;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                height: 65px;
+
+                &::placeholder {
+                    color: #646464;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                }
+            }
+        }
+
+        .btn-red {
+            color: #FE5A13;
+            text-align: center;
+            font-family: Fixel Display;
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            text-transform: capitalize;
+            padding: 14px;
+            cursor: pointer;
+        }
+    }
+
+    .prod_data {
+        display: none;
     }
 }

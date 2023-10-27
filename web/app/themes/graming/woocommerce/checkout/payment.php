@@ -21,8 +21,107 @@ if (!wp_doing_ajax()) {
 	do_action('woocommerce_review_order_before_payment');
 }
 ?>
-	<div id="payment" class="woocommerce-checkout-payment">
-		<div class="payment_title">Checkout</div>
+<?php
+$deposite = "";
+foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+	$_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+	$product_id = $_product->get_id();
+	if ($product_id == 75) {
+		$deposite = true;
+	}
+}
+
+$cart_total = WC()->cart->get_total();
+?>
+<div id="payment" class="woocommerce-checkout-payment">
+	<div class="payment_title"><?php if (!$deposite): ?>Checkout<?php else: ?>Deposit<?php endif; ?></div>
+	<div class="false_checkout">
+		<?php if (!$deposite): ?>
+			<div class="balance_pay">
+				<div class="pay_title">Pay from balance</div>
+				<div class="account_balance">
+					Account balance:&nbsp;<span>
+						<?php get_user_balance(); ?>
+					</span>
+				</div>
+				<div class="pay_block">
+					<div class="pay_btn btn-red balance">
+						<?php wc_cart_totals_order_total_html(); ?>&nbsp;- Pay from balance
+					</div>
+					<div class="btn-gray top_up_btn"><a href="/service/usd/">Top up</a></div>
+				</div>
+			</div>
+		<?php else: ?>
+			<div class="deposite_info">
+				<div class="total_to_pay">Total to pay &nbsp;<span>
+						<?php wc_cart_totals_order_total_html(); ?>
+					</span></div>
+				<div class="total_resive">Total to recieve
+					<div class="bonus_total"><?php echo $cart_total; ?></div>
+					<div class="top_up_bonus btn-red">10% Top up bonus</div>
+				</div>
+			</div>
+			<div class="add_coupon">
+				<div class="coupon_set">
+					<?php foreach (WC()->cart->get_coupons() as $code => $coupon): ?>
+						<div class="coupon_name">
+							<?php wc_cart_totals_coupon_label($coupon); ?>
+						</div>
+						<div class="coupon_val">
+							<?php wc_cart_totals_coupon_html($coupon); ?>
+						</div>
+					<?php endforeach; ?>
+				</div>
+				<div class="add_coupon_title">Add a coupon code</div>
+				<div class="dropdown_coupon">
+					<input type="text" name="coupon_duble" class="coupon_input" value="" placeholder="Enter code">
+					<div class="btn_apply">Apply</div>
+				</div>
+			</div>
+		<?php endif; ?>
+		<div class="apple_pay">
+			<div class="pay_title">Pay with Apple Pay</div>
+			<div class="btn-apple"></div>
+		</div>
+		<div class="google_pay">
+			<div class="pay_title">Pay with Google Pay</div>
+			<div class="btn-google"></div>
+		</div>
+		<div class="card_pay">
+			<div class="pay_title">Pay with credit / debit card <img
+					src="<?php echo get_template_directory_uri(); ?> /src/images/cards.svg" alt="cards"></div>
+			<div class="card_form">
+				<div class="form_input form_name">
+					<input type="text" class="form-control" name="card_name" id="card_name"
+						placeholder="Cardholder name">
+				</div>
+				<div class="form_input form_number">
+					<input type="number" class="form-control" name="cardnumber" id="card_number"
+						placeholder="0000 0000 0000 0000">
+				</div>
+				<div class="form_input form_my">
+					<input type="number" class="form-control" name="card_month" id="card_month" placeholder="MM">
+					<div class="sep"></div>
+					<input type="number" class="form-control" name="card_year" id="card_year" placeholder="YY">
+				</div>
+				<div class="form_input form_cv">
+					<input type="number" class="form-control" name="card_cvv" id="card_cvv" placeholder="CVV">
+				</div>
+
+				<div class="pay_btn btn-red">
+					<?php wc_cart_totals_order_total_html(); ?> - pay with card
+				</div>
+			</div>
+		</div>
+
+		<div class="additional_info_pay">
+			<p>By completing your order, you agree to the terms of services and
+				privacy policy</p>
+			<p>All prices are in USD. If you're paying with a different currency, the billed amount may vary due to
+				exchange rates and potential additional fees.</p>
+		</div>
+	</div>
+	<div class="real_checkout" style="display:none">
 		<?php if (WC()->cart->needs_payment()): ?>
 			<ul class="wc_payment_methods payment_methods methods">
 				<?php
@@ -63,7 +162,8 @@ if (!wp_doing_ajax()) {
 			<?php wp_nonce_field('woocommerce-process_checkout', 'woocommerce-process-checkout-nonce'); ?>
 		</div>
 	</div>
-	
+</div>
+
 <?php
 if (!wp_doing_ajax()) {
 	do_action('woocommerce_review_order_after_payment');

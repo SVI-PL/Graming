@@ -91,7 +91,7 @@ do_action('woocommerce_before_customer_login_form'); ?>
 			</div>
 			<div class="login_right">
 				<div class="signup_promo_text">
-				<span>Welcome to Graming!</span> Do you already have an account on Gramy?
+				<span>Welcome to Graming!</span> <br>Do you already have an account on Gramy?
 				</div>
 				<div class="log_in_bg"></div>
 				<div class="btn-red"><a href="/my-account/">Log in</a></div>

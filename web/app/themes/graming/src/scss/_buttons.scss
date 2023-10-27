@@ -6,11 +6,18 @@
     border-radius: 15px;
     border: 2px solid #FE5A13;
     background: #FFF;
-    height: 49px;
     transition: all 0.3s ease-in-out;
 
     a {
-        padding: 12px 40px;
+        color: #FE5A13;
+        text-align: center;
+        font-family: Fixel Display;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: capitalize;
+        padding: 17px 35px;
     }
 
     &:hover {
@@ -26,7 +33,6 @@
     border-radius: 15px;
     border: 1.5px solid #646464;
     background: #FFF;
-    height: 49px;
     transition: all 0.3s ease-in-out;
 
     a {
@@ -35,6 +41,33 @@
 
     &:hover {
         box-shadow: 6px 6px 0px 0px #FE5A13;
+    }
+}
+
+.btn-black {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    border: 2px solid #161616;
+    transition: all 0.3s ease-in-out;
+
+    a {
+        color: #FE5A13;
+        text-align: center;
+        font-family: Fixel Display;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: capitalize;
+        padding: 17px 35px;
+        color: #161616;
+    }
+
+    &:hover {
+        box-shadow: 6px 6px 0px 0px #111;
     }
 }
 

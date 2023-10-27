@@ -1,5 +1,10 @@
 .account-wrapper {
     margin-top: 65px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1215px;
 
     .login-area {
         display: flex;
@@ -162,6 +167,8 @@
                     line-height: normal;
                     text-transform: capitalize;
                     width: 100%;
+                    padding: 12px 40px;
+                    margin: 0;
                 }
             }
         }
@@ -178,6 +185,7 @@
             background-position: center right;
             background-repeat: no-repeat;
             background-size: initial;
+            justify-content: space-between;
 
             .signup_promo_text {
                 color: #161616;
@@ -332,13 +340,840 @@
     }
 }
 
-.woocommerce-MyAccount-navigation ul {
+.woocommerce-MyAccount-navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-top: 1px solid #E1E1E1;
     border-bottom: 1px solid #E1E1E1;
+    width: 100vw;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        gap: 25px;
+        justify-content: space-between;
+        list-style: none;
+        padding: 10px 0px;
+        width: 100%;
+        max-width: 1215px;
+        overflow-x: scroll;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &::-webkit-scrollbar {
+            display: none
+        }
+
+        .woocommerce-MyAccount-navigation-link {
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            position: relative;
+
+            &::before {
+                content: "";
+                width: 15px;
+                height: 15px;
+                margin-right: 5px;
+            }
+
+            a {
+                color: #646464;
+                font-family: Fixel Display;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                transform: translateY(2.5px);
+                text-wrap: nowrap;
+            }
+
+            &.woocommerce-MyAccount-navigation-link--dashboard {
+                &::before {
+                    background: url(../images/home.svg);
+                }
+            }
+
+            &.woocommerce-MyAccount-navigation-link--services {
+                &::before {
+                    background: url(../images/service.svg);
+                }
+            }
+
+            &.woocommerce-MyAccount-navigation-link--support {
+                &::before {
+                    background: url(../images/support.svg);
+                }
+            }
+
+            &.woocommerce-MyAccount-navigation-link--deposit {
+                &::before {
+                    background: url(../images/wallet.svg);
+                }
+            }
+
+            &.woocommerce-MyAccount-navigation-link--orders {
+                &::before {
+                    background: url(../images/order.svg);
+                }
+            }
+
+            &.woocommerce-MyAccount-navigation-link--edit-account {
+                &::before {
+                    background: url(../images/order.svg);
+                }
+            }
+
+            &.woocommerce-MyAccount-navigation-link--payment-methods {
+                &::before {
+                    background: url(../images/order.svg);
+                }
+            }
+
+            &.woocommerce-MyAccount-navigation-link--top_up {
+                border-radius: 10px;
+                border: 1px solid #FE5A13;
+
+                &::before {
+                    display: none;
+                }
+
+                a {
+                    color: #FE5A13;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    padding: 5px 20px;
+                }
+            }
+
+            &.is-active {
+                &::after {
+                    position: absolute;
+                    content: "";
+                    width: 100%;
+                    height: 2px;
+                    background: #FE5A13;
+                    bottom: -10px;
+                }
+
+                a {
+                    color: #161616;
+                }
+            }
+        }
+    }
+}
+
+.woocommerce-MyAccount-content {
     display: flex;
-    flex-direction: row;
-    gap: 25px;
-    justify-content: space-between;
-    list-style: none;
-    padding: 10px 0;
+    width: 100%;
+    max-width: 1215px;
+    flex-direction: column;
+    align-items: center;
+
+    .buy_now_acc {
+        display: flex;
+        margin: 25px 0;
+        width: 100%;
+        justify-content: flex-end;
+
+        .btn-red {
+            border: 1px solid #FE5A13;
+
+            a {
+                padding: 15px;
+                font-size: 18px;
+            }
+        }
+    }
+
+    .info_panel {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-radius: 15px;
+        border: 1px solid #161616;
+        margin-top: 60px;
+        overflow: hidden;
+
+        .panel_header {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            padding: 25px;
+            background: #D2FF71;
+            border-bottom: 1px solid #161616;
+            gap: 25px;
+            justify-content: space-between;
+
+            .header_text {
+                max-width: 650px;
+                color: #85C316;
+                font-family: Fixel Display;
+                font-size: 25px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+
+                span {
+                    color: #D2FF71;
+                    font-family: Fixel Display;
+                    font-size: 25px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    border-radius: 10px;
+                    background: #85C316;
+                    padding: 1px 10px;
+                }
+            }
+
+            .header_btns {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .btn-black {
+                    a {
+                        padding: 15px;
+                    }
+                }
+            }
+        }
+
+        .panel_bottom {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: space-between;
+            padding: 40px 35px;
+            gap: 25px;
+
+            .balance,
+            .orders,
+            .bonus {
+                border-radius: 15px;
+                border: 1px solid #161616;
+                width: 100%;
+
+                .title {
+                    color: #161616;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    padding: 20px 16px;
+                    border-bottom: 1px solid #161616;
+
+                    &::before {
+                        content: "";
+                        width: 50px;
+                        height: 50px;
+                        margin-right: 10px;
+                    }
+                }
+
+                .content {
+                    padding: 20px;
+                    color: #646464;
+                    font-family: Fixel Display;
+                    font-size: 35px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                }
+            }
+
+            .balance {
+                .title {
+                    &::before {
+                        background: url(../images/balance-icon.svg);
+                    }
+                }
+            }
+
+            .orders {
+                .title {
+                    &::before {
+                        background: url(../images/orders-icon.svg);
+                    }
+                }
+            }
+
+            .bonus {
+                .title {
+                    &::before {
+                        background: url(../images/bonus-icon.svg);
+                    }
+                }
+            }
+        }
+    }
+
+    .services {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        border-radius: 15px;
+        border: 1px solid #161616;
+        margin-top: 64px;
+        overflow: hidden;
+
+        .title {
+            display: flex;
+            color: #161616;
+            text-align: center;
+            font-family: Fixel Display;
+            font-size: 45px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 120.5%;
+            padding: 24px;
+            flex-direction: row;
+            justify-content: center;
+            border-bottom: 1px solid #161616;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 40px 35px;
+            gap: 25px;
+
+            .insta,
+            .tiktok,
+            .twitter {
+                display: flex;
+                flex-direction: column;
+                border-radius: 15px;
+                border: 1px solid #161616;
+                width: 100%;
+
+                .title {
+                    font-size: 18px;
+                    padding: 20px 16px;
+                }
+
+                .content {
+                    flex-direction: column;
+                    align-items: stretch;
+                    padding: 20px;
+                    gap: 10px;
+
+                    .btn-red {
+                        a {
+                            color: #FE5A13;
+                            text-align: center;
+                            font-family: Fixel Display;
+                            font-size: 15px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                            text-transform: capitalize;
+                            padding: 10px 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .edit-account {
+        display: flex;
+        flex-direction: row;
+        column-gap: 25px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        border-radius: 15px;
+        border: 1px solid #161616;
+        margin-top: 60px;
+        overflow: hidden;
+
+        .acc_title {
+            color: #161616;
+            text-align: center;
+            font-family: Fixel Display;
+            font-size: 53px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 120.5%;
+            padding: 25px;
+            border-bottom: 1px solid #161616;
+            width: 100%;
+        }
+
+        .main_filds {
+            padding: 40px 0 40px 35px;
+            width: calc(50% - 12.5px);
+
+            .form_input {
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                margin-bottom: 25px;
+                position: relative;
+
+                label {
+                    color: #161616;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    margin: 0;
+                    padding: 0;
+                    margin-bottom: 25px;
+                }
+
+                input {
+                    width: 100%;
+                    max-width: none;
+                    border-radius: 15px;
+                    border: 1px solid #161616;
+                    background: #FFF;
+                    padding: 19px 19px 19px 64px;
+                    color: #161616;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    height: 65px;
+
+                    &::placeholder {
+                        color: #646464;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                    }
+                }
+
+                &.form_email {
+                    &::before {
+                        content: "";
+                        display: flex;
+                        position: absolute;
+                        bottom: 22px;
+                        left: 25px;
+                        background-size: contain;
+                        width: 19px;
+                        height: 23px;
+                        background: url(../images/contact_persone.svg);
+                    }
+                }
+
+
+            }
+        }
+
+        .change_pass {
+            padding: 40px 35px 40px 0;
+            width: calc(50% - 12.5px);
+
+            .form_input {
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+                margin-bottom: 25px;
+                position: relative;
+
+                label {
+                    color: #161616;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    margin: 0;
+                    padding: 0;
+                    margin-bottom: 25px;
+                }
+
+                input {
+                    width: 100%;
+                    max-width: none;
+                    border-radius: 15px;
+                    border: 1px solid #161616;
+                    background: #FFF;
+                    padding: 19px 19px 19px 64px;
+                    color: #161616;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                    height: 65px;
+
+                    &::placeholder {
+                        color: #646464;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                    }
+                }
+
+
+                &.form_pass {
+                    &::before {
+                        content: "";
+                        display: flex;
+                        position: absolute;
+                        bottom: 25px;
+                        left: 25px;
+                        background-size: contain;
+                        width: 20px;
+                        height: 20px;
+                        background: url(../images/Password.svg);
+                    }
+                }
+            }
+
+            a.text--base {
+                color: #FE5A13;
+                font-family: Fixel Display;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+            }
+        }
+
+        .submit-btn {
+            color: #FE5A13;
+            text-align: center;
+            font-family: Fixel Display;
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            text-transform: capitalize;
+            width: 100%;
+            padding: 12px 40px;
+            margin: 0;
+            margin-top: 25px;
+        }
+    }
+
+    .account-orders {
+        display: flex;
+        flex-direction: row;
+        column-gap: 25px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 100%;
+        border-radius: 15px;
+        border: 1px solid #161616;
+        overflow: hidden;
+
+        .acc_title {
+            color: #161616;
+            text-align: center;
+            font-family: Fixel Display;
+            font-size: 53px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 120.5%;
+            padding: 25px;
+            border-bottom: 1px solid #161616;
+            width: 100%;
+        }
+
+        .orders_list {
+            display: flex;
+            flex-direction: column;
+            padding: 40px 35px;
+            width: 100%;
+            gap: 25px;
+
+            .order_item {
+                border-radius: 15px;
+                border: 1px solid #161616;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                gap: 25px;
+                padding: 20px;
+
+                .order_left {
+                    display: flex;
+                    flex-direction: column;
+                    width: 90%;
+                    gap: 10px;
+
+                    .left_top {
+                        .order_title {
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 20px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                        }
+                    }
+
+                    .order_bottom {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 25px;
+
+                        .order_status {
+                            display: flex;
+                            align-items: center;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+
+                            &::before {
+                                content: "";
+                                width: 20px;
+                                height: 20px;
+                                margin-right: 10px;
+
+                            }
+
+                            &.Completed {
+                                color: #85C316;
+
+                                &::before {
+                                    background: url(../images/completed.svg);
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                }
+                            }
+
+                            &.Cancelled {
+                                color: #C34016;
+
+                                &::before {
+                                    background: url(../images/cancel.svg);
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                }
+                            }
+
+                            &.Processing {
+                                color: #646464;
+
+                                &::before {
+                                    background: url(../images/processing.svg);
+                                    background-size: cover;
+                                    background-repeat: no-repeat;
+                                }
+                            }
+                        }
+
+                        .order_num,
+                        .order_date,
+                        .order_total {
+                            color: #646464;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                        }
+
+
+                    }
+                }
+
+                .order_view {
+                    display: flex;
+                    width: calc(10% - 25px);
+                    justify-content: flex-end;
+                    align-items: center;
+                    height: 100%;
+
+                    &::after {
+                        content: "";
+                        width: 38px;
+                        height: 23px;
+                        background: url(../images/order_view.svg);
+                        background-repeat: no-repeat;
+                        background-size: cover;
+
+                    }
+
+                    &:hover {
+                        &::after {
+                            background: url(../images/order_view_hover.svg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .account-order-view {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        .buy_now_acc {
+            justify-content: space-between;
+
+            .btn-gray {
+                a {
+                    padding: 15px;
+                    color: #646464;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                }
+            }
+        }
+
+        .account-orders {
+            .acc_title {
+                color: #161616;
+                text-align: center;
+                font-family: Fixel Display;
+                font-size: 45px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120.5%;
+
+                span {
+                    color: #FE5A13;
+                    font-family: Fixel Display;
+                    font-size: 53px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 120.5%;
+                }
+
+                time {
+                    color: #161616;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 45px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 120.5%;
+                }
+            }
+
+            .order_bottom {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                padding: 40px 35px;
+
+                .order_status {
+                    display: flex;
+                    align-items: center;
+                    font-family: Fixel Display;
+                    font-size: 30px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+
+                    &::before {
+                        content: "";
+                        width: 30px;
+                        height: 30px;
+                        margin-right: 10px;
+
+                    }
+
+                    &.Completed {
+                        color: #85C316;
+
+                        &::before {
+                            background: url(../images/completed.svg);
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                        }
+                    }
+
+                    &.Cancelled {
+                        color: #C34016;
+
+                        &::before {
+                            background: url(../images/cancel.svg);
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                        }
+                    }
+
+                    &.Processing {
+                        color: #646464;
+
+                        &::before {
+                            background: url(../images/processing.svg);
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                        }
+                    }
+                }
+
+                .order_summ {
+                    display: flex;
+                    border-radius: 15px;
+                    border: 1px solid #646464;
+                    padding: 20px;
+                    flex-direction: column;
+                    width: 50%;
+                    margin-top: 25px;
+                    gap: 10px;
+
+                    .text {
+                        color: #646464;
+                        font-family: Fixel Display;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                    }
+
+                    .price {
+                        color: #161616;
+                        font-family: Fixel Display;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                    }
+
+                    .payment {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        color: #646464;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                    }
+                }
+            }
+        }
+    }
 }

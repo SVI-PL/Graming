@@ -3,7 +3,11 @@ header.header-section {
     flex-direction: column;
     align-items: center;
     padding: 25px 0;
-    position: relative;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    background: #fff;
 
     .header {
         display: flex;
@@ -22,6 +26,12 @@ header.header-section {
             font-style: normal;
             font-weight: 600;
             line-height: normal;
+            display: flex;
+            align-items: center;
+
+            img{
+                margin-left: 5px;
+            }
         }
 
         .primary_menu {
@@ -123,6 +133,30 @@ header.header-section {
             align-items: center;
             gap: 10px;
 
+            .login_btn {
+                a {
+                    padding: 12px 40px;
+                    color: #646464;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                }
+            }
+
+            .signup_btn {
+                a {
+                    padding: 12px 40px;
+                    color: #FE5A13;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+                }
+            }
+
             .balance {
                 color: #FE5A13;
                 font-family: Fixel Display;
@@ -133,7 +167,6 @@ header.header-section {
                 border-radius: 10px;
                 border: 1px solid #646464;
                 padding: 7px 13px;
-                height: 36px;
                 cursor: pointer;
             }
 
@@ -189,7 +222,7 @@ header.header-section {
                         li {
                             color: #161616;
                             font-family: Fixel Display;
-                            font-size: 12px;
+                            font-size: 15px;
                             font-style: normal;
                             font-weight: 500;
                             line-height: normal;
@@ -199,9 +232,13 @@ header.header-section {
                             border-radius: 15px;
                             border: 2px solid #FE5A13;
                             background: #FFF;
-                            padding: 4px 30px;
                             color: #FE5A13;
                             transition: all 0.3s ease-in-out;
+
+                            a {
+                                font-size: 15px;
+                                padding: 5px 30px;
+                            }
                         }
                     }
                 }
@@ -288,19 +325,10 @@ header.header-section {
                         li {
                             color: #161616;
                             font-family: Fixel Display;
-                            font-size: 12px;
+                            font-size: 15px;
                             font-style: normal;
                             font-weight: 500;
                             line-height: normal;
-                        }
-
-                        .btn-red {
-                            border-radius: 15px;
-                            border: 2px solid #FE5A13;
-                            background: #FFF;
-                            padding: 4px 30px;
-                            color: #FE5A13;
-                            transition: all 0.3s ease-in-out;
                         }
                     }
                 }
