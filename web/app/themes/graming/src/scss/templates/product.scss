@@ -7,6 +7,10 @@
     margin: 25px auto 0;
     gap: 150px;
 
+    @media (max-width: 960px) {
+        gap: 90px;
+    }
+
     .single_prod_header {
         display: flex;
         justify-content: space-between;
@@ -26,6 +30,10 @@
                 width: auto;
                 height: 33px;
             }
+
+            @media (max-width: 960px) {
+                display: none;
+            }
         }
 
         .single_content {
@@ -36,6 +44,16 @@
             border-radius: 15px;
             overflow: hidden;
 
+            @media (max-width: 1250px) {
+                width: 55%;
+            }
+
+            @media (max-width: 768px) {
+                width: 100%;
+                max-width: unset;
+            }
+
+
             .title_product {
                 color: #161616;
                 font-family: Fixel Display;
@@ -44,6 +62,18 @@
                 font-weight: 600;
                 line-height: 120.5%;
                 padding: 25px 45px 20px;
+
+                @media (max-width: 1250px) {
+                    font-size: 45px;
+                }
+
+                @media (max-width: 960px) {
+                    font-size: 29px;
+                }
+
+                @media (max-width: 768px) {
+                    padding: 20px;
+                }
 
                 span {
                     color: #FE5A13;
@@ -59,6 +89,10 @@
                 line-height: 120.5%;
                 border-bottom: 1px solid #161616;
                 padding: 0 50px 25px;
+
+                @media (max-width: 960px) {
+                    font-size: 13px;
+                }
             }
 
             .discount_blocks {
@@ -66,6 +100,11 @@
                 grid-template-columns: 1fr 1fr 1fr 1fr;
                 gap: 20px;
                 padding: 25px 50px 25px;
+
+                @media (max-width: 768px) {
+                    gap: 15px;
+                    padding: 20px;
+                }
 
                 .discount_block {
                     display: flex;
@@ -99,6 +138,10 @@
                         padding: 14px 0 6px;
                         border-bottom: 1px solid #161616;
                         width: 100%;
+
+                        @media (max-width: 960px) {
+                            font-size: 13px;
+                        }
                     }
 
                     .product_discount {
@@ -110,6 +153,10 @@
                         font-weight: 500;
                         line-height: normal;
                         padding: 10px 0 13px;
+
+                        @media (max-width: 960px) {
+                            font-size: 13px;
+                        }
                     }
                 }
             }
@@ -126,10 +173,22 @@
                 line-height: normal;
                 margin: 0;
 
+                @media (max-width: 960px) {
+                    font-size: 20px;
+                }
+
+                @media (max-width: 768px) {
+                    padding: 0 20px 20px;
+                }
+
                 .price_all {
                     display: flex;
                     align-items: center;
                     gap: 20px;
+
+                    @media (max-width: 768px) {
+                        gap: 10px;
+                    }
 
                     del {
                         color: #FE5A13;
@@ -140,6 +199,10 @@
                         font-weight: 500;
                         line-height: normal;
                         position: relative;
+
+                        @media (max-width: 960px) {
+                            font-size: 13px;
+                        }
 
                         &::after {
                             content: "";
@@ -160,6 +223,10 @@
                     font-style: normal;
                     font-weight: 500;
                     line-height: normal;
+
+                    @media (max-width: 960px) {
+                        font-size: 12px;
+                    }
                 }
             }
 
@@ -175,6 +242,10 @@
                 cursor: pointer;
                 padding: 14px;
 
+                @media (max-width: 768px) {
+                    margin: 0 20px 20px;
+                }
+
                 .price {
                     display: flex;
                     flex-direction: column;
@@ -188,6 +259,10 @@
                     font-weight: 600;
                     line-height: normal;
                     text-transform: capitalize;
+
+                    @media (max-width: 960px) {
+                        font-size: 15px;
+                    }
 
                     .price_all {
                         del {
@@ -210,8 +285,16 @@
                     line-height: normal;
                     text-transform: capitalize;
 
+                    @media (max-width: 960px) {
+                        font-size: 13px;
+                    }
+
                     &.woocommerce-Price-amount {
                         font-size: 25px;
+
+                        @media (max-width: 960px) {
+                            font-size: 15px;
+                        }
                     }
                 }
             }
@@ -221,6 +304,17 @@
             display: flex;
             flex-direction: column;
             gap: 25px;
+
+            @media (max-width: 1250px) {
+                width: calc(45% - 25px);
+            }
+
+            @media (max-width: 768px) {
+                width: 100%;
+                max-width: unset;
+                flex-direction: column-reverse;
+                margin-top: 25px;
+            }
 
             .premium_block {
                 border: 1px solid #161616;
@@ -238,6 +332,10 @@
                     line-height: 120.5%;
                     padding: 27px 0 16px;
                     border-bottom: 1px solid #161616;
+
+                    @media (max-width: 960px) {
+                        font-size: 29px;
+                    }
                 }
 
                 .premium_content {
@@ -260,6 +358,10 @@
                             font-style: normal;
                             font-weight: 500;
                             line-height: normal;
+
+                            @media (max-width: 960px) {
+                                font-size: 13px;
+                            }
 
                             span {
                                 display: contents;
@@ -296,6 +398,10 @@
                     font-weight: 500;
                     line-height: normal;
                     margin-top: 26px;
+
+                    @media (max-width: 960px) {
+                        font-size: 13px;
+                    }
                 }
 
                 .trust_link {
@@ -305,6 +411,10 @@
                     font-style: normal;
                     font-weight: 500;
                     line-height: normal;
+
+                    @media (max-width: 960px) {
+                        font-size: 12px;
+                    }
                 }
             }
         }
@@ -334,6 +444,10 @@
             line-height: 21px;
             cursor: pointer;
             padding: 12px 40px;
+
+            @media (max-width: 960px) {
+                font-size: 13px;
+            }
         }
 
         .live_on {
@@ -348,6 +462,10 @@
             width: 100%;
             max-width: 635px;
 
+            @media (max-width: 960px) {
+                font-size: 12px;
+            }
+
             span {
                 color: #FE5A13;
                 font-family: Fixel Display;
@@ -355,6 +473,10 @@
                 font-style: normal;
                 font-weight: 600;
                 line-height: normal;
+
+                @media (max-width: 960px) {
+                    font-size: 13px;
+                }
             }
         }
     }
@@ -369,6 +491,11 @@
         visibility: visible;
         transition: height 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.7s ease-in-out;
         width: 100%;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
 
         &.hidden {
             height: 0px;
@@ -385,6 +512,15 @@
             width: 100%;
             max-width: 635px;
 
+            @media (max-width: 1250px) {
+                width: 55%;
+            }
+
+            @media (max-width: 768px) {
+                width: 100%;
+                max-width: unset;
+            }
+
             .get_started_title {
                 color: #161616;
                 text-align: center;
@@ -396,6 +532,15 @@
                 padding: 25px;
                 border-bottom: 1px solid #161616;
                 width: 100%;
+
+                @media (max-width: 1250px) {
+                    font-size: 45px;
+                }
+
+                @media (max-width: 960px) {
+                    font-size: 29px;
+                }
+
             }
 
             .woocommerce-billing-fields {
@@ -415,6 +560,10 @@
                     line-height: 20px;
                     padding: 20px 25px 20px 65px;
                     width: 100%;
+
+                    @media (max-width: 960px) {
+                        font-size: 13px;
+                    }
 
                     &::placeholder {
                         color: #646464;
@@ -491,6 +640,10 @@
                     justify-content: space-between;
                     position: relative;
 
+                    @media (max-width: 960px) {
+                        font-size: 13px;
+                    }
+
                     &::before {
                         content: "";
                         display: block;
@@ -518,6 +671,10 @@
                         line-height: normal;
                         cursor: pointer;
 
+                        @media (max-width: 960px) {
+                            font-size: 13px;
+                        }
+
                         .deals {
                             color: #FE5A13;
                             font-family: Fixel Display;
@@ -539,6 +696,10 @@
                         font-style: normal;
                         font-weight: 600;
                         line-height: normal;
+
+                        @media (max-width: 960px) {
+                            font-size: 13px;
+                        }
 
                         .arrow_down {
                             width: 10px;
@@ -595,6 +756,10 @@
                     line-height: normal;
                     margin: 0;
 
+                    @media (max-width: 960px) {
+                        font-size: 12px;
+                    }
+
                     a {
                         color: #85C316;
                         text-decoration: none;
@@ -624,6 +789,10 @@
                     line-height: normal;
                     margin: 0;
 
+                    @media (max-width: 960px) {
+                        font-size: 12px;
+                    }
+
                     a {
                         color: #85C316;
                         text-decoration: none;
@@ -648,6 +817,10 @@
                     justify-content: center;
                     padding: 16px;
                     cursor: pointer;
+
+                    @media (max-width: 960px) {
+                        font-size: 13px;
+                    }
                 }
             }
         }
@@ -658,6 +831,27 @@
             justify-content: flex-end;
             align-items: flex-start;
             width: auto;
+
+            @media (max-width: 1250px) {
+                width: calc(45% - 25px);
+
+                img {
+                    max-width: 100%;
+                }
+            }
+
+            @media (max-width: 768px) {
+                border-radius: 15px;
+                border: 1px solid #161616;
+                width: 100%;
+                max-width: unset;
+                margin-top: 25px;
+                justify-content: center;
+                overflow: hidden;
+                img{
+                    width: 100%;
+                }
+            }
         }
     }
 
@@ -670,6 +864,10 @@
         margin-top: 20px;
         width: 100%;
         max-width: 635px;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
     }
 }
 
@@ -696,6 +894,14 @@
         font-style: normal;
         font-weight: 600;
         line-height: 120.5%;
+
+        @media (max-width: 1250px) {
+            font-size: 45px;
+        }
+
+        @media (max-width: 960px) {
+            font-size: 29px;
+        }
     }
 
     .content_block {
@@ -719,6 +925,10 @@
                 margin: 0;
                 padding: 0;
                 margin-bottom: 25px;
+
+                @media (max-width: 960px) {
+                    font-size: 15px;
+                }
             }
 
             input {
@@ -736,6 +946,10 @@
                 line-height: normal;
                 height: 65px;
 
+                @media (max-width: 960px) {
+                    font-size: 13px;
+                }
+
                 &::placeholder {
                     color: #646464;
                     font-family: Fixel Display;
@@ -743,6 +957,10 @@
                     font-style: normal;
                     font-weight: 500;
                     line-height: normal;
+
+                    @media (max-width: 960px) {
+                        font-size: 13px;
+                    }
                 }
             }
         }
@@ -758,6 +976,10 @@
             text-transform: capitalize;
             padding: 14px;
             cursor: pointer;
+
+            @media (max-width: 960px) {
+                font-size: 15px;
+            }
         }
     }
 

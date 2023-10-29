@@ -125,8 +125,10 @@ if (post_password_required()) {
 								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
 								exercitation
 								ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
-							<div class="name">Jake Paul</div>
-							<div class="verify">Verified Purchase</div>
+							<div class="slider_bottom">
+								<div class="user_name">Jake Paul</div>
+								<div class="verify">Verified Purchase</div>
+							</div>
 						</div>
 					</div>
 					<div class="slick_slide">
@@ -138,8 +140,10 @@ if (post_password_required()) {
 								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
 								exercitation
 								ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
-							<div class="name">Jake Paul</div>
-							<div class="verify">Verified Purchase</div>
+							<div class="slider_bottom">
+								<div class="user_name">Jake Paul</div>
+								<div class="verify">Verified Purchase</div>
+							</div>
 						</div>
 					</div>
 					<div class="slick_slide">
@@ -151,8 +155,10 @@ if (post_password_required()) {
 								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
 								exercitation
 								ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
-							<div class="name">Jake Paul</div>
-							<div class="verify">Verified Purchase</div>
+							<div class="slider_bottom">
+								<div class="user_name">Jake Paul</div>
+								<div class="verify">Verified Purchase</div>
+							</div>
 						</div>
 					</div>
 				</div>

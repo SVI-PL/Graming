@@ -1,45 +1,90 @@
 .footer {
-    border-radius: 15px;
-    border: 1px solid #FE5A13;
-    background: #FFF;
-    box-shadow: 6px 6px 0px 0px #FE5A13;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    max-width: 1215px;
     margin: 100px auto 50px;
 
-    .footer-area {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        padding: 50px;
-        justify-items: center;
+    @media (max-width: 1250px) {
+        padding: 0px 20px;
+    }
 
-        .footer_block {
-            display: flex;
-            flex-direction: column;
-            color: #161616;
-            font-family: Fixel Display;
-            font-size: 18px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 145%;
+    .footer-wrap {
+        border-radius: 15px;
+        border: 1px solid #FE5A13;
+        background: #FFF;
+        box-shadow: 6px 6px 0px 0px #FE5A13;
+        width: 100%;
+        max-width: 1215px;
 
-            .footer_block_title {
-                color: #85C316;
-                font-family: Fixel Display;
-                font-size: 25px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: normal;
-                text-transform: capitalize;
-                margin-bottom: 25px;
+        .footer-area {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 50px;
+            justify-items: center;
+
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
 
-            ul {
-                list-style: none;
-                margin: 0;
-                padding: 0;
+            .footer_block {
+                display: flex;
+                flex-direction: column;
+                color: #161616;
+                font-family: Fixel Display;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 145%;
+                @media (max-width: 768px) {
+                    width: 100%;
+                    text-align: center;
+                }
 
-                li {
+                .footer_block_title {
+                    color: #85C316;
+                    font-family: Fixel Display;
+                    font-size: 25px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    text-transform: capitalize;
+                    margin-bottom: 25px;
+
+                    @media (max-width: 960px) {
+                        font-size: 18px;
+                    }
+                    @media (max-width: 768px) {
+                        margin-bottom: 10px;
+                    }
+                }
+
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+
+                    li {
+                        a {
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: 145%;
+                            text-decoration: none;
+
+                            @media (max-width: 960px) {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+
+                .info {
+                    margin-bottom: 25px;
+
                     a {
                         color: #161616;
                         font-family: Fixel Display;
@@ -48,20 +93,11 @@
                         font-weight: 500;
                         line-height: 145%;
                         text-decoration: none;
-                    }
-                }
-            }
 
-            .info {
-                margin-bottom: 25px;
-                a {
-                    color: #161616;
-                    font-family: Fixel Display;
-                    font-size: 18px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: 145%;
-                    text-decoration: none;
+                        @media (max-width: 960px) {
+                            font-size: 13px;
+                        }
+                    }
                 }
             }
         }

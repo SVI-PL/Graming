@@ -14,6 +14,7 @@
 <!-- footer-section start -->
 
 <footer class="footer">
+	<div class="footer-wrap">
 		<div class="footer-area">
 			<div class="footer_block">
 				<div class="footer_block_title">Quick Link</div>
@@ -36,9 +37,10 @@
 				<div class="info">
 					<a href="mailto:info@graming.com">info@graming.com</a>
 				</div>
-				<img src="<?php echo get_template_directory_uri(); ?>/src/images/cards.png" alt="Cards"/>
+				<img src="<?php echo get_template_directory_uri(); ?>/src/images/cards.png" alt="Cards" />
 			</div>
 		</div>
+	</div>
 </footer>
 <!-- footer-section end -->
 

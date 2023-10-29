@@ -8,6 +8,13 @@ jQuery(document).ready(function ($) {
     dots: false,
     prevArrow: '.slider-newprev',
     nextArrow: '.slider-newnext',
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    },]
   });
 
   $('.discount_block').on("click", function () {

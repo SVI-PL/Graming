@@ -17,7 +17,7 @@
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<!-- Required meta tags -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<?php wp_head(); ?>
 </head>
 
@@ -61,19 +61,30 @@
 					<div class="signup_btn btn-red"><a href="/my-account/?register">Sign Up</a></div>
 				<?php else: ?>
 					<div class="balance">
-						<a href="/service/usd/"><?php get_user_balance(); ?></a>
-					</div>
-					<div class="my_account">
-						<div class="account_icon"></div>
-						<ul class="sub-menu">
-							<li><?php echo get_user_email();?></li>
-							<li><a href="/my-account">Graming Panel</a></li>
-							<li><a href="/my-account">View Orders</a></li> 
-							<li><a href="<?php echo wp_logout_url("/"); ?>">Log Out</a></li>
-							<div class="btn-red"><a href="/service/usd/">Top up</a></div>
-						</ul>
+						<a href="/service/usd/">
+							<?php get_user_balance(); ?>
+						</a>
 					</div>
 				<?php endif; ?>
+				<div class="my_account">
+					<div class="account_icon"></div>
+					<ul class="sub-menu">
+						<?php if (!is_user_logged_in()): ?>
+							<div class="login_btn btn-gray"><a href="/my-account">Log in</a></div>
+							<div class="signup_btn btn-red"><a href="/my-account/?register">Sign Up</a></div>
+						<?php else: ?>
+							<li>
+								<?php echo get_user_email(); ?>
+							</li>
+							<li><a href="/my-account">Graming Panel</a></li>
+							<li><a href="/my-account">View Orders</a></li>
+							<li><a href="<?php echo wp_logout_url("/"); ?>">Log Out</a></li>
+							<div class="btn-red"><a href="/service/usd/">Top up</a></div>
+						<?php endif; ?>
+					</ul>
+
+				</div>
+
 				<div class="addditional_menu">
 					<div class="addditional_menu_icon"></div>
 					<ul class="sub-menu">

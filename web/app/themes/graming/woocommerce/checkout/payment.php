@@ -37,6 +37,7 @@ $cart_total = WC()->cart->get_total();
 	<div class="payment_title"><?php if (!$deposite): ?>Checkout<?php else: ?>Deposit<?php endif; ?></div>
 	<div class="false_checkout">
 		<?php if (!$deposite): ?>
+			<?php if(is_user_logged_in()) : ?>
 			<div class="balance_pay">
 				<div class="pay_title">Pay from balance</div>
 				<div class="account_balance">
@@ -51,6 +52,7 @@ $cart_total = WC()->cart->get_total();
 					<div class="btn-gray top_up_btn"><a href="/service/usd/">Top up</a></div>
 				</div>
 			</div>
+			<?php endif;?>
 		<?php else: ?>
 			<div class="deposite_info">
 				<div class="total_to_pay">Total to pay &nbsp;<span>
@@ -121,7 +123,7 @@ $cart_total = WC()->cart->get_total();
 				exchange rates and potential additional fees.</p>
 		</div>
 	</div>
-	<div class="real_checkout" style="display:none">
+	<div class="real_checkout">
 		<?php if (WC()->cart->needs_payment()): ?>
 			<ul class="wc_payment_methods payment_methods methods">
 				<?php
