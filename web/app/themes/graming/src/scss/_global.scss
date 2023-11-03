@@ -27,12 +27,16 @@ body {
     overflow-x: hidden;
     padding-top: 105px;
 
-    @media (max-width: 960px) {
-        padding-top: 92px;
+    @media (max-width: 768px) {
+        padding-top: 55px;
     }
 
     &.logged {
         padding-top: 60px;
+
+        @media (max-width: 768px) {
+            padding-top: 55px;
+        }
     }
 }
 
