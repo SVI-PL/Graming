@@ -21,7 +21,9 @@
 	<?php wp_head(); ?>
 </head>
 
-<body>
+<body <?php if (is_user_logged_in()) {
+		echo 'class="logged"';
+	} ?>>
 	<div id="overlayer">
 		<div class="loader">
 			<div class="loader-inner"></div>
@@ -56,6 +58,10 @@
 				</ul>
 			</nav>
 			<div class="account_menu">
+				<div class="trust_pilot">
+					<img src="<?php echo get_template_directory_uri(); ?>/src/images/trust_head.svg" alt="">
+					<img src="<?php echo get_template_directory_uri(); ?>/src/images/trust_bottom.svg" alt="">
+				</div>
 				<?php if (!is_user_logged_in()): ?>
 					<div class="login_btn btn-gray"><a href="/my-account">Log in</a></div>
 					<div class="signup_btn btn-red"><a href="/my-account/?register">Sign Up</a></div>
@@ -97,7 +103,3 @@
 		</div>
 	</header>
 	<!-- header-section end -->
-	<a class="scrollToTop" href="#"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
-			<path
-				d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z" />
-		</svg></a>

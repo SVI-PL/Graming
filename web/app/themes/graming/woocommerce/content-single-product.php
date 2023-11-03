@@ -116,56 +116,59 @@ if (post_password_required()) {
 			</div>
 			<div class="testimonials_slider">
 				<div class="testimonial_slider_wraper">
-					<div class="slick_slide">
-						<div class="slider_inner">
-							<div class="rating"><img src="<?php echo get_template_directory_uri(); ?>/src/images/rating.png"
-									alt=""></div>
-							<div class="name">awesome support</div>
-							<div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-								exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
-							<div class="slider_bottom">
-								<div class="user_name">Jake Paul</div>
-								<div class="verify">Verified Purchase</div>
+					<?php
+					$slider_reviews = get_field("review_slider", "option");
+					foreach ($slider_reviews as $review): ?>
+						<div class="slick_slide">
+							<div class="slider_inner">
+								<div class="rating"><img src="<?php echo get_template_directory_uri(); ?>/src/images/rating.png"
+										alt=""></div>
+								<div class="name">
+									<?php echo $review["name"]; ?>
+								</div>
+								<div class="text">
+									<?php echo $review["text"]; ?>
+								</div>
+								<div class="slider_bottom">
+									<div class="user_name">
+										<?php echo $review["user_name"]; ?>
+									</div>
+									<div class="verify">Verified Purchase</div>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="slick_slide">
-						<div class="slider_inner">
-							<div class="rating"><img src="<?php echo get_template_directory_uri(); ?>/src/images/rating.png"
-									alt=""></div>
-							<div class="name">awesome support</div>
-							<div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-								exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
-							<div class="slider_bottom">
-								<div class="user_name">Jake Paul</div>
-								<div class="verify">Verified Purchase</div>
-							</div>
-						</div>
-					</div>
-					<div class="slick_slide">
-						<div class="slider_inner">
-							<div class="rating"><img src="<?php echo get_template_directory_uri(); ?>/src/images/rating.png"
-									alt=""></div>
-							<div class="name">awesome support</div>
-							<div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-								exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo consequat. </div>
-							<div class="slider_bottom">
-								<div class="user_name">Jake Paul</div>
-								<div class="verify">Verified Purchase</div>
-							</div>
-						</div>
-					</div>
+					<?php endforeach; ?>
 				</div>
 				<div class="slider_nav">
 					<div class="slider-newprev"></div>
 					<div class="slider-newnext"></div>
 				</div>
+			</div>
+			<div class="add_review_form">
+				<form action="" class="review_form">
+					<div class="form_left">
+						<div class="form_input form_email">
+							<label class="form-label required" for="email">Your Name</label>
+							<input type="text" name="your_name" id="your_name" placeholder="Your Name" />
+						</div>
+						<div class="form_input form_email">
+							<label class="form-label required" for="email">E-Mail</label>
+							<input type="email" class="form-control" name="email" id="email" autocomplete="email"
+								placeholder="Your Email" />
+						</div>
+						<div class="form_input rating">
+							<label class="form-label required">Rating</label>
+							<img src="<?php echo get_template_directory_uri(); ?>/src/images/rating.svg" alt="">
+						</div>
+					</div>
+					<div class="form_right">
+						<div class="form_input form_text_area">
+							<label class="form-label required" for="email">Your Review</label>
+							<textarea name="review" id="review" placeholder="Your Review" rows="5" cols="33"></textarea>
+						</div>
+						<div class="submit_btn btn-red">Submit Now</div>
+					</div>
+				</form>
 			</div>
 		</section>
 		<section class="tabs_section">
@@ -261,7 +264,8 @@ if (post_password_required()) {
 						<input type="text" name="custom_link" id="custom_link" placeholder="https://..." value="">
 					</div>
 					<div class="input-text">
-						<input type="email" name="billing_email" id="billing_email" placeholder="email@gmail.com" value="<?php if (isset($user)) {
+						<input type="email" name="billing_email" id="billing_email" placeholder="email@gmail.com" value="<?php $user = wp_get_current_user();
+						if (isset($user)) {
 							echo esc_attr($user->user_email);
 						} ?>" autocomplete="email username">
 					</div>

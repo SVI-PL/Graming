@@ -8,6 +8,11 @@ header.header-section {
     z-index: 1;
     width: 100%;
     background: #fff;
+    border-bottom: 1px solid #E1E1E1;
+
+    @media (max-width: 768px) {
+        padding: 10px 0px;
+    }
 
     .header {
         display: flex;
@@ -23,6 +28,10 @@ header.header-section {
             padding: 0 20px;
         }
 
+        @media (max-width: 768px) {
+            padding: 0 26px;
+        }
+
         a.site-logo {
             color: #FE5A13;
             text-align: center;
@@ -34,13 +43,20 @@ header.header-section {
             display: flex;
             align-items: center;
 
+            @media (max-width: 768px) {
+                height: 24px;
+            }
+
             img {
                 margin-left: 5px;
+
+                @media (max-width: 768px) {
+                    height: 30px;
+                }
             }
         }
 
         .primary_menu {
-            margin-top: 15px;
 
             @media (max-width: 768px) {
                 display: none;
@@ -142,7 +158,18 @@ header.header-section {
             align-items: center;
             gap: 10px;
 
+            .trust_pilot {
+                display: none;
+                
+
+                @media (max-width: 768px) {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+
             .login_btn {
+
                 @media (max-width: 960px) {
                     display: none;
                 }
@@ -252,9 +279,8 @@ header.header-section {
                         .btn-red,
                         .btn-gray {
                             border-radius: 15px;
-                            border: 2px solid #FE5A13;
+                            border-width: 2px;
                             background: #FFF;
-                            color: #FE5A13;
                             transition: all 0.3s ease-in-out;
 
                             a {

@@ -161,73 +161,89 @@
                 }
             }
 
-            .price {
+            .price_block {
                 display: flex;
-                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
                 padding: 0 50px 25px;
-                color: #161616;
-                font-family: Fixel Display;
-                font-size: 30px;
-                font-style: normal;
-                font-weight: 600;
-                line-height: normal;
-                margin: 0;
 
-                @media (max-width: 960px) {
-                    font-size: 20px;
-                }
-
-                @media (max-width: 768px) {
-                    padding: 0 20px 20px;
-                }
-
-                .price_all {
+                .price {
                     display: flex;
-                    align-items: center;
-                    gap: 20px;
+                    flex-direction: column;
+                    color: #161616;
+                    font-family: Fixel Display;
+                    font-size: 30px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    margin: 0;
 
-                    @media (max-width: 768px) {
-                        gap: 10px;
+                    @media (max-width: 960px) {
+                        font-size: 20px;
                     }
 
-                    del {
-                        color: #FE5A13;
-                        text-align: center;
+                    @media (max-width: 768px) {
+                        padding: 0 20px 20px;
+                    }
+
+                    .price_all {
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+
+                        @media (max-width: 768px) {
+                            gap: 10px;
+                        }
+
+                        del {
+                            color: #FE5A13;
+                            text-align: center;
+                            font-family: Fixel Display;
+                            font-size: 20px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                            position: relative;
+
+                            @media (max-width: 960px) {
+                                font-size: 13px;
+                            }
+
+                            &::after {
+                                content: "";
+                                display: block;
+                                width: 100%;
+                                border-bottom: 1px solid #FE5A13;
+                                position: absolute;
+                                top: 50%;
+                                transform: translateY(-1px);
+                            }
+                        }
+                    }
+
+                    .saving {
+                        color: #85C316;
                         font-family: Fixel Display;
-                        font-size: 20px;
+                        font-size: 15px;
                         font-style: normal;
                         font-weight: 500;
                         line-height: normal;
-                        position: relative;
 
                         @media (max-width: 960px) {
-                            font-size: 13px;
-                        }
-
-                        &::after {
-                            content: "";
-                            display: block;
-                            width: 100%;
-                            border-bottom: 1px solid #FE5A13;
-                            position: absolute;
-                            top: 50%;
-                            transform: translateY(-1px);
+                            font-size: 12px;
                         }
                     }
                 }
 
-                .saving {
-                    color: #85C316;
-                    font-family: Fixel Display;
-                    font-size: 15px;
-                    font-style: normal;
-                    font-weight: 500;
-                    line-height: normal;
-
-                    @media (max-width: 960px) {
-                        font-size: 12px;
+                .payments_img {
+                    display: flex;
+                    gap: 5px;
+                    flex-wrap: nowrap;
+                    img{
+                        width: 100%;
                     }
                 }
+
             }
 
             form.cart {
@@ -574,6 +590,10 @@
                         line-height: normal;
                     }
 
+                    &:focus {
+                        border: 1px solid #FE5A13;
+                    }
+
                     &.error {
                         border: 1px solid red;
                     }
@@ -597,6 +617,10 @@
                         position: absolute;
                         left: 20px;
                     }
+
+                    &.active::before {
+                        background: url(../images/link-24-hover.svg);
+                    }
                 }
 
                 .input-text {
@@ -608,13 +632,17 @@
                     &::before {
                         content: "";
                         display: block;
-                        background: url(../images/mail-28-regular.svg);
+                        background: url(../images/fluent_mail-28-regular.svg);
                         background-size: cover;
                         background-repeat: no-repeat;
                         width: 28px;
                         height: 28px;
                         position: absolute;
                         left: 20px;
+                    }
+
+                    &.active::before {
+                        background: url(../images/mail-28-regular.svg);
                     }
                 }
             }
@@ -848,7 +876,8 @@
                 margin-top: 25px;
                 justify-content: center;
                 overflow: hidden;
-                img{
+
+                img {
                     width: 100%;
                 }
             }

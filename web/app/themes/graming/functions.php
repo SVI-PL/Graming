@@ -144,26 +144,6 @@ function fields_filter($fields)
 }
 add_filter('woocommerce_checkout_fields', 'fields_filter', 25);
 
-// function custom_woocommerce_checkout_remove_item( $product_name, $cart_item, $cart_item_key ) {
-//     if ( is_checkout() ) {
-//         $_product = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
-//         $product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
-
-//         $remove_link = apply_filters( 'woocommerce_cart_item_remove_link', sprintf(
-//             '<a href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">×</a>',
-//             esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-//             __( 'Remove this item', 'woocommerce' ),
-//             esc_attr( $product_id ),
-//             esc_attr( $_product->get_sku() )
-//         ), $cart_item_key );
-
-//         return '<span>' . $remove_link . '</span> <span>' . $product_name . '</span>';
-//     }
-
-//     return $product_name;
-// }
-// add_filter( 'woocommerce_cart_item_name', 'custom_woocommerce_checkout_remove_item', 10, 3 );
-
 function save_custom_checkout_field($order_id)
 {
 	if (!empty($_POST['custom_link'])) {
@@ -176,9 +156,13 @@ add_action('woocommerce_checkout_update_order_meta', 'save_custom_checkout_field
 function display_custom_checkout_field_in_admin($order)
 {
 	$custom_link = get_post_meta($order->get_id(), 'Target Link', true);
+	$order_id = get_post_meta($order->get_id(), 'Order id', true);
 
 	if (!empty($custom_link)) {
 		echo '<p><strong>' . __('Target Link') . ':</strong> ' . $custom_link . '</p>';
+	}
+	if (!empty($order_id)) {
+		echo '<p><strong>' . __('Order id') . ':</strong> ' . $order_id . '</p>';
 	}
 }
 add_action('woocommerce_admin_order_data_after_billing_address', 'display_custom_checkout_field_in_admin', 10, 1);
@@ -379,48 +363,90 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type)
 }
 
 // Устанавливаем баланс в $10 для новых пользователей при регистрации
-// function add_balance_to_database($user_id)
-// {
-// 	$new_balance = 10.00;
-// 	$balance = new Balance();
-// 	$balance->add_user_balance($user_id, $new_balance);
-// }
-
-// add_action('woocommerce_created_customer', 'add_balance_to_database', 10, 1);
-
-// Increase user balance
-function increase_user_balance($order_id)
+function add_balance_to_database($user_id)
 {
-
+	// $new_balance = 10.00;
+	// $balance = new Balance();
+	// $balance->add_user_balance($user_id, $new_balance);
 }
-add_action('woocommerce_completed', 'increase_user_balance');
 
+add_action('woocommerce_created_customer', 'add_balance_to_database', 10, 1);
+
+//Order status changed to Processing
 function my_custom_order_status_changed($order_id, $from_status, $to_status, $order)
 {
 	if ($to_status === 'processing') {
+
+		//Order setting
 		$order = wc_get_order($order_id);
+		$link = get_post_meta($order->get_id(), 'Target Link', true);
 		$user_id = $order->get_customer_id();
 		$items = $order->get_items();
 		$balance = new Balance();
 		$balance_increased = false;
+		$quantity = 0;
+		$product_id = 0;
 
+		//Item loop
 		foreach ($items as $item) {
 			$product_id = $item->get_product_id();
 			$quantity = $item->get_quantity();
+		}
 
-			if ($product_id == 75) {
-				$current_balance = $balance->get_user_balance($user_id);
-				$balance_increase = $quantity * 1.1;
-				$new_balance = $current_balance + $balance_increase;
+		//API setting
+		$api_url = get_field('api_endpoint', 'option');
+		$api_key = get_field('api_key', 'option');
+		$service_id = get_api_service_id($product_id, $quantity);
 
-				$balance->update_user_balance($user_id, $new_balance);
-				$balance_increased = true;
+		//Update user balance
+		if ($product_id == 75) {
+			$current_balance = $balance->get_user_balance($user_id);
+			$balance_increase = $quantity * 1.1;
+			$new_balance = $current_balance + $balance_increase;
+
+			$balance->update_user_balance($user_id, $new_balance);
+			$balance_increased = true;
+
+			//Order note
+			if ($balance_increased) {
+				$order->update_status('completed');
+				$order->add_order_note('Balance increase');
 			}
 		}
 
-		if ($balance_increased) {
-            $order->update_status('completed');
-        }
+		//API process
+		if ($product_id != 75 && $product_id != 0) {
+			if (!empty($service_id['error'])) {
+				$order->update_status('cancelled');
+				$order->add_order_note('Error in order: ' . $service_id['error']);
+				return;
+			}
+			//Array to API
+			$api_data = array(
+				'key' => $api_key,
+				'action' => 'add',
+				'service' => $service_id,
+				'link' => $link,
+				'quantity' => $quantity
+			);
+
+			// POST-request to API
+			$response = wp_safe_remote_post($api_url, array('body' => $api_data, ));
+
+			if (!is_wp_error($response)) {
+				$response_body = wp_remote_retrieve_body($response);
+				$api_response = json_decode($response_body);
+
+				if ($api_response) {
+					update_post_meta($order_id, 'Order id', sanitize_text_field($api_response->order));
+				}
+			} else {
+				error_log('API Request Error: ' . $response->get_error_message());
+			}
+
+			//Order note
+			$order->add_order_note('Order in processing');
+		}
 	}
 }
 add_action('woocommerce_order_status_changed', 'my_custom_order_status_changed', 10, 4);
@@ -524,3 +550,126 @@ function get_user_order_count()
 
 	echo $order_count;
 }
+
+//Add option page
+if (function_exists('acf_add_options_page')) {
+	acf_add_options_page();
+}
+
+//Get API service ID
+function get_api_service_id($product_id, $quantity)
+{
+	$services = get_field('services', 'option');
+	if (!$services) {
+		return array(
+			'error' => 'No services',
+		);
+	}
+
+	foreach ($services as $service) {
+		$service_id = $service["service"];
+		if ($product_id == $service_id) {
+			foreach ($service["service_prop"] as $prop) {
+				$service_quantity = $prop["service_quantity"];
+				if ($quantity == $service_quantity) {
+					$api_id = $prop["service_id"];
+					return $api_id;
+				}
+			}
+		}
+	}
+	return array(
+		'error' => 'ID not found',
+	);
+}
+
+//Update order status
+function update_order_status($order_id)
+{
+	$order = wc_get_order($order_id);
+	$api_id = get_post_meta($order->get_id(), 'Order id', true);
+	if ($api_id) {
+		//API setting
+		$api_url = get_field('api_endpoint', 'option');
+		$api_key = get_field('api_key', 'option');
+
+		//Array to API
+		$api_data = array(
+			'key' => $api_key,
+			'action' => 'status',
+			'order' => $api_id,
+		);
+
+		// POST-request to API
+		$response = wp_safe_remote_post($api_url, array('body' => $api_data, ));
+
+		if (!is_wp_error($response)) {
+			$response_body = wp_remote_retrieve_body($response);
+			$api_response = json_decode($response_body);
+
+			if ($api_response->status == 'Completed') {
+				$order->update_status('completed');
+				$order->add_order_note('Order successfully completed');
+			}
+		} else {
+			error_log('API Request Error: ' . $response->get_error_message());
+		}
+	}
+}
+
+//Get Order status 
+function get_api_order_status()
+{
+	$user_id = get_current_user_id();
+	$customer_orders = wc_get_orders(
+		array(
+			'customer' => $user_id,
+			'status' => array('wc-processing'),
+			'return' => 'ids',
+		)
+	);
+	foreach ($customer_orders as $order_id) {
+		update_order_status($order_id);
+	}
+}
+
+//Get calc bonus
+function get_bonus_calc_amount()
+{
+	$user_id = get_current_user_id();
+	$total_bonuses = 0;
+
+	$customer_orders = wc_get_orders(
+		array(
+			'customer' => $user_id,
+			'status' => 'completed',
+			'limit' => -1,
+		)
+	);
+
+	foreach ($customer_orders as $order_id) {
+		$order = wc_get_order($order_id);
+		$items = $order->get_items();
+		foreach ($items as $item) {
+			$product_id = $item->get_product_id();
+			$quantity = $item->get_quantity();
+
+			if ($product_id == 75) {
+				$order_total = $order->get_total();
+				$total_bonuses += $order_total;
+			}
+		}
+	}
+	$total_bonuses /= 10.0;
+
+	echo "$" . $total_bonuses;
+}
+
+//Add passwors on registration
+function password_in_registration($username, $user) {
+    if (isset($_POST['password']) && !empty($_POST['password'])) {
+        $password = wc_clean($_POST['password']);
+        $user->set_password($password);
+    }
+}
+add_action('woocommerce_created_customer', 'password_in_registration', 10, 2);

@@ -37,13 +37,24 @@
 				<div class="info">
 					<a href="mailto:info@graming.com">info@graming.com</a>
 				</div>
-				<img src="<?php echo get_template_directory_uri(); ?>/src/images/cards.png" alt="Cards" />
+				<div class="payments_img">
+					<img src="<?php echo get_template_directory_uri(); ?>/src/images/applapay.svg" alt="">
+					<img src="<?php echo get_template_directory_uri(); ?>/src/images/gpay.svg" alt="">
+					<img src="<?php echo get_template_directory_uri(); ?>/src/images/mastersvg.svg" alt="">
+					<img src="<?php echo get_template_directory_uri(); ?>/src/images/visa.svg" alt="">
+					<img src="<?php echo get_template_directory_uri(); ?>/src/images/american.svg" alt="">
+				</div>
 			</div>
 		</div>
 	</div>
 </footer>
 <!-- footer-section end -->
-
+<div class="scrollToTop">
+	<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+		<path
+			d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z" />
+	</svg>
+</div>
 
 
 <?php wp_footer(); ?>

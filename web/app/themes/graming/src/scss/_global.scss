@@ -25,10 +25,14 @@ body {
 
     position: relative;
     overflow-x: hidden;
-    margin-top: 113px;
+    padding-top: 105px;
 
     @media (max-width: 960px) {
-        margin-top: 90px;
+        padding-top: 92px;
+    }
+
+    &.logged {
+        padding-top: 60px;
     }
 }
 
@@ -137,7 +141,7 @@ main.main-content {
     align-items: flex-start;
     width: 100%;
     padding: 38px 0 61px 48px;
-    border: 1px solid #161616;
+    border: 1px solid #FE5A13;
     border-radius: 10px;
     background: url(../images/dinosavr.svg) no-repeat;
     background-position: right center;
@@ -156,6 +160,7 @@ main.main-content {
         font-style: normal;
         font-weight: 600;
         line-height: normal;
+        max-width: 60%;
 
 
         @media (max-width: 1250px) {
@@ -299,6 +304,7 @@ main.main-content {
     .promo_footer {
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 20px;
         width: 100%;
 
@@ -373,6 +379,9 @@ main.main-content {
             .header_img {
                 display: flex;
 
+                img {
+                    filter: drop-shadow(6px 6px 0px #FE5A13);
+                }
             }
 
             .header_wraper {
@@ -428,6 +437,7 @@ main.main-content {
                 font-weight: 500;
                 line-height: normal;
                 padding: 12px 40px;
+                cursor: pointer;
 
                 @media (max-width: 960px) {
                     font-size: 13px;
@@ -610,6 +620,218 @@ main.main-content {
                 }
             }
         }
+    }
+
+    .add_review_form {
+        display: none;
+        width: 100%;
+
+        .review_form {
+            width: 100%;
+            display: flex;
+            gap: 25px;
+            justify-content: space-between;
+            padding: 40px 35px;
+            align-items: stretch;
+            border-radius: 15px;
+            border: 1px solid #161616;
+
+            .form_left {
+                display: flex;
+                flex-direction: column;
+                width: calc(50% - 12.5px);
+
+                .form_input {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0;
+                    margin-bottom: 25px;
+                    position: relative;
+
+                    label {
+                        color: #161616;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                        margin: 0;
+                        padding: 0;
+                        margin-bottom: 25px;
+
+                        @media (max-width: 960px) {
+                            font-size: 15px;
+                        }
+                    }
+
+                    input {
+                        width: 100%;
+                        max-width: none;
+                        border-radius: 15px;
+                        border: 1px solid #161616;
+                        background: #FFF;
+                        padding: 19px 19px 19px 64px;
+                        color: #161616;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                        height: 65px;
+
+                        @media (max-width: 960px) {
+                            font-size: 13px;
+                        }
+
+                        &:focus {
+                            border: 1.5px solid #FE5A13;
+                        }
+
+                        &::placeholder {
+                            color: #646464;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+
+                            @media (max-width: 960px) {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+
+                    &.form_email {
+                        &::before {
+                            content: "";
+                            display: flex;
+                            position: absolute;
+                            bottom: 25px;
+                            left: 25px;
+                            background-size: contain;
+                            width: 28px;
+                            height: 28px;
+                            background: url(../images/contact_persone.svg);
+                            transform: translateY(25%);
+                        }
+
+                        &.active::before {
+                            background: url(../images/contact_persone-hover.svg);
+                        }
+                    }
+                }
+
+                .rating {
+                    display: flex;
+                    margin-bottom: 0;
+                    align-items: flex-start;
+
+                    img {
+                        height: 35px;
+                    }
+                }
+            }
+
+            .form_right {
+                display: flex;
+                flex-direction: column;
+                width: calc(50% - 12.5px);
+
+                .form_input {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0;
+                    margin-bottom: 25px;
+                    position: relative;
+
+                    label {
+                        color: #161616;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                        margin: 0;
+                        padding: 0;
+                        margin-bottom: 25px;
+
+                        @media (max-width: 960px) {
+                            font-size: 15px;
+                        }
+                    }
+
+                    textarea {
+                        width: 100%;
+                        max-width: none;
+                        border-radius: 15px;
+                        border: 1px solid #161616;
+                        background: #FFF;
+                        padding: 19px 19px 19px 64px;
+                        color: #161616;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                        height: 205px;
+
+                        @media (max-width: 960px) {
+                            font-size: 13px;
+                        }
+
+                        &:focus {
+                            border: 1.5px solid #FE5A13;
+                        }
+
+                        &::placeholder {
+                            color: #646464;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+
+                            @media (max-width: 960px) {
+                                font-size: 13px;
+                            }
+                        }
+                    }
+
+                    &.form_text_area {
+                        &::before {
+                            content: "";
+                            display: flex;
+                            position: absolute;
+                            top: 62px;
+                            left: 25px;
+                            background-size: contain;
+                            width: 25px;
+                            height: 25px;
+                            background: url(../images/Review2.svg);
+                            transform: translateY(25%);
+                        }
+
+                        &.active::before {
+                            background: url(../images/Review2-hover.svg);
+                        }
+                    }
+                }
+
+                .submit_btn {
+                    color: #FE5A13;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 25px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    text-transform: capitalize;
+                    padding: 14px;
+                    cursor: pointer;
+                }
+            }
+        }
+
     }
 }
 

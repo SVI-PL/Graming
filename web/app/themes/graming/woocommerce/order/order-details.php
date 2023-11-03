@@ -38,7 +38,7 @@ $totals = $order->get_order_item_totals();
 ?>
 <div class="account-order-view">
 	<div class="buy_now_acc">
-		<div class="btn-gray"><a href="/my-account/orders/">Back</a></div>
+		<div class="back_btn btn-gray">Back</div>
 		<div class="btn-red"><a href="/service/usd/">Deposit Now</a></div>
 	</div>
 	<div class="account-orders">

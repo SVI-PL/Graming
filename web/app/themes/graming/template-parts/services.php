@@ -1,30 +1,28 @@
 <div class="services">
     <div class="title">Graming Services</div>
     <div class="content">
-        <div class="insta">
-            <div class="title">Instagram Services</div>
-            <div class="content">
-                <div class="btn-red"><a href="#">Instagram Likes</a></div>
-                <div class="btn-red"><a href="#">Instagram Followers</a></div>
-                <div class="btn-red"><a href="#">Instagram Views</a></div>
+        <?php
+        $service_list = get_field("services_list", "option");
+        foreach ($service_list as $service):
+            ?>
+            <div class="servise_group">
+                <div class="title">
+                    <?php echo $service["list_name"] ?>
+                </div>
+                <div class="content">
+                    <?php foreach ($service["product_list"] as $product_id):
+                        $product = wc_get_product($product_id["product"]);
+                        $product_name = $product->get_title();
+                        $url = get_permalink($product_id["product"]);
+                        ?>
+                        <div class="btn-red">
+                            <a href="<?php echo $url; ?>">
+                                <?php echo $product_name; ?>
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
-        </div>
-        <div class="tiktok">
-            <div class="title">Tik Tok Services</div>
-            <div class="content">
-                <div class="btn-red"><a href="#">Tik Tok Likes</a></div>
-                <div class="btn-red"><a href="#">Tik Tok Followers</a></div>
-                <div class="btn-red"><a href="#">Tik Tok Views</a></div>
-            </div>
-        </div>
-        <div class="twitter">
-            <div class="title">X Twitter Services</div>
-            <div class="content">
-                <div class="btn-red"><a href="#">X Twitter Likes</a></div>
-                <div class="btn-red"><a href="#">X Twitter Retweets</a></div>
-                <div class="btn-red"><a href="#">X Twitter Followers</a></div>
-                <div class="btn-red"><a href="#">X Twitter Views</a></div>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 </div>

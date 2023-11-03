@@ -20,7 +20,7 @@
 defined('ABSPATH') || exit;
 
 do_action('woocommerce_before_account_orders', $has_orders); ?>
-
+<?php get_api_order_status();?>
 <?php if ($has_orders): ?>
 	<div class="buy_now_acc"><div class="btn-red"><a href="/my-account/services/">Order Now</a></div></div>
 	<div class="account-orders">

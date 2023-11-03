@@ -45,7 +45,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			
 		<div class="bonus">
 			<div class="title">Bonus Received</div>
-			<div class="content">$0</div>
+			<div class="content"><?php get_bonus_calc_amount(); ?></div>
 		</div>
 	</div>
 </div>
+
+
+<?php get_api_order_status();?>

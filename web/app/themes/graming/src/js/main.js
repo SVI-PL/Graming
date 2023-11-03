@@ -28,6 +28,7 @@ jQuery(document).ready(function ($) {
   setTimeout(function () {
     $('.discount_block').first().trigger("click");
   }, 1000);
+
   $('#deposit-amount').mask('$000,000', { reverse: false });
   $("#deposit-amount").on("mouseleave", function () {
     let $deposit = $(this).val().replace(/[$,]/g, '');
@@ -90,42 +91,6 @@ jQuery(document).ready(function ($) {
     return urlPattern.test(url);
   }
 
-  $(window).on("scroll", function () {
-    var ScrollTop = $(".scrollToTop");
-    if ($(this).scrollTop() < 500) {
-      ScrollTop.removeClass("active");
-    } else {
-      ScrollTop.addClass("active");
-    }
-  });
-
-  $('.arrow_down').on("click", function () {
-    $(".dropdown_products").toggleClass("active");
-  });
-  $('.deals').on("click", function () {
-    $(".dropdown_products").toggleClass("active");
-  });
-  $(document).on('click', '.btn_apply', function () {
-    let $cupon = $("input.coupon_input").val();
-    $("input#coupon_code").val($cupon);
-    $(".checkout_coupon").submit();
-  });
-
-  $(".addditional_menu_icon").on("click", function () {
-    $(".account_icon").removeClass("active");
-    $(".my_account").removeClass("active");
-
-    $(this).toggleClass("active");
-    $(".addditional_menu").toggleClass("active");
-  });
-  $(".account_icon").on("click", function () {
-    $(".addditional_menu_icon").removeClass("active");
-    $(".addditional_menu").removeClass("active");
-
-    $(this).toggleClass("active");
-    $(".my_account").toggleClass("active");
-  });
-
   //Local storage
   var customLinkValue = localStorage.getItem('custom_link');
   var billingEmailValue = localStorage.getItem('billing_email');
@@ -152,9 +117,7 @@ jQuery(document).ready(function ($) {
   });
 
   $(document).ajaxComplete(function (event, xhr, settings) {
-    // Проверяем, что это AJAX-запрос, который обновляет элемент .bonus_total
     if (settings.url && settings.url.indexOf("update_order_review") !== -1) {
-      // Обработка изменений в элементе .bonus_total
       const bonusElement = document.querySelector('.bonus_total');
       if (bonusElement) {
         let bonusText = bonusElement.textContent;
@@ -165,8 +128,63 @@ jQuery(document).ready(function ($) {
       }
     }
   });
+
+  $("input, textarea").on("focusin", function () {
+    $("input").parent().removeClass("active");
+    $(this).parent().addClass("active");
+  });
+  $("input, textarea").on("focusout", function () {
+    $("input").parent().removeClass("active");
+  });
+
+  $(window).on("scroll", function () {
+    var ScrollTop = $(".scrollToTop");
+    if ($(this).scrollTop() < 500) {
+      ScrollTop.removeClass("active");
+    } else {
+      ScrollTop.addClass("active");
+    }
+  });
+  $(".scrollToTop").on("click", function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  })
+
+  $('.arrow_down').on("click", function () {
+    $(".dropdown_products").toggleClass("active");
+  });
+  $('.deals').on("click", function () {
+    $(".dropdown_products").toggleClass("active");
+  });
+
+  $(document).on('click', '.btn_apply', function () {
+    let $cupon = $("input.coupon_input").val();
+    $("input#coupon_code").val($cupon);
+    $(".checkout_coupon").submit();
+  });
+
+  $(".addditional_menu_icon").on("click", function () {
+    $(".account_icon").removeClass("active");
+    $(".my_account").removeClass("active");
+
+    $(this).toggleClass("active");
+    $(".addditional_menu").toggleClass("active");
+  });
+  $(".account_icon").on("click", function () {
+    $(".addditional_menu_icon").removeClass("active");
+    $(".addditional_menu").removeClass("active");
+
+    $(this).toggleClass("active");
+    $(".my_account").toggleClass("active");
+  });
+
+  $("#add_review").on("click", function () {
+    $(".testimonials_slider").hide();
+    $(".add_review_form").show();
+  });
 });
 
+
+//Vanilla js
 document.addEventListener('DOMContentLoaded', function () {
   //Dropdown Tabs
   const tabTitle = document.querySelectorAll('.tab_title');

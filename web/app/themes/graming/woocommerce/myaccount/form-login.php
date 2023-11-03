@@ -69,9 +69,15 @@ do_action('woocommerce_before_customer_login_form'); ?>
 					<?php do_action('woocommerce_register_form_start'); ?>
 					<div class="form_input form_email">
 						<label class="form-label required" for="email">E-Mail</label>
-						<input type="email" class="form-control form--control checkUser" name="email" id="reg_email"
-							autocomplete="email" placeholder="Your Email"
-							value="<?php echo (!empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>" />
+						<input type="email" class="form-control form--control checkUser" name="email" id="reg_email" autocomplete="email" placeholder="Your Email" />
+					</div>
+					<div class="form_input form_pass">
+						<label for="password" class="form-label">Password</label>
+						<input class="form--control" type="password" name="password" id="password" placeholder="Your Password" />
+					</div>
+					<div class="form_input form_pass">
+						<label for="password" class="form-label">Confirm Password</label>
+						<input class="form--control" type="password" name="password-confirm" id="password-confirm" placeholder="Confirm Password" />
 					</div>
 					<div class="privacy">
 						<input type="checkbox" id="privacy" name="privacy"> <label for="privacy">I agree to the <a
