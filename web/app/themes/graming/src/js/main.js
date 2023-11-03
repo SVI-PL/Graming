@@ -134,7 +134,7 @@ jQuery(document).ready(function ($) {
     $(this).parent().addClass("active");
   });
   $("input, textarea").on("focusout", function () {
-    $("input").parent().removeClass("active");
+    $("input, textarea").parent().removeClass("active");
   });
 
   $(window).on("scroll", function () {
