@@ -10,7 +10,7 @@ get_header();
                 Instant Delivery!</div>
             <div class="banner-btn btn-red"><a href="/my-account/?register">Sign up now</a></div>
             <div class="trustpilot">
-                <img src="<?php echo get_template_directory_uri(); ?>/src/images/TrustPilot.png" alt="">
+                <img src="<?php echo get_template_directory_uri(); ?>/src/images/TrustPilot123.svg" alt="">
             </div>
         </div>
         <div class="right_part">
