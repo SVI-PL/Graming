@@ -79,6 +79,7 @@
             .banner-btn {
                 @media (max-width: 960px) {
                     font-size: 15px;
+                    border-radius: 8px;
                 }
             }
             .trustpilot {
@@ -106,6 +107,7 @@
                 width: 100%;
                 max-width: unset;
                 margin-top: 25px;
+                border-radius: 8px;
             }
 
             img {
