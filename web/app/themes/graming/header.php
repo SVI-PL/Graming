@@ -59,8 +59,8 @@
 			</nav>
 			<div class="account_menu">
 				<div class="trust_pilot">
-					<img src="<?php echo get_template_directory_uri(); ?>/src/images/trust_head.svg" alt="">
-					<img src="<?php echo get_template_directory_uri(); ?>/src/images/trust_bottom.svg" alt="">
+					<img src="<?php echo get_template_directory_uri(); ?>/src/images/Trust_Pilot_Top.svg" alt="">
+					<img src="<?php echo get_template_directory_uri(); ?>/src/images/Trust_Pilot_Bottom.svg" alt="">
 				</div>
 				<?php if (!is_user_logged_in()): ?>
 					<div class="login_btn btn-gray"><a href="/my-account">Log in</a></div>
