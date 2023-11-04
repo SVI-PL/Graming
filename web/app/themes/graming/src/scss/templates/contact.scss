@@ -125,6 +125,10 @@
                                 height: 28px;
                                 background: url(../images/contact_persone.svg);
                             }
+
+                            &.active::before {
+                                background: url(../images/contact_persone-hover.svg);
+                            }
                         }
 
                         &.form_optional {
