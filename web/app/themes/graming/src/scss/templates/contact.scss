@@ -175,10 +175,18 @@
                                 width: 28px;
                                 height: 28px;
                                 background: url(../images/contact_persone.svg);
+
+                                @media (max-width: 960px) {
+                                    transform: translateY(35%);
+                                }
                             }
 
                             &.active::before {
                                 background: url(../images/contact_persone-hover.svg);
+
+                                @media (max-width: 960px) {
+                                    transform: translateY(35%);
+                                }
                             }
                         }
 
@@ -193,6 +201,10 @@
                                 width: 26px;
                                 height: 26px;
                                 background: url(../images/Question.svg);
+
+                                @media (max-width: 960px) {
+                                    transform: translateY(35%);
+                                }
                             }
                         }
 
