@@ -14,7 +14,7 @@ get_header();
             </div>
         </div>
         <div class="right_part">
-            <img src="<?php echo get_template_directory_uri(); ?>/src/images/dyno_park.png" alt="">
+            <img src="<?php echo get_template_directory_uri(); ?>/src/images/Dino_heads.png" alt="">
         </div>
     </section>
     <section class="single_banner">
