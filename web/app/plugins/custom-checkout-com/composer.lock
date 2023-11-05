@@ -1,0 +1,81 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "f46b0db8832a70bf191e630b6b0e1a83",
+    "packages": [
+        {
+            "name": "checkout/checkout-sdk-php",
+            "version": "1.0.21",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/checkout/checkout-sdk-php.git",
+                "reference": "65d73e62bfec63588850d38e56fb92499ab91691"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/checkout/checkout-sdk-php/zipball/65d73e62bfec63588850d38e56fb92499ab91691",
+                "reference": "65d73e62bfec63588850d38e56fb92499ab91691",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7 || ^9.0",
+                "symfony/phpunit-bridge": "^5.2 || ^6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Checkout\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Checkout.com",
+                    "email": "platforms@checkout.com",
+                    "homepage": "https://github.com/checkout/checkout-sdk-php/graphs/contributors"
+                }
+            ],
+            "description": "Checkout.com SDK for PHP",
+            "homepage": "https://github.com/checkout/checkout-sdk-php",
+            "keywords": [
+                "CKO",
+                "GW3",
+                "Reboot",
+                "api",
+                "checkout",
+                "checkout.com",
+                "checkoutcom",
+                "gateway",
+                "library",
+                "payment",
+                "php",
+                "sdk"
+            ],
+            "support": {
+                "issues": "https://github.com/checkout/checkout-sdk-php/issues",
+                "source": "https://github.com/checkout/checkout-sdk-php/tree/1.0.21"
+            },
+            "time": "2022-07-18T14:17:08+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.6"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}
