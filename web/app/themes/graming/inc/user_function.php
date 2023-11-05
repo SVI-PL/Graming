@@ -1,88 +1,74 @@
 <?php
-class Balance
+// Устанавливаем баланс в $10 для новых пользователей при регистрации
+function add_balance_to_database($user_id)
 {
-    public static $table_name = 'user_balances';
-    public static function create_notification_table()
-    {
-        global $wpdb;
-        $table_name = $wpdb->prefix . self::$table_name;
-        $charset_collate = $wpdb->get_charset_collate();
+    // $new_balance = 10.00;
+    // $balance = new Balance();
+    // $balance->add_user_balance($user_id, $new_balance);
+}
+add_action('woocommerce_created_customer', 'add_balance_to_database', 10, 1);
 
-        $sql = "CREATE TABLE $table_name (
-                user_id bigint(20) NOT NULL,
-                balance decimal(10, 2) NOT NULL,
-                PRIMARY KEY (user_id)
-            ) $charset_collate;";
+// Get user balance
+function get_user_balance()
+{
+	$user_id = get_current_user_id();
+	$balance = new Balance();
+	echo "$" . $balance->get_user_balance($user_id);
+}
 
-        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-        dbDelta($sql);
+//Get user email
+function get_user_email()
+{
+	$user_info = get_userdata(get_current_user_id());
+	$email = $user_info->user_email;
+	return $email;
+}
+
+//User orders count
+function get_user_order_count()
+{
+	$user_id = get_current_user_id();
+	$order_count = wc_get_customer_order_count($user_id);
+
+	echo $order_count;
+}
+
+//Add passwors on registration
+function password_in_registration($username, $user) {
+    if (isset($_POST['password']) && !empty($_POST['password'])) {
+        $password = wc_clean($_POST['password']);
+        $user->set_password($password);
     }
-    //Add balance 
-    public static function add_user_balance($user_id, $new_balance)
-    {
-        global $wpdb;
-        $table_name = $wpdb->prefix . self::$table_name;
+}
+add_action('woocommerce_created_customer', 'password_in_registration', 10, 2);
 
-        $data = array(
-            'user_id' => $user_id,
-            'balance' => $new_balance,
-        );
-        $format = array('%d', '%f');
+//Get calc bonus
+function get_bonus_calc_amount()
+{
+	$user_id = get_current_user_id();
+	$total_bonuses = 0;
 
-        $add_balance = $wpdb->insert($table_name, $data, $format);
+	$customer_orders = wc_get_orders(
+		array(
+			'customer' => $user_id,
+			'status' => 'completed',
+			'limit' => -1,
+		)
+	);
 
-        return $add_balance;
-    }
+	foreach ($customer_orders as $order_id) {
+		$order = wc_get_order($order_id);
+		$items = $order->get_items();
+		foreach ($items as $item) {
+			$product_id = $item->get_product_id();
 
-    // Функция для обновления баланса пользователя в таблице user_balances
-    public static function update_user_balance($user_id, $new_balance)
-    {
-        global $wpdb;
-        $table_name = $wpdb->prefix . self::$table_name;
+			if ($product_id == 75) {
+				$order_total = $order->get_total();
+				$total_bonuses += $order_total;
+			}
+		}
+	}
+	$total_bonuses /= 10.0;
 
-        $update_balance = $wpdb->update(
-            $table_name,
-            array('balance' => $new_balance),
-            array('user_id' => $user_id),
-            array('%f'),
-            array('%d')
-        );
-
-        return $update_balance;
-    }
-
-    // Функция для получения баланса пользователя из таблицы user_balances
-    public static function get_user_balance($user_id)
-    {
-        global $wpdb;
-        $table_name = $wpdb->prefix . self::$table_name;
-
-        $query = $wpdb->prepare("SELECT balance FROM $table_name WHERE user_id = %d", $user_id);
-        $balance = $wpdb->get_var($query);
-        return floatval($balance);
-    }
-    // Функция для вычета средств с баланса пользователя
-    public static function subtract_user_balance($user_id, $amount)
-    {
-        global $wpdb;
-        $table_name = $wpdb->prefix . self::$table_name;
-
-        $current_balance = self::get_user_balance($user_id);
-
-        if ($current_balance >= $amount) {
-            $new_balance = $current_balance - $amount;
-            $update_balance = $wpdb->update(
-                $table_name,
-                array('balance' => $new_balance),
-                array('user_id' => $user_id),
-                array('%f'),
-                array('%d')
-            );
-
-            if ($update_balance !== false) {
-                return true;
-            }
-        }
-        return false;
-    }
+	echo "$" . $total_bonuses;
 }

@@ -6,12 +6,24 @@
  * Author URI: https://milvus.agency
  * Version: 1.0.0
  */
+require_once(dirname(__FILE__) . '/vendor/autoload.php');
+
+use Checkout\CheckoutApiException;
+use Checkout\CheckoutAuthorizationException;
+use Checkout\CheckoutSdk;
+use Checkout\Common\Address;
+use Checkout\Common\Country;
+use Checkout\Common\Currency;
+use Checkout\Common\Phone;
+use Checkout\Environment;
+use Checkout\Payments\Previous\PaymentRequest;
+use Checkout\Payments\Previous\Source\RequestCardSource;
 
 /*Exit if accessed directly*/
 if (!defined('ABSPATH')) {
     exit;
 }
-require_once(dirname(__FILE__) .'/vendor/autoload.php');
+
 function pf_checkout_com_register_gateway_class($gateways)
 {
     $gateways[] = 'WC_Custom_Checkout_Gateway';
@@ -154,13 +166,60 @@ function pf_checkout_com()
 
         public function process_payment($order_id)
         {
-            
+            //API Keys
+            $api = CheckoutSdk::builder()
+                ->previous()
+                ->staticKeys()
+                ->environment(Environment::sandbox())
+                ->secretKey("sk_test_f7f9a069-dcc5-45d8-aa72-e60f605c9514")
+                ->build();
+
+                var_dump($api);
+
+            $billingAddress = new Address();
+            $billingAddress->address_line1 = "CheckoutSdk.com";
+            $billingAddress->address_line2 = "90 Tottenham Court Road";
+            $billingAddress->city = "London";
+            $billingAddress->state = "London";
+            $billingAddress->zip = "W1T 4TJ";
+            $billingAddress->country = Country::$GB;
+
+            $phone = new Phone();
+            $phone->country_code = "+1";
+            $phone->number = "415 555 2671";
+            $requestCardSource = new RequestCardSource();
+            $requestCardSource->name = "VISA";
+            $requestCardSource->number = "4544249167673670";
+            $requestCardSource->expiry_year = 2030;
+            $requestCardSource->expiry_month = 12;
+            $requestCardSource->cvv = "100";
+            $requestCardSource->billing_address = $billingAddress;
+            $requestCardSource->phone = $phone;
+
+            $request = new PaymentRequest();
+            $request->source = $requestCardSource;
+            $request->capture = true;
+            $request->reference = "reference";
+            $request->amount = 10;
+            $request->currency = Currency::$GBP;
+
+            try {
+                $response = $api->getPaymentsClient()->requestPayment($request);
+                var_dump("response" . $response);
+            } catch (CheckoutApiException $e) {
+                $error_details = $e->error_details;
+                echo "error_details";
+                var_dump($error_details);
+                $http_status_code = isset($e->http_metadata) ? $e->http_metadata->getStatusCode() : null;
+                echo "http_status_code";
+                var_dump($http_status_code);
+            } catch (CheckoutAuthorizationException $e) {
+                var_dump("e" . $e);
+            }
 
         }
 
     }
-
-    include_once( 'includes/class-wc-gateway-checkout-com-cards.php' );
 }
 
 add_action('plugins_loaded', 'pf_checkout_com');

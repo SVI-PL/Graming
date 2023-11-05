@@ -34,32 +34,38 @@ foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
 $cart_total = WC()->cart->get_total();
 ?>
 <div id="payment" class="woocommerce-checkout-payment">
-	<div class="payment_title"><?php if (!$deposite): ?>Checkout<?php else: ?>Deposit<?php endif; ?></div>
+	<div class="payment_title">
+		<?php if (!$deposite): ?>Checkout
+		<?php else: ?>Deposit
+		<?php endif; ?>
+	</div>
 	<div class="false_checkout">
 		<?php if (!$deposite): ?>
-			<?php if(is_user_logged_in()) : ?>
-			<div class="balance_pay">
-				<div class="pay_title">Pay from balance</div>
-				<div class="account_balance">
-					Account balance:&nbsp;<span>
-						<?php get_user_balance(); ?>
-					</span>
-				</div>
-				<div class="pay_block">
-					<div class="pay_btn btn-red balance">
-						<?php wc_cart_totals_order_total_html(); ?>&nbsp;- Pay from balance
+			<?php if (is_user_logged_in()): ?>
+				<div class="balance_pay">
+					<div class="pay_title">Pay from balance</div>
+					<div class="account_balance">
+						Account balance:&nbsp;<span>
+							<?php get_user_balance(); ?>
+						</span>
 					</div>
-					<div class="btn-gray top_up_btn"><a href="/service/usd/">Top up</a></div>
+					<div class="pay_block">
+						<div class="pay_btn btn-red balance">
+							<?php wc_cart_totals_order_total_html(); ?>&nbsp;- Pay from balance
+						</div>
+						<div class="btn-gray top_up_btn"><a href="/service/usd/">Top up</a></div>
+					</div>
 				</div>
-			</div>
-			<?php endif;?>
+			<?php endif; ?>
 		<?php else: ?>
 			<div class="deposite_info">
 				<div class="total_to_pay">Total to pay &nbsp;<span>
 						<?php wc_cart_totals_order_total_html(); ?>
 					</span></div>
 				<div class="total_resive">Total to recieve
-					<div class="bonus_total"><?php echo $cart_total; ?></div>
+					<div class="bonus_total">
+						<?php echo $cart_total; ?>
+					</div>
 					<div class="top_up_bonus btn-red">10% Top up bonus</div>
 				</div>
 			</div>
@@ -90,8 +96,14 @@ $cart_total = WC()->cart->get_total();
 			<div class="btn-google"></div>
 		</div>
 		<div class="card_pay">
-			<div class="pay_title">Pay with credit / debit card <img
-					src="<?php echo get_template_directory_uri(); ?> /src/images/cardsPayment_Icons1.svg" alt="cards"></div>
+			<div class="pay_title">Pay with credit / debit card <div class="payments_img">
+					<img src="<?php echo get_template_directory_uri(); ?>/src/images/applapay.svg" alt="">
+					<img src="<?php echo get_template_directory_uri(); ?>/src/images/gpay.svg" alt="">
+					<img src="<?php echo get_template_directory_uri(); ?>/src/images/mastersvg.svg" alt="">
+					<img src="<?php echo get_template_directory_uri(); ?>/src/images/visa.svg" alt="">
+					<img src="<?php echo get_template_directory_uri(); ?>/src/images/american.svg" alt="">
+				</div>
+			</div>
 			<div class="card_form">
 				<div class="form_input form_name">
 					<input type="text" class="form-control" name="card_name" id="card_name"
