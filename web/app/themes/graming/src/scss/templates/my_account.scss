@@ -954,6 +954,8 @@
 
         @media (max-width: 768px) {
             flex-direction: column;
+            margin-top: 25px;
+            border-radius: 8px;
         }
 
         .acc_title {
@@ -970,6 +972,7 @@
 
             @media (max-width: 1250px) {
                 font-size: 45px;
+                padding: 15px;
             }
 
             @media (max-width: 960px) {
@@ -993,6 +996,10 @@
                 padding: 0;
                 margin-bottom: 25px;
                 position: relative;
+
+                @media (max-width: 768px) {
+                    margin-bottom: 20px;
+                }
 
                 label {
                     color: #161616;
@@ -1027,6 +1034,8 @@
 
                     @media (max-width: 768px) {
                         font-size: 13px;
+                        height: auto;
+                        padding: 15px 15px 15px 64px;
                     }
 
                     &::placeholder {
@@ -1054,6 +1063,12 @@
                         width: 19px;
                         height: 23px;
                         background: url(../images/contact_persone.svg);
+
+                        @media (max-width: 768px) {
+                            width: 28px;
+                            height: 28px;
+                            transform: translateY(35%);
+                        }
                     }
                 }
 
