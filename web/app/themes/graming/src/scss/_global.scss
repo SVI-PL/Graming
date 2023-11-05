@@ -291,6 +291,10 @@ main.main-content {
             background: #FFF;
             box-shadow: 6px 6px 0px 0px #FE5A13;
 
+            @media (max-width: 960px) {
+                border-radius: 8px;
+            }
+
             .block_title {
                 width: 100%;
                 padding: 37px 15px;
@@ -305,6 +309,7 @@ main.main-content {
 
                 @media (max-width: 960px) {
                     font-size: 18px;
+                    padding: 20px 15px;
                 }
             }
 
