@@ -846,6 +846,11 @@
         margin-top: 64px;
         overflow: hidden;
 
+        @media (max-width: 768px) {
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+
         .title {
             display: flex;
             color: #161616;
@@ -892,9 +897,17 @@
                 border: 1px solid #161616;
                 width: 100%;
 
+                @media (max-width: 768px) {
+                    border-radius: 8px;
+                }
+
                 .title {
                     font-size: 18px;
                     padding: 20px 16px;
+
+                    @media (max-width: 768px) {
+                        padding: 20px;
+                    }
                 }
 
                 .content {
@@ -905,6 +918,10 @@
 
                     .btn-red {
                         border: 1px solid #FE5A13;
+
+                        @media (max-width: 768px) {
+                            border-radius: 8px;
+                        }
 
                         a {
                             color: #FE5A13;
