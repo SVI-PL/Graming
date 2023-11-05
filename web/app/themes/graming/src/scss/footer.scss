@@ -9,6 +9,10 @@
         padding: 0px 20px;
     }
 
+    @media (max-width: 768px) {
+        margin: 75px auto 50px;
+    }
+
     .footer-wrap {
         border-radius: 15px;
         border: 1px solid #FE5A13;
