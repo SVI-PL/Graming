@@ -1,3 +1,11 @@
+.woocommerce-info {
+    border: 1px solid #e1e1e1;
+    border-radius: 15px;
+    font-family: 'Fixel Display';
+    font-size: 18px; 
+    background-color: white;
+}
+
 .checkout_block {
     display: flex;
     width: 100%;
@@ -20,14 +28,6 @@
             font-size: 15px; 
             border-radius: 8px;
         }
-    }
-
-    .woocommerce-info {
-        border: 1px solid #e1e1e1;
-        border-radius: 15px;
-        font-family: 'Fixel Display';
-        font-size: 18px; 
-        background-color: white;
     }
 
     .woocommerce-checkout {
