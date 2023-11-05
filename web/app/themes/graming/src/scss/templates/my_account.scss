@@ -345,6 +345,10 @@
     justify-content: center;
     margin-top: 65px;
 
+    @media (max-width: 960px) {
+        width: 100%;
+    }
+
     .custom_block {
         display: flex;
         flex-direction: column;
@@ -463,6 +467,7 @@
                         @media (max-width: 960px) {
                             width: 28px;
                             height: 28px;
+                            transform: translateY(35%);
                         }
                     }
                 }
