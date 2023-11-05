@@ -4,6 +4,11 @@
     align-items: center;
     margin-top: 65px;
 
+    @media (max-width: 960px) {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
     .container {
         display: flex;
         flex-direction: column;
@@ -17,6 +22,10 @@
             align-items: center;
             margin-bottom: 40px;
 
+            @media (max-width: 960px) {
+                margin-bottom: 20px;
+            }
+
             .title {
                 color: #161616;
                 font-family: Fixel Display;
@@ -25,6 +34,11 @@
                 font-weight: 600;
                 line-height: 120.5%;
                 margin-bottom: 40px;
+
+                @media (max-width: 960px) {
+                    font-size: 29px;
+                    margin-bottom: 20px;
+                }
             }
 
             .text {
@@ -35,6 +49,10 @@
                 font-style: normal;
                 font-weight: 500;
                 line-height: normal;
+
+                @media (max-width: 960px) {
+                    font-size: 13px;
+                }
             }
         }
 
@@ -48,6 +66,11 @@
                 border-radius: 15px;
                 border: 1px solid #161616;
                 padding: 40px 35px;
+
+                @media (max-width: 960px) {
+                    border-radius: 8px;
+                    padding: 20px 15px;
+                }
 
                 .wpforms-field-container {
                     .wpforms-field {
@@ -65,6 +88,11 @@
                             margin: 0;
                             padding: 0;
                             margin-bottom: 25px;
+
+                            @media (max-width: 960px) {
+                                font-size: 15px;
+                                margin-bottom: 20px;
+                            }
                         }
 
                         input,
@@ -84,6 +112,13 @@
                             line-height: normal;
                             height: 65px;
 
+                            @media (max-width: 960px) {
+                                padding: 15px 15px 15px 64px;
+                                height: auto;
+                                border-radius: 8px;
+                                font-size: 13px;
+                            }
+
                             &::placeholder {
                                 color: #646464;
                                 font-family: Fixel Display;
@@ -91,6 +126,10 @@
                                 font-style: normal;
                                 font-weight: 500;
                                 line-height: normal;
+
+                                @media (max-width: 960px) {
+                                    font-size: 13px;
+                                }
                             }
                         }
 
@@ -110,10 +149,18 @@
                                 width: 28px;
                                 height: 28px;
                                 background: url(../images/contact_persone.svg);
+
+                                @media (max-width: 960px) {
+                                    transform: translateY(35%);
+                                }
                             }
-                            
+
                             &.active::before {
                                 background: url(../images/contact_persone-hover.svg);
+
+                                @media (max-width: 960px) {
+                                    transform: translateY(35%);
+                                }
                             }
                         }
 
@@ -128,10 +175,18 @@
                                 width: 28px;
                                 height: 28px;
                                 background: url(../images/contact_persone.svg);
+
+                                @media (max-width: 960px) {
+                                    transform: translateY(35%);
+                                }
                             }
 
                             &.active::before {
                                 background: url(../images/contact_persone-hover.svg);
+
+                                @media (max-width: 960px) {
+                                    transform: translateY(35%);
+                                }
                             }
                         }
 
@@ -146,6 +201,10 @@
                                 width: 26px;
                                 height: 26px;
                                 background: url(../images/Question.svg);
+
+                                @media (max-width: 960px) {
+                                    transform: translateY(45%);
+                                }
                             }
                         }
 
@@ -160,6 +219,11 @@
                                 width: 20px;
                                 height: 20px;
                                 background: url(../images/Review.svg);
+
+                                @media (max-width: 960px) {
+                                    transform: translateY(-75%);
+                                    margin-bottom: 20px;
+                                }
                             }
                         }
 
@@ -171,6 +235,11 @@
                 }
 
                 .wpforms-submit-container {
+
+                    @media (max-width: 960px) {
+                        padding: 0px;
+                    }
+
                     button {
                         border-radius: 15px;
                         border: 1.5px solid #FE5A13;
@@ -185,6 +254,11 @@
                         text-transform: capitalize;
                         padding: 14px;
                         height: auto;
+
+                        @media (max-width: 960px) {
+                            border-radius: 8px;
+                            font-size: 13px;
+                        }
                     }
                 }
             }

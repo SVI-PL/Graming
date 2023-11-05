@@ -33,6 +33,7 @@
             @media (max-width: 768px) {
                 width: 100%;
                 max-width: unset;
+                border-radius: 8px;
             }
 
             .login_title {
@@ -53,6 +54,7 @@
 
                 @media (max-width: 960px) {
                     font-size: 29px;
+                    padding: 15px;
                 }
             }
 
@@ -62,6 +64,10 @@
                 flex-direction: column;
                 width: 100%;
                 padding: 40px 35px;
+
+                @media (max-width: 960px) {
+                    padding: 20px;
+                }
 
                 .form_input {
                     display: flex;
@@ -83,6 +89,7 @@
 
                         @media (max-width: 960px) {
                             font-size: 15px;
+                            margin-bottom: 20px;
                         }
                     }
 
@@ -103,6 +110,9 @@
 
                         @media (max-width: 960px) {
                             font-size: 13px;
+                            height: auto;
+                            padding: 15px 15px 15px 64px;
+                            border-radius: 8px;
                         }
 
                         &:focus {
@@ -135,6 +145,10 @@
                             height: 28px;
                             background: url(../images/contact_persone.svg);
                             transform: translateY(25%);
+
+                            @media (max-width: 960px) {
+                            transform: translateY(45%);  
+                            }
                         }
 
                         &.active::before {
@@ -154,6 +168,10 @@
                             height: 26px;
                             background: url(../images/Password.svg);
                             transform: translateY(25%);
+
+                            @media (max-width: 960px) {
+                                transform: translateY(45%);  
+                                }
                         }
 
                         &.active::before {
@@ -172,7 +190,8 @@
                     margin-bottom: 25px;
 
                     @media (max-width: 960px) {
-                        font-size: 13px;
+                        font-size: 15px;
+                        margin-bottom: 20px;
                     }
                 }
 
@@ -225,6 +244,7 @@
 
                     @media (max-width: 960px) {
                         font-size: 15px;
+                        border-radius: 8px;
                     }
                 }
             }
@@ -252,6 +272,8 @@
                 width: 100%;
                 max-width: unset;
                 margin-top: 25px;
+                border-radius: 8px;
+                padding: 20px 15px;
             }
 
             .signup_promo_text {
@@ -263,7 +285,7 @@
                 line-height: normal;
 
                 @media (max-width: 960px) {
-                    font-size: 18px;
+                    font-size: 25px;
                 }
 
                 span {
@@ -275,7 +297,7 @@
                     line-height: normal;
 
                     @media (max-width: 960px) {
-                        font-size: 18px;
+                        font-size: 25px;
                     }
                 }
             }
@@ -294,6 +316,10 @@
             }
 
             .btn-red {
+
+                @media (max-width: 960px) {
+                    border-radius: 8px;
+                }
                 a {
                     padding: 12px 40px;
                     color: #FE5A13;
@@ -314,10 +340,16 @@
     }
 }
 
+.woocommerce-message 
+
 .lost_reset_password {
     display: flex;
     justify-content: center;
     margin-top: 65px;
+
+    @media (max-width: 960px) {
+        width: 100%;
+    }
 
     .custom_block {
         display: flex;
@@ -326,6 +358,10 @@
         border: 1px solid #161616;
         width: 100%;
         max-width: 635px;
+
+        @media (max-width: 960px) {
+            border-radius: 8px;
+        }
 
         .block_title {
             color: #161616;
@@ -345,6 +381,7 @@
 
             @media (max-width: 960px) {
                 font-size: 29px;
+                padding: 15px;
             }
         }
 
@@ -352,6 +389,10 @@
             padding: 40px 35px;
             display: flex;
             flex-direction: column;
+
+            @media (max-width: 960px) {
+                padding: 20px;
+            }
 
             .form_input {
                 display: flex;
@@ -373,6 +414,7 @@
 
                     @media (max-width: 960px) {
                         font-size: 15px;
+                        margin-bottom: 20px;
                     }
                 }
 
@@ -393,6 +435,9 @@
 
                     @media (max-width: 960px) {
                         font-size: 13px;
+                        height: auto;
+                        padding: 15px 15px 15px 64px;
+                        border-radius: 8px;
                     }
 
                     &::placeholder {
@@ -420,6 +465,12 @@
                         width: 19px;
                         height: 23px;
                         background: url(../images/contact_persone.svg);
+
+                        @media (max-width: 960px) {
+                            width: 28px;
+                            height: 28px;
+                            transform: translateY(35%);
+                        }
                     }
                 }
             }
@@ -438,6 +489,7 @@
                 @media (max-width: 960px) {
                     font-size: 15px;
                     padding: 12px;
+                    border-radius: 8px;
                 }
             }
         }
@@ -619,6 +671,11 @@
         margin-top: 60px;
         overflow: hidden;
 
+        @media (max-width: 768px) {
+            margin-top: 25px;
+            border-radius: 8px;
+        }
+
         .panel_header {
             display: flex;
             flex-direction: row;
@@ -635,6 +692,7 @@
                 flex-wrap: wrap;
                 align-items: stretch;
                 justify-content: space-between;
+                padding: 20px;
             }
 
             .header_text {
@@ -663,6 +721,7 @@
 
                     @media (max-width: 768px) {
                         font-size: 20px;
+                        border-radius: 5px;
                     }
                 }
             }
@@ -677,6 +736,11 @@
                 }
 
                 .btn-black {
+
+                    @media (max-width: 768px) {
+                        border-radius: 8px;
+                    }
+
                     a {
                         padding: 15px;
 
@@ -700,6 +764,7 @@
                 flex-direction: column;
                 flex-wrap: wrap;
                 align-items: stretch;
+                padding: 20px;
             }
 
             .balance,
@@ -708,6 +773,10 @@
                 border-radius: 15px;
                 border: 1px solid #161616;
                 width: 100%;
+
+                @media (max-width: 768px) {
+                    border-radius: 8px;
+                }
 
                 .title {
                     color: #161616;
@@ -777,6 +846,11 @@
         margin-top: 64px;
         overflow: hidden;
 
+        @media (max-width: 768px) {
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+
         .title {
             display: flex;
             color: #161616;
@@ -823,9 +897,17 @@
                 border: 1px solid #161616;
                 width: 100%;
 
+                @media (max-width: 768px) {
+                    border-radius: 8px;
+                }
+
                 .title {
                     font-size: 18px;
                     padding: 20px 16px;
+
+                    @media (max-width: 768px) {
+                        padding: 20px;
+                    }
                 }
 
                 .content {
@@ -836,6 +918,10 @@
 
                     .btn-red {
                         border: 1px solid #FE5A13;
+
+                        @media (max-width: 768px) {
+                            border-radius: 8px;
+                        }
 
                         a {
                             color: #FE5A13;
@@ -868,6 +954,8 @@
 
         @media (max-width: 768px) {
             flex-direction: column;
+            margin-top: 25px;
+            border-radius: 8px;
         }
 
         .acc_title {
@@ -884,6 +972,7 @@
 
             @media (max-width: 1250px) {
                 font-size: 45px;
+                padding: 15px;
             }
 
             @media (max-width: 960px) {
@@ -908,6 +997,10 @@
                 margin-bottom: 25px;
                 position: relative;
 
+                @media (max-width: 768px) {
+                    margin-bottom: 20px;
+                }
+
                 label {
                     color: #161616;
                     font-family: Fixel Display;
@@ -921,6 +1014,7 @@
 
                     @media (max-width: 768px) {
                         font-size: 15px;
+                        margin-bottom: 20px;
                     }
                 }
 
@@ -941,6 +1035,9 @@
 
                     @media (max-width: 768px) {
                         font-size: 13px;
+                        height: auto;
+                        padding: 15px 15px 15px 64px;
+                        border-radius: 8px;
                     }
 
                     &::placeholder {
@@ -968,6 +1065,12 @@
                         width: 19px;
                         height: 23px;
                         background: url(../images/contact_persone.svg);
+
+                        @media (max-width: 768px) {
+                            width: 28px;
+                            height: 28px;
+                            transform: translateY(35%);
+                        }
                     }
                 }
 
@@ -991,6 +1094,10 @@
                 margin-bottom: 25px;
                 position: relative;
 
+                @media (max-width: 768px) {
+                    margin-bottom: 20px;
+                }
+
                 label {
                     color: #161616;
                     font-family: Fixel Display;
@@ -1004,6 +1111,7 @@
 
                     @media (max-width: 768px) {
                         font-size: 15px;
+                        margin-bottom: 20px;
                     }
                 }
 
@@ -1024,6 +1132,9 @@
 
                     @media (max-width: 768px) {
                         font-size: 13px;
+                        height: auto;
+                        border-radius: 8px;
+                        padding: 15px 15px 15px 64px;
                     }
 
                     &::placeholder {
@@ -1052,6 +1163,12 @@
                         width: 20px;
                         height: 20px;
                         background: url(../images/Password.svg);
+
+                        @media (max-width: 768px) {
+                            width: 25px;
+                            height: 26px;
+                            transform: translateY(45%);
+                        }
                     }
                 }
             }
@@ -1087,6 +1204,8 @@
 
             @media (max-width: 768px) {
                 font-size: 15px;
+                margin-top: 20px;
+                border-radius: 8px;
             }
         }
     }

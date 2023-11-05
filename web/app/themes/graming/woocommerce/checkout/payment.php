@@ -91,7 +91,7 @@ $cart_total = WC()->cart->get_total();
 		</div>
 		<div class="card_pay">
 			<div class="pay_title">Pay with credit / debit card <img
-					src="<?php echo get_template_directory_uri(); ?> /src/images/cards.svg" alt="cards"></div>
+					src="<?php echo get_template_directory_uri(); ?> /src/images/cardsPayment_Icons1.svg" alt="cards"></div>
 			<div class="card_form">
 				<div class="form_input form_name">
 					<input type="text" class="form-control" name="card_name" id="card_name"

@@ -1,3 +1,21 @@
+.woocommerce-info {
+    border: 1px solid #e1e1e1;
+    border-radius: 15px;
+    font-family: 'Fixel Display';
+    font-size: 18px; 
+    font-weight: 500;
+    background-color: white;
+
+    .woocommerce-info::before {
+        color: #FE5A13;
+    }
+
+    a.showlogin {
+        color: #FE5A13;
+        font-weight: 400;
+    }
+}
+
 .checkout_block {
     display: flex;
     width: 100%;
@@ -5,6 +23,22 @@
     flex-direction: column;
     align-items: center;
     margin-top: 65px;
+
+    @media (max-width: 768px) {
+        margin-top: 25px;
+    }
+
+    .woocommerce-error {
+        border: 1px solid #e1e1e1;
+        border-radius: 15px;
+        font-family: 'Fixel Display';
+        font-size: 18px; 
+
+        @media (max-width: 768px) {
+            font-size: 15px; 
+            border-radius: 8px;
+        }
+    }
 
     .woocommerce-checkout {
         display: flex;
@@ -53,6 +87,7 @@
                 @media (max-width: 768px) {
                     width: 100%;
                     max-width: unset;
+                    border-radius: 8px;
                 }
 
                 .payment_title {
@@ -73,6 +108,7 @@
 
                     @media (max-width: 960px) {
                         font-size: 29px;
+                        padding: 15px;
                     }
                 }
 
@@ -81,6 +117,11 @@
                     flex-direction: column;
                     padding: 40px 35px;
                     gap: 25px;
+
+                    @media (max-width: 960px) {
+                        padding: 20px;
+                        gap: 20px;
+                    }
 
                     .balance_pay {
                         display: flex;
@@ -142,6 +183,7 @@
 
                             @media (max-width: 960px) {
                                 flex-direction: column;
+                                gap:10px;
                             }
 
                             .balance {
@@ -163,6 +205,8 @@
 
                                 @media (max-width: 768px) {
                                     width: 100%;
+                                    padding:15px;
+                                    border-radius: 8px;
                                 }
 
                                 strong {
@@ -187,10 +231,15 @@
 
                                 @media (max-width: 768px) {
                                     width: 100%;
+                                    border-radius: 8px;
                                 }
 
                                 a {
                                     padding: 17px;
+
+                                    @media (max-width: 768px) {
+                                        padding: 15px;
+                                    }
                                 }
                             }
                         }
@@ -200,6 +249,10 @@
                         display: flex;
                         flex-direction: column;
                         gap: 25px;
+
+                        @media (max-width: 768px) {
+                            gap:20px;
+                        }
 
                         .total_to_pay {
                             color: #161616;
@@ -273,6 +326,8 @@
 
                                 @media (max-width: 960px) {
                                     font-size: 13px;
+                                    padding: 5px;
+                                    border-radius: 8px;
                                 }
                             }
                         }
@@ -382,6 +437,7 @@
 
                                 @media (max-width: 768px) {
                                     width: 100%;
+                                    padding: 12px;
                                 }
                             }
 
@@ -406,6 +462,7 @@
 
                                 @media (max-width: 768px) {
                                     width: 100%;
+                                    padding: 12px;
                                 }
                             }
                         }
@@ -416,6 +473,10 @@
                         flex-direction: column;
                         align-items: flex-start;
                         gap: 25px;
+
+                        @media (max-width: 960px) {
+                            gap: 20px;
+                        }
 
                         .pay_title {
                             color: #161616;
@@ -440,6 +501,12 @@
                             background-position: center center;
                             background-size: 70px;
                             cursor: pointer;
+
+                            @media (max-width: 960px) {
+                                padding: 22px;
+                                height: auto;
+                                border-radius: 8px;
+                            }
                         }
                     }
 
@@ -448,6 +515,10 @@
                         flex-direction: column;
                         align-items: flex-start;
                         gap: 25px;
+
+                        @media (max-width: 960px) {
+                            gap: 20px;
+                        }
 
                         .pay_title {
                             color: #161616;
@@ -472,6 +543,12 @@
                             background-position: center center;
                             background-size: 70px;
                             cursor: pointer;
+
+                            @media (max-width: 960px) {
+                                padding: 22px;
+                                height: auto;
+                                border-radius: 8px;
+                            }
                         }
                     }
 
@@ -480,6 +557,10 @@
                         flex-direction: column;
                         align-items: flex-start;
                         gap: 25px;
+
+                        @media (max-width: 960px) {
+                            gap: 25px;
+                        }
 
                         .pay_title {
                             display: flex;
@@ -529,10 +610,16 @@
 
                                     @media (max-width: 960px) {
                                         font-size: 13px;
+                                        padding: 15px 15px 15px 64px;
+                                        height: auto;
+                                        border-radius: 8px;
                                     }
 
                                     @media (max-width: 768px) {
-                                        padding: 19px 19px 19px 45px;
+                                        font-size: 13px;
+                                        padding: 15px 15px 15px 64px;
+                                        height: auto;
+                                        border-radius: 8px;
                                     }
 
                                     &::placeholder {
@@ -576,6 +663,7 @@
 
                                         @media (max-width: 768px) {
                                             left: 15px;
+                                            transform: translateY(35%);
                                         }
                                     }
                                 }
@@ -596,6 +684,7 @@
 
                                         @media (max-width: 768px) {
                                             left: 15px;
+                                            transform: translateY(35%);
                                         }
                                     }
                                 }
@@ -610,6 +699,7 @@
 
                                     @media (max-width: 768px) {
                                         width: calc(60% - 12.5px);
+                                        border-radius: 8px;
                                     }
 
                                     &::before {
@@ -625,12 +715,18 @@
 
                                         @media (max-width: 768px) {
                                             left: 15px;
+                                            transform: translateY(35%);
                                         }
                                     }
 
                                     #card_month {
                                         border: none;
                                         text-align: center;
+
+                                        @media (max-width: 768px) {
+                                            padding: 15px;
+                                            padding-left: 50px;
+                                        }
                                     }
 
                                     .sep {
@@ -644,6 +740,10 @@
                                         border: none;
                                         text-align: center;
                                         padding: 19px;
+
+                                        @media (max-width: 768px) {
+                                            padding: 15px;
+                                        }
                                     }
                                 }
 
@@ -667,6 +767,7 @@
 
                                         @media (max-width: 768px) {
                                             left: 15px;
+                                            transform: translateY(35%);
                                         }
                                     }
                                 }
@@ -687,6 +788,8 @@
 
                                 @media (max-width: 960px) {
                                     font-size: 15px;
+                                    border-radius: 8px;
+
                                 }
 
                                 strong {
@@ -736,6 +839,7 @@
                     width: 100%;
                     max-width: unset;
                     margin-bottom: 25px;
+                    border-radius: 8px;
                 }
 
                 .user_info {
@@ -777,9 +881,17 @@
                 .user_item {
                     margin: 35px 40px 25px;
 
+                    @media (max-width: 960px) {
+                        margin: 20px
+                    }
+
                     .product_select {
                         border-radius: 15px;
                         border: 1px solid #161616;
+
+                        @media (max-width: 960px) {
+                            border-radius: 8px;
+                        }
 
                         .cart_item {
                             border-radius: 15px;
@@ -799,6 +911,7 @@
 
                             @media (max-width: 960px) {
                                 font-size: 13px;
+                                padding: 15px 25px 15px 65px;
                             }
 
                             &::before {
@@ -855,6 +968,7 @@
 
                     @media (max-width: 960px) {
                         font-size: 15px;
+                        margin: 0 20px 20px;
                     }
 
                     .total {
@@ -884,6 +998,10 @@
                     flex-direction: column;
                     align-items: flex-start;
                     margin: 0 40px 25px;
+
+                    @media (max-width: 960px) {
+                        margin: 0 20px 20px;
+                    }
 
                     .coupon_set {
                         display: flex;
@@ -1070,6 +1188,11 @@
             justify-content: space-between;
 
             .btn-gray {
+
+                @media (max-width: 768px) {
+                    border-radius: 8px;
+                }
+
                 a {
                     padding: 15px;
                     color: #646464;
