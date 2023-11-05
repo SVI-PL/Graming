@@ -1000,6 +1000,10 @@
     border-radius: 15px;
     border: 1px solid #161616;
 
+    @media (max-width: 768px) {
+        border-radius: 8px;
+    }
+
     .title {
         border-bottom: 1px solid #161616;
         display: flex;
@@ -1020,12 +1024,17 @@
 
         @media (max-width: 960px) {
             font-size: 29px;
+            padding:15px;
         }
     }
 
     .content_block {
         padding: 40px 35px;
         width: 100%;
+
+        @media (max-width: 960px) {
+            padding: 20px;
+        }
 
         .form_input {
             display: flex;
@@ -1047,6 +1056,7 @@
 
                 @media (max-width: 960px) {
                     font-size: 15px;
+                    margin-bottom: 20px;
                 }
             }
 
@@ -1067,6 +1077,9 @@
 
                 @media (max-width: 960px) {
                     font-size: 13px;
+                    height: auto;
+                    border-radius: 8px;
+                    padding: 15px;
                 }
 
                 &::placeholder {
@@ -1098,6 +1111,7 @@
 
             @media (max-width: 960px) {
                 font-size: 15px;
+                border-radius: 8px;
             }
         }
     }
