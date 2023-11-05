@@ -3,12 +3,16 @@
     border-radius: 15px;
     font-family: 'Fixel Display';
     font-size: 18px; 
-    font-family: 500;
+    font-weight: 500;
     background-color: white;
+
+    .woocommerce-info::before {
+        color: #FE5A13;
+    }
 
     a.showlogin {
         color: #FE5A13;
-        font-family: 400;
+        font-weight: 400;
     }
 }
 
