@@ -6,6 +6,10 @@
     align-items: center;
     margin-top: 65px;
 
+    @media (max-width: 768px) {
+        margin-top: 25px;
+    }
+
     .woocommerce-checkout {
         display: flex;
         flex-direction: column;
@@ -53,6 +57,7 @@
                 @media (max-width: 768px) {
                     width: 100%;
                     max-width: unset;
+                    border-radius: 8px;
                 }
 
                 .payment_title {
@@ -73,6 +78,7 @@
 
                     @media (max-width: 960px) {
                         font-size: 29px;
+                        padding: 15px;
                     }
                 }
 
@@ -81,6 +87,11 @@
                     flex-direction: column;
                     padding: 40px 35px;
                     gap: 25px;
+
+                    @media (max-width: 960px) {
+                        padding: 20px;
+                        gap: 20px;
+                    }
 
                     .balance_pay {
                         display: flex;
@@ -201,6 +212,10 @@
                         flex-direction: column;
                         gap: 25px;
 
+                        @media (max-width: 768px) {
+                            gap:20px;
+                        }
+
                         .total_to_pay {
                             color: #161616;
                             font-family: Fixel Display;
@@ -273,6 +288,8 @@
 
                                 @media (max-width: 960px) {
                                     font-size: 13px;
+                                    padding: 5px;
+                                    border-radius: 8px;
                                 }
                             }
                         }
@@ -382,6 +399,7 @@
 
                                 @media (max-width: 768px) {
                                     width: 100%;
+                                    padding: 12px;
                                 }
                             }
 
@@ -406,6 +424,7 @@
 
                                 @media (max-width: 768px) {
                                     width: 100%;
+                                    padding: 12px;
                                 }
                             }
                         }
@@ -416,6 +435,10 @@
                         flex-direction: column;
                         align-items: flex-start;
                         gap: 25px;
+
+                        @media (max-width: 960px) {
+                            gap: 20px;
+                        }
 
                         .pay_title {
                             color: #161616;
@@ -440,6 +463,12 @@
                             background-position: center center;
                             background-size: 70px;
                             cursor: pointer;
+
+                            @media (max-width: 960px) {
+                                padding: 22px;
+                                height: auto;
+                                border-radius: 8px;
+                            }
                         }
                     }
 
@@ -448,6 +477,10 @@
                         flex-direction: column;
                         align-items: flex-start;
                         gap: 25px;
+
+                        @media (max-width: 960px) {
+                            gap: 20px;
+                        }
 
                         .pay_title {
                             color: #161616;
@@ -472,6 +505,12 @@
                             background-position: center center;
                             background-size: 70px;
                             cursor: pointer;
+
+                            @media (max-width: 960px) {
+                                padding: 22px;
+                                height: auto;
+                                border-radius: 8px;
+                            }
                         }
                     }
 
