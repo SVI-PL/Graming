@@ -235,6 +235,10 @@ main.main-content {
     gap: 40px;
     width: 100%;
 
+    @media (max-width: 960px) {
+        gap: 20px;
+    }
+
     .promo_title {
         color: #161616;
         font-family: Fixel Display;
