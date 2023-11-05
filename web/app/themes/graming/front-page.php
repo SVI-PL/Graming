@@ -73,7 +73,7 @@ get_header();
                 foreach ($slider_reviews as $review): ?>
                     <div class="slick_slide">
                         <div class="slider_inner">
-                            <div class="rating"><img src="<?php echo get_template_directory_uri(); ?>/src/images/rating.png"
+                            <div class="rating"><img src="<?php echo get_template_directory_uri(); ?>/src/images/5stars.svg"
                                     alt=""></div>
                             <div class="name">
                                 <?php echo $review["name"]; ?>
