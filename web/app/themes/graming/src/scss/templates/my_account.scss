@@ -33,6 +33,7 @@
             @media (max-width: 768px) {
                 width: 100%;
                 max-width: unset;
+                border-radius: 8px;
             }
 
             .login_title {
@@ -88,6 +89,7 @@
 
                         @media (max-width: 960px) {
                             font-size: 15px;
+                            margin-bottom: 20px;
                         }
                     }
 
@@ -166,6 +168,10 @@
                             height: 26px;
                             background: url(../images/Password.svg);
                             transform: translateY(25%);
+
+                            @media (max-width: 960px) {
+                                transform: translateY(45%);  
+                                }
                         }
 
                         &.active::before {
@@ -184,7 +190,8 @@
                     margin-bottom: 25px;
 
                     @media (max-width: 960px) {
-                        font-size: 13px;
+                        font-size: 15px;
+                        margin-bottom: 20px;
                     }
                 }
 
@@ -237,6 +244,7 @@
 
                     @media (max-width: 960px) {
                         font-size: 15px;
+                        border-radius: 8px;
                     }
                 }
             }
@@ -264,6 +272,8 @@
                 width: 100%;
                 max-width: unset;
                 margin-top: 25px;
+                border-radius: 8px;
+                padding: 20px 15px;
             }
 
             .signup_promo_text {
@@ -275,7 +285,7 @@
                 line-height: normal;
 
                 @media (max-width: 960px) {
-                    font-size: 18px;
+                    font-size: 25px;
                 }
 
                 span {
@@ -287,7 +297,7 @@
                     line-height: normal;
 
                     @media (max-width: 960px) {
-                        font-size: 18px;
+                        font-size: 25px;
                     }
                 }
             }
@@ -319,6 +329,7 @@
 
                     @media (max-width: 960px) {
                         font-size: 15px;
+                        border-radius: 8px;
                     }
                 }
             }
