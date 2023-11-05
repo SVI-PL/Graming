@@ -167,8 +167,9 @@ main.main-content {
 
     @media (max-width: 768px) {
         padding: 22px 28px 280px 28px;
-        background-position: bottom center;
-        background-size: 50%;
+        background-position: 50% 90%;
+        background-size: 80%;
+        border-radius: 8px;
     }
 
     .banner_title {
@@ -222,6 +223,7 @@ main.main-content {
 
         @media (max-width: 768px) {
             max-width: 100%;
+            border-radius: 8px;
         }
     }
 }
