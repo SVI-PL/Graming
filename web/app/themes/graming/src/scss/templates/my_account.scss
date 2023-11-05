@@ -316,6 +316,10 @@
             }
 
             .btn-red {
+
+                @media (max-width: 960px) {
+                    border-radius: 8px;
+                }
                 a {
                     padding: 12px 40px;
                     color: #FE5A13;
@@ -329,7 +333,6 @@
 
                     @media (max-width: 960px) {
                         font-size: 15px;
-                        border-radius: 8px;
                     }
                 }
             }
