@@ -353,6 +353,10 @@
         width: 100%;
         max-width: 635px;
 
+        @media (max-width: 960px) {
+            border-radius: 8px;
+        }
+
         .block_title {
             color: #161616;
             text-align: center;
@@ -371,6 +375,7 @@
 
             @media (max-width: 960px) {
                 font-size: 29px;
+                padding: 15px;
             }
         }
 
@@ -378,6 +383,10 @@
             padding: 40px 35px;
             display: flex;
             flex-direction: column;
+
+            @media (max-width: 960px) {
+                padding: 20px;
+            }
 
             .form_input {
                 display: flex;
@@ -399,6 +408,7 @@
 
                     @media (max-width: 960px) {
                         font-size: 15px;
+                        margin-bottom: 20px;
                     }
                 }
 
@@ -419,6 +429,9 @@
 
                     @media (max-width: 960px) {
                         font-size: 13px;
+                        height: auto;
+                        padding: 15px 15px 15px 64px;
+                        border-radius: 8px;
                     }
 
                     &::placeholder {
@@ -446,6 +459,11 @@
                         width: 19px;
                         height: 23px;
                         background: url(../images/contact_persone.svg);
+
+                        @media (max-width: 960px) {
+                            width: 28px;
+                            height: 28px;
+                        }
                     }
                 }
             }
@@ -464,6 +482,7 @@
                 @media (max-width: 960px) {
                     font-size: 15px;
                     padding: 12px;
+                    border-radius: 8px;
                 }
             }
         }
