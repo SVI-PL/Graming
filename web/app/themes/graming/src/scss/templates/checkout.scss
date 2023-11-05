@@ -520,6 +520,10 @@
                         align-items: flex-start;
                         gap: 25px;
 
+                        @media (max-width: 960px) {
+                            gap: 25px;
+                        }
+
                         .pay_title {
                             display: flex;
                             align-items: center;
@@ -568,10 +572,16 @@
 
                                     @media (max-width: 960px) {
                                         font-size: 13px;
+                                        padding: 15px 15px 15px 64px;
+                                        height: auto;
+                                        border-radius: 8px;
                                     }
 
                                     @media (max-width: 768px) {
-                                        padding: 19px 19px 19px 45px;
+                                        font-size: 13px;
+                                        padding: 15px 15px 15px 64px;
+                                        height: auto;
+                                        border-radius: 8px;
                                     }
 
                                     &::placeholder {
@@ -615,6 +625,7 @@
 
                                         @media (max-width: 768px) {
                                             left: 15px;
+                                            transform: translateY(35%);
                                         }
                                     }
                                 }
@@ -635,6 +646,7 @@
 
                                         @media (max-width: 768px) {
                                             left: 15px;
+                                            transform: translateY(35%);
                                         }
                                     }
                                 }
@@ -649,6 +661,7 @@
 
                                     @media (max-width: 768px) {
                                         width: calc(60% - 12.5px);
+                                        border-radius: 8px;
                                     }
 
                                     &::before {
@@ -664,12 +677,18 @@
 
                                         @media (max-width: 768px) {
                                             left: 15px;
+                                            transform: translateY(35%);
                                         }
                                     }
 
                                     #card_month {
                                         border: none;
                                         text-align: center;
+
+                                        @media (max-width: 768px) {
+                                            padding: 15px;
+                                            padding-left: 50px;
+                                        }
                                     }
 
                                     .sep {
@@ -683,6 +702,10 @@
                                         border: none;
                                         text-align: center;
                                         padding: 19px;
+
+                                        @media (max-width: 768px) {
+                                            padding: 15px;
+                                        }
                                     }
                                 }
 
@@ -706,6 +729,7 @@
 
                                         @media (max-width: 768px) {
                                             left: 15px;
+                                            transform: translateY(35%);
                                         }
                                     }
                                 }
