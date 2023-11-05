@@ -456,7 +456,7 @@ main.main-content {
             justify-content: flex-end;
 
             @media (max-width: 768px) {
-                justify-content: space-between;
+                justify-content: center;
             }
 
             .testimonials_btn {
@@ -474,7 +474,7 @@ main.main-content {
                 }
 
                 @media (max-width: 768px) {
-                    width: 100%;
+                    width: 85%;
                 }
             }
         }
