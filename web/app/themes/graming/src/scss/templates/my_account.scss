@@ -53,6 +53,7 @@
 
                 @media (max-width: 960px) {
                     font-size: 29px;
+                    padding: 15px;
                 }
             }
 
@@ -62,6 +63,10 @@
                 flex-direction: column;
                 width: 100%;
                 padding: 40px 35px;
+
+                @media (max-width: 960px) {
+                    padding: 20px;
+                }
 
                 .form_input {
                     display: flex;
@@ -103,6 +108,9 @@
 
                         @media (max-width: 960px) {
                             font-size: 13px;
+                            height: auto;
+                            padding: 15px 15px 15px 64px;
+                            border-radius: 8px;
                         }
 
                         &:focus {
@@ -135,6 +143,10 @@
                             height: 28px;
                             background: url(../images/contact_persone.svg);
                             transform: translateY(25%);
+
+                            @media (max-width: 960px) {
+                            transform: translateY(45%);  
+                            }
                         }
 
                         &.active::before {
