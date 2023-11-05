@@ -22,7 +22,17 @@
         }
     }
 
+    .woocommerce-info {
+        border: 1px solid #e1e1e1;
+        border-radius: 15px;
+        font-family: 'Fixel Display';
+        font-size: 18px; 
+        background-color: white;
+    }
 
+    .woocommerce-info::before {
+        color:#FE5A13;
+    }
 
     .woocommerce-checkout {
         display: flex;
