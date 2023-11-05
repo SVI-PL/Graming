@@ -97,6 +97,7 @@
             flex-direction: row;
             align-items: center;
             justify-content: center;
+            width: 40%;
 
             @media (max-width: 1250px) {
                 width: calc(45% - 25px);
