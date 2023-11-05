@@ -1,5 +1,4 @@
 <?php
-
 use Checkout\CheckoutApiException;
 use Checkout\CheckoutAuthorizationException;
 use Checkout\CheckoutSdk;
@@ -9,17 +8,14 @@ use Checkout\Common\Currency;
 use Checkout\Common\CustomerRequest;
 use Checkout\Common\Phone;
 use Checkout\Environment;
-use Checkout\OAuthScope;
 use Checkout\Payments\Request\PaymentRequest;
 use Checkout\Payments\Request\Source\RequestCardSource;
-use Checkout\Payments\Sender\Identification;
-use Checkout\Payments\Sender\IdentificationType;
 use Checkout\Payments\Sender\PaymentIndividualSender;
 
 //API Keys
 $api = CheckoutSdk::builder()->staticKeys()
     ->environment(Environment::sandbox())
-    ->secretKey("sk_sbox_5vskqyk6hnz3rmqu3unmzk6v3en")
+    ->secretKey(pf_checkout_com()->get_option('test_private_key'))
     ->build();
 
 $phone = new Phone();
