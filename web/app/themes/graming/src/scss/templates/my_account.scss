@@ -1014,6 +1014,7 @@
 
                     @media (max-width: 768px) {
                         font-size: 15px;
+                        margin-bottom: 20px;
                     }
                 }
 
@@ -1036,6 +1037,7 @@
                         font-size: 13px;
                         height: auto;
                         padding: 15px 15px 15px 64px;
+                        border-radius: 8px;
                     }
 
                     &::placeholder {
@@ -1105,6 +1107,7 @@
 
                     @media (max-width: 768px) {
                         font-size: 15px;
+                        margin-bottom: 20px;
                     }
                 }
 
@@ -1125,6 +1128,9 @@
 
                     @media (max-width: 768px) {
                         font-size: 13px;
+                        height: auto;
+                        border-radius: 8px;
+                        padding: 15px 15px 15px 64px;
                     }
 
                     &::placeholder {
@@ -1153,6 +1159,12 @@
                         width: 20px;
                         height: 20px;
                         background: url(../images/Password.svg);
+
+                        @media (max-width: 768px) {
+                            width: 25px;
+                            height: 26px;
+                            transform: translateY(45%);
+                        }
                     }
                 }
             }
