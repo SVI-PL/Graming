@@ -340,6 +340,8 @@
     }
 }
 
+.woocommerce-message 
+
 .lost_reset_password {
     display: flex;
     justify-content: center;
@@ -669,6 +671,10 @@
         margin-top: 60px;
         overflow: hidden;
 
+        @media (max-width: 768px) {
+            margin-top: 25px;
+            border-radius: 8px;
+
         .panel_header {
             display: flex;
             flex-direction: row;
@@ -685,6 +691,7 @@
                 flex-wrap: wrap;
                 align-items: stretch;
                 justify-content: space-between;
+                padding: 20px;
             }
 
             .header_text {
@@ -713,6 +720,7 @@
 
                     @media (max-width: 768px) {
                         font-size: 20px;
+                        border-radius: 5px;
                     }
                 }
             }
@@ -727,6 +735,11 @@
                 }
 
                 .btn-black {
+
+                    @media (max-width: 768px) {
+                        border-radius: 8px;
+                    }
+
                     a {
                         padding: 15px;
 
@@ -750,6 +763,7 @@
                 flex-direction: column;
                 flex-wrap: wrap;
                 align-items: stretch;
+                padding: 20px;
             }
 
             .balance,
@@ -758,6 +772,10 @@
                 border-radius: 15px;
                 border: 1px solid #161616;
                 width: 100%;
+
+                @media (max-width: 768px) {
+                    border-radius: 8px;
+                }
 
                 .title {
                     color: #161616;
