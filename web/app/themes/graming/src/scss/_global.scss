@@ -475,6 +475,7 @@ main.main-content {
 
                 @media (max-width: 768px) {
                     width: 85%;
+                    border-radius: 8px;
                 }
             }
         }
@@ -507,6 +508,10 @@ main.main-content {
                     margin: 10px;
                     padding: 20px 25px;
                     position: relative;
+
+                    @media (max-width: 960px) {
+                        border-radius: 8px;
+                    }
 
                     &::after {
                         content: "";
@@ -948,6 +953,7 @@ main.main-content {
 
                 @media (max-width: 960px) {
                     font-size: 18px;
+                    padding: 10px 22px;
                 }
 
                 .tab_dropdown {
