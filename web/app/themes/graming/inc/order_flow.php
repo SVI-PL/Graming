@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 //Redirect from cart to checkout
 function checkout_redirect($redirect)
@@ -34,6 +34,35 @@ add_action('woocommerce_admin_order_data_after_billing_address', 'display_custom
 //AJAX fragments update
 function custom_checkout_fragments($fragments)
 {
+	ob_start();
+	?>
+	<div class="user_item">
+		<div class="product_select">
+			<?php
+			foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+				$_product = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+				if ($_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters('woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key)) {
+					?>
+					<div
+						class="<?php echo esc_attr(apply_filters('woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key)); ?>">
+						<div class="product-name">
+							<?php echo wp_kses_post(apply_filters('woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key)) . '&nbsp;'; ?>
+							<?php echo apply_filters('woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . sprintf('&times;&nbsp;%s', $cart_item['quantity']) . '</strong>', $cart_item, $cart_item_key); ?>
+							<?php echo wc_get_formatted_cart_item_data($cart_item); ?>
+						</div>
+						<div class="product-total">
+							<?php echo apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key); ?>
+						</div>
+					</div>
+					<?php
+				}
+			}
+			?>
+		</div>
+	</div>
+	<?php
+	$fragments['.user_item'] = ob_get_clean();
+
 	ob_start();
 	?>
 	<div class="total_to_pay">Total to pay
@@ -255,3 +284,27 @@ function get_api_order_status()
 	}
 }
 
+//Ajax add to card upsale product
+function add_to_cart_ajax()
+{
+	if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
+		$product_id = intval($_POST['product_id']);
+		$quantity = intval($_POST['quantity']);
+
+		WC()->cart->add_to_cart($product_id, $quantity);
+		wp_send_json_success();
+	} else {
+		wp_send_json_error();
+	}
+}
+add_action('wp_ajax_add_to_cart', 'add_to_cart_ajax');
+add_action('wp_ajax_nopriv_add_to_cart', 'add_to_cart_ajax');
+
+//Clear cart via Ajax
+function clear_cart_via_ajax()
+{
+	WC()->cart->empty_cart();
+	wp_send_json_success();
+}
+add_action('wp_ajax_clear_cart', 'clear_cart_via_ajax');
+add_action('wp_ajax_nopriv_clear_cart', 'clear_cart_via_ajax');

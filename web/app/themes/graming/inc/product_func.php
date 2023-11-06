@@ -134,7 +134,7 @@ function upsale_checkout($product_id)
 							<div class="save">Save 25%</div>
 						</div>
 					</div>
-					<a href="<?php echo esc_url(wc_get_cart_url()) . '?add-to-cart=' . $product->get_id() . '&quantity=' . $option_value ?>" class="add-upsale"></a>
+					<a href="<?php echo esc_url(wc_get_cart_url()) . '?add-to-cart=' . $product->get_id() . '&quantity=' . $option_value ?>" class="add-upsale" data-product-id="<?php echo $product->get_id();?>" data-quantity="<?php echo $option_value;?>"></a>
 				</div>
 				<?php
 			}
@@ -143,3 +143,4 @@ function upsale_checkout($product_id)
 		echo 'no items';
 	}
 }
+

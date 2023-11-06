@@ -181,6 +181,82 @@ jQuery(document).ready(function ($) {
     $(".testimonials_slider").hide();
     $(".add_review_form").show();
   });
+
+  //Upsale ajax add to cart
+  $('.add-upsale').on('click', function (e) {
+    e.preventDefault();
+
+    var productID = $(this).data('product-id');
+    var quantity = $(this).data('quantity');
+
+    $.ajax({
+      type: 'POST',
+      url: woocommerce_params.ajax_url,
+      data: {
+        action: 'add_to_cart',
+        product_id: productID,
+        quantity: quantity
+      },
+      success: function (response) {
+        updateOrderReview();
+      }
+    });
+  });
+
+  //Update order review
+  function updateOrderReview() {
+    var data = {
+      security: wc_checkout_params.update_order_review_nonce,
+      post_data: $('form.checkout').serialize()
+    };
+
+    $.ajax({
+      type: 'POST',
+      url: wc_checkout_params.wc_ajax_url.toString().replace('%%endpoint%%', 'update_order_review'),
+      data: data,
+      success: function (response) {
+
+        // Reload the page if requested
+        if (response && true === response.reload) {
+          window.location.reload();
+          return;
+        }
+
+        $('.woocommerce-NoticeGroup-updateOrderReview').remove();
+
+        if (response && response.fragments) {
+          jQuery.each(response.fragments, function(key, value) {
+              jQuery(key).replaceWith(value);
+          });
+      }
+
+        $(document.body).trigger('updated_checkout', [response]);
+      },
+    });
+
+  }
+
+  //Clear cart if not checkout
+  function clean_cart() {
+    var isCheckoutPage = false;
+    if (window.location.href.indexOf('/checkout/') > -1) {
+      isCheckoutPage = true;
+    }
+    console.log(isCheckoutPage);
+    if (!isCheckoutPage) {
+      $.ajax({
+        type: 'POST',
+        url: woocommerce_params.ajax_url,
+        data: {
+          action: 'clear_cart'
+        },
+        success: function (response) {
+          console.log("Cart emty");
+        }
+      });
+    }
+  };
+  clean_cart();
 });
 
 
