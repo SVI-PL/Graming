@@ -147,7 +147,7 @@
                             transform: translateY(25%);
 
                             @media (max-width: 960px) {
-                            transform: translateY(45%);  
+                                transform: translateY(45%);
                             }
                         }
 
@@ -170,8 +170,8 @@
                             transform: translateY(25%);
 
                             @media (max-width: 960px) {
-                                transform: translateY(45%);  
-                                }
+                                transform: translateY(45%);
+                            }
                         }
 
                         &.active::before {
@@ -320,6 +320,7 @@
                 @media (max-width: 960px) {
                     border-radius: 8px;
                 }
+
                 a {
                     padding: 12px 40px;
                     color: #FE5A13;
@@ -340,9 +341,7 @@
     }
 }
 
-.woocommerce-message 
-
-.lost_reset_password {
+.woocommerce-message .lost_reset_password {
     display: flex;
     justify-content: center;
     margin-top: 65px;
@@ -1578,7 +1577,21 @@
     }
 }
 
-.bootstrap-iso {
+.back-to-tickets,
+.new-ticket {
+    color: #FE5A13;
+    font-family: Fixel Display;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: capitalize;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.back-to-tickets,
+.ticket-cancel {
     display: none;
 }
 
@@ -1586,4 +1599,308 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+
+    .support_block {
+        border-radius: 15px;
+        border: 1px solid #161616;
+        overflow: hidden;
+
+        .title {
+            color: #161616;
+            text-align: center;
+            font-family: Fixel Display;
+            font-size: 53px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 120.5%;
+            padding: 25px;
+            border-bottom: 1px solid #161616;
+            width: 100%;
+
+            @media(max-width: 1250px) {
+                font-size: 45px
+            }
+
+            @media(max-width: 960px) {
+                font-size: 29px
+            }
+
+            .new_ticket {
+                display: none;
+            }
+        }
+
+        #support-tickets-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            table.table.support-tickets-table {
+                font-size: unset;
+                color: unset;
+                font-family: Fixel Display;
+                border-collapse: collapse;
+
+                thead {
+                    color: #161616;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+
+                    th {
+                        text-align: center;
+                        border-bottom: 1px solid #161616;
+                    }
+                }
+
+                tbody {
+                    color: #646464;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 15px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 15px;
+
+                    tr {
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+
+                        &:last-child {
+                            border: none;
+                        }
+
+                        td {
+                            padding: 21px 0;
+                            text-align: center !important;
+
+                            .bootstrap-iso {
+                                .label-danger {
+                                    background-color: unset;
+                                    color: #85C316;
+                                    font-family: Fixel Display;
+                                    font-size: 15px;
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: 15px;
+                                    border-radius: 50px;
+                                    border: 1px solid #85C316;
+                                    padding: 10px 12px;
+                                }
+
+                                .label-success {
+                                    color: #FF9417;
+                                    font-family: Fixel Display;
+                                    font-size: 15px;
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: 15px;
+                                    background-color: unset;
+                                    border-radius: 50px;
+                                    border: 1px solid #FF9417;
+                                    padding: 10px 12px;
+                                }
+                            }
+
+                            .btn-action {
+                                color: #FE5A13;
+                                font-family: Fixel Display;
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                                text-transform: capitalize;
+                                border-radius: 15px;
+                                border: 1px solid #FE5A13;
+                                padding: 10px 15px;
+                                text-align: center;
+                            }
+
+                            &.ticket-toggle:hover {
+                                text-decoration: none;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+
+            a.button.new-ticket {
+                display: none;
+            }
+
+            .wss-ticket-container {
+                form.create-new-ticket {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 35px 25px;
+
+                    .form_input {
+                        display: flex;
+                        flex-direction: column;
+                        padding: 0;
+                        margin-bottom: 25px;
+                        position: relative;
+                        width: 45%;
+
+                        label {
+                            color: #161616;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: normal;
+                            margin: 0;
+                            padding: 0;
+                            margin-bottom: 25px;
+
+                            @media (max-width: 960px) {
+                                font-size: 15px;
+                                margin-bottom: 20px;
+                            }
+                        }
+
+                        input,
+                        select {
+                            width: 100%;
+                            max-width: none;
+                            border-radius: 15px;
+                            border: 1px solid #161616;
+                            background: #FFF;
+                            padding: 19px 19px 19px 64px;
+                            color: #646464;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                            height: 65px;
+                            margin-bottom: 0;
+
+
+                            @media (max-width: 960px) {
+                                font-size: 13px;
+                                height: auto;
+                                padding: 15px 15px 15px 64px;
+                                border-radius: 8px;
+                            }
+
+                            &:focus {
+                                border: 1.5px solid #FE5A13;
+                            }
+
+                            &::placeholder {
+                                color: #646464;
+                                font-family: Fixel Display;
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: normal;
+
+                                @media (max-width: 960px) {
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+
+                        &.form_select {
+                            &::before {
+                                content: "";
+                                display: flex;
+                                position: absolute;
+                                bottom: 25px;
+                                left: 25px;
+                                background-size: contain;
+                                width: 28px;
+                                height: 28px;
+                                background: url(../images/Question2.svg);
+                                transform: translateY(25%);
+
+                                @media (max-width: 960px) {
+                                    transform: translateY(45%);
+                                }
+                            }
+
+                            &.active::before {
+                                background: url(../images/Question2-hover.svg);
+                            }
+                        }
+
+                        &.form_subject {
+                            input {
+                                padding-left: 15px;
+                            }
+                        }
+
+
+                    }
+
+                    .additional-recipients {
+                        display: none;
+                    }
+
+                    #wp-wss-ticket-wrap {
+                        display: flex;
+                        width: 100%;
+                        border-radius: 15px;
+                        border: 1px solid #646464;
+                        overflow: hidden;
+
+                        textarea#wss-ticket {
+                            width: 100% !important;
+                            padding: 20px !important;
+                            color: #646464;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                            text-transform: capitalize;
+                        }
+                    }
+
+                    .btn-red.back-to-tickets {
+                        border-radius: 15px;
+                        border: 1px solid #646464;
+                        color: #646464;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                        text-transform: capitalize;
+                        margin-top: 25px;
+
+                        &:hover{
+                            box-shadow: 6px 6px 0px 0px #646464;
+                        }
+                    }
+
+                    input.send-new-ticket {
+                        color: #85C316;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                        text-transform: capitalize;
+                        background: #fff;
+                        border-radius: 15px;
+                        border: 1px solid #85C316;
+                        padding: 15px;
+                        margin-top: 25px;
+                        cursor: pointer;
+
+                        &:hover{
+                            box-shadow: 6px 6px 0px 0px #85C316;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

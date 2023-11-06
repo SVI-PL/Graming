@@ -2,7 +2,7 @@
     border: 1px solid #e1e1e1;
     border-radius: 15px;
     font-family: 'Fixel Display';
-    font-size: 18px; 
+    font-size: 18px;
     font-weight: 500;
     background-color: white;
 
@@ -32,10 +32,10 @@
         border: 1px solid #e1e1e1;
         border-radius: 15px;
         font-family: 'Fixel Display';
-        font-size: 18px; 
+        font-size: 18px;
 
         @media (max-width: 768px) {
-            font-size: 15px; 
+            font-size: 15px;
             border-radius: 8px;
         }
     }
@@ -183,7 +183,7 @@
 
                             @media (max-width: 960px) {
                                 flex-direction: column;
-                                gap:10px;
+                                gap: 10px;
                             }
 
                             .balance {
@@ -205,7 +205,7 @@
 
                                 @media (max-width: 768px) {
                                     width: 100%;
-                                    padding:15px;
+                                    padding: 15px;
                                     border-radius: 8px;
                                 }
 
@@ -251,7 +251,7 @@
                         gap: 25px;
 
                         @media (max-width: 768px) {
-                            gap:20px;
+                            gap: 20px;
                         }
 
                         .total_to_pay {
@@ -991,6 +991,98 @@
                     flex-direction: column;
                     align-items: center;
                     margin: 0 40px 25px;
+                    gap: 10px;
+
+                    .upsale-product {
+                        display: flex;
+                        width: 100%;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        border-radius: 15px;
+                        border: 1px solid #85C316;
+                        background: #85C316;
+                        padding: 10px 15px;
+                        align-items: center;
+                        gap: 20px;
+
+                        .icon {
+                            display: flex;
+                            width: 28px;
+                            height: 28px;
+                            background-image: url(../images/persone-white.svg);
+                        }
+
+                        .content {
+                            display: flex;
+                            flex-direction: column;
+                            width: calc(100% - 96px);
+
+                            .title {
+                                color: #FFF;
+                                font-family: Fixel Display;
+                                font-size: 15px;
+                                font-style: normal;
+                                font-weight: 600;
+                                line-height: normal;
+                            }
+
+                            .price {
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+
+
+                                .old {
+                                    color: #FFF;
+                                    font-family: Fixel Display;
+                                    font-size: 14px;
+                                    font-style: normal;
+                                    font-weight: 500;
+                                    line-height: normal;
+                                    position: relative;
+
+                                    &::before {
+                                        content: "";
+                                        display: block;
+                                        height: 1.5px;
+                                        width: 100%;
+                                        background: #fff;
+                                        position: absolute;
+                                        top: 8px;
+                                        transform: rotate(350deg);
+                                    }
+                                }
+
+                                .new {
+                                    color: #FFF;
+                                    font-family: Fixel Display;
+                                    font-size: 15px;
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    line-height: normal;
+                                }
+
+                                .save {
+                                    color: #85C316;
+                                    font-family: Fixel Display;
+                                    font-size: 12px;
+                                    font-style: normal;
+                                    font-weight: 600;
+                                    line-height: normal;
+                                    border-radius: 5px;
+                                    background: #FFF;
+                                    padding: 2px;
+                                }
+                            }
+                        }
+
+                        .add-upsale {
+                            width: 28px;
+                            height: 28px;
+                            background-image: url(../images/system-uicons_plus.svg);
+                        }
+
+                    }
                 }
 
                 .add_coupon {

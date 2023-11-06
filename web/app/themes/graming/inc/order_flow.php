@@ -254,3 +254,4 @@ function get_api_order_status()
 		update_order_status($order_id);
 	}
 }
+

@@ -243,14 +243,19 @@ jQuery(document).ready(function($){
 	/*New ticket form*/
 	$('.new-ticket').on('click', function(){
 		$('.wss-ticket-container').show();
+		$(".main_title").hide();
+		$(".support-tickets-table").hide();
+		$(".new_ticket").show();
 		$(this).hide();
-		$('.ticket-cancel').show();
+		$(".btn-red.back-to-tickets").show();
 	})	
 
-	$('.ticket-cancel').on('click', function(){
-		$('.wss-ticket-container').hide();		
-		$(this).hide();
-		$('.new-ticket').show();
+	$('.btn-red.back-to-tickets').on('click', function(){
+		$('.wss-ticket-container').hide();	
+		$(".new_ticket").hide();	
+		$(".main_title").show();
+		$(".support-tickets-table").show();
+		$('.btn-red.back-to-tickets').hide();
 	})
 
 	/*New thread*/
@@ -287,15 +292,19 @@ jQuery(document).ready(function($){
 	})
 
 	/*Close the single ticket and go back to the list*/
-	$('.back-to-tickets').on('click', function(){
+	$('.btn-red.back-to-tickets').on('click', function(){
 		$('.support-tickets-table tbody tr').removeClass('opened').show();
 		$('.wp-list-table.tickets tbody tr').removeClass('opened').show();
 		$('.thread-tools').hide();
 		$('.single-ticket-content').html('');
-		$('.button.new-ticket').show();
 		$('.new-thread').hide();
 		$('.wss-thread-container').hide();		
 		$('.thread-cancel').hide();
+		$('.btn-red.back-to-tickets').hide();
+		$(".btn-red.new-ticket").show();
+		$(".new_ticket").hide();	
+		$(".main_title").show();
+		$(".support-tickets-table").show();
 	})
 
 	/*Support exit button for not logged in users*/

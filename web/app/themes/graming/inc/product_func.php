@@ -1,4 +1,4 @@
-<?php 
+<?php
 //GET discount price
 function price_display_by_qty($quantity, $_product_id)
 {
@@ -56,7 +56,7 @@ function custom_checkout_dropdown($product_id)
 		foreach ($quantity_options as $option) {
 			$option_value = $option['quantity'];
 			$product_price = price_display_by_qty($option_value, $product->get_id());
-			//$add_to_cart_url = wc_get_cart_url() . '?add-to-cart=' . $product_id . '&quantity=' . $option_value; ?>
+			?>
 			<div class="cart_item">
 				<div class="product-name">
 					<?php echo $product->get_name(); ?>&nbsp;<strong class="product-quantity">×&nbsp;
@@ -102,4 +102,44 @@ function woocommerce_custom_buy_now()
 {
 	global $product;
 	echo '<div class="custom_buy btn-red"><p class="price">' . $product->get_price_html() . '</p><span>&nbsp;- buy now</span></div>';
+}
+
+//Upsale render
+function upsale_checkout($product_id)
+{
+	$product = wc_get_product($product_id);
+
+	if ($product) {
+		$quantity_options = get_field('quantity_options', $product_id);
+
+		foreach ($quantity_options as $option) {
+			$option_value = $option['quantity'];
+			$product_price = price_display_by_qty($option_value, $product->get_id());
+
+			if ($option_value && $product_price) {
+				?>
+				<div class="upsale-product">
+					<div class="icon"></div>
+					<div class="content">
+						<div class="title">
+							<?php echo get_the_title($product->get_id()) . "x" . $option_value; ?>
+						</div>
+						<div class="price">
+							<div class="old">
+								<?php echo $product_price["1"]; ?>
+							</div>
+							<div class="new">
+								<?php echo $product_price["0"]; ?>
+							</div>
+							<div class="save">Save 25%</div>
+						</div>
+					</div>
+					<a href="<?php echo esc_url(wc_get_cart_url()) . '?add-to-cart=' . $product->get_id() . '&quantity=' . $option_value ?>" class="add-upsale"></a>
+				</div>
+				<?php
+			}
+		}
+	} else {
+		echo 'no items';
+	}
 }
