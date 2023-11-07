@@ -25,7 +25,12 @@ function graming_setup()
 	//Add menu
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__('Primary', 'graming'),
+			'menu-1' => esc_html__('Header menu', 'graming'),
+			'menu-2' => esc_html__('Header mobile', 'graming'),
+			'menu-3' => esc_html__('Header additional', 'graming'),
+			'menu-4' => esc_html__('My account', 'graming'),
+			'menu-5' => esc_html__('Footer Quick Link', 'graming'),
+			'menu-6' => esc_html__('Footer Privacy And Terms', 'graming'),
 		)
 	);
 

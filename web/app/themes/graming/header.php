@@ -22,8 +22,8 @@
 </head>
 
 <body <?php if (is_user_logged_in()) {
-		echo 'class="logged"';
-	} ?>>
+	echo 'class="logged"';
+} ?>>
 	<div id="overlayer">
 		<div class="loader">
 			<div class="loader-inner"></div>
@@ -39,23 +39,7 @@
 				</a>
 			</div>
 			<nav class="primary_menu">
-				<ul>
-					<li class="menu_has_children">
-						<div class="title">Instagram</div>
-						<ul class="sub-menu">
-							<li><a href="/service/instagram-likes/">Instagram Likes</a></li>
-						</ul>
-					</li>
-					<li class="menu_has_children">
-						<div class="title">Tik Tok</div>
-						<ul class="sub-menu">
-							<li><a href="/service/tiktok-likes/">ТікТок Лайки</a></li>
-						</ul>
-					</li>
-					<li><a href="#testimonial">Reviews</a></li>
-					<li><a href="/contact">Contact</a>
-					</li>
-				</ul>
+				<?php wp_nav_menu(['menu' => 'menu-1']); ?>
 			</nav>
 			<div class="account_menu">
 				<div class="trust_pilot">
