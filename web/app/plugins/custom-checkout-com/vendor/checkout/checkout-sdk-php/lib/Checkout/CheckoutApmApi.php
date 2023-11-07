@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout;
+namespace MyCheckout;
 
-use Checkout\Apm\Ideal\IdealClient;
+use MyCheckout\Apm\Ideal\IdealClient;
 
 class CheckoutApmApi
 {

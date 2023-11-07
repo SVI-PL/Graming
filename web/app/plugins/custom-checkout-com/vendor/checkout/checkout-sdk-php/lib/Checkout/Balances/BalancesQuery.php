@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Balances;
+namespace MyCheckout\Balances;
 
-use Checkout\Common\AbstractQueryFilter;
+use MyCheckout\Common\AbstractQueryFilter;
 
 class BalancesQuery extends AbstractQueryFilter
 {

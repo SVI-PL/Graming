@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Instruments\Create;
+namespace MyCheckout\Instruments\Create;
 
-use Checkout\Common\Phone;
+use MyCheckout\Common\Phone;
 
 class CreateCustomerInstrumentRequest
 {

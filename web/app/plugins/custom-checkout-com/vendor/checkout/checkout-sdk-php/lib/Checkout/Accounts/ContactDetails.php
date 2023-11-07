@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Accounts;
+namespace MyCheckout\Accounts;
 
-use Checkout\Common\Phone;
+use MyCheckout\Common\Phone;
 
 class ContactDetails
 {

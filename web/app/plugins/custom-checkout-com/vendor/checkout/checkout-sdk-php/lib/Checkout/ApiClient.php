@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout;
+namespace MyCheckout;
 
-use Checkout\Common\AbstractQueryFilter;
-use Checkout\Files\FileRequest;
+use MyCheckout\Common\AbstractQueryFilter;
+use MyCheckout\Files\FileRequest;
 use Exception;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Issuing\Cards\Enrollment;
+namespace MyCheckout\Issuing\Cards\Enrollment;
 
 class SecurityQuestionThreeDSEnrollmentRequest extends ThreeDSEnrollmentRequest
 {

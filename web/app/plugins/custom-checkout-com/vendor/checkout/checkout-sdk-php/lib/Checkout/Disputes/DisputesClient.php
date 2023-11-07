@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Disputes;
+namespace MyCheckout\Disputes;
 
-use Checkout\CheckoutApiException;
-use Checkout\Files\FilesClient;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\Files\FilesClient;
 
 class DisputesClient extends FilesClient
 {

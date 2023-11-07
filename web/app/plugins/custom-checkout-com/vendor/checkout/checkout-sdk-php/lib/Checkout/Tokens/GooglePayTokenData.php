@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Tokens;
+namespace MyCheckout\Tokens;
 
 class GooglePayTokenData
 {

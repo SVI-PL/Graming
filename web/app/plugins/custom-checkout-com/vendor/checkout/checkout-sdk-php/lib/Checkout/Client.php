@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout;
+namespace MyCheckout;
 
 abstract class Client
 {

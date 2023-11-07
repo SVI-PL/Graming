@@ -1,10 +1,10 @@
 <?php
 
-namespace Checkout\Payments\Destination;
+namespace MyCheckout\Payments\Destination;
 
-use Checkout\Common\AccountHolder;
-use Checkout\Common\BankDetails;
-use Checkout\Payments\PaymentDestinationType;
+use MyCheckout\Common\AccountHolder;
+use MyCheckout\Common\BankDetails;
+use MyCheckout\Payments\PaymentDestinationType;
 
 class PaymentBankAccountDestination extends PaymentRequestDestination
 {

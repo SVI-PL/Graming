@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Issuing\Controls\Create;
+namespace MyCheckout\Issuing\Controls\Create;
 
-use Checkout\Issuing\Controls\ControlType;
-use Checkout\Issuing\Controls\VelocityLimit;
+use MyCheckout\Issuing\Controls\ControlType;
+use MyCheckout\Issuing\Controls\VelocityLimit;
 
 class VelocityCardControlRequest extends CardControlRequest
 {

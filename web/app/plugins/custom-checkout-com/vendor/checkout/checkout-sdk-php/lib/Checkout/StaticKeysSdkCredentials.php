@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout;
+namespace MyCheckout;
 
 class StaticKeysSdkCredentials extends AbstractStaticKeysSdkCredentials
 {

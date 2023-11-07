@@ -1,12 +1,12 @@
 <?php
 
-namespace Checkout\Balances;
+namespace MyCheckout\Balances;
 
-use Checkout\ApiClient;
-use Checkout\AuthorizationType;
-use Checkout\CheckoutApiException;
-use Checkout\CheckoutConfiguration;
-use Checkout\Client;
+use MyCheckout\ApiClient;
+use MyCheckout\AuthorizationType;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\CheckoutConfiguration;
+use MyCheckout\Client;
 
 class BalancesClient extends Client
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Payments\Destination;
+namespace MyCheckout\Payments\Destination;
 
 class PaymentRequestDestination
 {

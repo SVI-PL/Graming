@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Accounts;
+namespace MyCheckout\Accounts;
 
-use Checkout\Files\FileRequest;
+use MyCheckout\Files\FileRequest;
 
 class AccountsFileRequest extends FileRequest
 {

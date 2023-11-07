@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Payments;
+namespace MyCheckout\Payments;
 
 class VoidRequest
 {

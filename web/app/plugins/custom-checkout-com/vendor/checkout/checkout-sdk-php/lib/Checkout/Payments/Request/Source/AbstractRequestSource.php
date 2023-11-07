@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Payments\Request\Source;
+namespace MyCheckout\Payments\Request\Source;
 
 class AbstractRequestSource
 {

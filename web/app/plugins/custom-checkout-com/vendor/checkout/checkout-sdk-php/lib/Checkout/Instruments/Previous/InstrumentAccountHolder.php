@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Instruments\Previous;
+namespace MyCheckout\Instruments\Previous;
 
-use Checkout\Common\Address;
-use Checkout\Common\Phone;
+use MyCheckout\Common\Address;
+use MyCheckout\Common\Phone;
 
 class InstrumentAccountHolder
 {

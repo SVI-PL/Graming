@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Payments;
+namespace MyCheckout\Payments;
 
-use Checkout\Common\CustomerRequest;
+use MyCheckout\Common\CustomerRequest;
 
 class PaymentCustomerRequest extends CustomerRequest
 {

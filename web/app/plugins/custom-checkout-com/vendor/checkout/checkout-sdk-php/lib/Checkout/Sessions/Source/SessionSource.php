@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Sessions\Source;
+namespace MyCheckout\Sessions\Source;
 
-use Checkout\Common\Phone;
+use MyCheckout\Common\Phone;
 
 abstract class SessionSource
 {

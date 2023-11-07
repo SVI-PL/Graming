@@ -1,10 +1,10 @@
 <?php
 
-namespace Checkout\Payments\Previous\Destination;
+namespace MyCheckout\Payments\Previous\Destination;
 
-use Checkout\Common\Address;
-use Checkout\Common\Phone;
-use Checkout\Payments\PaymentDestinationType;
+use MyCheckout\Common\Address;
+use MyCheckout\Common\Phone;
+use MyCheckout\Payments\PaymentDestinationType;
 
 class PaymentRequestCardDestination extends PaymentRequestDestination
 {

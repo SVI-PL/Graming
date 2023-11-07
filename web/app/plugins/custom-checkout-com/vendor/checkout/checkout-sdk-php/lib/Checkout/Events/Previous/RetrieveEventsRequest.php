@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Events\Previous;
+namespace MyCheckout\Events\Previous;
 
-use Checkout\Common\AbstractQueryFilter;
+use MyCheckout\Common\AbstractQueryFilter;
 
 class RetrieveEventsRequest extends AbstractQueryFilter
 {

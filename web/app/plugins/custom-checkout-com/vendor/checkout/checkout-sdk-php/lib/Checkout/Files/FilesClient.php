@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Files;
+namespace MyCheckout\Files;
 
-use Checkout\CheckoutApiException;
-use Checkout\Client;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\Client;
 
 class FilesClient extends Client
 {

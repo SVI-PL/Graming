@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Forex;
+namespace MyCheckout\Forex;
 
 class ForexSource
 {

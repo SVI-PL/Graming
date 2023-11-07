@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Common;
+namespace MyCheckout\Common;
 
-use Checkout\CheckoutUtils;
+use MyCheckout\CheckoutUtils;
 use DateTime;
 
 abstract class AbstractQueryFilter

@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Instruments\Get;
+namespace MyCheckout\Instruments\Get;
 
 class PaymentNetwork
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Risk\PreCapture;
+namespace MyCheckout\Risk\PreCapture;
 
 class AuthorizationResult
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Issuing\Controls\Update;
+namespace MyCheckout\Issuing\Controls\Update;
 
-use Checkout\Issuing\Controls\MccLimit;
-use Checkout\Issuing\Controls\VelocityLimit;
+use MyCheckout\Issuing\Controls\MccLimit;
+use MyCheckout\Issuing\Controls\VelocityLimit;
 
 class UpdateCardControlRequest
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout;
+namespace MyCheckout;
 
 class CheckoutStaticKeysSdkBuilder extends AbstractStaticKeysCheckoutSdkBuilder
 {
@@ -47,4 +47,5 @@ class CheckoutStaticKeysSdkBuilder extends AbstractStaticKeysCheckoutSdkBuilder
         $configuration = new CheckoutConfiguration($this->getSdkCredentials(), $this->environment, $this->httpClientBuilder, $this->logger);
         return new CheckoutApi($configuration);
     }
+    
 }

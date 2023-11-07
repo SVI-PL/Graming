@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Forex;
+namespace MyCheckout\Forex;
 
-use Checkout\Common\AbstractQueryFilter;
+use MyCheckout\Common\AbstractQueryFilter;
 
 class RatesQueryFilter extends AbstractQueryFilter
 {

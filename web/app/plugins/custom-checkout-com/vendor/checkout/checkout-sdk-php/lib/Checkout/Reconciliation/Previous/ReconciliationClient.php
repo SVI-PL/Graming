@@ -1,13 +1,13 @@
 <?php
 
-namespace Checkout\Reconciliation\Previous;
+namespace MyCheckout\Reconciliation\Previous;
 
-use Checkout\ApiClient;
-use Checkout\AuthorizationType;
-use Checkout\CheckoutApiException;
-use Checkout\CheckoutConfiguration;
-use Checkout\Client;
-use Checkout\Common\QueryFilterDateRange;
+use MyCheckout\ApiClient;
+use MyCheckout\AuthorizationType;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\CheckoutConfiguration;
+use MyCheckout\Client;
+use MyCheckout\Common\QueryFilterDateRange;
 
 class ReconciliationClient extends Client
 {

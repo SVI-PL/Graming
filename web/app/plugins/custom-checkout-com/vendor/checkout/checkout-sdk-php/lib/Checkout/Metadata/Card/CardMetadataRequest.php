@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Metadata\Card;
+namespace MyCheckout\Metadata\Card;
 
-use Checkout\Metadata\Card\Source\CardMetadataRequestSource;
+use MyCheckout\Metadata\Card\Source\CardMetadataRequestSource;
 
 class CardMetadataRequest
 {

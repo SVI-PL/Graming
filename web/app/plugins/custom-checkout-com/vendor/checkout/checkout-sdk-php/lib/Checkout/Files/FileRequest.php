@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Files;
+namespace MyCheckout\Files;
 
 class FileRequest
 {

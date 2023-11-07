@@ -1,12 +1,12 @@
 <?php
 
-namespace Checkout\Apm\Previous\Sepa;
+namespace MyCheckout\Apm\Previous\Sepa;
 
-use Checkout\ApiClient;
-use Checkout\AuthorizationType;
-use Checkout\CheckoutApiException;
-use Checkout\CheckoutConfiguration;
-use Checkout\Client;
+use MyCheckout\ApiClient;
+use MyCheckout\AuthorizationType;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\CheckoutConfiguration;
+use MyCheckout\Client;
 
 class SepaClient extends Client
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Instruments\Update;
+namespace MyCheckout\Instruments\Update;
 
-use Checkout\Common\AccountHolder;
-use Checkout\Common\InstrumentType;
+use MyCheckout\Common\AccountHolder;
+use MyCheckout\Common\InstrumentType;
 
 class UpdateCardInstrumentRequest extends UpdateInstrumentRequest
 {

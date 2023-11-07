@@ -1,17 +1,17 @@
 <?php
 
-namespace Checkout\Payments\Request;
+namespace MyCheckout\Payments\Request;
 
-use Checkout\Common\CustomerRequest;
-use Checkout\Common\MarketplaceData;
-use Checkout\Payments\BillingDescriptor;
-use Checkout\Payments\Request\Source\AbstractRequestSource;
-use Checkout\Payments\Sender\PaymentSender;
-use Checkout\Payments\PaymentRecipient;
-use Checkout\Payments\ProcessingSettings;
-use Checkout\Payments\RiskRequest;
-use Checkout\Payments\ShippingDetails;
-use Checkout\Payments\ThreeDsRequest;
+use MyCheckout\Common\CustomerRequest;
+use MyCheckout\Common\MarketplaceData;
+use MyCheckout\Payments\BillingDescriptor;
+use MyCheckout\Payments\Request\Source\AbstractRequestSource;
+use MyCheckout\Payments\Sender\PaymentSender;
+use MyCheckout\Payments\PaymentRecipient;
+use MyCheckout\Payments\ProcessingSettings;
+use MyCheckout\Payments\RiskRequest;
+use MyCheckout\Payments\ShippingDetails;
+use MyCheckout\Payments\ThreeDsRequest;
 use DateTime;
 
 class PaymentRequest

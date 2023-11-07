@@ -1,13 +1,13 @@
 <?php
 
-namespace Checkout\Payments\Previous;
+namespace MyCheckout\Payments\Previous;
 
-use Checkout\Common\CustomerRequest;
-use Checkout\Payments\BillingDescriptor;
-use Checkout\Payments\PaymentRecipient;
-use Checkout\Payments\Previous\Destination\PaymentRequestDestination;
-use Checkout\Payments\RiskRequest;
-use Checkout\Payments\ShippingDetails;
+use MyCheckout\Common\CustomerRequest;
+use MyCheckout\Payments\BillingDescriptor;
+use MyCheckout\Payments\PaymentRecipient;
+use MyCheckout\Payments\Previous\Destination\PaymentRequestDestination;
+use MyCheckout\Payments\RiskRequest;
+use MyCheckout\Payments\ShippingDetails;
 use DateTime;
 
 class PayoutRequest

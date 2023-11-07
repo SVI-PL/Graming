@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Sessions;
+namespace MyCheckout\Sessions;
 
 class AuthenticationMethod
 {

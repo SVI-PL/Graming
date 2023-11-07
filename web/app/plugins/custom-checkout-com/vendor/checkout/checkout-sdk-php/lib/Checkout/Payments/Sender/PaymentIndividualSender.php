@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Payments\Sender;
+namespace MyCheckout\Payments\Sender;
 
-use Checkout\Common\AccountHolderIdentification;
-use Checkout\Common\Address;
+use MyCheckout\Common\AccountHolderIdentification;
+use MyCheckout\Common\Address;
 
 class PaymentIndividualSender extends PaymentSender
 {

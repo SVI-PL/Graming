@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Risk;
+namespace MyCheckout\Risk;
 
-use Checkout\Common\Address;
+use MyCheckout\Common\Address;
 
 class RiskShippingDetails
 {

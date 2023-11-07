@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Customers;
+namespace MyCheckout\Customers;
 
-use Checkout\CheckoutApiException;
-use Checkout\Client;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\Client;
 
 class CustomersClient extends Client
 {

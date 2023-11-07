@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Common;
+namespace MyCheckout\Common;
 
 class Currency
 {

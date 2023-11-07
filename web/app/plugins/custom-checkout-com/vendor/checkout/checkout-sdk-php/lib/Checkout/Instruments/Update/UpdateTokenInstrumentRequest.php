@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Instruments\Update;
+namespace MyCheckout\Instruments\Update;
 
-use Checkout\Common\InstrumentType;
+use MyCheckout\Common\InstrumentType;
 
 class UpdateTokenInstrumentRequest extends UpdateInstrumentRequest
 {

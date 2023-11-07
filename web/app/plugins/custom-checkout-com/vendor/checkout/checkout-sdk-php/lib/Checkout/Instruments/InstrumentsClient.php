@@ -1,15 +1,15 @@
 <?php
 
-namespace Checkout\Instruments;
+namespace MyCheckout\Instruments;
 
-use Checkout\ApiClient;
-use Checkout\AuthorizationType;
-use Checkout\CheckoutApiException;
-use Checkout\CheckoutConfiguration;
-use Checkout\Client;
-use Checkout\Instruments\Create\CreateInstrumentRequest;
-use Checkout\Instruments\Get\BankAccountFieldQuery;
-use Checkout\Instruments\Update\UpdateInstrumentRequest;
+use MyCheckout\ApiClient;
+use MyCheckout\AuthorizationType;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\CheckoutConfiguration;
+use MyCheckout\Client;
+use MyCheckout\Instruments\Create\CreateInstrumentRequest;
+use MyCheckout\Instruments\Get\BankAccountFieldQuery;
+use MyCheckout\Instruments\Update\UpdateInstrumentRequest;
 
 class InstrumentsClient extends Client
 {

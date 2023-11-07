@@ -1077,11 +1077,67 @@
                         }
 
                         .add-upsale {
+                            display: flex;
                             width: 28px;
                             height: 28px;
                             background-image: url(../images/system-uicons_plus.svg);
+                            transition: all 0.3s ease-in-out;
+                            cursor: pointer;
                         }
 
+                        .remove-upsale {
+                            display: none;
+                        }
+
+                        &.active {
+                            border-radius: 15px;
+                            border: 1px solid #85C316;
+                            background: #fff;
+
+                            .icon {
+                                background-image: url(../images/persone-green.svg);
+                            }
+
+                            .content {
+                                .title {
+                                    color: #85C316;
+                                }
+
+                                .price {
+                                    .old {
+                                        color: #85C316;
+
+                                        &::before {
+                                            background: #85C316;
+                                        }
+                                    }
+
+                                    .new {
+                                        color: #85C316;
+                                    }
+
+                                    .save {
+                                        color: #fff;
+                                        background: #85C316;
+                                    }
+                                }
+                            }
+
+                            .add-upsale {
+                                display: none;
+                            }
+
+                            .remove-upsale {
+                                display: flex;
+                                width: 29px;
+                                height: 29px;
+                                background-image: url(../images/system-uicons_plus.svg);
+                                border: 1px solid #85C316;
+                                border-radius: 50%;
+                                transform: rotate(45deg);
+                                cursor: pointer;
+                            }
+                        }
                     }
                 }
 
@@ -1267,6 +1323,14 @@
 }
 
 .woocommerce-order {
+
+    p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-received {
+        font-size: 22px;
+        font-family: Fixel Display;
+        text-align: center;
+        margin-top: 25px;
+    }
+
     .account-order-view {
         display: flex;
         flex-direction: column;
@@ -1278,6 +1342,21 @@
             margin: 25px 0;
             width: 100%;
             justify-content: space-between;
+
+            .back_btn {
+                padding: 17px 35px;
+                cursor: pointer;
+                color: #646464;
+                font-family: Fixel Display;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+
+                @media (max-width: 768px) {
+                    font-size: 15px;
+                }
+            }
 
             .btn-gray {
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Issuing\Controls\Create;
+namespace MyCheckout\Issuing\Controls\Create;
 
 abstract class CardControlRequest
 {

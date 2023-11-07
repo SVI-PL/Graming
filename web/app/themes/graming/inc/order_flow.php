@@ -300,6 +300,32 @@ function add_to_cart_ajax()
 add_action('wp_ajax_add_to_cart', 'add_to_cart_ajax');
 add_action('wp_ajax_nopriv_add_to_cart', 'add_to_cart_ajax');
 
+//Update/Remove upsale product
+function update_cart_item_quantity_ajax()
+{
+	if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
+		$product_id = intval($_POST['product_id']);
+		$quantity = intval($_POST['quantity']);
+		$cart_contests = WC()->cart->get_cart_contents();
+		foreach ($cart_contests as $cart_id => $cart_item) {
+			if ($cart_item["product_id"] == $product_id) {
+				$new_quantity = $cart_item["quantity"] - $quantity;
+				if ($new_quantity > 0) {
+					WC()->cart->set_quantity($cart_item["key"], $new_quantity, true);
+				} else {
+					WC()->cart->remove_cart_item($cart_item["key"]);
+				}
+			}
+		}
+		wp_send_json_success();
+	} else {
+		wp_send_json_error();
+	}
+}
+
+add_action('wp_ajax_update_cart_item_quantity', 'update_cart_item_quantity_ajax');
+add_action('wp_ajax_nopriv_update_cart_item_quantity', 'update_cart_item_quantity_ajax');
+
 //Clear cart via Ajax
 function clear_cart_via_ajax()
 {

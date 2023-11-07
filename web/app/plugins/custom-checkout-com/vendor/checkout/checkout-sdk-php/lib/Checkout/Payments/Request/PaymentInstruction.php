@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Payments\Request;
+namespace MyCheckout\Payments\Request;
 
 class PaymentInstruction
 {

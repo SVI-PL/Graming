@@ -1,16 +1,16 @@
 <?php
 
-namespace Checkout\Payments\Links;
+namespace MyCheckout\Payments\Links;
 
-use Checkout\Common\CustomerRequest;
-use Checkout\Common\MarketplaceData;
-use Checkout\Payments\BillingDescriptor;
-use Checkout\Payments\BillingInformation;
-use Checkout\Payments\PaymentRecipient;
-use Checkout\Payments\ProcessingSettings;
-use Checkout\Payments\RiskRequest;
-use Checkout\Payments\ShippingDetails;
-use Checkout\Payments\ThreeDsRequest;
+use MyCheckout\Common\CustomerRequest;
+use MyCheckout\Common\MarketplaceData;
+use MyCheckout\Payments\BillingDescriptor;
+use MyCheckout\Payments\BillingInformation;
+use MyCheckout\Payments\PaymentRecipient;
+use MyCheckout\Payments\ProcessingSettings;
+use MyCheckout\Payments\RiskRequest;
+use MyCheckout\Payments\ShippingDetails;
+use MyCheckout\Payments\ThreeDsRequest;
 use DateTime;
 
 class PaymentLinkRequest

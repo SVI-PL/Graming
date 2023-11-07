@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Payments\Request\Source;
+namespace MyCheckout\Payments\Request\Source;
 
-use Checkout\Common\AccountHolder;
-use Checkout\Common\PaymentSourceType;
+use MyCheckout\Common\AccountHolder;
+use MyCheckout\Common\PaymentSourceType;
 
 class RequestProviderTokenSource extends AbstractRequestSource
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Risk\Source;
+namespace MyCheckout\Risk\Source;
 
-use Checkout\Common\PaymentSourceType;
+use MyCheckout\Common\PaymentSourceType;
 
 class CustomerSourcePrism extends RiskPaymentRequestSource
 {

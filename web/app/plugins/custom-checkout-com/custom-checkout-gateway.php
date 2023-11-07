@@ -8,21 +8,18 @@
  */
 require_once(dirname(__FILE__) . '/vendor/autoload.php');
 
-use Checkout\CheckoutApiException;
-use Checkout\CheckoutAuthorizationException;
-use Checkout\CheckoutSdk;
-use Checkout\Common\Address;
-use Checkout\Common\Country;
-use Checkout\Common\Currency;
-use Checkout\Common\CustomerRequest;
-use Checkout\Common\Phone;
-use Checkout\Environment;
-use Checkout\OAuthScope;
-use Checkout\Payments\Request\PaymentRequest;
-use Checkout\Payments\Request\Source\RequestCardSource;
-use Checkout\Payments\Sender\Identification;
-use Checkout\Payments\Sender\IdentificationType;
-use Checkout\Payments\Sender\PaymentIndividualSender;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\CheckoutAuthorizationException;
+use MyCheckout\CheckoutSdk;
+use MyCheckout\Common\Address;
+use MyCheckout\Common\Country;
+use MyCheckout\Common\Currency;
+use MyCheckout\Common\CustomerRequest;
+use MyCheckout\Common\Phone;
+use MyCheckout\Environment;
+use MyCheckout\Payments\Request\PaymentRequest;
+use MyCheckout\Payments\Request\Source\RequestCardSource;
+use MyCheckout\Payments\Sender\PaymentIndividualSender;
 
 /*Exit if accessed directly*/
 if (!defined('ABSPATH')) {
@@ -171,12 +168,14 @@ function pf_checkout_com()
 
         public function process_payment($order_id)
         {
+            $order = wc_get_order($order_id);
+
             //API Keys
             $api = CheckoutSdk::builder()
                 ->staticKeys()
                 ->environment(Environment::sandbox())
-                ->publicKey("pk_sbox_pgomj4fn7birnukblss6pv3goa6")
-                ->secretKey("sk_sbox_5vskqyk6hnz3rmqu3unmzk6v3en")
+                ->publicKey($this->get_option('test_publishable_key'))
+                ->secretKey($this->get_option('test_private_key'))
                 ->build();
 
             $phone = new Phone();
@@ -220,18 +219,32 @@ function pf_checkout_com()
 
             try {
                 $response = $api->getPaymentsClient()->requestPayment($request);
-                echo "<pre>";
-                var_dump($response);
-                echo "</pre>";
+                if ($response["approved"] == false) {
+                    $resp_str = 'Status: ' . $response["status"] . '. Reason: ' . $response["response_summary"] . ' Code: ' . $response["response_code"];
+                    wc_add_notice($resp_str, 'error');
+                    return array(
+                        'result' => 'error',
+                    );
+
+                }
             } catch (CheckoutApiException $e) {
                 $error_details = $e->error_details;
                 $http_status_code = isset($e->http_metadata) ? $e->http_metadata->getStatusCode() : null;
             } catch (CheckoutAuthorizationException $e) {
+
             }
 
+            $order->payment_complete();
+            $order->update_status('processing');
+
+            return array(
+                'result' => 'success',
+                'redirect' => $this->get_return_url($order),
+            );
         }
 
     }
+
 }
 
 add_action('plugins_loaded', 'pf_checkout_com');

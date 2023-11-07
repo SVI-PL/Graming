@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Workflows\Events;
+namespace MyCheckout\Workflows\Events;
 
 class Event
 {

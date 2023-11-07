@@ -135,7 +135,7 @@ $cart_total = WC()->cart->get_total();
 				exchange rates and potential additional fees.</p>
 		</div>
 	</div>
-	<div class="real_checkout">
+	<div class="real_checkout" style="display:none">
 		<?php if (WC()->cart->needs_payment()): ?>
 			<ul class="wc_payment_methods payment_methods methods">
 				<?php

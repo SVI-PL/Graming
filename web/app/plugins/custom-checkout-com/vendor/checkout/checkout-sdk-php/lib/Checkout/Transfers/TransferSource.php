@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Transfers;
+namespace MyCheckout\Transfers;
 
 class TransferSource
 {

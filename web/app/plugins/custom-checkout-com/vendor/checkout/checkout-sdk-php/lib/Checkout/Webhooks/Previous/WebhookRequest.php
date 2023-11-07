@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Webhooks\Previous;
+namespace MyCheckout\Webhooks\Previous;
 
 class WebhookRequest
 {

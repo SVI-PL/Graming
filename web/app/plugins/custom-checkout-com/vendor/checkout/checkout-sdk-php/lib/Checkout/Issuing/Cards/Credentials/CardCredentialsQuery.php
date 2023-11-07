@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Issuing\Cards\Credentials;
+namespace MyCheckout\Issuing\Cards\Credentials;
 
-use Checkout\Common\AbstractQueryFilter;
+use MyCheckout\Common\AbstractQueryFilter;
 
 class CardCredentialsQuery extends AbstractQueryFilter
 {

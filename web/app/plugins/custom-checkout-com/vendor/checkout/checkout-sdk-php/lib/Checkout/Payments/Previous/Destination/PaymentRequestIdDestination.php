@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Payments\Previous\Destination;
+namespace MyCheckout\Payments\Previous\Destination;
 
-use Checkout\Payments\PaymentDestinationType;
+use MyCheckout\Payments\PaymentDestinationType;
 
 class PaymentRequestIdDestination extends PaymentRequestDestination
 {

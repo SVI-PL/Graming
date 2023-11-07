@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Issuing\Controls;
+namespace MyCheckout\Issuing\Controls;
 
 class MccControlType
 {

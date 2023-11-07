@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout;
+namespace MyCheckout;
 
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;

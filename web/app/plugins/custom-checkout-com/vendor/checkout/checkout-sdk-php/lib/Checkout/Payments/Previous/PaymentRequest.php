@@ -1,15 +1,15 @@
 <?php
 
-namespace Checkout\Payments\Previous;
+namespace MyCheckout\Payments\Previous;
 
-use Checkout\Common\CustomerRequest;
-use Checkout\Payments\BillingDescriptor;
-use Checkout\Payments\PaymentRecipient;
-use Checkout\Payments\Previous\Source\AbstractRequestSource;
-use Checkout\Payments\ProcessingSettings;
-use Checkout\Payments\RiskRequest;
-use Checkout\Payments\ShippingDetails;
-use Checkout\Payments\ThreeDsRequest;
+use MyCheckout\Common\CustomerRequest;
+use MyCheckout\Payments\BillingDescriptor;
+use MyCheckout\Payments\PaymentRecipient;
+use MyCheckout\Payments\Previous\Source\AbstractRequestSource;
+use MyCheckout\Payments\ProcessingSettings;
+use MyCheckout\Payments\RiskRequest;
+use MyCheckout\Payments\ShippingDetails;
+use MyCheckout\Payments\ThreeDsRequest;
 use DateTime;
 
 class PaymentRequest

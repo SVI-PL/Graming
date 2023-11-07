@@ -1406,6 +1406,21 @@
         .buy_now_acc {
             justify-content: space-between;
 
+            .back_btn {
+                padding: 17px 35px;
+                cursor: pointer;
+                color: #646464;
+                font-family: Fixel Display;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+
+                @media (max-width: 768px) {
+                    font-size: 15px;
+                }
+            }
+
             .btn-gray {
                 padding: 15px;
                 color: #646464;
@@ -1875,7 +1890,7 @@
                         text-transform: capitalize;
                         margin-top: 25px;
 
-                        &:hover{
+                        &:hover {
                             box-shadow: 6px 6px 0px 0px #646464;
                         }
                     }
@@ -1895,7 +1910,7 @@
                         margin-top: 25px;
                         cursor: pointer;
 
-                        &:hover{
+                        &:hover {
                             box-shadow: 6px 6px 0px 0px #85C316;
                         }
                     }

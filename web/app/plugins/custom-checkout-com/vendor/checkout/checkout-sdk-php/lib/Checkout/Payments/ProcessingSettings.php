@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Payments;
+namespace MyCheckout\Payments;
 
-use Checkout\Payments\Previous\SenderInformation;
+use MyCheckout\Payments\Previous\SenderInformation;
 
 class ProcessingSettings
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Instruments\Previous;
+namespace MyCheckout\Instruments\Previous;
 
 class UpdateInstrumentCustomerRequest
 {

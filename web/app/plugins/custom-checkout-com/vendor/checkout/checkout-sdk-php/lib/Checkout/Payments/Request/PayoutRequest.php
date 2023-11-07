@@ -1,10 +1,10 @@
 <?php
 
-namespace Checkout\Payments\Request;
+namespace MyCheckout\Payments\Request;
 
-use Checkout\Payments\Destination\PaymentRequestDestination;
-use Checkout\Payments\Request\Source\PayoutRequestSource;
-use Checkout\Payments\Sender\PaymentSender;
+use MyCheckout\Payments\Destination\PaymentRequestDestination;
+use MyCheckout\Payments\Request\Source\PayoutRequestSource;
+use MyCheckout\Payments\Sender\PaymentSender;
 
 class PayoutRequest
 {

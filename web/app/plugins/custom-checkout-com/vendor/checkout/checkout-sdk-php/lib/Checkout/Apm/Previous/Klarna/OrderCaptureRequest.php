@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Apm\Previous\Klarna;
+namespace MyCheckout\Apm\Previous\Klarna;
 
-use Checkout\Common\ShippingInfo;
-use Checkout\Common\PaymentSourceType;
+use MyCheckout\Common\ShippingInfo;
+use MyCheckout\Common\PaymentSourceType;
 
 class OrderCaptureRequest
 {

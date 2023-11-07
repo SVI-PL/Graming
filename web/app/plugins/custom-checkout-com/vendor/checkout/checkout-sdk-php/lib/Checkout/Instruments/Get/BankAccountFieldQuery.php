@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Instruments\Get;
+namespace MyCheckout\Instruments\Get;
 
-use Checkout\Common\AbstractQueryFilter;
+use MyCheckout\Common\AbstractQueryFilter;
 
 class BankAccountFieldQuery extends AbstractQueryFilter
 {

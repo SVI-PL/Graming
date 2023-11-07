@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Disputes;
+namespace MyCheckout\Disputes;
 
 class DisputeEvidenceRequest
 {

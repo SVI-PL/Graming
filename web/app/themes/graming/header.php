@@ -91,8 +91,8 @@
 
 				</div>
 
-				<div class="addditional_menu">
-					<div class="addditional_menu_icon"></div>
+				<div class="additional_menu">
+					<div class="additional_menu_icon"></div>
 					<ul class="sub-menu">
 						<li><a href="/contact">Contact Us</a></li>
 						<li><a href="/#testimonial">Reviews</a></li>

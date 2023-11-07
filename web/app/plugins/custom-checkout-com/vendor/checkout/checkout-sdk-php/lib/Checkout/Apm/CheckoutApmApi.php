@@ -1,12 +1,12 @@
 <?php
 
-namespace Checkout\Apm;
+namespace MyCheckout\Apm;
 
-use Checkout\ApiClient;
-use Checkout\Apm\Ideal\IdealClient;
-use Checkout\Apm\Previous\Klarna\KlarnaClient;
-use Checkout\Apm\Previous\Sepa\SepaClient;
-use Checkout\CheckoutConfiguration;
+use MyCheckout\ApiClient;
+use MyCheckout\Apm\Ideal\IdealClient;
+use MyCheckout\Apm\Previous\Klarna\KlarnaClient;
+use MyCheckout\Apm\Previous\Sepa\SepaClient;
+use MyCheckout\CheckoutConfiguration;
 
 class CheckoutApmApi
 {

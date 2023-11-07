@@ -1,14 +1,14 @@
 <?php
 
-namespace Checkout\Payments;
+namespace MyCheckout\Payments;
 
-use Checkout\ApiClient;
-use Checkout\AuthorizationType;
-use Checkout\CheckoutApiException;
-use Checkout\CheckoutConfiguration;
-use Checkout\Client;
-use Checkout\Payments\Request\PaymentRequest;
-use Checkout\Payments\Request\PayoutRequest;
+use MyCheckout\ApiClient;
+use MyCheckout\AuthorizationType;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\CheckoutConfiguration;
+use MyCheckout\Client;
+use MyCheckout\Payments\Request\PaymentRequest;
+use MyCheckout\Payments\Request\PayoutRequest;
 
 class PaymentsClient extends Client
 {

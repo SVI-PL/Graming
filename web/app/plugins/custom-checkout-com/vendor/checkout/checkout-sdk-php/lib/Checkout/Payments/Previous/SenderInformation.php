@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Payments\Previous;
+namespace MyCheckout\Payments\Previous;
 
 class SenderInformation
 {

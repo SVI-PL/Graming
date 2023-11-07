@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Accounts;
+namespace MyCheckout\Accounts;
 
 class EntityFinancialDocuments
 {

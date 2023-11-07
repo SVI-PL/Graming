@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Customers;
+namespace MyCheckout\Customers;
 
-use Checkout\Common\Phone;
+use MyCheckout\Common\Phone;
 
 class CustomerRequest
 {

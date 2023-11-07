@@ -31,7 +31,7 @@ class ComposerStaticInit4270f7a3f80c81bd628274a94ce05ce7
         ),
         'C' => 
         array (
-            'Checkout\\' => 9,
+            'MyCheckout\\' => 9,
         ),
     );
 
@@ -42,8 +42,8 @@ class ComposerStaticInit4270f7a3f80c81bd628274a94ce05ce7
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -65,7 +65,7 @@ class ComposerStaticInit4270f7a3f80c81bd628274a94ce05ce7
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
-        'Checkout\\' => 
+        'MyCheckout\\' => 
         array (
             0 => __DIR__ . '/..' . '/checkout/checkout-sdk-php/lib/Checkout',
         ),

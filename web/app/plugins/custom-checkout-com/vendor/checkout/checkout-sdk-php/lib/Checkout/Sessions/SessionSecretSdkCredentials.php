@@ -1,11 +1,11 @@
 <?php
 
-namespace Checkout\Sessions;
+namespace MyCheckout\Sessions;
 
-use Checkout\AuthorizationType;
-use Checkout\CheckoutAuthorizationException;
-use Checkout\SdkAuthorization;
-use Checkout\SdkCredentialsInterface;
+use MyCheckout\AuthorizationType;
+use MyCheckout\CheckoutAuthorizationException;
+use MyCheckout\SdkAuthorization;
+use MyCheckout\SdkCredentialsInterface;
 
 final class SessionSecretSdkCredentials implements SdkCredentialsInterface
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Financial;
+namespace MyCheckout\Financial;
 
-use Checkout\Common\AbstractQueryFilter;
+use MyCheckout\Common\AbstractQueryFilter;
 
 class FinancialActionsQuery extends AbstractQueryFilter
 {

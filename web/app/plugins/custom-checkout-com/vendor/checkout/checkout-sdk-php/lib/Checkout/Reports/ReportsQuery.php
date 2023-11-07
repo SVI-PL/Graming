@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Reports;
+namespace MyCheckout\Reports;
 
-use Checkout\Common\AbstractQueryFilter;
+use MyCheckout\Common\AbstractQueryFilter;
 use DateTime;
 
 class ReportsQuery extends AbstractQueryFilter

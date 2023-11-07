@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Sources\Previous;
+namespace MyCheckout\Sources\Previous;
 
 final class SourceType
 {

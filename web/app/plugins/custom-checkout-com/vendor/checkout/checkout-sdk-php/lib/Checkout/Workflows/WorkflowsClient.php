@@ -1,15 +1,15 @@
 <?php
 
-namespace Checkout\Workflows;
+namespace MyCheckout\Workflows;
 
-use Checkout\ApiClient;
-use Checkout\AuthorizationType;
-use Checkout\CheckoutApiException;
-use Checkout\CheckoutConfiguration;
-use Checkout\Client;
-use Checkout\Workflows\Actions\WorkflowActionRequest;
-use Checkout\Workflows\Conditions\WorkflowConditionRequest;
-use Checkout\Workflows\Reflows\ReflowRequest;
+use MyCheckout\ApiClient;
+use MyCheckout\AuthorizationType;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\CheckoutConfiguration;
+use MyCheckout\Client;
+use MyCheckout\Workflows\Actions\WorkflowActionRequest;
+use MyCheckout\Workflows\Conditions\WorkflowConditionRequest;
+use MyCheckout\Workflows\Reflows\ReflowRequest;
 
 class WorkflowsClient extends Client
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Issuing\Controls\Query;
+namespace MyCheckout\Issuing\Controls\Query;
 
-use Checkout\Common\AbstractQueryFilter;
+use MyCheckout\Common\AbstractQueryFilter;
 
 class CardControlsQuery extends AbstractQueryFilter
 {

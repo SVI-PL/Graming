@@ -1,14 +1,14 @@
 <?php
 
-namespace Checkout\Risk;
+namespace MyCheckout\Risk;
 
-use Checkout\ApiClient;
-use Checkout\AuthorizationType;
-use Checkout\CheckoutApiException;
-use Checkout\CheckoutConfiguration;
-use Checkout\Client;
-use Checkout\Risk\PreAuthentication\PreAuthenticationAssessmentRequest;
-use Checkout\Risk\PreCapture\PreCaptureAssessmentRequest;
+use MyCheckout\ApiClient;
+use MyCheckout\AuthorizationType;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\CheckoutConfiguration;
+use MyCheckout\Client;
+use MyCheckout\Risk\PreAuthentication\PreAuthenticationAssessmentRequest;
+use MyCheckout\Risk\PreCapture\PreCaptureAssessmentRequest;
 
 /**
  * @deprecated Risk endpoints are no longer supported officially, This module will be removed in a future release.

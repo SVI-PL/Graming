@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Issuing\Cards\Create;
+namespace MyCheckout\Issuing\Cards\Create;
 
-use Checkout\Common\Address;
+use MyCheckout\Common\Address;
 
 class ShippingInstructions
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Instruments\Create;
+namespace MyCheckout\Instruments\Create;
 
 abstract class CreateInstrumentRequest
 {

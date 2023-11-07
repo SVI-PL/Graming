@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Issuing\Cards\Create;
+namespace MyCheckout\Issuing\Cards\Create;
 
-use Checkout\Issuing\CardType;
+use MyCheckout\Issuing\CardType;
 
 class VirtualCardRequest extends CardRequest
 {

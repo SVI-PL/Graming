@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Payments;
+namespace MyCheckout\Payments;
 
-use Checkout\Common\MarketplaceData;
+use MyCheckout\Common\MarketplaceData;
 
 class CaptureRequest
 {

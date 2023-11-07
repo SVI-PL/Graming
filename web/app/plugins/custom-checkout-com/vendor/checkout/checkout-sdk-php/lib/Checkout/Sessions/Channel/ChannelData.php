@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Sessions\Channel;
+namespace MyCheckout\Sessions\Channel;
 
 abstract class ChannelData
 {

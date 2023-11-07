@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Workflows;
+namespace MyCheckout\Workflows;
 
 class CreateWorkflowRequest
 {

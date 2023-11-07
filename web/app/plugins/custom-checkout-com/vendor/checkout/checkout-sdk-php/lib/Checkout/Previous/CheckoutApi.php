@@ -1,23 +1,23 @@
 <?php
 
-namespace Checkout\Previous;
+namespace MyCheckout\Previous;
 
-use Checkout\ApiClient;
-use Checkout\Apm\CheckoutApmApi;
-use Checkout\AuthorizationType;
-use Checkout\CheckoutConfiguration;
-use Checkout\Customers\CustomersClient;
-use Checkout\Disputes\DisputesClient;
-use Checkout\Events\Previous\EventsClient;
-use Checkout\Instruments\Previous\InstrumentsClient;
-use Checkout\Payments\Hosted\HostedPaymentsClient;
-use Checkout\Payments\Links\PaymentLinksClient;
-use Checkout\Payments\Previous\PaymentsClient;
-use Checkout\Reconciliation\Previous\ReconciliationClient;
-use Checkout\Risk\RiskClient;
-use Checkout\Sources\Previous\SourcesClient;
-use Checkout\Tokens\TokensClient;
-use Checkout\Webhooks\Previous\WebhooksClient;
+use MyCheckout\ApiClient;
+use MyCheckout\Apm\CheckoutApmApi;
+use MyCheckout\AuthorizationType;
+use MyCheckout\CheckoutConfiguration;
+use MyCheckout\Customers\CustomersClient;
+use MyCheckout\Disputes\DisputesClient;
+use MyCheckout\Events\Previous\EventsClient;
+use MyCheckout\Instruments\Previous\InstrumentsClient;
+use MyCheckout\Payments\Hosted\HostedPaymentsClient;
+use MyCheckout\Payments\Links\PaymentLinksClient;
+use MyCheckout\Payments\Previous\PaymentsClient;
+use MyCheckout\Reconciliation\Previous\ReconciliationClient;
+use MyCheckout\Risk\RiskClient;
+use MyCheckout\Sources\Previous\SourcesClient;
+use MyCheckout\Tokens\TokensClient;
+use MyCheckout\Webhooks\Previous\WebhooksClient;
 
 final class CheckoutApi extends CheckoutApmApi
 {

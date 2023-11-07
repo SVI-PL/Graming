@@ -1,12 +1,12 @@
 <?php
 
-namespace Checkout\Previous;
+namespace MyCheckout\Previous;
 
-use Checkout\AbstractStaticKeysCheckoutSdkBuilder;
-use Checkout\ApiClient;
-use Checkout\CheckoutArgumentException;
-use Checkout\CheckoutConfiguration;
-use Checkout\SdkCredentialsInterface;
+use MyCheckout\AbstractStaticKeysCheckoutSdkBuilder;
+use MyCheckout\ApiClient;
+use MyCheckout\CheckoutArgumentException;
+use MyCheckout\CheckoutConfiguration;
+use MyCheckout\SdkCredentialsInterface;
 
 class CheckoutStaticKeysPreviousSdkBuilder extends AbstractStaticKeysCheckoutSdkBuilder
 {

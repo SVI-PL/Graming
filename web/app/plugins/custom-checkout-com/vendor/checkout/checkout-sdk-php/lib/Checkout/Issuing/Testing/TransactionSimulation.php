@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Issuing\Testing;
+namespace MyCheckout\Issuing\Testing;
 
-use Checkout\Common\Currency;
+use MyCheckout\Common\Currency;
 
 class TransactionSimulation
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Instruments\Update;
+namespace MyCheckout\Instruments\Update;
 
 abstract class UpdateInstrumentRequest
 {

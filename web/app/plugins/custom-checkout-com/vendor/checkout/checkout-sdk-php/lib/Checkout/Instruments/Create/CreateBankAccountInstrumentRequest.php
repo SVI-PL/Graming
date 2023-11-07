@@ -1,10 +1,10 @@
 <?php
 
-namespace Checkout\Instruments\Create;
+namespace MyCheckout\Instruments\Create;
 
-use Checkout\Common\AccountHolder;
-use Checkout\Common\BankDetails;
-use Checkout\Common\InstrumentType;
+use MyCheckout\Common\AccountHolder;
+use MyCheckout\Common\BankDetails;
+use MyCheckout\Common\InstrumentType;
 
 class CreateBankAccountInstrumentRequest extends CreateInstrumentRequest
 {

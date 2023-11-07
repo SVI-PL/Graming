@@ -1,10 +1,10 @@
 <?php
 
-namespace Checkout\Payments\Previous\Source;
+namespace MyCheckout\Payments\Previous\Source;
 
-use Checkout\Common\Address;
-use Checkout\Common\PaymentSourceType;
-use Checkout\Common\Phone;
+use MyCheckout\Common\Address;
+use MyCheckout\Common\PaymentSourceType;
+use MyCheckout\Common\Phone;
 
 class RequestDLocalSource extends AbstractRequestSource
 {

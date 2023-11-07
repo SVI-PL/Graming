@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Reconciliation\Previous;
+namespace MyCheckout\Reconciliation\Previous;
 
-use Checkout\Common\QueryFilterDateRange;
+use MyCheckout\Common\QueryFilterDateRange;
 
 class ReconciliationQueryPaymentsFilter extends QueryFilterDateRange
 {

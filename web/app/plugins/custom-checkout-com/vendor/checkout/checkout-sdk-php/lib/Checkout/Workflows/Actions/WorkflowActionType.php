@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Workflows\Actions;
+namespace MyCheckout\Workflows\Actions;
 
 class WorkflowActionType
 {

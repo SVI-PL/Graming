@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Risk;
+namespace MyCheckout\Risk;
 
 use DateTime;
 

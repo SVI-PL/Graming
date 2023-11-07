@@ -1,25 +1,25 @@
 <?php
 
-namespace Checkout;
+namespace MyCheckout;
 
-use Checkout\Accounts\AccountsClient;
-use Checkout\Balances\BalancesClient;
-use Checkout\Customers\CustomersClient;
-use Checkout\Disputes\DisputesClient;
-use Checkout\Financial\FinancialClient;
-use Checkout\Forex\ForexClient;
-use Checkout\Instruments\InstrumentsClient;
-use Checkout\Issuing\IssuingClient;
-use Checkout\Metadata\MetadataClient;
-use Checkout\Payments\PaymentsClient;
-use Checkout\Payments\Hosted\HostedPaymentsClient;
-use Checkout\Payments\Links\PaymentLinksClient;
-use Checkout\Reports\ReportsClient;
-use Checkout\Risk\RiskClient;
-use Checkout\Sessions\SessionsClient;
-use Checkout\Tokens\TokensClient;
-use Checkout\Transfers\TransfersClient;
-use Checkout\Workflows\WorkflowsClient;
+use MyCheckout\Accounts\AccountsClient;
+use MyCheckout\Balances\BalancesClient;
+use MyCheckout\Customers\CustomersClient;
+use MyCheckout\Disputes\DisputesClient;
+use MyCheckout\Financial\FinancialClient;
+use MyCheckout\Forex\ForexClient;
+use MyCheckout\Instruments\InstrumentsClient;
+use MyCheckout\Issuing\IssuingClient;
+use MyCheckout\Metadata\MetadataClient;
+use MyCheckout\Payments\PaymentsClient;
+use MyCheckout\Payments\Hosted\HostedPaymentsClient;
+use MyCheckout\Payments\Links\PaymentLinksClient;
+use MyCheckout\Reports\ReportsClient;
+use MyCheckout\Risk\RiskClient;
+use MyCheckout\Sessions\SessionsClient;
+use MyCheckout\Tokens\TokensClient;
+use MyCheckout\Transfers\TransfersClient;
+use MyCheckout\Workflows\WorkflowsClient;
 
 final class CheckoutApi extends CheckoutApmApi
 {

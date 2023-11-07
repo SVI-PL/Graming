@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Sessions\Completion;
+namespace MyCheckout\Sessions\Completion;
 
 class HostedCompletionInfo extends CompletionInfo
 {

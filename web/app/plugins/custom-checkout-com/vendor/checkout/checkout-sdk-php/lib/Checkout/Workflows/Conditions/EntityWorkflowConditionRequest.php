@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Workflows\Conditions;
+namespace MyCheckout\Workflows\Conditions;
 
 class EntityWorkflowConditionRequest extends WorkflowConditionRequest
 {

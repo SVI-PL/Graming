@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Sources\Previous;
+namespace MyCheckout\Sources\Previous;
 
-use Checkout\Common\Address;
+use MyCheckout\Common\Address;
 
 class SepaSourceRequest extends SourceRequest
 {

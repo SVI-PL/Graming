@@ -38,7 +38,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Checkout\\": "lib/Checkout"
+                    "MyCheckout": "lib/Checkout"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",

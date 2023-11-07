@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Issuing\Cardholders;
+namespace MyCheckout\Issuing\Cardholders;
 
-use Checkout\Common\DocumentType;
+use MyCheckout\Common\DocumentType;
 
 class CardholderDocument
 {

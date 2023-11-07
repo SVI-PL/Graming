@@ -1,26 +1,26 @@
 <?php
 
-namespace Checkout\Issuing;
+namespace MyCheckout\Issuing;
 
-use Checkout\ApiClient;
-use Checkout\AuthorizationType;
-use Checkout\CheckoutApiException;
-use Checkout\CheckoutConfiguration;
-use Checkout\Client;
-use Checkout\Issuing\Cardholders\CardholderRequest;
-use Checkout\Issuing\Cards\Create\CardRequest;
-use Checkout\Issuing\Cards\Credentials\CardCredentialsQuery;
-use Checkout\Issuing\Cards\Enrollment\ThreeDSEnrollmentRequest;
-use Checkout\Issuing\Cards\Enrollment\UpdateThreeDSEnrollmentRequest;
-use Checkout\Issuing\Cards\Revoke\RevokeCardRequest;
-use Checkout\Issuing\Cards\Suspend\SuspendCardRequest;
-use Checkout\Issuing\Controls\Create\CardControlRequest;
-use Checkout\Issuing\Controls\Query\CardControlsQuery;
-use Checkout\Issuing\Controls\Update\UpdateCardControlRequest;
-use Checkout\Issuing\Testing\CardClearingAuthorizationRequest;
-use Checkout\Issuing\Testing\CardIncrementAuthorizationRequest;
-use Checkout\Issuing\Testing\CardAuthorizationRequest;
-use Checkout\Issuing\Testing\CardReversalAuthorizationRequest;
+use MyCheckout\ApiClient;
+use MyCheckout\AuthorizationType;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\CheckoutConfiguration;
+use MyCheckout\Client;
+use MyCheckout\Issuing\Cardholders\CardholderRequest;
+use MyCheckout\Issuing\Cards\Create\CardRequest;
+use MyCheckout\Issuing\Cards\Credentials\CardCredentialsQuery;
+use MyCheckout\Issuing\Cards\Enrollment\ThreeDSEnrollmentRequest;
+use MyCheckout\Issuing\Cards\Enrollment\UpdateThreeDSEnrollmentRequest;
+use MyCheckout\Issuing\Cards\Revoke\RevokeCardRequest;
+use MyCheckout\Issuing\Cards\Suspend\SuspendCardRequest;
+use MyCheckout\Issuing\Controls\Create\CardControlRequest;
+use MyCheckout\Issuing\Controls\Query\CardControlsQuery;
+use MyCheckout\Issuing\Controls\Update\UpdateCardControlRequest;
+use MyCheckout\Issuing\Testing\CardClearingAuthorizationRequest;
+use MyCheckout\Issuing\Testing\CardIncrementAuthorizationRequest;
+use MyCheckout\Issuing\Testing\CardAuthorizationRequest;
+use MyCheckout\Issuing\Testing\CardReversalAuthorizationRequest;
 
 class IssuingClient extends Client
 {

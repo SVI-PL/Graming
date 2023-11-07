@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Instruments\Create;
+namespace MyCheckout\Instruments\Create;
 
-use Checkout\Common\AccountHolder;
-use Checkout\Common\InstrumentType;
+use MyCheckout\Common\AccountHolder;
+use MyCheckout\Common\InstrumentType;
 
 class CreateTokenInstrumentRequest extends CreateInstrumentRequest
 {

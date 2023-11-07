@@ -1,11 +1,11 @@
 <?php
 
-namespace Checkout\Sessions;
+namespace MyCheckout\Sessions;
 
-use Checkout\Common\ChallengeIndicatorType;
-use Checkout\Sessions\Channel\ChannelData;
-use Checkout\Sessions\Completion\CompletionInfo;
-use Checkout\Sessions\Source\SessionSource;
+use MyCheckout\Common\ChallengeIndicatorType;
+use MyCheckout\Sessions\Channel\ChannelData;
+use MyCheckout\Sessions\Completion\CompletionInfo;
+use MyCheckout\Sessions\Source\SessionSource;
 
 class SessionRequest
 {

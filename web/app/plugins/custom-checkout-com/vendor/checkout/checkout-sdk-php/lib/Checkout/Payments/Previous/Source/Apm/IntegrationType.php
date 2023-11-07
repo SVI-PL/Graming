@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Payments\Previous\Source\Apm;
+namespace MyCheckout\Payments\Previous\Source\Apm;
 
 class IntegrationType
 {

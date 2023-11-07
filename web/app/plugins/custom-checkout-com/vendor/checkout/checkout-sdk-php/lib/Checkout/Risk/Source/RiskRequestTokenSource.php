@@ -1,10 +1,10 @@
 <?php
 
-namespace Checkout\Risk\Source;
+namespace MyCheckout\Risk\Source;
 
-use Checkout\Common\Address;
-use Checkout\Common\PaymentSourceType;
-use Checkout\Common\Phone;
+use MyCheckout\Common\Address;
+use MyCheckout\Common\PaymentSourceType;
+use MyCheckout\Common\Phone;
 
 class RiskRequestTokenSource extends RiskPaymentRequestSource
 {

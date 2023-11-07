@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Instruments\Previous;
+namespace MyCheckout\Instruments\Previous;
 
-use Checkout\Common\CustomerRequest;
+use MyCheckout\Common\CustomerRequest;
 
 class InstrumentCustomerRequest extends CustomerRequest
 {

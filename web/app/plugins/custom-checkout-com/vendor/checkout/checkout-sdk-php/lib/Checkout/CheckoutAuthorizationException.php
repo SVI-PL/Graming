@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout;
+namespace MyCheckout;
 
 class CheckoutAuthorizationException extends CheckoutException
 {

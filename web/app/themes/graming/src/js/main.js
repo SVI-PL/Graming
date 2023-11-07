@@ -1,5 +1,5 @@
 jQuery(document).ready(function ($) {
-
+  //Slider setup
   $('.testimonial_slider_wraper').slick({
     infinite: true,
     slidesToShow: 2,
@@ -17,6 +17,7 @@ jQuery(document).ready(function ($) {
     },]
   });
 
+  //Discount clock get price
   $('.discount_block').on("click", function () {
     $('.discount_block').removeClass('active');
     $(this).addClass('active');
@@ -25,22 +26,26 @@ jQuery(document).ready(function ($) {
     $(".cart_item.first>.product-name>.product-quantity").text("× " + productQuantity);
   });
 
+  //Firs item activator
   setTimeout(function () {
     $('.discount_block').first().trigger("click");
   }, 1000);
 
+  //Mask for deposite
   $('#deposit-amount').mask('$000,000', { reverse: false });
   $("#deposit-amount").on("mouseleave", function () {
     let $deposit = $(this).val().replace(/[$,]/g, '');
     $('input[name="quantity"]').trigger("focus").val($deposit).trigger('change').trigger("blur");
   });
 
+  //Deposite form input
   $(".add_deposit").on("click", function () {
     let $deposit = $("#deposit-amount").val().replace(/[$,]/g, '');
     $('input[name="quantity"]').trigger("focus").val($deposit).trigger('change').trigger("blur");
     $("button.single_add_to_cart_button").trigger("click");
   });
 
+  //Validate on continue
   $('.continue_btn').on("click", function () {
     var customLink = $('#custom_link');
     var billingEmail = $('#billing_email');
@@ -81,41 +86,70 @@ jQuery(document).ready(function ($) {
     $("button.single_add_to_cart_button").trigger("click");
   });
 
+  //Validate Email
   function isValidEmail(email) {
     var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     return emailPattern.test(email);
   }
 
+  //Validate url
   function isValidURL(url) {
     var urlPattern = /^(http|https):\/\/[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}/;
     return urlPattern.test(url);
   }
 
-  //Local storage
+  //Local storage for Link and Email
   var customLinkValue = localStorage.getItem('custom_link');
   var billingEmailValue = localStorage.getItem('billing_email');
-
   if (customLinkValue) {
     $('#custom_link').val(customLinkValue);
   }
-
   if (billingEmailValue) {
     $('#billing_email').val(billingEmailValue);
   }
 
-  //Add pay with balance
-
+  //Add pay with balance activator
   $(document).on("mouseenter", ".balance_pay", function () {
     let $balance = $('#payment_method_my_balance_payment');
     $balance.trigger("click");
-    console.log("enter");
   });
-
+  //Add action for pay with balance
   $(document).on("click", ".balance", function () {
+    let $balance = $('#payment_method_my_balance_payment');
+    $balance.trigger("click");
     let $place_order = $("#place_order");
     $place_order.trigger("click");
   });
 
+  //Add pay with card activator
+  $(document).on("mouseenter", ".card_pay", function () {
+    let $card = $('#payment_method_custom_checkout');
+    $card.trigger("click");
+  });
+
+  //Add action for pay with Card
+  $(document).on("click", ".pay_btn", function () {
+    let $card = $('#payment_method_custom_checkout');
+    $card.trigger("click");
+    let $place_order = $("#place_order");
+    $place_order.trigger("click");
+  });
+
+  //Add pay with google pay activator
+  $(document).on("mouseenter", ".google_pay", function () {
+    let $card = $('#payment_method_wc_checkout_com_google_pay');
+    $card.trigger("click");
+  });
+
+  //Add action for pay with Google pay
+  $(document).on("click", ".btn-google", function () {
+    let $card = $('#payment_method_wc_checkout_com_google_pay');
+    $card.trigger("click");
+    let $place_order = $("#ckocom_googlePay");
+    $place_order.trigger("click");
+  });
+
+  //Bonus recalculate in checkout
   $(document).ajaxComplete(function (event, xhr, settings) {
     if (settings.url && settings.url.indexOf("update_order_review") !== -1) {
       const bonusElement = document.querySelector('.bonus_total');
@@ -129,6 +163,7 @@ jQuery(document).ready(function ($) {
     }
   });
 
+  //Focus and unFocus for fields
   $("input, textarea").on("focusin", function () {
     $("input").parent().removeClass("active");
     $(this).parent().addClass("active");
@@ -137,6 +172,7 @@ jQuery(document).ready(function ($) {
     $("input, textarea").parent().removeClass("active");
   });
 
+  //Scroll to top btn
   $(window).on("scroll", function () {
     var ScrollTop = $(".scrollToTop");
     if ($(this).scrollTop() < 500) {
@@ -149,6 +185,7 @@ jQuery(document).ready(function ($) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   })
 
+  //Product dropdown list
   $('.arrow_down').on("click", function () {
     $(".dropdown_products").toggleClass("active");
   });
@@ -156,27 +193,32 @@ jQuery(document).ready(function ($) {
     $(".dropdown_products").toggleClass("active");
   });
 
+  //Apply cupon code on checkout
   $(document).on('click', '.btn_apply', function () {
     let $cupon = $("input.coupon_input").val();
     $("input#coupon_code").val($cupon);
     $(".checkout_coupon").submit();
   });
 
-  $(".addditional_menu_icon").on("click", function () {
+  //Additional menu
+  $(".additional_menu_icon").on("click", function () {
     $(".account_icon").removeClass("active");
     $(".my_account").removeClass("active");
 
     $(this).toggleClass("active");
-    $(".addditional_menu").toggleClass("active");
+    $(".additional_menu").toggleClass("active");
   });
+
+  //My account menu
   $(".account_icon").on("click", function () {
-    $(".addditional_menu_icon").removeClass("active");
-    $(".addditional_menu").removeClass("active");
+    $(".additional_menu_icon").removeClass("active");
+    $(".additional_menu").removeClass("active");
 
     $(this).toggleClass("active");
     $(".my_account").toggleClass("active");
   });
 
+  //Add review form  display
   $("#add_review").on("click", function () {
     $(".testimonials_slider").hide();
     $(".add_review_form").show();
@@ -185,9 +227,9 @@ jQuery(document).ready(function ($) {
   //Upsale ajax add to cart
   $('.add-upsale').on('click', function (e) {
     e.preventDefault();
-
     var productID = $(this).data('product-id');
     var quantity = $(this).data('quantity');
+    $(this).parent().addClass("active");
 
     $.ajax({
       type: 'POST',
@@ -199,10 +241,31 @@ jQuery(document).ready(function ($) {
       },
       success: function (response) {
         updateOrderReview();
+        console.log("refresh")
       }
     });
   });
 
+  $('.remove-upsale').on('click', function (e) {
+    e.preventDefault();
+    var productID = $(this).data('product-id');
+    var quantity = $(this).data('quantity');
+    $(this).parent().removeClass("active");
+
+    $.ajax({
+      type: 'POST',
+      url: woocommerce_params.ajax_url,
+      data: {
+        action: 'update_cart_item_quantity',
+        product_id: productID,
+        quantity: quantity
+      },
+      success: function (response) {
+        updateOrderReview();
+        console.log("refresh")
+      }
+    });
+  });
   //Update order review
   function updateOrderReview() {
     var data = {
@@ -225,10 +288,10 @@ jQuery(document).ready(function ($) {
         $('.woocommerce-NoticeGroup-updateOrderReview').remove();
 
         if (response && response.fragments) {
-          jQuery.each(response.fragments, function(key, value) {
-              jQuery(key).replaceWith(value);
+          jQuery.each(response.fragments, function (key, value) {
+            jQuery(key).replaceWith(value);
           });
-      }
+        }
 
         $(document.body).trigger('updated_checkout', [response]);
       },

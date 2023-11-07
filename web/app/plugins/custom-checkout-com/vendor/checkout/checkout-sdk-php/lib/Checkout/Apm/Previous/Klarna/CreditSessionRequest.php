@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Apm\Previous\Klarna;
+namespace MyCheckout\Apm\Previous\Klarna;
 
 class CreditSessionRequest
 {

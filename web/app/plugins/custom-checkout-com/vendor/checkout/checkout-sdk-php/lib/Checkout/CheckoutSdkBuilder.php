@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout;
+namespace MyCheckout;
 
-use Checkout\Previous\CheckoutPreviousSdkBuilder;
+use MyCheckout\Previous\CheckoutPreviousSdkBuilder;
 
 class CheckoutSdkBuilder
 {

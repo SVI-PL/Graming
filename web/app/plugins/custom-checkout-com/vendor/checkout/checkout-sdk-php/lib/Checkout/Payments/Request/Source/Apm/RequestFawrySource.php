@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Payments\Request\Source\Apm;
+namespace MyCheckout\Payments\Request\Source\Apm;
 
-use Checkout\Common\PaymentSourceType;
-use Checkout\Payments\Previous\Source\AbstractRequestSource;
+use MyCheckout\Common\PaymentSourceType;
+use MyCheckout\Payments\Previous\Source\AbstractRequestSource;
 use DateTime;
 
 class RequestFawrySource extends AbstractRequestSource

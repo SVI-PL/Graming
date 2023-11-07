@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Issuing;
+namespace MyCheckout\Issuing;
 
 class CardType
 {

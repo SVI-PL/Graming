@@ -1,10 +1,10 @@
 <?php
 
-namespace Checkout\Payments\Request\Source\Apm;
+namespace MyCheckout\Payments\Request\Source\Apm;
 
-use Checkout\Common\AccountHolder;
-use Checkout\Common\PaymentSourceType;
-use Checkout\Payments\Request\Source\AbstractRequestSource;
+use MyCheckout\Common\AccountHolder;
+use MyCheckout\Common\PaymentSourceType;
+use MyCheckout\Payments\Request\Source\AbstractRequestSource;
 
 class RequestKlarnaSource extends AbstractRequestSource
 {

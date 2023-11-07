@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Accounts;
+namespace MyCheckout\Accounts;
 
-use Checkout\Common\Address;
+use MyCheckout\Common\Address;
 
 class Individual
 {

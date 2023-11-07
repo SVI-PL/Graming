@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Metadata\Card;
+namespace MyCheckout\Metadata\Card;
 
 class CardMetadataFormatType
 {

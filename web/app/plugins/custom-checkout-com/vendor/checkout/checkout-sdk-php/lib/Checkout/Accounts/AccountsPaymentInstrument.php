@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Accounts;
+namespace MyCheckout\Accounts;
 
-use Checkout\Common\BankDetails;
-use Checkout\Common\InstrumentType;
+use MyCheckout\Common\BankDetails;
+use MyCheckout\Common\InstrumentType;
 
 class AccountsPaymentInstrument
 {

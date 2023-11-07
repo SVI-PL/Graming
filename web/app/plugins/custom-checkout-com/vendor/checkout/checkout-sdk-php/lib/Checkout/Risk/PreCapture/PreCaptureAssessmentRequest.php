@@ -1,12 +1,12 @@
 <?php
 
-namespace Checkout\Risk\PreCapture;
+namespace MyCheckout\Risk\PreCapture;
 
-use Checkout\Common\CustomerRequest;
-use Checkout\Risk\Device;
-use Checkout\Risk\RiskPayment;
-use Checkout\Risk\RiskShippingDetails;
-use Checkout\Risk\Source\RiskPaymentRequestSource;
+use MyCheckout\Common\CustomerRequest;
+use MyCheckout\Risk\Device;
+use MyCheckout\Risk\RiskPayment;
+use MyCheckout\Risk\RiskShippingDetails;
+use MyCheckout\Risk\Source\RiskPaymentRequestSource;
 use DateTime;
 
 class PreCaptureAssessmentRequest

@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Issuing\Testing;
+namespace MyCheckout\Issuing\Testing;
 
 class CardAuthorizationRequest
 {

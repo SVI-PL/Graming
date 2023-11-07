@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Sources\Previous;
+namespace MyCheckout\Sources\Previous;
 
-use Checkout\Common\CustomerRequest;
-use Checkout\Common\Phone;
+use MyCheckout\Common\CustomerRequest;
+use MyCheckout\Common\Phone;
 
 abstract class SourceRequest
 {

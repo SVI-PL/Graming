@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Previous;
+namespace MyCheckout\Previous;
 
 class CheckoutPreviousSdkBuilder
 {

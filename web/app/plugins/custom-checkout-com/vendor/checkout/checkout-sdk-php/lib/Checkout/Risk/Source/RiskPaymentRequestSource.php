@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Risk\Source;
+namespace MyCheckout\Risk\Source;
 
 abstract class RiskPaymentRequestSource
 {

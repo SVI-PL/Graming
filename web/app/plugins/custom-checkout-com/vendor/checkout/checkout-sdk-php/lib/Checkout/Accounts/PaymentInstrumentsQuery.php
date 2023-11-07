@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Accounts;
+namespace MyCheckout\Accounts;
 
-use Checkout\Common\AbstractQueryFilter;
+use MyCheckout\Common\AbstractQueryFilter;
 
 class PaymentInstrumentsQuery extends AbstractQueryFilter
 {

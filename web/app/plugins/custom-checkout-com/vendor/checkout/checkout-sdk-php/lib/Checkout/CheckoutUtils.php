@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout;
+namespace MyCheckout;
 
 use DateTime;
 use GuzzleHttp\Psr7\Response;

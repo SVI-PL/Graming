@@ -1,12 +1,12 @@
 <?php
 
-namespace Checkout\Previous;
+namespace MyCheckout\Previous;
 
-use Checkout\AbstractStaticKeysSdkCredentials;
-use Checkout\AuthorizationType;
-use Checkout\CheckoutAuthorizationException;
-use Checkout\PlatformType;
-use Checkout\SdkAuthorization;
+use MyCheckout\AbstractStaticKeysSdkCredentials;
+use MyCheckout\AuthorizationType;
+use MyCheckout\CheckoutAuthorizationException;
+use MyCheckout\PlatformType;
+use MyCheckout\SdkAuthorization;
 
 class PreviousStaticKeysSdkCredentials extends AbstractStaticKeysSdkCredentials
 {

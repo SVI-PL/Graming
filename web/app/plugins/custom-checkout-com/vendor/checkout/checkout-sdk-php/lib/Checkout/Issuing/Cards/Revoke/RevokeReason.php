@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Issuing\Cards\Revoke;
+namespace MyCheckout\Issuing\Cards\Revoke;
 
 class RevokeReason
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Checkout\Webhooks\Previous;
+namespace MyCheckout\Webhooks\Previous;
 
-use Checkout\ApiClient;
-use Checkout\AuthorizationType;
-use Checkout\CheckoutApiException;
-use Checkout\CheckoutConfiguration;
-use Checkout\Client;
+use MyCheckout\ApiClient;
+use MyCheckout\AuthorizationType;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\CheckoutConfiguration;
+use MyCheckout\Client;
 
 class WebhooksClient extends Client
 {

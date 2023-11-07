@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Payments\Previous\Source;
+namespace MyCheckout\Payments\Previous\Source;
 
-use Checkout\Common\PaymentSourceType;
+use MyCheckout\Common\PaymentSourceType;
 
 class RequestCustomerSource extends AbstractRequestSource
 {

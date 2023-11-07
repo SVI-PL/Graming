@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Disputes;
+namespace MyCheckout\Disputes;
 
-use Checkout\Common\QueryFilterDateRange;
+use MyCheckout\Common\QueryFilterDateRange;
 
 class DisputesQueryFilter extends QueryFilterDateRange
 {

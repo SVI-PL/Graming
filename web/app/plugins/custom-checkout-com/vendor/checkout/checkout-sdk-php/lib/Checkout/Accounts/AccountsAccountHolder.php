@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Accounts;
+namespace MyCheckout\Accounts;
 
-use Checkout\Common\AccountHolderIdentification;
-use Checkout\Common\Address;
+use MyCheckout\Common\AccountHolderIdentification;
+use MyCheckout\Common\Address;
 
 abstract class AccountsAccountHolder
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Checkout\Payments\Request\Source\Apm;
+namespace MyCheckout\Payments\Request\Source\Apm;
 
-use Checkout\Common\PaymentSourceType;
-use Checkout\Payments\BillingPlan;
-use Checkout\Payments\Request\Source\AbstractRequestSource;
+use MyCheckout\Common\PaymentSourceType;
+use MyCheckout\Payments\BillingPlan;
+use MyCheckout\Payments\Request\Source\AbstractRequestSource;
 
 class RequestPayPalSource extends AbstractRequestSource
 {

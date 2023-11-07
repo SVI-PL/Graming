@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Payments;
+namespace MyCheckout\Payments;
 
-use Checkout\Common\Address;
+use MyCheckout\Common\Address;
 
 class PaymentRecipient
 {

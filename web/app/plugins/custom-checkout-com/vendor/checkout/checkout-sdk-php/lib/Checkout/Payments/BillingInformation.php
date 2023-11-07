@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Payments;
+namespace MyCheckout\Payments;
 
-use Checkout\Common\Address;
-use Checkout\Common\Phone;
+use MyCheckout\Common\Address;
+use MyCheckout\Common\Phone;
 
 class BillingInformation
 {

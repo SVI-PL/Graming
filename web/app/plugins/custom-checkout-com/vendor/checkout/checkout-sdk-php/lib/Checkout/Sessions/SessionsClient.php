@@ -1,14 +1,14 @@
 <?php
 
-namespace Checkout\Sessions;
+namespace MyCheckout\Sessions;
 
-use Checkout\ApiClient;
-use Checkout\AuthorizationType;
-use Checkout\CheckoutApiException;
-use Checkout\CheckoutAuthorizationException;
-use Checkout\CheckoutConfiguration;
-use Checkout\Client;
-use Checkout\Sessions\Channel\ChannelData;
+use MyCheckout\ApiClient;
+use MyCheckout\AuthorizationType;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\CheckoutAuthorizationException;
+use MyCheckout\CheckoutConfiguration;
+use MyCheckout\Client;
+use MyCheckout\Sessions\Channel\ChannelData;
 
 class SessionsClient extends Client
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Issuing\Cards\Suspend;
+namespace MyCheckout\Issuing\Cards\Suspend;
 
 class SuspendCardRequest
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Issuing\Cards\Enrollment;
+namespace MyCheckout\Issuing\Cards\Enrollment;
 
-use Checkout\Common\Phone;
+use MyCheckout\Common\Phone;
 
 class UpdateThreeDSEnrollmentRequest
 {

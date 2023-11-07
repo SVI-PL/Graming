@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Workflows\Reflows;
+namespace MyCheckout\Workflows\Reflows;
 
 class ReflowBySubjectsRequest extends ReflowRequest
 {

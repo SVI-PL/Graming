@@ -1,10 +1,10 @@
 <?php
 
-namespace Checkout\Payments\Previous\Source\Apm;
+namespace MyCheckout\Payments\Previous\Source\Apm;
 
-use Checkout\Common\PaymentSourceType;
-use Checkout\Payments\Payer;
-use Checkout\Payments\Previous\Source\AbstractRequestSource;
+use MyCheckout\Common\PaymentSourceType;
+use MyCheckout\Payments\Payer;
+use MyCheckout\Payments\Previous\Source\AbstractRequestSource;
 
 class RequestBoletoSource extends AbstractRequestSource
 {

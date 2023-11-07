@@ -1,15 +1,15 @@
 <?php
 
-namespace Checkout\Payments\Previous;
+namespace MyCheckout\Payments\Previous;
 
-use Checkout\ApiClient;
-use Checkout\AuthorizationType;
-use Checkout\CheckoutApiException;
-use Checkout\CheckoutConfiguration;
-use Checkout\Client;
-use Checkout\Payments\PaymentsQueryFilter;
-use Checkout\Payments\RefundRequest;
-use Checkout\Payments\VoidRequest;
+use MyCheckout\ApiClient;
+use MyCheckout\AuthorizationType;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\CheckoutConfiguration;
+use MyCheckout\Client;
+use MyCheckout\Payments\PaymentsQueryFilter;
+use MyCheckout\Payments\RefundRequest;
+use MyCheckout\Payments\VoidRequest;
 
 class PaymentsClient extends Client
 {

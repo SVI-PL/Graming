@@ -1,13 +1,13 @@
 <?php
 
-namespace Checkout\Apm\Previous\Klarna;
+namespace MyCheckout\Apm\Previous\Klarna;
 
-use Checkout\ApiClient;
-use Checkout\AuthorizationType;
-use Checkout\CheckoutApiException;
-use Checkout\CheckoutConfiguration;
-use Checkout\Client;
-use Checkout\Payments\VoidRequest;
+use MyCheckout\ApiClient;
+use MyCheckout\AuthorizationType;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\CheckoutConfiguration;
+use MyCheckout\Client;
+use MyCheckout\Payments\VoidRequest;
 
 class KlarnaClient extends Client
 {

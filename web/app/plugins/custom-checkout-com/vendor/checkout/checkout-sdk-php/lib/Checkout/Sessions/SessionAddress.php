@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Sessions;
+namespace MyCheckout\Sessions;
 
-use Checkout\Common\Address;
+use MyCheckout\Common\Address;
 
 class SessionAddress extends Address
 {

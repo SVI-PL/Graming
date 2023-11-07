@@ -1,13 +1,13 @@
 <?php
 
-namespace Checkout\Metadata;
+namespace MyCheckout\Metadata;
 
-use Checkout\ApiClient;
-use Checkout\AuthorizationType;
-use Checkout\CheckoutApiException;
-use Checkout\CheckoutConfiguration;
-use Checkout\Client;
-use Checkout\Metadata\Card\CardMetadataRequest;
+use MyCheckout\ApiClient;
+use MyCheckout\AuthorizationType;
+use MyCheckout\CheckoutApiException;
+use MyCheckout\CheckoutConfiguration;
+use MyCheckout\Client;
+use MyCheckout\Metadata\Card\CardMetadataRequest;
 
 class MetadataClient extends Client
 {

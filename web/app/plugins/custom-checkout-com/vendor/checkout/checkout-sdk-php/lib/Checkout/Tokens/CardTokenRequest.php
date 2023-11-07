@@ -1,9 +1,9 @@
 <?php
 
-namespace Checkout\Tokens;
+namespace MyCheckout\Tokens;
 
-use Checkout\Common\Address;
-use Checkout\Common\Phone;
+use MyCheckout\Common\Address;
+use MyCheckout\Common\Phone;
 
 class CardTokenRequest
 {

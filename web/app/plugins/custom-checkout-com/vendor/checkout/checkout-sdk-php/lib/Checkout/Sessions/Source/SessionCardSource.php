@@ -1,8 +1,8 @@
 <?php
 
-namespace Checkout\Sessions\Source;
+namespace MyCheckout\Sessions\Source;
 
-use Checkout\Sessions\SessionSourceType;
+use MyCheckout\Sessions\SessionSourceType;
 
 class SessionCardSource extends SessionSource
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Checkout\Issuing\Cards\Create;
+namespace MyCheckout\Issuing\Cards\Create;
 
 class CardLifetime
 {
