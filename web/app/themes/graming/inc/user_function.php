@@ -72,3 +72,21 @@ function get_bonus_calc_amount()
 
 	echo "$" . $total_bonuses;
 }
+
+//Redirect from cart to home
+function custom_cart_redirect_to_home() {
+    if (is_cart()) {
+        wp_safe_redirect(home_url());
+        exit;
+    }
+}
+add_action('template_redirect', 'custom_cart_redirect_to_home');
+
+//Redirect from shop to home
+function custom_shop_redirect_to_home() {
+    if (is_shop()) {
+        wp_safe_redirect(home_url());
+        exit;
+    }
+}
+add_action('template_redirect', 'custom_shop_redirect_to_home');
