@@ -14,10 +14,15 @@ use Checkout\CheckoutSdk;
 use Checkout\Common\Address;
 use Checkout\Common\Country;
 use Checkout\Common\Currency;
+use Checkout\Common\CustomerRequest;
 use Checkout\Common\Phone;
 use Checkout\Environment;
-use Checkout\Payments\Previous\PaymentRequest;
-use Checkout\Payments\Previous\Source\RequestCardSource;
+use Checkout\OAuthScope;
+use Checkout\Payments\Request\PaymentRequest;
+use Checkout\Payments\Request\Source\RequestCardSource;
+use Checkout\Payments\Sender\Identification;
+use Checkout\Payments\Sender\IdentificationType;
+use Checkout\Payments\Sender\PaymentIndividualSender;
 
 /*Exit if accessed directly*/
 if (!defined('ABSPATH')) {
@@ -168,53 +173,60 @@ function pf_checkout_com()
         {
             //API Keys
             $api = CheckoutSdk::builder()
-                ->previous()
                 ->staticKeys()
                 ->environment(Environment::sandbox())
-                ->secretKey("sk_test_f7f9a069-dcc5-45d8-aa72-e60f605c9514")
+                ->publicKey("pk_sbox_pgomj4fn7birnukblss6pv3goa6")
+                ->secretKey("sk_sbox_5vskqyk6hnz3rmqu3unmzk6v3en")
                 ->build();
-
-                var_dump($api);
-
-            $billingAddress = new Address();
-            $billingAddress->address_line1 = "CheckoutSdk.com";
-            $billingAddress->address_line2 = "90 Tottenham Court Road";
-            $billingAddress->city = "London";
-            $billingAddress->state = "London";
-            $billingAddress->zip = "W1T 4TJ";
-            $billingAddress->country = Country::$GB;
 
             $phone = new Phone();
             $phone->country_code = "+1";
             $phone->number = "415 555 2671";
+
+            $address = new Address();
+            $address->address_line1 = "CheckoutSdk.com";
+            $address->address_line2 = "90 Tottenham Court Road";
+            $address->city = "London";
+            $address->state = "London";
+            $address->zip = "W1T 4TJ";
+            $address->country = Country::$GB;
+
             $requestCardSource = new RequestCardSource();
             $requestCardSource->name = "VISA";
             $requestCardSource->number = "4544249167673670";
             $requestCardSource->expiry_year = 2030;
             $requestCardSource->expiry_month = 12;
             $requestCardSource->cvv = "100";
-            $requestCardSource->billing_address = $billingAddress;
+            $requestCardSource->billing_address = $address;
             $requestCardSource->phone = $phone;
+
+            $customerRequest = new CustomerRequest();
+            $customerRequest->email = "email@docs.checkout.com";
+            $customerRequest->name = "Customer";
+
+            $paymentIndividualSender = new PaymentIndividualSender();
+            $paymentIndividualSender->fist_name = "FirstName";
+            $paymentIndividualSender->last_name = "LastName";
+            $paymentIndividualSender->address = $address;
 
             $request = new PaymentRequest();
             $request->source = $requestCardSource;
             $request->capture = true;
             $request->reference = "reference";
             $request->amount = 10;
-            $request->currency = Currency::$GBP;
+            $request->currency = Currency::$USD;
+            $request->customer = $customerRequest;
+            $request->sender = $paymentIndividualSender;
 
             try {
                 $response = $api->getPaymentsClient()->requestPayment($request);
-                var_dump("response" . $response);
+                echo "<pre>";
+                var_dump($response);
+                echo "</pre>";
             } catch (CheckoutApiException $e) {
                 $error_details = $e->error_details;
-                echo "error_details";
-                var_dump($error_details);
                 $http_status_code = isset($e->http_metadata) ? $e->http_metadata->getStatusCode() : null;
-                echo "http_status_code";
-                var_dump($http_status_code);
             } catch (CheckoutAuthorizationException $e) {
-                var_dump("e" . $e);
             }
 
         }
