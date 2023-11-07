@@ -39,7 +39,7 @@
 				</a>
 			</div>
 			<nav class="primary_menu">
-				<?php wp_nav_menu(['menu' => 'menu-1']); ?>
+				<?php wp_nav_menu(['theme_location' => 'menu-1']); ?>
 			</nav>
 			<div class="account_menu">
 				<div class="trust_pilot">
@@ -77,11 +77,7 @@
 
 				<div class="additional_menu">
 					<div class="additional_menu_icon"></div>
-					<ul class="sub-menu">
-						<li><a href="/contact">Contact Us</a></li>
-						<li><a href="/#testimonial">Reviews</a></li>
-						<li><a href="/blog">Blog</a></li>
-					</ul>
+					<?php wp_nav_menu(['theme_location' => 'menu-3']); ?>
 				</div>
 			</div>
 		</div>

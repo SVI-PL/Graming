@@ -18,18 +18,11 @@
 		<div class="footer-area">
 			<div class="footer_block">
 				<div class="footer_block_title">Quick Link</div>
-				<ul>
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">API Documentation</a></li>
-				</ul>
+				<?php wp_nav_menu(['theme_location' => 'menu-5']); ?>
 			</div>
 			<div class="footer_block">
 				<div class="footer_block_title">Privacy and Terms</div>
-				<ul>
-					<li><a href="/privacy-policy/">Privacy and Policy</a></li>
-					<li><a href="/dogovir-publicnoyi-oferti/">Договір публічної оферти</a></li>
-					<li><a href="/umovi-vikoristannia/">Terms and Condition</a></li>
-				</ul>
+				<?php wp_nav_menu(['theme_location' => 'menu-6']); ?>
 			</div>
 			<div class="footer_block">
 				<div class="footer_block_title">Contact Info</div>

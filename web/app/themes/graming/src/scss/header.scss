@@ -359,12 +359,12 @@ header.header-section {
                     }
                 }
 
-                .sub-menu {
+                #menu-header-additional {
                     display: none;
                 }
 
                 &.active {
-                    .sub-menu {
+                    #menu-header-additional {
                         display: flex;
                         flex-direction: column;
                         position: absolute;
