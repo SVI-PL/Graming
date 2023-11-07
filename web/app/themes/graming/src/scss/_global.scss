@@ -28,14 +28,14 @@ body {
     padding-top: 105px;
 
     @media (max-width: 768px) {
-        padding-top: 55px;
+        padding-top: 58px;
     }
 
     &.logged {
-        padding-top: 60px;
+        padding-top: 93px;
 
         @media (max-width: 768px) {
-            padding-top: 55px;
+            padding-top: 58px;
         }
     }
 }

@@ -1691,6 +1691,10 @@
                             text-align: center !important;
 
                             .bootstrap-iso {
+                                .alert-danger {
+                                    display: none;
+                                }
+
                                 .label-danger {
                                     background-color: unset;
                                     color: #85C316;
