@@ -1610,6 +1610,12 @@
     display: none;
 }
 
+.bootstrap-iso {
+    .alert-danger {
+        display: none;
+    }
+}
+
 .suppotrs-wraper {
     display: flex;
     flex-direction: column;
@@ -1691,9 +1697,6 @@
                             text-align: center !important;
 
                             .bootstrap-iso {
-                                .alert-danger {
-                                    display: none;
-                                }
 
                                 .label-danger {
                                     background-color: unset;
