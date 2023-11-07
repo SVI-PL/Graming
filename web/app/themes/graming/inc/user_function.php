@@ -34,13 +34,13 @@ function get_user_order_count()
 }
 
 //Add passwors on registration
-function password_in_registration($username, $user) {
+function password_in_registration($customer_id) {
     if (isset($_POST['password']) && !empty($_POST['password'])) {
         $password = wc_clean($_POST['password']);
-        $user->set_password($password);
+        update_user_meta($customer_id, 'password', $password);
     }
 }
-add_action('woocommerce_created_customer', 'password_in_registration', 10, 2);
+add_action('woocommerce_created_customer', 'password_in_registration');
 
 //Get calc bonus
 function get_bonus_calc_amount()
