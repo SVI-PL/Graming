@@ -1923,6 +1923,102 @@
                     }
                 }
             }
+
+            .wss-thread-container {
+                form {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 35px 25px;
+                    gap: 25px;
+
+                    #wp-wss-thread-wrap {
+                        display: flex;
+                        width: 100%;
+                        border-radius: 15px;
+                        border: 1px solid #646464;
+                        overflow: hidden;
+
+                        textarea#wss-thread {
+                            width: 100% !important;
+                            padding: 20px !important;
+                            color: #646464 !important;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: normal;
+                            text-transform: capitalize;
+                        }
+                    }
+
+                    input.send-new-thread {
+                        color: #646464;
+                        font-family: Fixel Display;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                        text-transform: capitalize;
+                        padding: 15px;
+                        cursor: pointer;
+                    }
+
+                    a.btn-red.back-to-tickets {
+                        border: 1px solid #85C316;
+                    }
+                }
+            }
+
+            #wss-ticket {
+                display: grid;
+                max-height: 450px;
+                height: 100%;
+                overflow-y: scroll;
+                padding: 35px 25px 0px 25px;
+
+                .single-thread {
+                    width: 51%;
+                    justify-self: self-start;
+                    border: 1px solid #646464;
+
+                    &.answer {
+                        justify-self: self-end;
+                        border: 1px solid #646464;
+
+                        .thread-header {
+                            background: #D2FF71;
+                        }
+                    }
+
+                    .thread-header {
+                        background: #fff;
+                        border-bottom: 1px solid #646464;
+
+                        .left {
+                            img {
+                                aspect-ratio: 1/1;
+                            }
+                        }
+
+                        .right {
+                            float: left;
+                            text-transform: capitalize;
+                            line-height: 1.20;
+                            font-weight: bold;
+                            color: #666;
+                        }
+                    }
+                }
+            }
+        }
+
+        .bootstrap-iso {
+            .alert-danger {
+                display: flex;
+            }
         }
     }
 }

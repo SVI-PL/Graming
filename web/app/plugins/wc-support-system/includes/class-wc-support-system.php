@@ -58,7 +58,7 @@ class wc_support_system
 	 */
 	public function page_class_instance($content)
 	{
-
+		return $content;
 		$support_page = get_option('wss-page');
 
 		if ($support_page && is_page($support_page)) {
@@ -76,7 +76,7 @@ class wc_support_system
 			return $output;
 
 		} else {
-			return $content;
+			
 		}
 
 	}
@@ -421,7 +421,8 @@ class wc_support_system
 				</div>
 				<input type="text" name="additional-recipients" class="additional-recipients"
 					data-blacklist="<?php echo esc_attr($user_email); ?>"
-					placeholder="<?php echo __('Send notifications to other email addresses', 'wc-support-system'); ?>">
+					placeholder="<?php echo __('Send notifications to other email addresses', 'wc-support-system'); ?>"
+					style="display:none">
 				<div class="form_input form_subject">
 					<label>Subject</label>
 					<input type="text" name="title" placeholder="Text Your Subject Here" required="required">
@@ -467,32 +468,43 @@ class wc_support_system
 	public function create_new_thread($is_admin = false)
 	{
 		?>
-		<div class="wss-thread-container" style="display: none;">
+		<div class="wss-thread-container" style="display:none">
 			<form method="POST" action="">
-				<?php wp_editor('', 'wss-thread'); ?>
+				<?php wp_editor('', 'wss-thread', array(
+					'wpautop' => 0,
+					'media_buttons' => 0,
+					'textarea_name' => 'wss-thread',
+					'textarea_rows' => 20,
+					'tabindex' => null,
+					'editor_css' => '',
+					'editor_class' => '',
+					'teeny' => 0,
+					'dfw' => 0,
+					'tinymce' => 0,
+					'quicktags' => 0,
+					'drag_drop_upload' => true
+				)
+				); ?>
 				<input type="hidden" class="ticket-id" name="ticket-id" value="">
 				<input type="hidden" class="customer-email" name="customer-email" value="">
 				<input type="hidden" name="thread-sent" value="1">
 				<input type="hidden" class="close-ticket" name="close-ticket" value="0">
-				<input type="submit" class="send-new-thread button-primary"
-					value="<?php esc_attr_e('Send', 'wc-support-system'); ?>" style="margin-top: 1rem;">
+				<a class="btn-red back-to-tickets">
+					<?php echo __('Cancel', 'wc-support-system'); ?>
+				</a>
+				<input type="submit" class="send-new-thread button-primary btn-gray"
+					value="<?php esc_attr_e('Send', 'wc-support-system'); ?>">
 				<?php
 				if ($is_admin) {
-					echo '<input type="submit" class="send-new-thread-and-close button green" value="' . esc_attr__('Send and Close', 'wc-support-system') . '" style="margin-top: 1rem;">';
+					echo '<input type="submit" class="send-new-thread-and-close button green" value="' . esc_attr__('Send and Close', 'wc-support-system') . '">';
 				}
 				?>
 			</form>
 			<div class="bootstrap-iso"></div>
 		</div>
 		<div class="thread-tools">
-			<a class="button back-to-tickets">
-				<?php echo __('Back to tickets', 'wc-support-system'); ?>
-			</a>
 			<a class="button new-thread button-primary" style="display: none;">
 				<?php echo __('New message', 'wc-support-system'); ?>
-			</a>
-			<a class="button thread-cancel" style="display: none;">
-				<?php echo __('Cancel', 'wc-support-system'); ?>
 			</a>
 		</div>
 		<?php
@@ -625,18 +637,6 @@ class wc_support_system
 
 			echo '<div id="wss-ticket" class="ticket-' . $ticket_id . '">';
 
-			/* Display additional recipients field only in back-end */
-			if (is_super_admin()) {
-
-				echo '<form>';
-				echo '<label for="additional-recipients">' . esc_html__('Additional recipients', 'wss') . '</label>';
-				$this->go_premium(true);
-				echo '<p class="description">' . esc_html__('These email addresses will receive notifications about this ticket updates.', 'wss') . '</p>';
-				echo '<input type="text" name="additional-recipients-' . $ticket_id . '" class="additional-recipients additional-recipients-' . $ticket_id . '" data-blacklist="' . esc_attr($ticket->user_email) . '" placeholder="' . __('Add one or more email addresses', 'wss') . '">';
-				echo '</form>';
-
-			}
-
 			$threads = self::get_ticket_threads($ticket_id);
 			if ($threads) {
 				foreach ($threads as $thread) {
@@ -734,9 +734,9 @@ class wc_support_system
 						?>
 					</tbody>
 				</table>
-				<?php $this->create_new_thread(); ?>
 				<div class="single-ticket-content"></div>
-				<?php
+				<?php $this->create_new_thread(); ?>
+			<?php
 			} else {
 				echo '<div class="bootstrap-iso">';
 				echo '<div class="alert alert-info">' . __('It seems like you have no support tickets opened at the moment.', 'wc-support-system') . '</div>';
@@ -1019,7 +1019,6 @@ class wc_support_system
 	 */
 	public function save_new_thread()
 	{
-
 		if (isset($_POST['thread-sent'])) {
 
 			$ticket_id = isset($_POST['ticket-id']) ? sanitize_text_field($_POST['ticket-id']) : '';
@@ -1038,7 +1037,7 @@ class wc_support_system
 
 			}
 
-			$content = isset($_POST['wss-thread']) ? wp_filter_post_kses($_POST['wss-thread']) : '';
+			$content = isset($_POST["wss-thread"]) ? wp_filter_post_kses($_POST["wss-thread"]) : '';
 			$date = date('Y-m-d H:i:s');
 
 			/*User info*/
