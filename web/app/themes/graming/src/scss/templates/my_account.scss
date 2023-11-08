@@ -341,10 +341,10 @@
     }
 }
 
-.woocommerce-message .lost_reset_password {
+.lost_reset_password {
     display: flex;
     justify-content: center;
-    margin-top: 65px;
+    margin-top: 25px;
 
     @media (max-width: 960px) {
         width: 100%;
@@ -458,11 +458,11 @@
                         content: "";
                         display: flex;
                         position: absolute;
-                        bottom: 22px;
+                        bottom: 18.5px;
                         left: 25px;
                         background-size: contain;
-                        width: 19px;
-                        height: 23px;
+                        width: 28px;
+                        height: 28px;
                         background: url(../images/contact_persone.svg);
 
                         @media (max-width: 960px) {
