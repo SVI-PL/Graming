@@ -78,6 +78,8 @@
 				<div class="additional_menu">
 					<div class="additional_menu_icon"></div>
 					<?php wp_nav_menu(['theme_location' => 'menu-3']); ?>
+					<?php wp_nav_menu(['theme_location' => 'menu-2']); ?>
+
 				</div>
 			</div>
 		</div>

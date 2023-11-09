@@ -332,6 +332,10 @@ jQuery(document).ready(function ($) {
   $(document).on('click', '.add_coupon_title', function () {
     $(".dropdown_coupon").toggleClass("active");
   });
+
+  $("#menu-header-mobile li.menu-item-has-children").on('click', function () {
+    $(this).toggleClass("active");
+  });
 });
 
 
