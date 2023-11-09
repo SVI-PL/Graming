@@ -1004,6 +1004,7 @@
                         padding: 10px 15px;
                         align-items: center;
                         gap: 20px;
+                        cursor: pointer;
 
                         .icon {
                             display: flex;
@@ -1198,6 +1199,7 @@
                         font-style: normal;
                         font-weight: 600;
                         line-height: normal;
+                        cursor: pointer;
 
                         @media (max-width: 960px) {
                             font-size: 15px;
@@ -1214,7 +1216,7 @@
                     }
 
                     .dropdown_coupon {
-                        display: flex;
+                        display: none;
                         gap: 10px;
                         flex-direction: row;
                         align-items: center;
@@ -1223,6 +1225,10 @@
 
                         @media (max-width: 768px) {
                             flex-direction: column;
+                        }
+
+                        &.active {
+                            display: flex;
                         }
 
                         input.coupon_input {

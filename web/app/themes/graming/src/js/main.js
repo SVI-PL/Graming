@@ -76,7 +76,7 @@ jQuery(document).ready(function ($) {
     } else {
       terms.parent().removeClass('error');
     }
-    
+
     if (customLink.parent().hasClass('error') || billingEmail.parent().hasClass('error') || terms.parent().hasClass('error')) {
       return;
     }
@@ -232,48 +232,49 @@ jQuery(document).ready(function ($) {
     $(".add_review_form").show();
   });
 
-  //Upsale ajax add to cart
-  $('.add-upsale').on('click', function (e) {
+  //Upsale ajax add/remove product
+  $('.upsale-product').on('click', function (e) {
     e.preventDefault();
-    var productID = $(this).data('product-id');
-    var quantity = $(this).data('quantity');
-    $(this).parent().addClass("active");
+    if ($(this).hasClass("active")) {
+      var productID = $(this).find('.remove-upsale').data('product-id');
+      var quantity = $(this).find('.remove-upsale').data('quantity');
+      $(this).removeClass("active");
 
-    $.ajax({
-      type: 'POST',
-      url: woocommerce_params.ajax_url,
-      data: {
-        action: 'add_to_cart',
-        product_id: productID,
-        quantity: quantity
-      },
-      success: function (response) {
-        updateOrderReview();
-        console.log("refresh")
-      }
-    });
+      $.ajax({
+        type: 'POST',
+        url: woocommerce_params.ajax_url,
+        data: {
+          action: 'update_cart_item_quantity',
+          product_id: productID,
+          quantity: quantity
+        },
+        success: function (response) {
+          updateOrderReview();
+          console.log("refresh")
+        }
+      });
+    } else {
+      var productID = $(this).find('.add-upsale').data('product-id');
+      var quantity = $(this).find('.add-upsale').data('quantity');
+      console.log(productID)
+      $(this).addClass("active");
+
+      $.ajax({
+        type: 'POST',
+        url: woocommerce_params.ajax_url,
+        data: {
+          action: 'add_to_cart',
+          product_id: productID,
+          quantity: quantity
+        },
+        success: function (response) {
+          updateOrderReview();
+          console.log("refresh")
+        }
+      });
+    }
   });
 
-  $('.remove-upsale').on('click', function (e) {
-    e.preventDefault();
-    var productID = $(this).data('product-id');
-    var quantity = $(this).data('quantity');
-    $(this).parent().removeClass("active");
-
-    $.ajax({
-      type: 'POST',
-      url: woocommerce_params.ajax_url,
-      data: {
-        action: 'update_cart_item_quantity',
-        product_id: productID,
-        quantity: quantity
-      },
-      success: function (response) {
-        updateOrderReview();
-        console.log("refresh")
-      }
-    });
-  });
   //Update order review
   function updateOrderReview() {
     var data = {
@@ -326,6 +327,11 @@ jQuery(document).ready(function ($) {
     }
   };
   clean_cart();
+
+  //Cupon dropdown
+  $(document).on('click', '.add_coupon_title', function () {
+    $(".dropdown_coupon").toggleClass("active");
+  });
 });
 
 

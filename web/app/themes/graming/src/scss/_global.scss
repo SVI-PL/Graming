@@ -671,10 +671,19 @@ main.main-content {
             border-radius: 15px;
             border: 1px solid #161616;
 
+            @media (max-width: 768px) {
+                padding: 20px;
+                flex-direction: column;
+            }
+
             .form_left {
                 display: flex;
                 flex-direction: column;
                 width: calc(50% - 12.5px);
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
 
                 .form_input {
                     display: flex;
@@ -771,6 +780,10 @@ main.main-content {
                 display: flex;
                 flex-direction: column;
                 width: calc(50% - 12.5px);
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
 
                 .form_input {
                     display: flex;
