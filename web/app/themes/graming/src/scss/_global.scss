@@ -88,6 +88,18 @@ main.main-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    &>p {
+        max-width: 1215px;
+        text-align: center;
+        color: #161616;
+        font-family: Fixel Display;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 145%;
+        margin-top: 25px;
+    }
 }
 
 .scrollToTop {

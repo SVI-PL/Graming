@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
 do_action('woocommerce_before_lost_password_form');
 ?>
 
-<form method="post" class="woocommerce-ResetPassword lost_reset_password">
+<form method="post" class="woocommerce-LostPassword lost_reset_password">
 	<div class="custom_block">
 		<div class="block_title">Password Recovery</div>
 		<div class="form_content">
@@ -29,7 +29,7 @@ do_action('woocommerce_before_lost_password_form');
 					<?php esc_html_e('Username or email', 'woocommerce'); ?>
 				</label>
 				<input class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="user_login"
-					id="user_login" autocomplete="username" />
+					id="user_login" autocomplete="username" placeholder="Username or email"/>
 			</div>
 			<?php do_action('woocommerce_lostpassword_form'); ?>
 			<input type="hidden" name="wc_reset_password" value="true" />

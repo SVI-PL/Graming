@@ -1019,7 +1019,7 @@ class wc_support_system
 	 */
 	public function save_new_thread()
 	{
-		if (isset($_POST['thread-sent'])) {
+		if (!empty($_POST['thread-sent'])) {
 
 			$ticket_id = isset($_POST['ticket-id']) ? sanitize_text_field($_POST['ticket-id']) : '';
 			$customer_email = isset($_POST['customer-email']) ? sanitize_email($_POST['customer-email']) : '';

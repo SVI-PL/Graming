@@ -146,7 +146,6 @@ function my_custom_order_status_changed($order_id, $from_status, $to_status, $or
 		foreach ($items as $item) {
 			$product_id = $item->get_product_id();
 			$quantity += $item->get_quantity();
-			break;
 		}
 
 		//API setting
