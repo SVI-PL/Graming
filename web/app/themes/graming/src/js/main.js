@@ -333,8 +333,14 @@ jQuery(document).ready(function ($) {
     $(".dropdown_coupon").toggleClass("active");
   });
 
+  //Mobile menu toggle
   $("#menu-header-mobile li.menu-item-has-children").on('click', function () {
     $(this).toggleClass("active");
+  });
+
+  //Checkout masks
+  $(document).ajaxComplete(function (event, xhr, settings) {
+    $('#card_number').mask('9999 9999 9999 9999', { reverse: false });
   });
 });
 

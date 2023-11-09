@@ -15,7 +15,6 @@ use MyCheckout\Common\Address;
 use MyCheckout\Common\Country;
 use MyCheckout\Common\Currency;
 use MyCheckout\Common\CustomerRequest;
-use MyCheckout\Common\Phone;
 use MyCheckout\Environment;
 use MyCheckout\Payments\Request\PaymentRequest;
 use MyCheckout\Payments\Request\Source\RequestCardSource;
@@ -81,14 +80,14 @@ function pf_checkout_com()
                     'title' => 'Заголовок',
                     'type' => 'text',
                     'description' => 'Это то, что пользователь увидит как название метода оплаты на странице оформления заказа.',
-                    'default' => 'Оплатить картой',
+                    'default' => 'Card payment',
                     'desc_tip' => true,
                 ),
                 'description' => array(
                     'title' => 'Описание',
                     'type' => 'textarea',
                     'description' => 'Описание этого метода оплаты, которое будет отображаться пользователю на странице оформления заказа.',
-                    'default' => 'Оплатите при помощи карты легко и быстро.',
+                    'default' => 'Custom payment',
                 ),
                 'testmode' => array(
                     'title' => 'Sandbox',
@@ -119,49 +118,43 @@ function pf_checkout_com()
 
         public function payment_fields()
         {
-            if ($this->description) {
-                if ($this->testmode) {
-                    $this->description .= ' ТЕСТОВЫЙ РЕЖИМ АКТИВИРОВАН. В тестовом режиме вы можете использовать тестовые данные карт, указанные в <a href="#" target="_blank">документации</a>.';
-                    $this->description = trim($this->description);
-                }
-                // описание закидываем в теги <p>
-                echo wpautop(wp_kses_post($this->description));
-            }
-
-            // я использую функцию echo(), но по сути можете закрыть тег PHP и выводить прямо как HTML
-            echo '<fieldset id="wc-' . $this->id . '-cc-form" class="wc-credit-card-form wc-payment-form" style="background:transparent;">';
-
-            // чтобы разработчики плагинов могли сюда что-то добавить, но не обязательно
-            do_action('woocommerce_credit_card_form_start', $this->id);
-
-            // I recommend to use inique IDs, because other gateways could already use #ccNo, #expdate, #cvc
-            echo '<div class="form-row form-row-wide"><label>Номер карты <span class="required">*</span></label>
-                <input id="truemisha_ccNo" type="text" autocomplete="off">
-                </div>
-                <div class="form-row form-row-first">
-                    <label>Срок действия <span class="required">*</span></label>
-                    <input id="truemisha_expdate" type="text" autocomplete="off" placeholder="MM / ГГ">
-                </div>
-                <div class="form-row form-row-last">
-                    <label>Код (CVC) <span class="required">*</span></label>
-                    <input id="truemisha_cvv" type="password" autocomplete="off" placeholder="CVC">
-                </div>
-                <div class="clear"></div>';
-
-            // чтобы разработчики плагинов могли сюда что-то добавить, но не обязательно
-            do_action('woocommerce_credit_card_form_end', $this->id);
-
-            echo '<div class="clear"></div></fieldset>';
 
         }
 
         public function validate_fields()
         {
-
-            // if (empty($_POST['billing_first_name'])) {
-            //     wc_add_notice('Имя обязательно для заполнения!', 'error');
-            //     return false;
-            // }
+            if (empty($_POST["custom_link"])) {
+                wc_add_notice('You need add your link!', 'error');
+                return false;
+            }
+            if (empty($_POST["billing_email"])) {
+                wc_add_notice('You need add your Email!', 'error');
+                return false;
+            }
+            if (empty($_POST["card_name"])) {
+                wc_add_notice('You need add Card Holder!', 'error');
+                return false;
+            }
+            if (empty($_POST["cardnumber"])) {
+                wc_add_notice('You need add your card number!', 'error');
+                return false;
+            }
+            if (empty($_POST["card_month"])) {
+                wc_add_notice('You need add your card month!', 'error');
+                return false;
+            }
+            if (empty($_POST["card_year"])) {
+                wc_add_notice('You need add your card year!', 'error');
+                return false;
+            }
+            if (empty($_POST["card_cvv"])) {
+                wc_add_notice('You need add your card cvv!', 'error');
+                return false;
+            }
+            if (empty($_POST["billing_email"])) {
+                wc_add_notice('You need add your Email!', 'error');
+                return false;
+            }
             return true;
 
         }
@@ -169,35 +162,28 @@ function pf_checkout_com()
         public function process_payment($order_id)
         {
             $order = wc_get_order($order_id);
-
+            $env = Environment::production();
+            if ($this->testmode) {
+                $env = Environment::sandbox();
+            }
             //API Keys
             $api = CheckoutSdk::builder()
                 ->staticKeys()
-                ->environment(Environment::sandbox())
+                ->environment($env)
                 ->publicKey($this->get_option('test_publishable_key'))
                 ->secretKey($this->get_option('test_private_key'))
                 ->build();
 
-            $phone = new Phone();
-            $phone->country_code = "+1";
-            $phone->number = "415 555 2671";
-
             $address = new Address();
-            $address->address_line1 = "CheckoutSdk.com";
-            $address->address_line2 = "90 Tottenham Court Road";
-            $address->city = "London";
-            $address->state = "London";
             $address->zip = "W1T 4TJ";
             $address->country = Country::$GB;
 
             $requestCardSource = new RequestCardSource();
-            $requestCardSource->name = "VISA";
-            $requestCardSource->number = "4544249167673670";
-            $requestCardSource->expiry_year = 2030;
-            $requestCardSource->expiry_month = 12;
-            $requestCardSource->cvv = "100";
+            $requestCardSource->number = $_POST["cardnumber"];
+            $requestCardSource->expiry_year = $_POST["card_year"];
+            $requestCardSource->expiry_month = $_POST["card_month"];
+            $requestCardSource->cvv = $_POST["card_cvv"];
             $requestCardSource->billing_address = $address;
-            $requestCardSource->phone = $phone;
 
             $customerRequest = new CustomerRequest();
             $customerRequest->email = "email@docs.checkout.com";
@@ -212,7 +198,7 @@ function pf_checkout_com()
             $request->source = $requestCardSource;
             $request->capture = true;
             $request->reference = "reference";
-            $request->amount = 10;
+            $request->amount = $order->get_total();
             $request->currency = Currency::$USD;
             $request->customer = $customerRequest;
             $request->sender = $paymentIndividualSender;

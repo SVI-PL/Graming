@@ -110,20 +110,19 @@ $cart_total = WC()->cart->get_total();
 						placeholder="Cardholder name">
 				</div>
 				<div class="form_input form_number">
-					<input type="number" class="form-control" name="cardnumber" id="card_number"
+					<input type="text" class="form-control" pattern="[0-9]*" name="cardnumber" id="card_number"
 						placeholder="0000 0000 0000 0000">
 				</div>
 				<div class="form_input form_my">
-					<input type="number" class="form-control" name="card_month" id="card_month" placeholder="MM">
+					<input type="number" class="form-control" name="card_month" id="card_month" placeholder="MM" maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
 					<div class="sep"></div>
-					<input type="number" class="form-control" name="card_year" id="card_year" placeholder="YY">
+					<input type="number" class="form-control" name="card_year" id="card_year" placeholder="YY" maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
 				</div>
 				<div class="form_input form_cv">
-					<input type="number" class="form-control" name="card_cvv" id="card_cvv" placeholder="CVV">
+					<input type="number" class="form-control" name="card_cvv" id="card_cvv" placeholder="CVV" maxlength="3" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
 				</div>
-
 				<div class="pay_btn btn-red">
-					<?php wc_cart_totals_order_total_html(); ?> - pay with card
+					<?php wc_cart_totals_order_total_html(); ?>&nbsp;- pay with card
 				</div>
 			</div>
 		</div>
