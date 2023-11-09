@@ -5,6 +5,7 @@
     font-size: 18px;
     font-weight: 500;
     background-color: white;
+    margin: 25px 0 0;
 
     .woocommerce-info::before {
         color: #FE5A13;
@@ -16,13 +17,214 @@
     }
 }
 
+.login_on_checkout {
+    display: flex;
+    width: 100%;
+    max-width: 1215px;
+    border-radius: 15px !important;
+    border: 1px solid #161616 !important;
+    margin: 25px 0 0 0 !important;
+    flex-direction: column;
+    gap: 25px;
+
+    @media (max-width: 960px) {
+        padding: 20px;
+    }
+
+    .checkout_login {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 25px;
+
+        .form_input {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            position: relative;
+            width: calc(50% - 12.5px);
+
+            label {
+                color: #161616;
+                font-family: Fixel Display;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+                margin: 0;
+                padding: 0;
+                margin-bottom: 25px;
+
+                @media (max-width: 960px) {
+                    font-size: 15px;
+                    margin-bottom: 20px;
+                }
+            }
+
+            input {
+                width: 100%;
+                max-width: none;
+                border-radius: 15px;
+                border: 1px solid #161616;
+                background: #FFF;
+                padding: 19px 19px 19px 64px;
+                color: #161616;
+                font-family: Fixel Display;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: normal;
+                height: 65px;
+
+                @media (max-width: 960px) {
+                    font-size: 13px;
+                    height: auto;
+                    padding: 15px 15px 15px 64px;
+                    border-radius: 8px;
+                }
+
+                &:focus {
+                    border: 1.5px solid #FE5A13;
+                }
+
+                &::placeholder {
+                    color: #646464;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: normal;
+
+                    @media (max-width: 960px) {
+                        font-size: 13px;
+                    }
+                }
+            }
+
+            &.form_email {
+                &::before {
+                    content: "";
+                    display: flex;
+                    position: absolute;
+                    bottom: 25px;
+                    left: 25px;
+                    background-size: contain;
+                    width: 28px;
+                    height: 28px;
+                    background: url(../images/contact_persone.svg);
+                    transform: translateY(25%);
+
+                    @media (max-width: 960px) {
+                        transform: translateY(45%);
+                    }
+                }
+
+                &.active::before {
+                    background: url(../images/contact_persone-hover.svg);
+                }
+            }
+
+            &.form_pass {
+                &::before {
+                    content: "";
+                    display: flex;
+                    position: absolute;
+                    bottom: 25px;
+                    left: 25px;
+                    background-size: contain;
+                    width: 25px;
+                    height: 26px;
+                    background: url(../images/Password.svg);
+                    transform: translateY(25%);
+
+                    @media (max-width: 960px) {
+                        transform: translateY(45%);
+                    }
+                }
+
+                &.active::before {
+                    background: url(../images/Password-hover.svg);
+                }
+            }
+        }
+    }
+
+    a.text--base {
+        color: #FE5A13;
+        font-family: Fixel Display;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        margin-bottom: 25px;
+
+        @media (max-width: 960px) {
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .privacy {
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+
+        input#privacy {
+            width: 20px;
+            height: 20px;
+            margin-right: 20px;
+        }
+
+        label {
+            color: #646464;
+            font-family: Fixel Display;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            margin: 0;
+
+            @media (max-width: 960px) {
+                font-size: 13px;
+            }
+
+            a {
+                color: #85C316;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .submit-btn {
+        color: #FE5A13;
+        text-align: center;
+        font-family: Fixel Display;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: capitalize;
+        width: 100%;
+        padding: 12px 40px;
+        margin: 0;
+        cursor: pointer;
+
+        @media (max-width: 960px) {
+            font-size: 15px;
+            border-radius: 8px;
+        }
+    }
+}
+
 .checkout_block {
     display: flex;
     width: 100%;
     max-width: 1215px;
     flex-direction: column;
     align-items: center;
-    margin-top: 65px;
+    margin-top: 25px;
 
     @media (max-width: 768px) {
         margin-top: 25px;
