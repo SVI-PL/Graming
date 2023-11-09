@@ -262,23 +262,27 @@ if (post_password_required()) {
 				<div class="woocommerce-billing-fields">
 					<div class="input-link">
 						<input type="text" name="custom_link" id="custom_link" placeholder="https://..." value="">
+						<span>Input valid link</span>
 					</div>
 					<div class="input-text">
 						<input type="email" name="billing_email" id="billing_email" placeholder="email@gmail.com" value="<?php $user = wp_get_current_user();
 						if (isset($user)) {
 							echo esc_attr($user->user_email);
 						} ?>" autocomplete="email username">
+						<span>Input valid email</span>
 					</div>
 				</div>
 				<div class="product_select">
 					<div class="cart_item first">
 						<div class="product-name">
+							<strong class="product-quantity">&nbsp;</strong>
 							<?php the_title(); ?>
-							<strong class="product-quantity">×&nbsp;??</strong>
 							<?php echo " - <span class='deals'>click for deals</span>"; ?>
 						</div>
 						<div class="product-total">
-							<div class="new_price">$ ??</div>
+							<div class="new_price">
+								<?php echo get_first_price($product->get_id()); ?>
+							</div>
 							<div class="arrow_down"></div>
 						</div>
 					</div>
@@ -293,8 +297,9 @@ if (post_password_required()) {
 				</div>
 				<div class="privacy">
 					<input type="checkbox" id="privacy" name="privacy"> <label for="privacy">I agree to the <a
-							href="">Privacy Policy</a>, <a href="">Public Offering Agreement</a>, <a href="">Terms of
+							href="#">Privacy Policy</a>, <a href="#">Public Offering Agreement</a>, <a href="#">Terms of
 							Use</a></label>
+					<span>Check this box</span>
 				</div>
 				<div class="continue">
 					<div class="continue_btn btn-red">Continue</div>

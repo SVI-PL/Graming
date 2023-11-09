@@ -24,7 +24,7 @@ global $product;
 ?>
 <div class="price_block">
 	<p class="<?php echo esc_attr(apply_filters('woocommerce_product_price_class', 'price')); ?>">
-		<?php echo $product->get_price_html(); ?>
+		<?php echo get_first_price($product->get_id()); ?>
 	</p>
 	<div class="payments_img">
 		<img src="<?php echo get_template_directory_uri(); ?>/src/images/applapay.svg" alt="">

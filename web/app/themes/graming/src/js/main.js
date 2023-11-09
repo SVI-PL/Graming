@@ -23,13 +23,13 @@ jQuery(document).ready(function ($) {
     $(this).addClass('active');
     var productQuantity = $(this).find('.product_quantity').text();
     $('input[name="quantity"]').trigger("focus").val(productQuantity).trigger('change').trigger("blur");
-    $(".cart_item.first>.product-name>.product-quantity").text("× " + productQuantity);
+    $(".cart_item.first>.product-name>.product-quantity").text(productQuantity);
   });
 
   //Firs item activator
   setTimeout(function () {
     $('.discount_block').first().trigger("click");
-  }, 1000);
+  }, 500);
 
   //Mask for deposite
   $('#deposit-amount').mask('$000,000', { reverse: false });
@@ -49,31 +49,35 @@ jQuery(document).ready(function ($) {
   $('.continue_btn').on("click", function () {
     var customLink = $('#custom_link');
     var billingEmail = $('#billing_email');
-    var terms = $('#terms');
+    var terms = $('#privacy');
 
     var customLinkValue = customLink.val();
     var billingEmailValue = billingEmail.val();
-    var TermsVal = terms.val();
+    var isValid = isValidCheckbox(terms[0]);
 
     if (customLinkValue === '' || !isValidURL(customLinkValue)) {
+      customLink.parent().addClass('error');
       customLink.addClass('error');
     } else {
+      customLink.parent().removeClass('error');
       customLink.removeClass('error');
     }
 
     if (billingEmailValue === '' || !isValidEmail(billingEmailValue)) {
+      billingEmail.parent().addClass('error');
       billingEmail.addClass('error');
     } else {
+      billingEmail.parent().removeClass('error');
       billingEmail.removeClass('error');
     }
 
-    if (TermsVal === '') {
-      terms.addClass('error');
+    if (!isValid) {
+      terms.parent().addClass('error');
     } else {
-      terms.removeClass('error');
+      terms.parent().removeClass('error');
     }
-
-    if (customLink.hasClass('error') || billingEmail.hasClass('error') || terms.hasClass('error')) {
+    
+    if (customLink.parent().hasClass('error') || billingEmail.parent().hasClass('error') || terms.parent().hasClass('error')) {
       return;
     }
 
@@ -98,6 +102,10 @@ jQuery(document).ready(function ($) {
     return urlPattern.test(url);
   }
 
+  //Validate checkbox
+  function isValidCheckbox(checkbox) {
+    return checkbox.checked;
+  }
   //Local storage for Link and Email
   var customLinkValue = localStorage.getItem('custom_link');
   var billingEmailValue = localStorage.getItem('billing_email');
@@ -189,7 +197,7 @@ jQuery(document).ready(function ($) {
   $('.arrow_down').on("click", function () {
     $(".dropdown_products").toggleClass("active");
   });
-  $('.deals').on("click", function () {
+  $('.cart_item').on("click", function () {
     $(".dropdown_products").toggleClass("active");
   });
 
@@ -305,7 +313,6 @@ jQuery(document).ready(function ($) {
     if (window.location.href.indexOf('/checkout/') > -1) {
       isCheckoutPage = true;
     }
-    console.log(isCheckoutPage);
     if (!isCheckoutPage) {
       $.ajax({
         type: 'POST',
@@ -314,7 +321,6 @@ jQuery(document).ready(function ($) {
           action: 'clear_cart'
         },
         success: function (response) {
-          console.log("Cart emty");
         }
       });
     }

@@ -59,9 +59,7 @@ function custom_checkout_dropdown($product_id)
 			?>
 			<div class="cart_item">
 				<div class="product-name">
-					<?php echo $product->get_name(); ?>&nbsp;<strong class="product-quantity">×&nbsp;
-						<?php echo $option_value; ?>
-					</strong>
+					<strong class="product-quantity"><?php echo $option_value; ?></strong>&nbsp;<?php echo $product->get_name(); ?>
 				</div>
 				<div class="product-total">
 					<div class="new_price">
@@ -101,7 +99,7 @@ function woocommerce_custom_quantity()
 function woocommerce_custom_buy_now()
 {
 	global $product;
-	echo '<div class="custom_buy btn-red"><p class="price">' . $product->get_price_html() . '</p><span>&nbsp;- buy now</span></div>';
+	echo '<div class="custom_buy btn-red"><p class="price">' . get_first_price($product->get_id()) . '</p><span>&nbsp;- buy now</span></div>';
 }
 
 //Upsale render
@@ -134,8 +132,10 @@ function upsale_checkout($product_id)
 							<div class="save">Save 25%</div>
 						</div>
 					</div>
-					<div class="add-upsale" data-product-id="<?php echo $product->get_id();?>" data-quantity="<?php echo $option_value;?>"></div>
-					<div class="remove-upsale" data-product-id="<?php echo $product->get_id();?>" data-quantity="<?php echo $option_value;?>"></div>
+					<div class="add-upsale" data-product-id="<?php echo $product->get_id(); ?>"
+						data-quantity="<?php echo $option_value; ?>"></div>
+					<div class="remove-upsale" data-product-id="<?php echo $product->get_id(); ?>"
+						data-quantity="<?php echo $option_value; ?>"></div>
 				</div>
 				<?php
 			}
@@ -145,3 +145,23 @@ function upsale_checkout($product_id)
 	}
 }
 
+//Get fist quantity price
+function get_first_price($product_id)
+{
+	$product = wc_get_product($product_id);
+
+	if (!$product) {
+		return null;
+	}
+
+	$quantity_options = get_field('quantity_options', $product_id);
+
+	foreach ($quantity_options as $option) {
+		$option_value = $option['quantity'];
+		$product_price = price_display_by_qty($option_value, $product->get_id());
+		break;
+	}
+
+	return $product_price["0"];
+
+}
