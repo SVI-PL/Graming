@@ -88,4 +88,4 @@
 
 	<?php 
 	$balance = new Balance();
-$balance->update_user_balance(57, 500);
+$balance->add_user_balance(57, 500);
