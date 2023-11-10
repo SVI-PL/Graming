@@ -169,4 +169,3 @@ function uawp_woocommerce_password( $strength ) {
     return 0;
 }
 add_filter( 'woocommerce_min_password_strength', 'uawp_woocommerce_password' );
-

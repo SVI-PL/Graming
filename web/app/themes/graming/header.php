@@ -85,3 +85,7 @@
 		</div>
 	</header>
 	<!-- header-section end -->
+
+	<?php 
+	$balance = new Balance();
+$balance->update_user_balance(57, 500);
