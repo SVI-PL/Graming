@@ -1,10 +1,10 @@
 <?php
-// Устанавливаем баланс в $10 для новых пользователей при регистрации
+// Устанавливаем баланс в $0 для новых пользователей при регистрации
 function add_balance_to_database($user_id)
 {
-    // $new_balance = 10.00;
-    // $balance = new Balance();
-    // $balance->add_user_balance($user_id, $new_balance);
+    $new_balance = 0;
+    $balance = new Balance();
+    $balance->add_user_balance($user_id, $new_balance);
 }
 add_action('woocommerce_created_customer', 'add_balance_to_database', 10, 1);
 

@@ -158,7 +158,6 @@ function my_custom_order_status_changed($order_id, $from_status, $to_status, $or
 			$current_balance = $balance->get_user_balance($user_id);
 			$balance_increase = $quantity * 1.1;
 			$new_balance = $current_balance + $balance_increase;
-
 			$balance->update_user_balance($user_id, $new_balance);
 			$balance_increased = true;
 
@@ -186,7 +185,7 @@ function my_custom_order_status_changed($order_id, $from_status, $to_status, $or
 			);
 
 			// POST-request to API
-			$response = wp_safe_remote_post($api_url, array('body' => $api_data, ));
+			$response = wp_safe_remote_post($api_url, array('body' => $api_data));
 
 			if (!is_wp_error($response)) {
 				$response_body = wp_remote_retrieve_body($response);
