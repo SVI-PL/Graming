@@ -340,7 +340,17 @@ jQuery(document).ready(function ($) {
   //Checkout masks
   $(document).ajaxComplete(function (event, xhr, settings) {
     $('#card_number').mask('9999 9999 9999 9999', { reverse: false });
+    //Show applepay
+    if (window.ApplePaySession) {
+      $(".apple_pay").show();
+    } else {
+      $(".apple_pay").hide();
+
+    }
   });
+
+  
+
 });
 
 
@@ -478,18 +488,18 @@ const navigation = document.querySelector('.woocommerce-MyAccount-navigation ul'
 const activeElement = document.querySelector('.woocommerce-MyAccount-navigation-link.is-active');
 
 if (navigation && activeElement) {
-    const navigationWidth = navigation.offsetWidth;
-    const activeElementCenter = activeElement.offsetLeft + (activeElement.offsetWidth / 2);
+  const navigationWidth = navigation.offsetWidth;
+  const activeElementCenter = activeElement.offsetLeft + (activeElement.offsetWidth / 2);
 
-    // Позиция для прокрутки
-    let scrollPosition = activeElementCenter - navigationWidth / 2;
+  // Позиция для прокрутки
+  let scrollPosition = activeElementCenter - navigationWidth / 2;
 
-    // Гарантия, что позиция не выйдет за границы
-    scrollPosition = Math.max(0, scrollPosition);
+  // Гарантия, что позиция не выйдет за границы
+  scrollPosition = Math.max(0, scrollPosition);
 
-    // Прокрутка
-    navigation.scrollTo({
-        left: scrollPosition,
-        behavior: 'smooth'
-    });
+  // Прокрутка
+  navigation.scrollTo({
+    left: scrollPosition,
+    behavior: 'smooth'
+  });
 }

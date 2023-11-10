@@ -1023,6 +1023,11 @@
                         }
                     }
                 }
+
+                #ckocom_googlePay,
+                #ckocom_applePay {
+                    display: none !important;
+                }
             }
 
             .additiona_payment {
