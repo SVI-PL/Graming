@@ -345,10 +345,7 @@
     display: flex;
     justify-content: center;
     margin-top: 25px;
-
-    @media (max-width: 960px) {
-        width: 100%;
-    }
+    width: 100%;
 
     .custom_block {
         display: flex;
@@ -458,7 +455,7 @@
                         content: "";
                         display: flex;
                         position: absolute;
-                        bottom: 20px;
+                        top: 70px;
                         left: 25px;
                         background-size: contain;
                         width: 26px;
@@ -471,6 +468,24 @@
                             transform: translateY(45%);
                         }
                     }
+                }
+
+                .woocommerce-password-strength {
+                    font-family: Fixel Display;
+                    margin-top: 15px;
+                }
+
+                .woocommerce-password-hint {
+                    margin: 0.5em 0 0;
+                    font-family: Fixel Display;
+                    display: block;
+                }
+
+                .show-password-input {
+                    position: absolute;
+                    right: 20px;
+                    top: 23px;
+                    cursor: pointer;
                 }
             }
 
