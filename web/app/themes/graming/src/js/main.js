@@ -472,3 +472,24 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+//Scroll my account
+const navigation = document.querySelector('.woocommerce-MyAccount-navigation ul');
+const activeElement = document.querySelector('.woocommerce-MyAccount-navigation-link.is-active');
+
+if (navigation && activeElement) {
+    const navigationWidth = navigation.offsetWidth;
+    const activeElementCenter = activeElement.offsetLeft + (activeElement.offsetWidth / 2);
+
+    // Позиция для прокрутки
+    let scrollPosition = activeElementCenter - navigationWidth / 2;
+
+    // Гарантия, что позиция не выйдет за границы
+    scrollPosition = Math.max(0, scrollPosition);
+
+    // Прокрутка
+    navigation.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+    });
+}

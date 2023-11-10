@@ -627,7 +627,8 @@
                 }
             }
 
-            &.is-active {
+            &.is-active,
+            &:hover {
                 &::after {
                     position: absolute;
                     content: "";
@@ -639,6 +640,14 @@
 
                 a {
                     color: #161616;
+                }
+            }
+
+            &:last-child {
+                &:hover {
+                    &::after {
+                        display: none;
+                    }
                 }
             }
         }
