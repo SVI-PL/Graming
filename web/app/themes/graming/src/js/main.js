@@ -256,7 +256,6 @@ jQuery(document).ready(function ($) {
     } else {
       var productID = $(this).find('.add-upsale').data('product-id');
       var quantity = $(this).find('.add-upsale').data('quantity');
-      console.log(productID)
       $(this).addClass("active");
 
       $.ajax({
