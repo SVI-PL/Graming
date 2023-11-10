@@ -166,7 +166,7 @@ if (function_exists('acf_add_options_page')) {
 
 //Password req
 function uawp_woocommerce_password( $strength ) {
-    return 1;
+    return 0;
 }
 add_filter( 'woocommerce_min_password_strength', 'uawp_woocommerce_password' );
 
