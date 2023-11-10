@@ -164,5 +164,9 @@ if (function_exists('acf_add_options_page')) {
 	acf_add_options_page();
 }
 
-
+//Password req
+function uawp_woocommerce_password( $strength ) {
+    return 1;
+}
+add_filter( 'woocommerce_min_password_strength', 'uawp_woocommerce_password' );
 
