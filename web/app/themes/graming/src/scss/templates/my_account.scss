@@ -455,19 +455,40 @@
                         content: "";
                         display: flex;
                         position: absolute;
-                        top: 70px;
+                        bottom: 25px;
                         left: 25px;
                         background-size: contain;
-                        width: 26px;
-                        height: 25px;
+                        width: 25px;
+                        height: 26px;
                         background: url(../images/Password.svg);
-                        z-index: 2;
+                        transform: translateY(25%);
 
-                        @media (max-width: 768px) {
-                            width: 25px;
-                            height: 26px;
+                        @media (max-width: 960px) {
                             transform: translateY(45%);
                         }
+                    }
+
+                    &.active::before {
+                        background: url(../images/Password-hover.svg);
+                    }
+                }
+
+                &.form_email {
+                    &::before {
+                        content: "";
+                        display: flex;
+                        position: absolute;
+                        bottom: 25px;
+                        left: 25px;
+                        background-size: contain;
+                        width: 28px;
+                        height: 28px;
+                        background: url(../images/contact_persone.svg);
+                        transform: translateY(25%);
+                    }
+
+                    &.active::before {
+                        background: url(../images/contact_persone-hover.svg);
                     }
                 }
 
@@ -1083,18 +1104,17 @@
                         content: "";
                         display: flex;
                         position: absolute;
-                        bottom: 18.5px;
+                        bottom: 25px;
                         left: 25px;
                         background-size: contain;
                         width: 28px;
                         height: 28px;
                         background: url(../images/contact_persone.svg);
+                        transform: translateY(25%);
+                    }
 
-                        @media (max-width: 768px) {
-                            width: 28px;
-                            height: 28px;
-                            transform: translateY(35%);
-                        }
+                    &.active::before {
+                        background: url(../images/contact_persone-hover.svg);
                     }
                 }
 

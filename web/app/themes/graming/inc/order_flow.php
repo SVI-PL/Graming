@@ -120,6 +120,48 @@ function create_user_account($order_id)
 		$user->set_role('customer');
 
 		$user = get_user_by('id', $user_id);
+
+		$user_id = $user->ID;
+		$user_email = $user->user_email;
+
+		$url = 'https://a.klaviyo.com/api/events/';
+		$data = [
+			'data' => [
+				'type' => 'event',
+				'attributes' => [
+					'profile' => [
+						'data' => [
+							'type' => 'profile',
+							'attributes' => [
+								'email' => $user_email,
+								'external_id' => $user_id,
+								'properties' => [
+									'Password' => $password,
+									'AutoReg' => 'yes',
+									'Marketing Checkbox' => 'No',
+								],
+							],
+
+						],
+					],
+
+					'metric' => [
+						'data' => [
+							'type' => 'metric',
+							'attributes' => [
+								'name' => 'Registration on order',
+							],
+						],
+					],
+					'properties' => [
+					],
+				],
+			],
+		];
+		$body = json_encode($data);
+		$klavio = new KlavioAPI;
+		$klavio->post_klavio($url, $body);
+
 		wp_set_current_user($user_id, $user->user_login);
 		wp_set_auth_cookie($user_id);
 		do_action('wp_login', $user->user_login(), $user);
@@ -140,13 +182,13 @@ function my_custom_order_status_changed($order_id, $from_status, $to_status, $or
 		$balance = new Balance();
 		$balance_increased = false;
 		$quantity = 0;
-		$product_id = 0;
-
+		$product_ids = array();
 		//Item loop
 		foreach ($items as $item) {
-			$product_id = $item->get_product_id();
+			$product_ids[] = $item->get_product_id();
 			$quantity += $item->get_quantity();
 		}
+		$product_id = array_key_first($product_ids);
 
 		//API setting
 		$api_url = get_field('api_endpoint', 'option');

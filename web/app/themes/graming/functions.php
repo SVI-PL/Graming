@@ -16,6 +16,7 @@ require_once('inc/balance_class.php');
 require_once('inc/order_flow.php');
 require_once('inc/remove_unset.php');
 require_once('inc/product_func.php');
+require_once('inc/klavio.php');
 
 
 // Sets up theme defaults and registers support for various WordPress features.
@@ -169,3 +170,14 @@ function uawp_woocommerce_password( $strength ) {
     return 0;
 }
 add_filter( 'woocommerce_min_password_strength', 'uawp_woocommerce_password' );
+
+//Get current URL
+function url()
+{
+    return sprintf(
+        "%s://%s%s",
+        isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+        $_SERVER['SERVER_NAME'],
+        $_SERVER['REQUEST_URI']
+    );
+}

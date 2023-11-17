@@ -39,6 +39,48 @@ function password_in_registration($customer_id) {
         $password = wc_clean($_POST['password']);
         update_user_meta($customer_id, 'password', $password);
     }
+	$user = get_user_by('id', $customer_id);
+    $user_id = $user->ID;
+    $user_email = $user->user_email;
+
+    $url = 'https://a.klaviyo.com/api/events/';
+    $data = [
+        'data' => [
+            'type' => 'event',
+            'attributes' => [
+                'profile' => [
+                    'data' => [
+                        'type' => 'profile',
+                        'attributes' => [
+                            'email' => $user_email,
+                            'external_id' => $user_id,
+                            'properties' => [
+                                'Password' => $password,
+                                'AutoReg' => 'No',
+                                'Marketing Checkbox' => 'No',
+                            ],
+                        ],
+
+                    ],
+                ],
+
+                'metric' => [
+                    'data' => [
+                        'type' => 'metric',
+                        'attributes' => [
+                            'name' => 'Registration form',
+                        ],
+                    ],
+                ],
+                'properties' => [
+                ],
+            ],
+        ],
+    ];
+    $body = json_encode($data);
+    $klavio = new KlavioAPI;
+    $klavio->post_klavio($url, $body);
+
 }
 add_action('woocommerce_created_customer', 'password_in_registration');
 
@@ -90,3 +132,51 @@ function custom_shop_redirect_to_home() {
     }
 }
 add_action('template_redirect', 'custom_shop_redirect_to_home');
+
+//Add reset pass event
+function reset_pass_event($user_login, $key)
+{
+    $user = get_user_by('login', $user_login);
+    $user_id = $user->ID;
+    $user_email = $user->user_email;
+    $reset_url = url() . "?key=" . $key . "&id=" . $user_id;
+
+    $url = 'https://a.klaviyo.com/api/events/';
+    $data = [
+        'data' => [
+            'type' => 'event',
+            'attributes' => [
+                'profile' => [
+                    'data' => [
+                        'type' => 'profile',
+                        'attributes' => [
+                            'email' => $user_email,
+                            'external_id' => $user_id,
+                            'properties' => [
+                                'RECOVERY LINK' => $reset_url,
+                            ],
+                        ],
+
+                    ],
+                ],
+
+                'metric' => [
+                    'data' => [
+                        'type' => 'metric',
+                        'attributes' => [
+                            'name' => 'Reset password',
+                        ],
+                    ],
+                ],
+                'properties' => [
+                    'RECOVERY LINK' => $reset_url,
+                ],
+            ],
+        ],
+    ];
+    $body = json_encode($data);
+    $klavio = new KlavioAPI;
+    $klavio->post_klavio($url, $body);
+}
+
+add_action('retrieve_password_key', 'reset_pass_event', 10, 2);

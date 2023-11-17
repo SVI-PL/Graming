@@ -29,14 +29,14 @@ do_action('woocommerce_before_reset_password_form');
 					<?php esc_html_e('New password', 'woocommerce'); ?>
 				</label>
 				<input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="password_1"
-					id="password_1" autocomplete="new-password" />
+					id="password_1" autocomplete="new-password" placeholder="your password" />
 			</div>
 			<div class="form_input form_pass">
 				<label for="password" class="form-label">
 					<?php esc_html_e('Re-enter new password', 'woocommerce'); ?>
 				</label>
 				<input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="password_2"
-					id="password_2" autocomplete="new-password" />
+					id="password_2" autocomplete="new-password" placeholder="Re-enter your password"/>
 			</div>
 			<input type="hidden" name="reset_key" value="<?php echo esc_attr($args['key']); ?>" />
 			<input type="hidden" name="reset_login" value="<?php echo esc_attr($args['login']); ?>" />
