@@ -69,5 +69,9 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type)
 	return $urls;
 }
 
-remove_filter('formatted_woocommerce_price', 'wc_round_totals', 10);
+add_filter('woocommerce_price_format', 'custom_price_format');
+
+function custom_price_format($format) {
+    return '%1$s%2$s';
+}
 
