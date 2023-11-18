@@ -72,9 +72,9 @@ foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
 					?>
 				</div>
 			</div>
-			<div class="total_to_pay">Total to pay 2
+			<div class="total_to_pay">Total to pay
 				<div class="total">
-					<?php WC()->cart->get_total(); ?>
+					<?php wc_cart_totals_order_total_html(); ?>
 				</div>
 			</div>
 			<div class="additional_items">
