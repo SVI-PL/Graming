@@ -76,3 +76,13 @@ function custom_price_format($price, $product) {
     return $price;
 }
 
+// округляем цены до ближайшего нуля
+add_filter( 'woocommerce_product_get_price', 'my_custom_round_price' );
+add_filter( 'woocommerce_product_variation_get_price', 'my_custom_round_price' );
+add_filter( 'woocommerce_get_price_excluding_tax', 'my_custom_round_price' );
+add_filter( 'woocommerce_get_price_including_tax', 'my_custom_round_price' );
+function my_custom_round_price( $total ) {
+$round_num = round($total / 0.01) * 0.01;
+$total = number_format($round_num, 2);
+return $total;
+}
