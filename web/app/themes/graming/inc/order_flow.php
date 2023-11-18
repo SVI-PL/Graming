@@ -67,15 +67,7 @@ function custom_checkout_fragments($fragments)
 	?>
 	<div class="total_to_pay">Total to pay
 		<div class="total">
-		<?php
-        add_filter('woocommerce_get_price', 'custom_price_format', 10, 2);
-
-        function custom_price_format($price, $product) {
-            return $price;
-        }
-
-        echo WC()->cart->get_cart_total();
-        ?>
+			<?php echo WC()->cart->get_cart_total(); ?>
 		</div>
 	</div>
 	<?php
