@@ -68,10 +68,3 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type)
 	}
 	return $urls;
 }
-
-add_filter('woocommerce_product_get_price', 'custom_price_format', 10, 2);
-
-function custom_price_format($price, $product) {
-    // Используйте свою логику для форматирования цен
-    return $price;
-}
