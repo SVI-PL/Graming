@@ -462,6 +462,7 @@
                         height: 26px;
                         background: url(../images/Password.svg);
                         transform: translateY(25%);
+                        z-index: 2;
 
                         @media (max-width: 960px) {
                             transform: translateY(45%);
@@ -485,6 +486,7 @@
                         height: 28px;
                         background: url(../images/contact_persone.svg);
                         transform: translateY(25%);
+                        z-index: 2;
                     }
 
                     &.active::before {

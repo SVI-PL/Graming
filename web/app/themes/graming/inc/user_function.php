@@ -2,9 +2,9 @@
 // Устанавливаем баланс в $0 для новых пользователей при регистрации
 function add_balance_to_database($user_id)
 {
-    $new_balance = 0;
-    $balance = new Balance();
-    $balance->add_user_balance($user_id, $new_balance);
+	$new_balance = 0;
+	$balance = new Balance();
+	$balance->add_user_balance($user_id, $new_balance);
 }
 add_action('woocommerce_created_customer', 'add_balance_to_database', 10, 1);
 
@@ -34,52 +34,53 @@ function get_user_order_count()
 }
 
 //Add passwors on registration
-function password_in_registration($customer_id) {
-    if (isset($_POST['password']) && !empty($_POST['password'])) {
-        $password = wc_clean($_POST['password']);
-        update_user_meta($customer_id, 'password', $password);
-    }
+function password_in_registration($customer_id)
+{
+	if (isset($_POST['password']) && !empty($_POST['password'])) {
+		$password = wc_clean($_POST['password']);
+		update_user_meta($customer_id, 'password', $password);
+	}
 	$user = get_user_by('id', $customer_id);
-    $user_id = $user->ID;
-    $user_email = $user->user_email;
+	$user_id = $user->ID;
+	$user_email = $user->user_email;
 
-    $url = 'https://a.klaviyo.com/api/events/';
-    $data = [
-        'data' => [
-            'type' => 'event',
-            'attributes' => [
-                'profile' => [
-                    'data' => [
-                        'type' => 'profile',
-                        'attributes' => [
-                            'email' => $user_email,
-                            'external_id' => $user_id,
-                            'properties' => [
-                                'Password' => $password,
-                                'AutoReg' => 'No',
-                                'Marketing Checkbox' => 'No',
-                            ],
-                        ],
+	$url = 'https://a.klaviyo.com/api/events/';
+	$data = [
+		'data' => [
+			'type' => 'event',
+			'attributes' => [
+				'profile' => [
+					'data' => [
+						'type' => 'profile',
+						'attributes' => [
+							'email' => $user_email,
+							'external_id' => $user_id,
+							'properties' => [
+								'Password' => $password,
+								'AutoReg' => 'No',
+								'Marketing Checkbox' => 'No',
+							],
+						],
 
-                    ],
-                ],
+					],
+				],
 
-                'metric' => [
-                    'data' => [
-                        'type' => 'metric',
-                        'attributes' => [
-                            'name' => 'Registration form',
-                        ],
-                    ],
-                ],
-                'properties' => [
-                ],
-            ],
-        ],
-    ];
-    $body = json_encode($data);
-    $klavio = new KlavioAPI;
-    $klavio->post_klavio($url, $body);
+				'metric' => [
+					'data' => [
+						'type' => 'metric',
+						'attributes' => [
+							'name' => 'Registration form',
+						],
+					],
+				],
+				'properties' => [
+				],
+			],
+		],
+	];
+	$body = json_encode($data);
+	$klavio = new KlavioAPI;
+	$klavio->post_klavio($url, $body);
 
 }
 add_action('woocommerce_created_customer', 'password_in_registration');
@@ -116,67 +117,112 @@ function get_bonus_calc_amount()
 }
 
 //Redirect from cart to home
-function custom_cart_redirect_to_home() {
-    if (is_cart()) {
-        wp_safe_redirect(home_url());
-        exit;
-    }
+function custom_cart_redirect_to_home()
+{
+	if (is_cart()) {
+		wp_safe_redirect(home_url());
+		exit;
+	}
 }
 add_action('template_redirect', 'custom_cart_redirect_to_home');
 
 //Redirect from shop to home
-function custom_shop_redirect_to_home() {
-    if (is_shop()) {
-        wp_safe_redirect(home_url());
-        exit;
-    }
+function custom_shop_redirect_to_home()
+{
+	if (is_shop()) {
+		wp_safe_redirect(home_url());
+		exit;
+	}
 }
 add_action('template_redirect', 'custom_shop_redirect_to_home');
 
 //Add reset pass event
 function reset_pass_event($user_login, $key)
 {
-    $user = get_user_by('login', $user_login);
-    $user_id = $user->ID;
-    $user_email = $user->user_email;
-    $reset_url = url() . "?key=" . $key . "&id=" . $user_id;
+	$user = get_user_by('login', $user_login);
+	$user_id = $user->ID;
+	$user_email = $user->user_email;
+	$reset_url = url() . "?key=" . $key . "&id=" . $user_id;
 
-    $url = 'https://a.klaviyo.com/api/events/';
-    $data = [
-        'data' => [
-            'type' => 'event',
-            'attributes' => [
-                'profile' => [
-                    'data' => [
-                        'type' => 'profile',
-                        'attributes' => [
-                            'email' => $user_email,
-                            'external_id' => $user_id,
-                            'properties' => [
-                                'RECOVERY LINK' => $reset_url,
-                            ],
-                        ],
+	$url = 'https://a.klaviyo.com/api/events/';
+	$data = [
+		'data' => [
+			'type' => 'event',
+			'attributes' => [
+				'profile' => [
+					'data' => [
+						'type' => 'profile',
+						'attributes' => [
+							'email' => $user_email,
+							'external_id' => $user_id,
+							'properties' => [
+								'RECOVERY LINK' => $reset_url,
+							],
+						],
 
-                    ],
-                ],
+					],
+				],
 
-                'metric' => [
-                    'data' => [
-                        'type' => 'metric',
-                        'attributes' => [
-                            'name' => 'Reset password',
-                        ],
-                    ],
-                ],
-                'properties' => [
-                    'RECOVERY LINK' => $reset_url,
-                ],
-            ],
-        ],
-    ];
-    $body = json_encode($data);
-    $klavio = new KlavioAPI;
-    $klavio->post_klavio($url, $body);
+				'metric' => [
+					'data' => [
+						'type' => 'metric',
+						'attributes' => [
+							'name' => 'Reset password',
+						],
+					],
+				],
+				'properties' => [
+					'RECOVERY LINK' => $reset_url,
+				],
+			],
+		],
+	];
+	$body = json_encode($data);
+	$klavio = new KlavioAPI;
+	$klavio->post_klavio($url, $body);
 }
 
 add_action('retrieve_password_key', 'reset_pass_event', 10, 2);
+
+//Post klavio after login
+function user_login_event($user_login, $user)
+{
+	$user = get_user_by('login', $user_login);
+	$user_id = $user->ID;
+	$user_email = $user->user_email;
+
+	$url = 'https://a.klaviyo.com/api/events/';
+	$data = [
+		'data' => [
+			'type' => 'event',
+			'attributes' => [
+				'profile' => [
+					'data' => [
+						'type' => 'profile',
+						'attributes' => [
+							'email' => $user_email,
+							'external_id' => $user_id,
+						],
+
+					],
+				],
+
+				'metric' => [
+					'data' => [
+						'type' => 'metric',
+						'attributes' => [
+							'name' => 'User login',
+						],
+					],
+				],
+				'properties' => [
+					'date' => date('Y-m-d H:i:s'),
+				],
+			],
+		],
+	];
+	$body = json_encode($data);
+	$klavio = new KlavioAPI;
+	$klavio->post_klavio($url, $body);
+}
+add_action('wp_login', 'user_login_event', 10, 2);
