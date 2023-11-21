@@ -123,10 +123,6 @@ function pf_checkout_com()
 
         public function validate_fields()
         {
-            if (empty($_POST["custom_link"])) {
-                wc_add_notice('You need add your link!', 'error');
-                return false;
-            }
             if (empty($_POST["billing_email"])) {
                 wc_add_notice('You need add your Email!', 'error');
                 return false;

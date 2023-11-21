@@ -226,3 +226,78 @@ function user_login_event($user_login, $user)
 	$klavio->post_klavio($url, $body);
 }
 add_action('wp_login', 'user_login_event', 10, 2);
+
+//My account menu
+function custom_wc_account_menu_items($items)
+{
+	$items["dashboard"] = "Panel";
+	$items["services"] = "Services";
+	$items["support"] = "Support";
+	$items["deposit"] = "Deposit History";
+	$items["orders"] = "Orders History";
+	$items["edit-account"] = "Account Settings";
+	$items["payment-methods"] = "Billing";
+	$items["top_up"] = "Top Up Now";
+
+	unset($items["downloads"]);
+	unset($items["edit-address"]);
+	unset($items["customer-logout"]);
+
+	$new_order = array(
+		"dashboard" => $items["dashboard"],
+		"services" => $items["services"],
+		"support" => $items["support"],
+		"deposit" => $items["deposit"],
+		"orders" => $items["orders"],
+		"edit-account" => $items["edit-account"],
+		"payment-methods" => $items["payment-methods"],
+		"top_up" => $items["top_up"],
+	);
+	return $new_order;
+}
+add_filter('woocommerce_account_menu_items', 'custom_wc_account_menu_items');
+
+function customs_add_endpoint()
+{
+	add_rewrite_endpoint('services', EP_ROOT | EP_PAGES);
+	add_rewrite_endpoint('deposit', EP_ROOT | EP_PAGES);
+	add_rewrite_endpoint('support', EP_ROOT | EP_PAGES);
+}
+add_action('init', 'customs_add_endpoint');
+function custom_services_query_vars($vars)
+{
+	$vars[] = 'services';
+	$vars[] = 'deposit';
+	$vars[] = 'support';
+
+	return $vars;
+}
+add_filter('woocommerce_get_query_vars', 'custom_services_query_vars');
+function services_endpoint_content()
+{
+	get_template_part('template-parts/services');
+}
+add_action('woocommerce_account_services_endpoint', 'services_endpoint_content');
+
+function deposit_endpoint_content()
+{
+	get_template_part('template-parts/deposite');
+}
+add_action('woocommerce_account_deposit_endpoint', 'deposit_endpoint_content');
+function support_endpoint_content()
+{
+	get_template_part('template-parts/support');
+}
+add_action('woocommerce_account_support_endpoint', 'support_endpoint_content');
+
+function custom_top_up_endpoint_url($url, $endpoint, $value)
+{
+	if ($endpoint === 'top_up') {
+		$custom_url = '/service/usd/';
+		return $custom_url;
+	}
+
+	return $url;
+}
+add_filter('woocommerce_get_endpoint_url', 'custom_top_up_endpoint_url', 10, 3);
+
