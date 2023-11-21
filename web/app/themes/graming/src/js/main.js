@@ -180,6 +180,18 @@ jQuery(document).ready(function ($) {
     $("input, textarea").parent().removeClass("active");
   });
 
+  $(".wpcf7-email, input#your_name, textarea#review").on("focusin", function () {
+    $("input").parent().parent().removeClass("active");
+    $(this).parent().parent().addClass("active");
+  });
+
+  $(".wpcf7-email, input#your_name, textarea#review").on("focusout", function () {
+    $(".wpcf7-email, input#your_name, textarea#review").parent().parent().removeClass("active");
+  });
+
+  $(".submit_btn").on("click", function () {
+    $(".wpcf7-submit").trigger("click");
+  })
   //Scroll to top btn
   $(window).on("scroll", function () {
     var ScrollTop = $(".scrollToTop");
@@ -232,6 +244,11 @@ jQuery(document).ready(function ($) {
     $(".add_review_form").show();
   });
 
+  $(".close_form").on("click", function () {
+    $(".testimonials_slider").show();
+    $(".add_review_form").hide();
+  });
+  
   //Upsale ajax add/remove product
   $('.upsale-product').on('click', function (e) {
     e.preventDefault();
@@ -256,6 +273,7 @@ jQuery(document).ready(function ($) {
     } else {
       var productID = $(this).find('.add-upsale').data('product-id');
       var quantity = $(this).find('.add-upsale').data('quantity');
+      $('.upsale-product').removeClass("active");
       $(this).addClass("active");
 
       $.ajax({
@@ -268,7 +286,6 @@ jQuery(document).ready(function ($) {
         },
         success: function (response) {
           updateOrderReview();
-          console.log("refresh")
         }
       });
     }
@@ -349,7 +366,7 @@ jQuery(document).ready(function ($) {
     }
   });
 
-  
+
 
 });
 

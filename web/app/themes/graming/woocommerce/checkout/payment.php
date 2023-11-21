@@ -66,24 +66,7 @@ $cart_total = WC()->cart->get_total();
 					<div class="bonus_total">
 						<?php echo $cart_total; ?>
 					</div>
-					<div class="top_up_bonus btn-red">10% Top up bonus</div>
-				</div>
-			</div>
-			<div class="add_coupon">
-				<div class="coupon_set">
-					<?php foreach (WC()->cart->get_coupons() as $code => $coupon): ?>
-						<div class="coupon_name">
-							<?php wc_cart_totals_coupon_label($coupon); ?>
-						</div>
-						<div class="coupon_val">
-							<?php wc_cart_totals_coupon_html($coupon); ?>
-						</div>
-					<?php endforeach; ?>
-				</div>
-				<div class="add_coupon_title">Add a coupon code</div>
-				<div class="dropdown_coupon">
-					<input type="text" name="coupon_duble" class="coupon_input" value="" placeholder="Enter code">
-					<div class="btn_apply">Apply</div>
+					<div class="top_up_bonus">10% Top up bonus</div>
 				</div>
 			</div>
 		<?php endif; ?>

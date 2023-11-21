@@ -68,3 +68,5 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type)
 	}
 	return $urls;
 }
+
+add_filter('wpcf7_autop_or_not', '__return_false');

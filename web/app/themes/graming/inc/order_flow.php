@@ -188,7 +188,8 @@ function my_custom_order_status_changed($order_id, $from_status, $to_status, $or
 			$product_ids[] = $item->get_product_id();
 			$quantity += $item->get_quantity();
 		}
-		$product_id = array_key_first($product_ids);
+		$arr_val = array_values($product_ids);
+		$product_id = array_shift($arr_val);
 
 		//API setting
 		$api_url = get_field('api_endpoint', 'option');
@@ -332,6 +333,13 @@ function add_to_cart_ajax()
 		$quantity = intval($_POST['quantity']);
 
 		WC()->cart->add_to_cart($product_id, $quantity);
+		$cart_contests = WC()->cart->get_cart_contents();
+		foreach ($cart_contests as $cart_id => $cart_item) {
+			if ($cart_item["product_id"] == $product_id) {
+				WC()->cart->set_quantity($cart_item["key"], $quantity, true);
+			}
+		}
+
 		wp_send_json_success();
 	} else {
 		wp_send_json_error();
@@ -340,7 +348,7 @@ function add_to_cart_ajax()
 add_action('wp_ajax_add_to_cart', 'add_to_cart_ajax');
 add_action('wp_ajax_nopriv_add_to_cart', 'add_to_cart_ajax');
 
-//Update/Remove upsale product
+// Update/Remove upsale product
 function update_cart_item_quantity_ajax()
 {
 	if (isset($_POST['product_id']) && isset($_POST['quantity'])) {
@@ -374,3 +382,75 @@ function clear_cart_via_ajax()
 }
 add_action('wp_ajax_clear_cart', 'clear_cart_via_ajax');
 add_action('wp_ajax_nopriv_clear_cart', 'clear_cart_via_ajax');
+
+function klavio_add_order($order_id, $from_status, $to_status, $order)
+{
+	$order = wc_get_order($order_id);
+	$user_id = $order->get_customer_id();
+	$user_email = $order->get_billing_email();
+	$items = $order->get_items();
+	$total = $order->get_total();
+	$quantity = 0;
+	$product_ids = array();
+	foreach ($items as $item) {
+		$product_ids[] = $item->get_product_id();
+		$quantity += $item->get_quantity();
+	}
+	$arr_val = array_values($product_ids);
+	$product_id = array_shift($arr_val);
+	$product_type = "service";
+	$product = wc_get_product($product_id);
+	$product_name = $product->get_title();
+
+	if ($product_id == 75) {
+		$product_type = "Deposite";
+	}
+	$upsale = "none";
+	if (count($product_ids) >= 2) {
+		$upsale = "yes";
+	}
+	
+	$order_status = $to_status;
+	$url = 'https://a.klaviyo.com/api/events/';
+	$data = [
+		'data' => [
+			'type' => 'event',
+			'attributes' => [
+				'profile' => [
+					'data' => [
+						'type' => 'profile',
+						'attributes' => [
+							'email' => $user_email,
+							'external_id' => $user_id,
+							'properties' => [
+								'Product type' => $product_type,
+								'Order id' => $order_id,
+								'Product name' => $product_name,
+								'Quantity' => $quantity,
+								'Upsale' => $upsale,
+								'Total' => $total,
+							],
+						],
+
+					],
+				],
+
+				'metric' => [
+					'data' => [
+						'type' => 'metric',
+						'attributes' => [
+							'name' => 'Order status ' . $order_status,
+						],
+					],
+				],
+				'properties' => [
+				],
+			],
+		],
+	];
+	$body = json_encode($data);
+	$klavio = new KlavioAPI;
+	$klavio->post_klavio($url, $body);
+}
+
+add_action('woocommerce_order_status_changed', 'klavio_add_order', 20, 4);

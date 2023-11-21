@@ -18,8 +18,15 @@
  */
 
 defined('ABSPATH') || exit;
-
-do_action('woocommerce_before_account_orders', $has_orders); ?>
+?>
+<?php $customer_orders = wc_get_orders(
+    array(
+        'customer' => get_current_user_id(),
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'limit' => -1,
+    )
+); ?>
 <?php get_api_order_status();?>
 <?php if ($has_orders): ?>
 	<div class="buy_now_acc"><div class="btn-red"><a href="/my-account/services/">Order Now</a></div></div>
@@ -27,7 +34,7 @@ do_action('woocommerce_before_account_orders', $has_orders); ?>
 		<div class="acc_title">Order History</div>
 		<div class="orders_list">
 			<?php
-			foreach ($customer_orders->orders as $customer_order):
+			foreach ($customer_orders as $customer_order):
 				$order = wc_get_order($customer_order); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 				$item_count = $order->get_item_count() - $order->get_item_count_refunded();
 				?>
@@ -81,27 +88,6 @@ do_action('woocommerce_before_account_orders', $has_orders); ?>
 			<?php endforeach; ?>
 		</div>
 	</div>
-
-	<?php do_action('woocommerce_before_account_orders_pagination'); ?>
-
-	<?php if (1 < $customer_orders->max_num_pages): ?>
-		<div class="woocommerce-pagination woocommerce-pagination--without-numbers woocommerce-Pagination">
-			<?php if (1 !== $current_page): ?>
-				<a class="woocommerce-button woocommerce-button--previous woocommerce-Button woocommerce-Button--previous button<?php echo esc_attr($wp_button_class); ?>"
-					href="<?php echo esc_url(wc_get_endpoint_url('orders', $current_page - 1)); ?>">
-					<?php esc_html_e('Previous', 'woocommerce'); ?>
-				</a>
-			<?php endif; ?>
-
-			<?php if (intval($customer_orders->max_num_pages) !== $current_page): ?>
-				<a class="woocommerce-button woocommerce-button--next woocommerce-Button woocommerce-Button--next button<?php echo esc_attr($wp_button_class); ?>"
-					href="<?php echo esc_url(wc_get_endpoint_url('orders', $current_page + 1)); ?>">
-					<?php esc_html_e('Next', 'woocommerce'); ?>
-				</a>
-			<?php endif; ?>
-		</div>
-	<?php endif; ?>
-
 <?php else: ?>
 
 	<?php wc_print_notice(esc_html__('No order has been made yet.', 'woocommerce') . ' <a class="woocommerce-Button button' . esc_attr($wp_button_class) . '" href="' . esc_url(apply_filters('woocommerce_return_to_shop_redirect', wc_get_page_permalink('shop'))) . '">' . esc_html__('Browse products', 'woocommerce') . '</a>', 'notice'); // phpcs:ignore WooCommerce.Commenting.CommentHooks.MissingHookComment ?>

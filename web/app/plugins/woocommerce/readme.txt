@@ -1,10 +1,10 @@
 === WooCommerce ===
 Contributors: automattic, mikejolley, jameskoster, claudiosanches, rodrigosprimo, peterfabian1000, vedjain, jamosova, obliviousharmony, konamiman, sadowski, wpmuguru, royho, barryhughes-1
 Tags: online store, ecommerce, shop, shopping cart, sell online, storefront, checkout, payments, woo, woo commerce, e-commerce, store
-Requires at least: 6.2
-Tested up to: 6.3
+Requires at least: 6.3
+Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 8.2.0
+Stable tag: 8.3.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -163,11 +163,12 @@ WooCommerce comes with some sample data you can use to see how products look; im
 
 == Changelog ==
 
-= 8.2.1 2023-10-16 =
+= 8.3.1 2023-11-21 =
 
 **WooCommerce**
 
-* Fix - Prevent global attribute terms from being automatically selected [#40729](https://github.com/woocommerce/woocommerce/pull/40729)
+* Fix - Invalidate coupon cache after hold/usage data is modified in datastore via SQL [#41538](https://github.com/woocommerce/woocommerce/pull/41538)
+* Update - Update WooCommerce Blocks to 11.4.9. [#41610](https://github.com/woocommerce/woocommerce/pull/41610)
 
 
 [See changelog for all versions](https://raw.githubusercontent.com/woocommerce/woocommerce/trunk/changelog.txt).

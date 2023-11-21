@@ -674,7 +674,7 @@ main.main-content {
         display: none;
         width: 100%;
 
-        .review_form {
+        .wpcf7-form {
             width: 100%;
             display: flex;
             gap: 25px;
@@ -683,6 +683,8 @@ main.main-content {
             align-items: stretch;
             border-radius: 15px;
             border: 1px solid #161616;
+            flex-wrap: wrap;
+            position: relative;
 
             @media (max-width: 768px) {
                 padding: 20px;
@@ -763,17 +765,19 @@ main.main-content {
                             content: "";
                             display: flex;
                             position: absolute;
-                            bottom: 25px;
+                            top: 60px;
                             left: 25px;
                             background-size: contain;
                             width: 28px;
                             height: 28px;
                             background: url(../images/contact_persone.svg);
                             transform: translateY(25%);
+                            z-index: 1;
                         }
 
                         &.active::before {
                             background: url(../images/contact_persone-hover.svg);
+                            z-index: 2;
                         }
                     }
                 }
@@ -870,10 +874,16 @@ main.main-content {
                             height: 25px;
                             background: url(../images/Review2.svg);
                             transform: translateY(25%);
+                            z-index: 1;
+
+                            @media (max-width: 768px) {
+                                top: 55px;
+                            }
                         }
 
                         &.active::before {
                             background: url(../images/Review2-hover.svg);
+                            z-index: 2;
                         }
                     }
                 }
@@ -889,6 +899,39 @@ main.main-content {
                     text-transform: capitalize;
                     padding: 14px;
                     cursor: pointer;
+                }
+
+                input.wpcf7-form-control.wpcf7-submit.has-spinner {
+                    display: none;
+                }
+
+                span.wpcf7-spinner {
+                    display: none;
+                }
+            }
+
+            .wpcf7-response-output {
+                width: 100%;
+                border-color: #fe5a13 !important;
+                border-radius: 15px !important;
+            }
+
+            .close_form {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background: url(../images/close.svg);
+                width: 45px;
+                height: 45px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                cursor: pointer;
+
+                @media (max-width: 768px) {
+                    width: 35px;
+                height: 35px;
+                    top: 10px;
+                    right: 10px;
                 }
             }
         }

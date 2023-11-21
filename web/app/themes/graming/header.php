@@ -67,7 +67,7 @@
 								<?php echo get_user_email(); ?>
 							</li>
 							<li><a href="/my-account">Graming Panel</a></li>
-							<li><a href="/my-account">View Orders</a></li>
+							<li><a href="/my-account/orders/">View Orders</a></li>
 							<li><a href="<?php echo wp_logout_url("/"); ?>">Log Out</a></li>
 							<div class="btn-red"><a href="/service/usd/">Top up</a></div>
 						<?php endif; ?>

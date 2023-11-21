@@ -16,7 +16,8 @@
  */
 
 defined('ABSPATH') || exit;
-
+$user_id = get_current_user_id();
+$user = get_user_by('id', $user_id);
 do_action('woocommerce_before_edit_account_form'); ?>
 
 <form class="woocommerce-EditAccountForm edit-account" action="" method="post" <?php do_action('woocommerce_edit_account_form_tag'); ?>>

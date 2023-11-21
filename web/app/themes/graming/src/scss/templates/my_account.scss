@@ -495,11 +495,13 @@
                 }
 
                 .woocommerce-password-strength {
+                    display: none !important;
                     font-family: Fixel Display;
                     margin-top: 15px;
                 }
 
                 .woocommerce-password-hint {
+                    display: none !important;
                     margin: 0.5em 0 0;
                     font-family: Fixel Display;
                     display: block;
@@ -1217,6 +1219,20 @@
                         }
                     }
                 }
+
+                .woocommerce-password-strength {
+                    display: none !important;
+                    font-family: Fixel Display;
+                    margin-top: 15px;
+                }
+
+                .woocommerce-password-hint {
+                    display: none !important;
+                    margin: 0.5em 0 0;
+                    font-family: Fixel Display;
+                    display: block;
+                }
+
             }
 
             a.text--base {

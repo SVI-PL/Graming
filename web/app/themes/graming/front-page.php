@@ -97,30 +97,7 @@ get_header();
             </div>
         </div>
         <div class="add_review_form">
-            <form action="" class="review_form">
-                <div class="form_left">
-                    <div class="form_input form_email">
-                        <label class="form-label required" for="email">Your Name</label>
-                        <input type="text" name="your_name" id="your_name" placeholder="Your Name" />
-                    </div>
-                    <div class="form_input form_email">
-                        <label class="form-label required" for="email">E-Mail</label>
-                        <input type="email" class="form-control" name="email" id="email" autocomplete="email"
-                            placeholder="Your Email" />
-                    </div>
-                    <div class="form_input rating">
-                    <label class="form-label required">Rating</label>
-                        <img src="<?php echo get_template_directory_uri(); ?>/src/images/rating.svg" alt="">
-                    </div>
-                </div>
-                <div class="form_right">
-                    <div class="form_input form_text_area">
-                        <label class="form-label required" for="email">Your Review</label>
-                        <textarea name="review" id="review" placeholder="Your Review" rows="5" cols="33"></textarea>
-                    </div>
-                    <div class="submit_btn btn-red">Submit Now</div>
-                </div>
-            </form>
+            <?php echo do_shortcode('[contact-form-7 id="0fc0a82" title="Review form"]');?>
         </div>
     </section>
     <section class="tabs_section">
