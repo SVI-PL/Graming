@@ -157,6 +157,14 @@ jQuery(document).ready(function ($) {
     $place_order.trigger("click");
   });
 
+  //Add action for pay with Apple pay
+  $(document).on("click", ".apple_pay", function () {
+    let $card = $('#payment_method_wc_checkout_com_apple_pay');
+    $card.trigger("click");
+    let $place_order = $("#ckocom_applePay");
+    $place_order.trigger("click");
+  });
+
   //Bonus recalculate in checkout
   $(document).ajaxComplete(function (event, xhr, settings) {
     if (settings.url && settings.url.indexOf("update_order_review") !== -1) {
@@ -248,7 +256,7 @@ jQuery(document).ready(function ($) {
     $(".testimonials_slider").show();
     $(".add_review_form").hide();
   });
-  
+
   //Upsale ajax add/remove product
   $('.upsale-product').on('click', function (e) {
     e.preventDefault();
