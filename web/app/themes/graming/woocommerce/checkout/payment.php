@@ -74,14 +74,13 @@ $cart_total = WC()->cart->get_total();
 			<div class="pay_title">Pay with Apple Pay</div>
 			<div class="btn-apple"></div>
 		</div>
-		<div class="google_pay">
+		<!-- <div class="google_pay">
 			<div class="pay_title">Pay with Google Pay</div>
 			<div class="btn-google"></div>
-		</div>
+		</div> -->
 		<div class="card_pay">
 			<div class="pay_title">Pay with credit / debit card <div class="payments_img">
 					<img src="<?php echo get_template_directory_uri(); ?>/src/images/applapay.svg" alt="">
-					<img src="<?php echo get_template_directory_uri(); ?>/src/images/gpay.svg" alt="">
 					<img src="<?php echo get_template_directory_uri(); ?>/src/images/mastersvg.svg" alt="">
 					<img src="<?php echo get_template_directory_uri(); ?>/src/images/visa.svg" alt="">
 					<img src="<?php echo get_template_directory_uri(); ?>/src/images/american.svg" alt="">
@@ -97,14 +96,32 @@ $cart_total = WC()->cart->get_total();
 						placeholder="0000 0000 0000 0000">
 				</div>
 				<div class="form_input form_my">
-					<input type="number" class="form-control" name="card_month" id="card_month" placeholder="MM" maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+					<input type="number" class="form-control" name="card_month" id="card_month" placeholder="MM"
+						maxlength="2"
+						oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
 					<div class="sep"></div>
-					<input type="number" class="form-control" name="card_year" id="card_year" placeholder="YY" maxlength="2" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+					<input type="number" class="form-control" name="card_year" id="card_year" placeholder="YY"
+						maxlength="2"
+						oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
 				</div>
 				<div class="form_input form_cv">
-					<input type="number" class="form-control" name="card_cvv" id="card_cvv" placeholder="CVV" maxlength="3" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+					<input type="number" class="form-control" name="card_cvv" id="card_cvv" placeholder="CVV"
+						maxlength="3"
+						oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+				</div>
+				<div class="form_input form_zip">
+					<?php
+					$fields = $checkout->get_checkout_fields('billing');
+					foreach ($fields as $key => $field) {
+						if ($field["label"] == "Email address") {
+							break;
+						}
+						woocommerce_form_field($key, $field, $checkout->get_value($key));
+					}
+					?>
 				</div>
 				<div class="pay_btn btn-red">
+
 					<?php wc_cart_totals_order_total_html(); ?>&nbsp;- pay with card
 				</div>
 			</div>

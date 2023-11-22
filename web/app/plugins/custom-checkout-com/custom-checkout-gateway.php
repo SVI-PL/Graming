@@ -171,8 +171,8 @@ function pf_checkout_com()
                 ->build();
 
             $address = new Address();
-            $address->zip = "W1T 4TJ";
-            $address->country = Country::$GB;
+            $address->zip = $_POST["billing_postcode"];
+            $address->country = $_POST["billing_country"];
 
             $requestCardSource = new RequestCardSource();
             $requestCardSource->number = $_POST["cardnumber"];
@@ -182,7 +182,7 @@ function pf_checkout_com()
             $requestCardSource->billing_address = $address;
 
             $customerRequest = new CustomerRequest();
-            $customerRequest->email = "email@docs.checkout.com";
+            $customerRequest->email = $_POST["billing_email"];
             $customerRequest->name = "Customer";
 
             $paymentIndividualSender = new PaymentIndividualSender();

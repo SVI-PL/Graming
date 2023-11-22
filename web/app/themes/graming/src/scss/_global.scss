@@ -121,7 +121,8 @@ main.main-content {
     transform: translateY(100%);
 
     svg {
-        fill: #ffffff
+        fill: #ffffff;
+        margin-top: 12px;
     }
 
     &.active {

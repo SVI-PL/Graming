@@ -973,6 +973,48 @@
                                         }
                                     }
                                 }
+
+                                &.form_zip {
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    width: 100%;
+                                    gap: 25px;
+
+                                    p {
+                                        width: calc(50% - 12.5px);
+                                        display: flex;
+                                        flex-direction: column;
+                                        padding: 0;
+                                        margin: 0;
+
+                                        label {
+                                            display: none;
+                                        }
+                                        #billing_postcode{
+                                            padding: 19px;
+                                        }
+
+                                        select#billing_country {
+                                            display: flex;
+                                            width: 100% !important;
+                                            flex-direction: column;
+                                            flex-wrap: wrap;
+                                            max-width: none;
+                                            border-radius: 15px;
+                                            border: 1px solid #646464;
+                                            background: #FFF;
+                                            padding: 19px;
+                                            color: #161616;
+                                            font-family: Fixel Display;
+                                            font-size: 18px;
+                                            font-style: normal;
+                                            font-weight: 500;
+                                            line-height: normal;
+                                            height: 65px;
+                                        }
+                                    }
+                                }
                             }
 
                             .pay_btn {
@@ -1200,6 +1242,10 @@
                     margin: 0 40px 25px;
                     gap: 10px;
 
+                    @media (max-width: 768px) {
+                        margin: 0 20px 25px;
+                    }
+
                     .upsale-product {
                         display: flex;
                         width: 100%;
@@ -1213,11 +1259,39 @@
                         gap: 20px;
                         cursor: pointer;
 
-                        .icon {
+                        .icon-persone {
                             display: flex;
-                            width: 28px;
-                            height: 28px;
+                            width: 23px;
+                            height: 23px;
                             background-image: url(../images/persone-white.svg);
+                        }
+
+                        .icon-heart {
+                            display: flex;
+                            width: 23px;
+                            height: 23px;
+                            background-image: url(../images/heart-white.svg);
+                        }
+
+                        .icon-save {
+                            display: flex;
+                            width: 23px;
+                            height: 23px;
+                            background-image: url(../images/save-white.svg);
+                        }
+
+                        .icon-view {
+                            display: flex;
+                            width: 23px;
+                            height: 23px;
+                            background-image: url(../images/view-white.svg);
+                        }
+
+                        .icon-share {
+                            display: flex;
+                            width: 23px;
+                            height: 23px;
+                            background-image: url(../images/share-white.svg);
                         }
 
                         .content {
@@ -1302,8 +1376,24 @@
                             border: 1px solid #85C316;
                             background: #fff;
 
-                            .icon {
+                            .icon-persone {
                                 background-image: url(../images/persone-green.svg);
+                            }
+
+                            .icon-heart {
+                                background-image: url(../images/heart-green.svg);
+                            }
+
+                            .icon-save {
+                                background-image: url(../images/save-green.svg);
+                            }
+
+                            .icon-view {
+                                background-image: url(../images/view-green.svg);
+                            }
+
+                            .icon-share {
+                                background-image: url(../images/share-green.svg);
                             }
 
                             .content {

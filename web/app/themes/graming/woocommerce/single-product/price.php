@@ -28,7 +28,6 @@ global $product;
 	</p>
 	<div class="payments_img">
 		<img src="<?php echo get_template_directory_uri(); ?>/src/images/applapay.svg" alt="">
-		<img src="<?php echo get_template_directory_uri(); ?>/src/images/gpay.svg" alt="">
 		<img src="<?php echo get_template_directory_uri(); ?>/src/images/mastersvg.svg" alt="">
 		<img src="<?php echo get_template_directory_uri(); ?>/src/images/visa.svg" alt="">
 		<img src="<?php echo get_template_directory_uri(); ?>/src/images/american.svg" alt="">

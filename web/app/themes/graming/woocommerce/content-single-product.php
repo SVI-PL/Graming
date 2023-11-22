@@ -39,9 +39,7 @@ if (post_password_required()) {
 				<img src="<?php echo get_template_directory_uri(); ?>/src/images/trustpilot.svg" alt="">
 			</div>
 			<div class="single_content">
-				<?php
-				do_action('woocommerce_single_product_summary');
-				?>
+				<?php do_action('woocommerce_single_product_summary');?>
 			</div>
 			<div class="single_additional">
 				<div class="premium_block">
@@ -59,9 +57,9 @@ if (post_password_required()) {
 					<div class="trust_title">
 						<?php echo get_field("trusted_title"); ?>
 					</div>
-					<div class="trust_link"><a href="<?php echo get_field("trusted_link"); ?>">
-							<?php echo get_field("trusted_link_title"); ?>
-						</a></div>
+					<div class="trust_link">
+						<a href="<?php echo get_field("trusted_link"); ?>"><?php echo get_field("trusted_link_title"); ?></a>
+					</div>
 				</div>
 			</div>
 		</section>

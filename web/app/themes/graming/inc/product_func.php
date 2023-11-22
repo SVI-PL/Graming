@@ -117,7 +117,8 @@ function upsale_checkout($product_id)
 			if ($option_value && $product_price) {
 				?>
 				<div class="upsale-product">
-					<div class="icon"></div>
+				<?php $icon = get_field("product_icon", $product->get_id());?>
+					<div class="icon-<?php echo $icon["0"];?>"></div>
 					<div class="content">
 						<div class="title">
 							<?php echo get_the_title($product->get_id()) . "x" . $option_value; ?>
@@ -129,7 +130,7 @@ function upsale_checkout($product_id)
 							<div class="new">
 								<?php echo $product_price["0"]; ?>
 							</div>
-							<div class="save">Save 25%</div>
+							<div class="save">Extra -25%</div>
 						</div>
 					</div>
 					<div class="add-upsale" data-product-id="<?php echo $product->get_id(); ?>"

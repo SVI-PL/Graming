@@ -261,13 +261,8 @@ function get_api_service_id($product_id, $quantity)
 	foreach ($services as $service) {
 		$service_id = $service["service"];
 		if ($product_id == $service_id) {
-			foreach ($service["service_prop"] as $prop) {
-				$service_quantity = $prop["service_quantity"];
-				if ($quantity == $service_quantity) {
-					$api_id = $prop["service_id"];
-					return $api_id;
-				}
-			}
+			$api_id = $service["service_prop"];
+			return $api_id;
 		}
 	}
 	return array(
@@ -409,7 +404,7 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 	if (count($product_ids) >= 2) {
 		$upsale = "yes";
 	}
-	
+
 	$order_status = $to_status;
 	$url = 'https://a.klaviyo.com/api/events/';
 	$data = [

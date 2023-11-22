@@ -21,12 +21,12 @@ function fields_filter($fields)
 
 	// удаляем все эти поля
 	unset($fields['billing']['billing_company']); // компания
-	unset($fields['billing']['billing_country']); // страна
+	// unset($fields['billing']['billing_country']); // страна
 	unset($fields['billing']['billing_address_1']); // адрес 1
 	unset($fields['billing']['billing_address_2']); // адрес 2
 	unset($fields['billing']['billing_city']); // город
 	unset($fields['billing']['billing_state']); // регион, штат
-	unset($fields['billing']['billing_postcode']); // почтовый индекс
+	// unset($fields['billing']['billing_postcode']); // почтовый индекс
 	unset($fields['order']['order_comments']); // заметки к заказу
 
 	return $fields;
