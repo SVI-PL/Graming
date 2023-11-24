@@ -39,7 +39,7 @@ if (post_password_required()) {
 				<img src="<?php echo get_template_directory_uri(); ?>/src/images/trustpilot.svg" alt="">
 			</div>
 			<div class="single_content">
-				<?php do_action('woocommerce_single_product_summary');?>
+				<?php do_action('woocommerce_single_product_summary'); ?>
 			</div>
 			<div class="single_additional">
 				<div class="premium_block">
@@ -58,36 +58,38 @@ if (post_password_required()) {
 						<?php echo get_field("trusted_title"); ?>
 					</div>
 					<div class="trust_link">
-						<a href="<?php echo get_field("trusted_link"); ?>"><?php echo get_field("trusted_link_title"); ?></a>
+						<a href="<?php echo get_field("trusted_link"); ?>">
+							<?php echo get_field("trusted_link_title"); ?>
+						</a>
 					</div>
 				</div>
 			</div>
 		</section>
 		<section class="single_banner">
-			<div class="banner_title">DId you know you can register and get promocode for first
-				<span>purchase of 10%?</span>
+			<div class="banner_title">Did you know that by signing up, you can get
+				<span>a 25% off promo code?</span>
 			</div>
-			<div class="banner-btn btn-red"><a href="/my-account/?register">Click here to sign up!</a></div>
+			<div class="banner-btn btn-red"><a href="/my-account/?register">Click Here To Sign Up!</a></div>
 		</section>
 		<section class="promo_block_wraper">
-			<div class="promo_title">Ready to buy Instagram likes?</div>
-			<div class="promo_descr">Buying likes for your Instagram posts is the best way to reach a wideraudience,
-				encourage engagement, and ensure greater success.</div>
+			<div class="promo_title">What's special about Gramy?</div>
+			<div class="promo_descr">With Graming, you can boost your social presence to new heights, expand your reach in
+				record time, and get your content recommended to others!</div>
 			<div class="promo_blocks">
 				<div class="promo_block">
-					<div class="block_title">Instant Delivery Guaranteed</div>
-					<div class="block_desc">Don't wait to get your likes. Orders typically process within minutes of
-						purchase</div>
+					<div class="block_title">Instant Delivery Start</div>
+					<div class="block_desc">Don’t wait for ages as on other platforms. After your purchase, we begin
+						processing your order within the first few minutes.</div>
 				</div>
 				<div class="promo_block">
-					<div class="block_title">100% Real Likes</div>
-					<div class="block_desc">High-quality likes delivered instantly from real users with real accounts (no
-						bots or fake accounts). We guarantee a quality service.</div>
+					<div class="block_title">Guaranteed Quality</div>
+					<div class="block_desc">Experience instant engagement from real and premium quality accounts – no fakes
+						involved. High-quality is our guarantee.</div>
 				</div>
 				<div class="promo_block">
-					<div class="block_title">24/7 Customer Support</div>
-					<div class="block_desc">Graming's experienced staff prides itself on providing the best service
-						possible.</div>
+					<div class="block_title">24/7 Experienced Support</div>
+					<div class="block_desc">At Gramy, our experienced team is committed to providing top-notch support and
+						the finest service whenever you require it.</div>
 				</div>
 			</div>
 			<div class="promo_footer">
