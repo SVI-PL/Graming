@@ -107,7 +107,7 @@ if (post_password_required()) {
 					</div>
 					<div class="header_wraper">
 						<div class="header_title">Customers rate us <span>Superb</span></div>
-						<div class="header_subtitle">5/5 - based on 54 reviews</div>
+						<div class="header_subtitle">5/5 - based on 566 reviews</div>
 					</div>
 				</div>
 				<div class="header_right">
