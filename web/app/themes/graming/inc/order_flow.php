@@ -511,6 +511,7 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 					'Quantity' => $quantity,
 					'Upsale' => $upsale,
 					'Total' => $total,
+					'Deposite_total' => $deposite_total,
 				],
 			],
 		],
