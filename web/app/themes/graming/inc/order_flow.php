@@ -462,7 +462,7 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 	if ($product_id == 75) {
 		$product_type = "Deposite";
 		$event_name = 'Deposite ' . $order_status;
-		$deposite_total = $total;
+		$deposite_total = (int) $quantity;
 	}
 	$upsale = "none";
 	if (count($product_ids) >= 2) {
