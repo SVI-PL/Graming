@@ -159,15 +159,19 @@ function pf_checkout_com()
         {
             $order = wc_get_order($order_id);
             $env = Environment::production();
-            if ($this->testmode) {
+            if ($this->get_option('testmode')) {
                 $env = Environment::sandbox();
             }
+
+            $private_key = $this->get_option('testmode') ? $this->get_option('test_private_key') : $this->get_option('private_key');
+            $publishable_key = $this->get_option('testmode') ? $this->get_option('test_publishable_key') : $this->get_option('publishable_key');
+
             //API Keys
             $api = CheckoutSdk::builder()
                 ->staticKeys()
                 ->environment($env)
-                ->publicKey($this->get_option('test_publishable_key'))
-                ->secretKey($this->get_option('test_private_key'))
+                ->publicKey($publishable_key)
+                ->secretKey($private_key)
                 ->build();
 
             $address = new Address();
@@ -207,13 +211,21 @@ function pf_checkout_com()
                     return array(
                         'result' => 'error',
                     );
-
                 }
             } catch (CheckoutApiException $e) {
                 $error_details = $e->error_details;
                 $http_status_code = isset($e->http_metadata) ? $e->http_metadata->getStatusCode() : null;
+                var_dump($error_details);
+                wc_add_notice('Error ' . $http_status_code, 'error');
+                return array(
+                    'result'   => 'error',
+                );
+            
             } catch (CheckoutAuthorizationException $e) {
-
+                wc_add_notice('Error ' . $e, 'error');
+                return array(
+                    'result'   => 'error',
+                );
             }
 
             $order->payment_complete();
