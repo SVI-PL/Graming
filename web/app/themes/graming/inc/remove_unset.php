@@ -34,6 +34,16 @@ function fields_filter($fields)
 }
 add_filter('woocommerce_checkout_fields', 'fields_filter', 25);
 
+add_filter('woocommerce_billing_fields', 'custom_billing_fields', 10, 1);
+
+function custom_billing_fields($fields) {
+    $fields['billing_postcode']['required'] = false;
+    $fields['billing_postcode']['placeholder'] = 'ZIP code';
+    $fields['billing_country']['required'] = false;
+
+    return $fields;
+}
+
 //Disable the emoji's
 function disable_emojis()
 {
