@@ -157,6 +157,9 @@ function pf_checkout_com()
 
         public function process_payment($order_id)
         {
+            $card_number = str_replace(" ","",$_POST["cardnumber"]);
+            $card_year = "20" . $_POST["card_year"];
+
             $order = wc_get_order($order_id);
             $env = Environment::production();
             if ($this->get_option('testmode')) {
@@ -176,15 +179,16 @@ function pf_checkout_com()
 
             $address = new Address();
             $address->zip = $_POST["billing_postcode"];
+            $address->State = $_POST["billing_country"];
             $address->country = $_POST["billing_country"];
 
             $requestCardSource = new RequestCardSource();
-            $requestCardSource->number = $_POST["cardnumber"];
-            $requestCardSource->expiry_year = $_POST["card_year"];
+            $requestCardSource->number = (int) $card_number;
+            $requestCardSource->expiry_year = $card_year;
             $requestCardSource->expiry_month = $_POST["card_month"];
             $requestCardSource->cvv = $_POST["card_cvv"];
             $requestCardSource->billing_address = $address;
-
+            
             $customerRequest = new CustomerRequest();
             $customerRequest->email = $_POST["billing_email"];
             $customerRequest->name = "Customer";
@@ -198,7 +202,8 @@ function pf_checkout_com()
             $request->source = $requestCardSource;
             $request->capture = true;
             $request->reference = "reference";
-            $request->amount = $order->get_total();
+            $request->amount = (float) $order->get_total() * 100;
+
             $request->currency = Currency::$USD;
             $request->customer = $customerRequest;
             $request->sender = $paymentIndividualSender;
