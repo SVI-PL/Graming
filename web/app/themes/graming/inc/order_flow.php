@@ -138,7 +138,7 @@ function create_user_account($order_id)
 								'properties' => [
 									'Password' => $password,
 									'AutoReg' => 'yes',
-									'Marketing Checkbox' => 'No',
+									'Marketing_Checkbox' => 'No',
 								],
 							],
 
@@ -154,6 +154,9 @@ function create_user_account($order_id)
 						],
 					],
 					'properties' => [
+						'Password' => $password,
+						'AutoReg' => 'yes',
+						'Marketing_Checkbox' => 'No',
 					],
 				],
 			],
@@ -418,9 +421,9 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 							'email' => $user_email,
 							'external_id' => $user_id,
 							'properties' => [
-								'Product type' => $product_type,
-								'Order id' => $order_id,
-								'Product name' => $product_name,
+								'Product_type' => $product_type,
+								'Order_id' => $order_id,
+								'Product_name' => $product_name,
 								'Quantity' => $quantity,
 								'Upsale' => $upsale,
 								'Total' => $total,
@@ -439,6 +442,12 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 					],
 				],
 				'properties' => [
+					'Product_type' => $product_type,
+					'Order_id' => $order_id,
+					'Product_name' => $product_name,
+					'Quantity' => $quantity,
+					'Upsale' => $upsale,
+					'Total' => $total,
 				],
 			],
 		],

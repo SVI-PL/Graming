@@ -162,12 +162,9 @@ function pf_checkout_com()
 
             $order = wc_get_order($order_id);
             $env = Environment::production();
-            if ($this->get_option('testmode')) {
-                $env = Environment::sandbox();
-            }
-
-            $private_key = $this->get_option('testmode') ? $this->get_option('test_private_key') : $this->get_option('private_key');
-            $publishable_key = $this->get_option('testmode') ? $this->get_option('test_publishable_key') : $this->get_option('publishable_key');
+        
+            $private_key = $this->get_option('private_key');
+            $publishable_key = $this->get_option('publishable_key');
 
             //API Keys
             $api = CheckoutSdk::builder()
