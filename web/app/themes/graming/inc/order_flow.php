@@ -522,3 +522,74 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 }
 
 add_action('woocommerce_order_status_changed', 'klavio_add_order', 20, 4);
+
+
+function custom_checkout_init()
+{
+	$user_id = get_current_user_id();
+	$user = get_user_by('id', $user_id);
+	$user_email = $user->user_email;
+	$product_id = "";
+	$quantity = "";
+	$total = wp_strip_all_tags(WC()->cart->get_total());
+	$cart_contests = WC()->cart->get_cart_contents();
+	foreach ($cart_contests as $cart_id => $cart_item) {
+		$product_id = $cart_item["product_id"];
+		$quantity = $cart_item["quantity"];
+		break;
+	}
+	$product = wc_get_product($product_id);
+	$product_name = $product->get_title();
+	$event_name = 'Checkout service';
+	$product_type = "service";
+	if ($product_id == 75) {
+		$product_type = "Deposite";
+		$event_name = 'Checkout Deposite';
+		$deposite_total = (int) $quantity;
+	}
+
+	$url = 'https://a.klaviyo.com/api/events/';
+	$data = [
+		'data' => [
+			'type' => 'event',
+			'attributes' => [
+				'profile' => [
+					'data' => [
+						'type' => 'profile',
+						'attributes' => [
+							'email' => $user_email,
+							'external_id' => $user_id,
+							'properties' => [
+								'Product_type' => $product_type,
+								'Product_name' => $product_name,
+								'Quantity' => $quantity,
+								'Total' => $total,
+							],
+						],
+
+					],
+				],
+
+				'metric' => [
+					'data' => [
+						'type' => 'metric',
+						'attributes' => [
+							'name' => $event_name,
+						],
+					],
+				],
+				'properties' => [
+					'Product_type' => $product_type,
+					'Product_name' => $product_name,
+					'Quantity' => $quantity,
+					'Total' => $total,
+				],
+			],
+		],
+	];
+	$body = json_encode($data);
+	$klavio = new KlavioAPI;
+	$klavio->post_klavio($url, $body);
+}
+
+add_action('woocommerce_before_checkout_form', 'custom_checkout_init');
