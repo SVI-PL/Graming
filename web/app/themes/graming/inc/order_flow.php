@@ -444,7 +444,6 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 						'type' => 'metric',
 						'attributes' => [
 							'name' => $event_name,
-							'Total' => $total,
 						],
 					],
 				],
