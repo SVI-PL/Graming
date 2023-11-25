@@ -168,7 +168,7 @@ jQuery(document).ready(function ($) {
   //Bonus recalculate in checkout
   $(document).ajaxComplete(function (event, xhr, settings) {
     if (settings.url && settings.url.indexOf("update_order_review") !== -1) {
-      const bonusElement = document.querySelector('.bonus_total');
+      let bonusElement = document.querySelector('.bonus_total');
       if (bonusElement) {
         let bonusText = bonusElement.textContent;
         let bonusValue = parseFloat(bonusText.replace(/[$,]/g, ''));
