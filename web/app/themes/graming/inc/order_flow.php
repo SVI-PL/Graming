@@ -399,16 +399,18 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 	$product_type = "service";
 	$product = wc_get_product($product_id);
 	$product_name = $product->get_title();
-
+	$order_status = $to_status;
+	$event_name = 'Order status ' . $order_status;
 	if ($product_id == 75) {
 		$product_type = "Deposite";
+		$event_name = 'Deposite ' . $order_status;
 	}
 	$upsale = "none";
 	if (count($product_ids) >= 2) {
 		$upsale = "yes";
 	}
 
-	$order_status = $to_status;
+	
 	$url = 'https://a.klaviyo.com/api/events/';
 	$data = [
 		'data' => [
@@ -437,7 +439,7 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 					'data' => [
 						'type' => 'metric',
 						'attributes' => [
-							'name' => 'Order status ' . $order_status,
+							'name' => $event_name,
 						],
 					],
 				],
