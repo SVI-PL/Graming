@@ -12,7 +12,6 @@ use MyCheckout\CheckoutApiException;
 use MyCheckout\CheckoutAuthorizationException;
 use MyCheckout\CheckoutSdk;
 use MyCheckout\Common\Address;
-use MyCheckout\Common\Country;
 use MyCheckout\Common\Currency;
 use MyCheckout\Common\CustomerRequest;
 use MyCheckout\Environment;
