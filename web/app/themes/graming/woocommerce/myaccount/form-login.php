@@ -69,15 +69,22 @@ do_action('woocommerce_before_customer_login_form'); ?>
 					<?php do_action('woocommerce_register_form_start'); ?>
 					<div class="form_input form_email">
 						<label class="form-label required" for="email">E-Mail</label>
-						<input type="email" class="form-control form--control checkUser" name="email" id="reg_email" autocomplete="email" placeholder="Your Email" />
+						<input type="email" class="form-control form--control checkUser" name="email" id="reg_email"
+							autocomplete="email" placeholder="Your Email" />
 					</div>
 					<div class="form_input form_pass">
 						<label for="password" class="form-label">Password</label>
-						<input class="form--control" type="password" name="password" id="password" placeholder="Your Password" />
+						<input class="form--control" type="password" name="password" id="password"
+							placeholder="Your Password" />
 					</div>
 					<div class="form_input form_pass">
 						<label for="password" class="form-label">Confirm Password</label>
-						<input class="form--control" type="password" name="password-confirm" id="password-confirm" placeholder="Confirm Password" />
+						<input class="form--control" type="password" name="password-confirm" id="password-confirm"
+							placeholder="Confirm Password" />
+					</div>
+					<div class="mail_send">
+						<input type="checkbox" id="agree" name="agree" checked="checked"> <label for="agree">Send me special
+							promotions and discounts</label>
 					</div>
 					<div class="privacy">
 						<input type="checkbox" id="privacy" name="privacy"> <label for="privacy">I agree to the <a
@@ -87,9 +94,8 @@ do_action('woocommerce_before_customer_login_form'); ?>
 					<div class="form-group">
 						<?php do_action('woocommerce_register_form'); ?>
 						<?php wp_nonce_field('woocommerce-register', 'woocommerce-register-nonce'); ?>
-						<button type="submit"
-							class="submit-btn btn-red woocommerce-form-register__submit"
-							name="register" value="<?php esc_attr_e('Register', 'woocommerce'); ?>">
+						<button type="submit" class="submit-btn btn-red woocommerce-form-register__submit" name="register"
+							value="<?php esc_attr_e('Register', 'woocommerce'); ?>">
 							Sign Up Now
 						</button>
 					</div>
@@ -97,7 +103,7 @@ do_action('woocommerce_before_customer_login_form'); ?>
 			</div>
 			<div class="login_right">
 				<div class="signup_promo_text">
-				<span>Welcome to Graming!</span> <br>Do you already have an account on Gramy?
+					<span>Welcome to Graming!</span> <br>Do you already have an account on Gramy?
 				</div>
 				<div class="log_in_bg"></div>
 				<div class="btn-red"><a href="/my-account/">Log in</a></div>

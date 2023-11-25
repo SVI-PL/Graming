@@ -195,6 +195,49 @@
                     }
                 }
 
+                .mail_send {
+                    margin-bottom: 25px;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+    
+                    @media (max-width: 768px) {
+                        margin: 0 20px 20px;
+                    }
+    
+                    input#agree {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 20px;
+    
+                        @media (max-width: 768px) {
+                            width: 16px;
+                            height: 16px;
+                            margin-right: 10px;
+                        }
+                    }
+    
+                    label {
+                        color: #646464;
+                        font-family: Fixel Display;
+                        font-size: 15px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                        margin: 0;
+    
+                        @media (max-width: 960px) {
+                            font-size: 12px;
+                        }
+    
+                        a {
+                            color: #85C316;
+                            text-decoration: none;
+                        }
+                    }
+                }
+
                 .privacy {
                     margin-bottom: 25px;
                     display: flex;

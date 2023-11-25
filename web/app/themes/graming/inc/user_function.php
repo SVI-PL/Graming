@@ -40,6 +40,10 @@ function password_in_registration($customer_id)
 		$password = wc_clean($_POST['password']);
 		update_user_meta($customer_id, 'password', $password);
 	}
+	$marketing = "No";
+	if (isset($_POST["agree"]) && $_POST["agree"] === "on") {
+		$marketing = "Yes";
+	}
 	$user = get_user_by('id', $customer_id);
 	$user_id = $user->ID;
 	$user_email = $user->user_email;
