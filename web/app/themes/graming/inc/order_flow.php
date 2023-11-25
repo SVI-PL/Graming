@@ -532,6 +532,7 @@ function custom_checkout_init()
 	$product_id = "";
 	$quantity = "";
 	$total = wp_strip_all_tags(WC()->cart->get_total());
+	$total = str_replace("$", "", $total);
 	$cart_contests = WC()->cart->get_cart_contents();
 	foreach ($cart_contests as $cart_id => $cart_item) {
 		$product_id = $cart_item["product_id"];
@@ -540,12 +541,11 @@ function custom_checkout_init()
 	}
 	$product = wc_get_product($product_id);
 	$product_name = $product->get_title();
-	$event_name = 'Checkout service';
-	$product_type = "service";
+	$event_name = 'Checkout Service init';
+	$product_type = "Service";
 	if ($product_id == 75) {
 		$product_type = "Deposite";
-		$event_name = 'Checkout Deposite';
-		$deposite_total = (int) $quantity;
+		$event_name = 'Checkout Deposite init';
 	}
 
 	$url = 'https://a.klaviyo.com/api/events/';
