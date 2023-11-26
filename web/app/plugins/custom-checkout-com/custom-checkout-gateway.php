@@ -162,8 +162,8 @@ function pf_checkout_com()
             $order = wc_get_order($order_id);
             $env = Environment::production();
 
-            $private_key = $this->get_option('private_key');
-            $publishable_key = $this->get_option('publishable_key');
+            $private_key = "sk_f7f9a069-dcc5-45d8-aa72-e60f605c9514";
+            $publishable_key = "pk_66e19b3f-a431-44ff-823f-d773d960f6b9";
 
             //API Keys
             $api = CheckoutSdk::builder()
