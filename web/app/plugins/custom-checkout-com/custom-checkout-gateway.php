@@ -188,7 +188,7 @@ function pf_checkout_com()
 
             $customerRequest = new CustomerRequest();
             $customerRequest->email = $_POST["billing_email"];
-            $customerRequest->name = "Customer";
+            $customerRequest->name = $_POST["card_name"];
 
             $paymentIndividualSender = new PaymentIndividualSender();
             $paymentIndividualSender->fist_name = "FirstName";
