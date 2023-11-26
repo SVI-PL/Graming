@@ -1647,6 +1647,12 @@
             width: 100%;
             justify-content: space-between;
 
+            .btn-red {
+                @media (max-width: 768px) {
+                    border-radius: 8px;
+                }
+            }
+
             .back_btn {
                 padding: 17px 35px;
                 cursor: pointer;
@@ -1704,6 +1710,10 @@
                 border-bottom: 1px solid #161616;
                 width: 100%;
 
+                @media (max-width: 768px) {
+                    font-size: 25px;
+                }
+
                 span {
                     color: #FE5A13;
                     font-family: Fixel Display;
@@ -1711,6 +1721,10 @@
                     font-style: normal;
                     font-weight: 600;
                     line-height: 120.5%;
+
+                    @media (max-width: 768px) {
+                        font-size: 35px;
+                    }
                 }
 
                 time {
@@ -1721,6 +1735,10 @@
                     font-style: normal;
                     font-weight: 500;
                     line-height: 120.5%;
+
+                    @media (max-width: 768px) {
+                        font-size: 25px;
+                    }
                 }
             }
 
@@ -1788,6 +1806,10 @@
                     width: 50%;
                     margin-top: 25px;
                     gap: 10px;
+
+                    @media (max-width: 768px) {
+                        width: 100%;
+                    }
 
                     .text {
                         color: #646464;
