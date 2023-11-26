@@ -1647,6 +1647,12 @@
             width: 100%;
             justify-content: space-between;
 
+            .btn-red {
+                @media (max-width: 768px) {
+                    border-radius: 8px;
+                }
+            }
+
             .back_btn {
                 padding: 17px 35px;
                 cursor: pointer;
