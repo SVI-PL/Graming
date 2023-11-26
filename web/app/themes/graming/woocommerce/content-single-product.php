@@ -261,15 +261,15 @@ if (post_password_required()) {
 				<div class="get_started_title">Get Started</div>
 				<div class="woocommerce-billing-fields">
 					<div class="input-link">
-						<input type="text" name="custom_link" id="custom_link" placeholder="https://..." value="">
-						<span>Input valid link</span>
+						<input type="text" name="custom_link" id="custom_link" placeholder="https://..." value="https://graming.com/">
+						<span>Please enter a valid link</span>
 					</div>
 					<div class="input-text">
 						<input type="email" name="billing_email" id="billing_email" placeholder="email@gmail.com" value="<?php $user = wp_get_current_user();
 						if (isset($user)) {
 							echo esc_attr($user->user_email);
 						} ?>" autocomplete="email username">
-						<span>Input valid email</span>
+						<span>Please enter a valid email</span>
 					</div>
 				</div>
 				<div class="product_select">
@@ -299,7 +299,7 @@ if (post_password_required()) {
 					<input type="checkbox" id="privacy" name="privacy"> <label for="privacy">I agree to the <a
 							href="#">Privacy Policy</a>, <a href="#">Public Offering Agreement</a>, <a href="#">Terms of
 							Use</a></label>
-					<span>Check this box</span>
+					<span>Check this box, and click to agree</span>
 				</div>
 				<div class="continue">
 					<div class="continue_btn btn-red">Continue</div>

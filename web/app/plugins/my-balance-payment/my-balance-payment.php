@@ -76,7 +76,7 @@ function pfb_activation()
                     'redirect' => $this->get_return_url($order),
                 );
             } else {
-                wc_add_notice('Недостаточно средств на балансе для оплаты заказа.', 'error');
+                wc_add_notice('Insufficient balance to complete the order. Please click "Top Up" to make a deposit and proceed.', 'error');
                 return array(
                     'result'   => 'error',
                 );

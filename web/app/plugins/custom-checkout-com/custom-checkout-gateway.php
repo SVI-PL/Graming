@@ -127,23 +127,23 @@ function pf_checkout_com()
                 return false;
             }
             if (empty($_POST["card_name"])) {
-                wc_add_notice('You need add Card Holder!', 'error');
+                wc_add_notice('Please add the Cardholders name', 'error');
                 return false;
             }
             if (empty($_POST["cardnumber"])) {
-                wc_add_notice('You need add your card number!', 'error');
+                wc_add_notice('Please add the card number', 'error');
                 return false;
             }
             if (empty($_POST["card_month"])) {
-                wc_add_notice('You need add your card month!', 'error');
+                wc_add_notice('Please add the card expiration month', 'error');
                 return false;
             }
             if (empty($_POST["card_year"])) {
-                wc_add_notice('You need add your card year!', 'error');
+                wc_add_notice('Please add the card expiration year', 'error');
                 return false;
             }
             if (empty($_POST["card_cvv"])) {
-                wc_add_notice('You need add your card cvv!', 'error');
+                wc_add_notice('Please add the card CVV number', 'error');
                 return false;
             }
             if (empty($_POST["billing_email"])) {
@@ -161,12 +161,9 @@ function pf_checkout_com()
 
             $order = wc_get_order($order_id);
             $env = Environment::production();
-            if ($this->get_option('testmode')) {
-                $env = Environment::sandbox();
-            }
 
-            $private_key = $this->get_option('testmode') ? $this->get_option('test_private_key') : $this->get_option('private_key');
-            $publishable_key = $this->get_option('testmode') ? $this->get_option('test_publishable_key') : $this->get_option('publishable_key');
+            $private_key = $this->get_option('private_key');
+            $publishable_key = $this->get_option('publishable_key');
 
             //API Keys
             $api = CheckoutSdk::builder()
