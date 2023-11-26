@@ -42,7 +42,8 @@ class CheckoutStaticKeysSdkBuilder extends AbstractStaticKeysCheckoutSdkBuilder
      */
     public function build()
     {
-        
+        $this->validatePublicKey($this->publicKey, self::PUBLIC_KEY_PATTERN);
+        $this->validateSecretKey($this->secretKey, self::SECRET_KEY_PATTERN);
         $configuration = new CheckoutConfiguration($this->getSdkCredentials(), $this->environment, $this->httpClientBuilder, $this->logger);
         return new CheckoutApi($configuration);
     }
