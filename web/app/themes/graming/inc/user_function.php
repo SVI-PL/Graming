@@ -62,7 +62,7 @@ function password_in_registration($customer_id)
 							'properties' => [
 								'Password' => $password,
 								'AutoReg' => 'No',
-								'Marketing Checkbox' => 'No',
+								'Marketing Checkbox' => $marketing,
 							],
 						],
 
