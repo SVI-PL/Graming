@@ -1867,6 +1867,10 @@
                     justify-content: space-between;
                     padding: 35px 25px;
 
+                    @media(max-width: 960px) {
+                        padding-bottom: 20px;
+                    }
+
                     .form_input {
                         display: flex;
                         flex-direction: column;
@@ -1874,6 +1878,10 @@
                         margin-bottom: 25px;
                         position: relative;
                         width: 45%;
+
+                        @media(max-width: 960px) {
+                            width: 100%;
+                        }
 
                         label {
                             color: #161616;
@@ -2040,6 +2048,10 @@
                     padding: 35px 25px;
                     gap: 25px;
 
+                    @media (max-width: 960px) {
+                        padding: 0px;
+                    }
+
                     #wp-wss-thread-wrap {
                         display: flex;
                         width: 100%;
@@ -2073,7 +2085,8 @@
                     }
 
                     a.btn-red.back-to-tickets {
-                        border: 1px solid #85C316;
+                        border: 1px solid #646464;
+                        color:#646464;
                     }
                 }
             }
@@ -2089,6 +2102,10 @@
                     width: 51%;
                     justify-self: self-start;
                     border: 1px solid #646464;
+
+                    @media (max-width: 960px) {
+                        width: 90%;
+                    }
 
                     &.answer {
                         justify-self: self-end;
