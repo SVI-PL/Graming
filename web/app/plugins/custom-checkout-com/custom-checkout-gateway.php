@@ -156,9 +156,10 @@ function pf_checkout_com()
 
         public function process_payment($order_id)
         {
-            $card_number = str_replace(" ","",$_POST["cardnumber"]);
+            $card_number = str_replace(" ", "", $_POST["cardnumber"]);
             $card_year = "20" . $_POST["card_year"];
-
+            $expiry_month = $_POST["card_month"];
+            $cvv = $_POST["card_cvv"];
             $order = wc_get_order($order_id);
             $env = Environment::production();
 
@@ -180,11 +181,11 @@ function pf_checkout_com()
 
             $requestCardSource = new RequestCardSource();
             $requestCardSource->number = (int) $card_number;
-            $requestCardSource->expiry_year = $card_year;
-            $requestCardSource->expiry_month = $_POST["card_month"];
-            $requestCardSource->cvv = $_POST["card_cvv"];
+            $requestCardSource->expiry_year = (int) $card_year;
+            $requestCardSource->expiry_month = (int) $expiry_month;
+            $requestCardSource->cvv = (int) $cvv;
             $requestCardSource->billing_address = $address;
-            
+
             $customerRequest = new CustomerRequest();
             $customerRequest->email = $_POST["billing_email"];
             $customerRequest->name = "Customer";
@@ -219,13 +220,13 @@ function pf_checkout_com()
                 var_dump($error_details);
                 wc_add_notice('Error ' . $http_status_code, 'error');
                 return array(
-                    'result'   => 'error',
+                    'result' => 'error',
                 );
-            
+
             } catch (CheckoutAuthorizationException $e) {
                 wc_add_notice('Error ' . $e, 'error');
                 return array(
-                    'result'   => 'error',
+                    'result' => 'error',
                 );
             }
 
