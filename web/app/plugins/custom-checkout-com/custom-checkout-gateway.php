@@ -168,6 +168,7 @@ function pf_checkout_com()
 
             //API Keys
             $api = CheckoutSdk::builder()
+            ->previous()
                 ->staticKeys()
                 ->environment($env)
                 ->publicKey($publishable_key)
