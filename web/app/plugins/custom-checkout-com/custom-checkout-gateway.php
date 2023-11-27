@@ -13,10 +13,13 @@ use MyCheckout\CheckoutAuthorizationException;
 use MyCheckout\CheckoutSdk;
 use MyCheckout\Common\Address;
 use MyCheckout\Common\Currency;
+use MyCheckout\Common\Country;
 use MyCheckout\Common\CustomerRequest;
 use MyCheckout\Environment;
-use MyCheckout\Payments\Request\PaymentRequest;
-use MyCheckout\Payments\Request\Source\RequestCardSource;
+// use MyCheckout\Payments\Request\PaymentRequest;
+// use MyCheckout\Payments\Request\Source\RequestCardSource;
+use MyCheckout\Payments\Previous\PaymentRequest;
+use MyCheckout\Payments\Previous\Source\RequestCardSource;
 use MyCheckout\Payments\Sender\PaymentIndividualSender;
 
 /*Exit if accessed directly*/
@@ -171,8 +174,8 @@ function pf_checkout_com()
                 ->previous()
                 ->staticKeys()
                 ->environment($env)
-                ->publicKey($publishable_key)
                 ->secretKey($private_key)
+                ->publicKey($publishable_key)
                 ->build();
 
             $address = new Address();
@@ -181,33 +184,36 @@ function pf_checkout_com()
             $address->country = $_POST["billing_country"];
 
             $requestCardSource = new RequestCardSource();
+            $requestCardSource->name = $_POST["card_name"];
             $requestCardSource->number = (int) $card_number;
             $requestCardSource->expiry_year = (int) $card_year;
             $requestCardSource->expiry_month = (int) $expiry_month;
             $requestCardSource->cvv = (int) $cvv;
             $requestCardSource->billing_address = $address;
+            $requestCardSource->phone = "";
 
-            $customerRequest = new CustomerRequest();
-            $customerRequest->email = $_POST["billing_email"];
-            $customerRequest->name = $_POST["card_name"];
+            // $customerRequest = new CustomerRequest();
+            // $customerRequest->email = $_POST["billing_email"];
+            // $customerRequest->name = $_POST["card_name"];
 
-            $paymentIndividualSender = new PaymentIndividualSender();
-            $paymentIndividualSender->fist_name = "FirstName";
-            $paymentIndividualSender->last_name = "LastName";
-            $paymentIndividualSender->address = $address;
+            // $paymentIndividualSender = new PaymentIndividualSender();
+            // $paymentIndividualSender->fist_name = "FirstName";
+            // $paymentIndividualSender->last_name = "LastName";
+            // $paymentIndividualSender->address = $address;
 
             $request = new PaymentRequest();
             $request->source = $requestCardSource;
             $request->capture = true;
             $request->reference = "reference";
             $request->amount = (float) $order->get_total() * 100;
-
             $request->currency = Currency::$USD;
-            $request->customer = $customerRequest;
-            $request->sender = $paymentIndividualSender;
+            // $request->customer = $customerRequest;
+            // $request->sender = $paymentIndividualSender;
 
             try {
+
                 $response = $api->getPaymentsClient()->requestPayment($request);
+
                 if ($response["approved"] == false) {
                     $resp_str = 'Status: ' . $response["status"] . '. Reason: ' . $response["response_summary"] . ' Code: ' . $response["response_code"];
                     wc_add_notice($resp_str, 'error');
@@ -225,12 +231,13 @@ function pf_checkout_com()
                 );
 
             } catch (CheckoutAuthorizationException $e) {
+                var_dump($e);
                 wc_add_notice('Error ' . $e, 'error');
                 return array(
                     'result' => 'error',
                 );
             }
-
+            die;
             $order->payment_complete();
             $order->update_status('processing');
 
