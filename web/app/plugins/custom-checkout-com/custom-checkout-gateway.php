@@ -15,8 +15,8 @@ use MyCheckout\Common\Address;
 use MyCheckout\Common\Currency;
 use MyCheckout\Common\CustomerRequest;
 use MyCheckout\Environment;
-use MyCheckout\Payments\Request\PaymentRequest;
-use MyCheckout\Payments\Request\Source\RequestCardSource;
+use MyCheckout\Payments\Previous\Request\PaymentRequest;
+use MyCheckout\Payments\Previous\Request\Source\RequestCardSource;
 use MyCheckout\Payments\Sender\PaymentIndividualSender;
 
 /*Exit if accessed directly*/
@@ -168,7 +168,7 @@ function pf_checkout_com()
 
             //API Keys
             $api = CheckoutSdk::builder()
-            ->previous()
+                ->previous()
                 ->staticKeys()
                 ->environment($env)
                 ->publicKey($publishable_key)
