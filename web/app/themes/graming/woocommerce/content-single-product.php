@@ -93,7 +93,7 @@ if (post_password_required()) {
 				</div>
 			</div>
 			<div class="promo_footer">
-				<div class="footer_text">More than 1,000 Customers trust us every day to deliver real Instagram likes.</div>
+				<div class="footer_text">Over 2,000 unique daily clients choose Graming’s services</div>
 				<div class="footer_img">
 					<img src="<?php echo get_template_directory_uri(); ?>/src/images/promo_img.png" alt="Promo image">
 				</div>
@@ -172,77 +172,71 @@ if (post_password_required()) {
 			</div>
 		</section>
 		<section class="tabs_section">
-			<div class="title">Buy Instagram Likes with <span>Graming</span></div>
-			<div class="tabs_desc">Over 12,000 daily customers trust us as the best site to deliver real Instagram likes
-			</div>
+			<div class="title">Your Questions: <span>Answered</span></div>
+			<div class="tabs_desc">At Gramy, we value our clients deeply and are dedicated to crafting an exceptional
+				experience for you.</div>
 			<div class="tabs_block">
 				<div class="tab_wraper">
 					<div class="tab_title">
-						Why SHOULD I BUY INSTAGRAM LIKES?
+						Why should I buy Graming's services?
 						<div class="tab_dropdown"></div>
 					</div>
 					<div class="tab_content">
-						Instagram likes aren't just a vanity metric — the number of likes you get directly affects
-						Instagram's core algorithm. The more likes and engagement your content has, the more people you're
-						going to reach.
-
-						Buying likes is the single best way of boosting your presence on social media — earning you more
-						recognition, more followers, and ultimately, more conversions.
-
-						The more likes a photo or video receives, the higher the chance of reaching the explore page —
-						opening you up to millions of new viewers.
-
-						Likes also serve as social proof for viewers that see your content. When a photo has a high number
-						of likes, they're more likely to engage with it further. Buying likes is a good way to catalyze this
-						interaction — boosting the organic engagement your content is capable of throughout its lifetime.
-
-						You can also <a href="#">buy Instagram followers</a> at Graming.
+						At Graming, we offer more than just numbers. Purchasing our services not only boosts your followers,
+						likes, and views but also strategically enhances your social media presence. Once you achieve
+						substantial numbers, your content gains organic promotion through social media algorithms, providing
+						a lasting impact on your visibility and engagement. Trust Graming to elevate your socials and unlock
+						the potential of organic growth.
 					</div>
 				</div>
 				<div class="tab_wraper">
 					<div class="tab_title">
-						Which PACKAGE SHOULD I CHOOSE?
+						What quality does Graming offer?
 						<div class="tab_dropdown"></div>
 					</div>
 					<div class="tab_content">
-						Instagram likes aren't just a vanity metric — the number of likes you get directly affects
-						Instagram's core algorithm. The more likes and engagement your content has, the more people you're
-						going to reach.
-
-						Buying likes is the single best way of boosting your presence on social media — earning you more
-						recognition, more followers, and ultimately, more conversions.
-
-						The more likes a photo or video receives, the higher the chance of reaching the explore page —
-						opening you up to millions of new viewers.
-
-						Likes also serve as social proof for viewers that see your content. When a photo has a high number
-						of likes, they're more likely to engage with it further. Buying likes is a good way to catalyze this
-						interaction — boosting the organic engagement your content is capable of throughout its lifetime.
-
-						You can also <a href="#">buy Instagram followers</a> at Graming.
+						Graming takes pride in delivering the highest quality services in the market. We are proud to state
+						that we provide real-looking likes, followers, and views sourced exclusively from our premium high
+						quality accounts. Graming elevates your social media presence through genuine and top-tier
+						engagement
 					</div>
 				</div>
 				<div class="tab_wraper">
 					<div class="tab_title">
-						What INFORMATION DO I NEED TO PROVIDE?
+						How can I register my personal account on Graming?
 						<div class="tab_dropdown"></div>
 					</div>
 					<div class="tab_content">
-						Instagram likes aren't just a vanity metric — the number of likes you get directly affects
-						Instagram's core algorithm. The more likes and engagement your content has, the more people you're
-						going to reach.
+						There are two ways to create your account:
 
-						Buying likes is the single best way of boosting your presence on social media — earning you more
-						recognition, more followers, and ultimately, more conversions.
+						1) Click the "Sign Up" button in the menu to manually register.
 
-						The more likes a photo or video receives, the higher the chance of reaching the explore page —
-						opening you up to millions of new viewers.
+						2) Alternatively, your personal account will be automatically created once you place your first
+						order using the email address provided. Your password would be generated automatically and wouldn't
+						be stored anywhere for security reasons. You can change your password anytime using the link in your
+						registration email or by selecting 'Forgot Password?' - <a href="https://graming.com/my-account/">(click here)</a>
 
-						Likes also serve as social proof for viewers that see your content. When a photo has a high number
-						of likes, they're more likely to engage with it further. Buying likes is a good way to catalyze this
-						interaction — boosting the organic engagement your content is capable of throughout its lifetime.
-
-						You can also <a href="#">buy Instagram followers</a> at Graming.
+					</div>
+				</div>
+				<div class="tab_wraper">
+					<div class="tab_title">
+						How can I contact support?
+						<div class="tab_dropdown"></div>
+					</div>
+					<div class="tab_content">
+						You can reach our 24/7 support through the Graming Panel after making your first order and
+						completing registration. Here is the link for our support - <a href="https://graming.com/my-account/support/">(click here)</a>
+					</div>
+				</div>
+				<div class="tab_wraper">
+					<div class="tab_title">
+						How can I track my order?
+						<div class="tab_dropdown"></div>
+					</div>
+					<div class="tab_content">
+						Once you make an order on Graming, you'll be redirected to your order page for real-time tracking.
+						Additionally, you can monitor the status of your previous orders in the Graming Panel through this
+						link - <a href="https://graming.com/my-account/orders/">(click here)</a>
 					</div>
 				</div>
 			</div>
@@ -261,7 +255,8 @@ if (post_password_required()) {
 				<div class="get_started_title">Get Started</div>
 				<div class="woocommerce-billing-fields">
 					<div class="input-link">
-						<input type="text" name="custom_link" id="custom_link" placeholder="https://..." value="https://graming.com/">
+						<input type="text" name="custom_link" id="custom_link" placeholder="https://..."
+							value="https://graming.com/">
 						<span>Please enter a valid link</span>
 					</div>
 					<div class="input-text">
