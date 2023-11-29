@@ -319,6 +319,7 @@
                     flex-direction: column;
                     padding: 40px 35px;
                     gap: 25px;
+                    width: 100%;
 
                     @media (max-width: 960px) {
                         padding: 20px;
@@ -1044,6 +1045,138 @@
                         }
                     }
 
+
+                    ul.wc_payment_methods {
+                        border: none;
+                        padding: 0;
+                        list-style: none;
+
+                        >li {
+                            display: none;
+
+                            >input {
+                                display: none;
+                            }
+
+                            >label {
+                                display: none;
+                            }
+
+                            &.payment_method_wc_checkout_com_cards {
+                                display: flex;
+                                flex-direction: column;
+                            }
+
+                            &.payment_method_my_balance_payment {
+                                display: none;
+                            }
+
+                            .payment_method_wc_checkout_com_cards {
+                                display: block !important;
+                                transition: none !important;
+                                transform: none !important;
+                                background: transparent !important;
+                                padding: 0;
+                                margin: 0;
+
+                                &::before {
+                                    display: none;
+                                }
+
+                                ul {
+                                    li {
+                                        width: 100%;
+                                        display: flex;
+                                        flex-direction: row;
+                                        align-items: center;
+                                        justify-content: center;
+                                        border-radius: 15px;
+                                        border: 1.5px solid #646464;
+                                        background: #FFF;
+                                        transition: all 0.3s ease-in-out;
+                                        color: #646464;
+                                        text-align: center;
+                                        font-family: Fixel Display;
+                                        font-size: 20px;
+                                        font-style: normal;
+                                        font-weight: 600;
+                                        line-height: normal;
+
+                                        &.active {
+                                            border: 1.5px solid #FE5A13;
+                                            color: #FE5A13;
+                                        }
+
+                                        >input {
+                                            display: none;
+                                        }
+
+                                        >label {
+                                            padding: 17px;
+                                            width: 100%;
+                                        }
+                                    }
+                                }
+
+                                .cko-form {
+                                    padding: 0 !important;
+
+                                    .multi-frame {
+                                        width: 100%;
+
+                                        .icon-container {
+                                            width: auto;
+                                        }
+
+                                        .frame--activated {
+                                            width: 100%;
+                                            opacity: 1;
+                                            border-radius: 15px;
+                                            border: 1.5px solid #646464;
+                                            background: #FFF;
+                                            transition: all 0.3s ease-in-out;
+                                            color: #646464;
+                                            box-shadow: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    #ckocom_googlePay,
+                    #ckocom_applePay {
+                        display: none !important;
+                    }
+
+                    .pay_btn {
+                        color: #FE5A13;
+                        text-align: center;
+                        font-family: Fixel Display;
+                        font-size: 25px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: normal;
+                        text-transform: capitalize;
+                        padding: 14px;
+                        width: 100%;
+                        cursor: pointer;
+
+                        @media (max-width: 960px) {
+                            font-size: 15px;
+                            border-radius: 8px;
+
+                        }
+
+                        strong {
+                            font-weight: 600;
+                        }
+                    }
+
+                    .place-order {
+                        display: none;
+                    }
+
                     .additional_info_pay {
                         display: flex;
                         flex-direction: column;
@@ -1065,11 +1198,6 @@
                             }
                         }
                     }
-                }
-
-                #ckocom_googlePay,
-                #ckocom_applePay {
-                    display: none !important;
                 }
             }
 

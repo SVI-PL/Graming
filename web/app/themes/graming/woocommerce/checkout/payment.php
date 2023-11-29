@@ -86,7 +86,7 @@ $cart_total = WC()->cart->get_total();
 					<img src="<?php echo get_template_directory_uri(); ?>/src/images/american.svg" alt="">
 				</div>
 			</div>
-			<div class="card_form">
+			<!-- <div class="card_form">
 				<div class="form_input form_name">
 					<input type="text" class="form-control" name="card_name" id="card_name"
 						placeholder="Cardholder name">
@@ -111,30 +111,21 @@ $cart_total = WC()->cart->get_total();
 				</div>
 				<div class="form_input form_zip">
 					<?php
-					$fields = $checkout->get_checkout_fields('billing');
-					foreach ($fields as $key => $field) {
-						if ($field["label"] == "Email address") {
-							break;
-						}
-						woocommerce_form_field($key, $field, $checkout->get_value($key));
-					}
+					// $fields = $checkout->get_checkout_fields('billing');
+					// foreach ($fields as $key => $field) {
+					// 	if ($field["label"] == "Email address") {
+					// 		break;
+					// 	}
+					// 	woocommerce_form_field($key, $field, $checkout->get_value($key));
+					// }
 					?>
 				</div>
 				<div class="pay_btn btn-red">
 
-					<?php wc_cart_totals_order_total_html(); ?>&nbsp;- pay with card
+					<?php //wc_cart_totals_order_total_html(); ?>&nbsp;- pay with card
 				</div>
-			</div>
+			</div> -->
 		</div>
-
-		<div class="additional_info_pay">
-			<p>By completing your order, you agree to the terms of services and
-				privacy policy</p>
-			<p>All prices are in USD. If you're paying with a different currency, the billed amount may vary due to
-				exchange rates and potential additional fees.</p>
-		</div>
-	</div>
-	<div class="real_checkout" style="display:none">
 		<?php if (WC()->cart->needs_payment()): ?>
 			<ul class="wc_payment_methods payment_methods methods">
 				<?php
@@ -164,8 +155,6 @@ $cart_total = WC()->cart->get_total();
 				</button>
 			</noscript>
 
-			<?php wc_get_template('checkout/terms.php'); ?>
-
 			<?php do_action('woocommerce_review_order_before_submit'); ?>
 
 			<?php echo apply_filters('woocommerce_order_button_html', '<button type="submit" class="button alt' . esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : '') . '" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr($order_button_text) . '" data-value="' . esc_attr($order_button_text) . '">' . esc_html($order_button_text) . '</button>'); // @codingStandardsIgnoreLine ?>
@@ -173,6 +162,15 @@ $cart_total = WC()->cart->get_total();
 			<?php do_action('woocommerce_review_order_after_submit'); ?>
 
 			<?php wp_nonce_field('woocommerce-process_checkout', 'woocommerce-process-checkout-nonce'); ?>
+		</div>
+		<div class="pay_btn btn-red">
+			<?php wc_cart_totals_order_total_html(); ?>&nbsp;- pay with card
+		</div>
+		<div class="additional_info_pay">
+			<p>By completing your order, you agree to the terms of services and
+				privacy policy</p>
+			<p>All prices are in USD. If you're paying with a different currency, the billed amount may vary due to
+				exchange rates and potential additional fees.</p>
 		</div>
 	</div>
 </div>

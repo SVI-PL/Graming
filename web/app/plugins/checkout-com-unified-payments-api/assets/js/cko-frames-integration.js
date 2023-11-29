@@ -30,7 +30,7 @@ jQuery(function () {
       modes: [ Frames.modes.FEATURE_FLAG_SCHEME_CHOICE ],
       style: {
         base: {
-          borderRadius: '3px'
+          fontSize: '20px',
         }
       }
     });

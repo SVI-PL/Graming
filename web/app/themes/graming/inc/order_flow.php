@@ -97,63 +97,6 @@ function custom_checkout_fragments($fragments)
 
 	$fragments['.add_coupon'] = ob_get_clean();
 
-	ob_start();
-	$post_data = [];
-	parse_str($_POST["post_data"], $post_data);
-	?>
-	<div class="card_pay">
-		<div class="pay_title">Pay with credit / debit card <div class="payments_img">
-				<img src="<?php echo get_template_directory_uri(); ?>/src/images/applapay.svg" alt="">
-				<img src="<?php echo get_template_directory_uri(); ?>/src/images/mastersvg.svg" alt="">
-				<img src="<?php echo get_template_directory_uri(); ?>/src/images/visa.svg" alt="">
-				<img src="<?php echo get_template_directory_uri(); ?>/src/images/american.svg" alt="">
-			</div>
-		</div>
-		<div class="card_form">
-			<div class="form_input form_name">
-				<input type="text" class="form-control" name="card_name" id="card_name" placeholder="Cardholder name"
-					value="<?php echo isset($post_data["card_name"]) ? $post_data["card_name"] : ''; ?>">
-			</div>
-			<div class="form_input form_number">
-				<input type="text" class="form-control" pattern="[0-9]*" name="cardnumber" id="card_number"
-					placeholder="0000 0000 0000 0000"
-					value="<?php echo isset($post_data["cardnumber"]) ? $post_data["cardnumber"] : ''; ?>">
-			</div>
-			<div class="form_input form_my">
-				<input type="number" class="form-control" name="card_month" id="card_month" placeholder="MM" maxlength="2"
-					oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-					value="<?php echo isset($post_data["card_month"]) ? $post_data["card_month"] : ''; ?>">
-				<div class="sep"></div>
-				<input type="number" class="form-control" name="card_year" id="card_year" placeholder="YY" maxlength="2"
-					oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-					value="<?php echo isset($post_data["card_year"]) ? $post_data["card_year"] : ''; ?>">
-			</div>
-			<div class="form_input form_cv">
-				<input type="number" class="form-control" name="card_cvv" id="card_cvv" placeholder="CVV" maxlength="3"
-					oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-					value="<?php echo isset($post_data["card_cvv"]) ? $post_data["card_cvv"] : ''; ?>">
-			</div>
-			<div class="form_input form_zip">
-				<?php
-				$checkout = new WC_Checkout;
-				$fields = $checkout->get_checkout_fields('billing');
-				foreach ($fields as $key => $field) {
-					if ($field["label"] == "Email address") {
-						break;
-					}
-					woocommerce_form_field($key, $field, $checkout->get_value($key));
-				}
-				?>
-			</div>
-			<div class="pay_btn btn-red">
-
-				<?php wc_cart_totals_order_total_html(); ?>&nbsp;- pay with card
-			</div>
-		</div>
-	</div>
-	<?php
-	$fragments['.card_pay'] = ob_get_clean();
-
 	return $fragments;
 }
 add_filter('woocommerce_update_order_review_fragments', 'custom_checkout_fragments');
@@ -527,8 +470,12 @@ add_action('woocommerce_order_status_changed', 'klavio_add_order', 20, 4);
 function custom_checkout_init()
 {
 	$user_id = get_current_user_id();
-	$user = get_user_by('id', $user_id);
-	$user_email = $user->user_email;
+	if ($user_id == 0) {
+		$user_email = "Guest";
+	} else {
+		$user = get_user_by('id', $user_id);
+		$user_email = $user->user_email;
+	}
 	$product_id = "";
 	$quantity = "";
 	$total = wp_strip_all_tags(WC()->cart->get_total());
@@ -593,3 +540,12 @@ function custom_checkout_init()
 }
 
 add_action('woocommerce_before_checkout_form', 'custom_checkout_init');
+
+
+//Clear cart
+function clear_cart() {
+    if (WC()->cart->get_cart_contents_count() > 0) {
+        WC()->cart->empty_cart();
+    }
+}
+add_action('woocommerce_after_single_product', 'clear_cart');

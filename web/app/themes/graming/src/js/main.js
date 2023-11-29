@@ -135,9 +135,15 @@ jQuery(document).ready(function ($) {
     $card.trigger("click");
   });
 
+  //Add pay with card activator 2
+  $(document).on("mouseenter", ".payment_method_wc_checkout_com_cards, .pay_btn", function () {
+    let $card = $('#payment_method_wc_checkout_com_cards');
+    $card.trigger("click");
+  });
+
   //Add action for pay with Card
   $(document).on("click", ".pay_btn", function () {
-    let $card = $('#payment_method_custom_checkout');
+    let $card = $('#payment_method_wc_checkout_com_cards');
     $card.trigger("click");
     let $place_order = $("#place_order");
     $place_order.trigger("click");
@@ -333,28 +339,34 @@ jQuery(document).ready(function ($) {
   }
 
   //Clear cart if not checkout
-  function clean_cart() {
-    var isCheckoutPage = false;
-    if (window.location.href.indexOf('/checkout/') > -1) {
-      isCheckoutPage = true;
-    }
-    if (!isCheckoutPage) {
-      $.ajax({
-        type: 'POST',
-        url: woocommerce_params.ajax_url,
-        data: {
-          action: 'clear_cart'
-        },
-        success: function (response) {
-        }
-      });
-    }
-  };
-  clean_cart();
+  // function clean_cart() {
+  //   var isCheckoutPage = false;
+  //   if (window.location.href.indexOf('/checkout/') > -1) {
+  //     isCheckoutPage = true;
+  //   }
+  //   if (!isCheckoutPage) {
+  //     $.ajax({
+  //       type: 'POST',
+  //       url: woocommerce_params.ajax_url,
+  //       data: {
+  //         action: 'clear_cart'
+  //       },
+  //       success: function (response) {
+  //       }
+  //     });
+  //   }
+  // };
+  // clean_cart();
 
   //Cupon dropdown
   $(document).on('click', '.add_coupon_title', function () {
     $(".dropdown_coupon").toggleClass("active");
+  });
+
+  //activete card token
+  $(document).on('click', 'ul.woocommerce-SavedPaymentMethods li', function () {
+    $("ul.woocommerce-SavedPaymentMethods li").removeClass("active");
+    $(this).toggleClass("active");
   });
 
   //Mobile menu toggle
@@ -373,8 +385,6 @@ jQuery(document).ready(function ($) {
 
     }
   });
-
-
 
 });
 
