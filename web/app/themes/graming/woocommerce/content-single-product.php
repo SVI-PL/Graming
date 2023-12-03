@@ -214,7 +214,8 @@ if (post_password_required()) {
 						2) Alternatively, your personal account will be automatically created once you place your first
 						order using the email address provided. Your password would be generated automatically and wouldn't
 						be stored anywhere for security reasons. You can change your password anytime using the link in your
-						registration email or by selecting 'Forgot Password?' - <a href="https://graming.com/my-account/">(click here)</a>
+						registration email or by selecting 'Forgot Password?' - <a
+							href="https://graming.com/my-account/">(click here)</a>
 
 					</div>
 				</div>
@@ -225,7 +226,8 @@ if (post_password_required()) {
 					</div>
 					<div class="tab_content">
 						You can reach our 24/7 support through the Graming Panel after making your first order and
-						completing registration. Here is the link for our support - <a href="https://graming.com/my-account/support/">(click here)</a>
+						completing registration. Here is the link for our support - <a
+							href="https://graming.com/my-account/support/">(click here)</a>
 					</div>
 				</div>
 				<div class="tab_wraper">
@@ -263,7 +265,9 @@ if (post_password_required()) {
 						<input type="email" name="billing_email" id="billing_email" placeholder="email@gmail.com" value="<?php $user = wp_get_current_user();
 						if (isset($user)) {
 							echo esc_attr($user->user_email);
-						} ?>" autocomplete="email username">
+						} ?>" data-user-email="<?php if (isset($user)) {
+							 echo esc_attr($user->user_email);
+						 } ?>" autocomplete="email username">
 						<span>Please enter a valid email</span>
 					</div>
 				</div>

@@ -1,5 +1,5 @@
 <?php
-// Устанавливаем баланс в $0 для новых пользователей при регистрации
+// set balance $0 for new reg
 function add_balance_to_database($user_id)
 {
 	$new_balance = 0;
