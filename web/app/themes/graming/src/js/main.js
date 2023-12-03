@@ -113,7 +113,10 @@ jQuery(document).ready(function ($) {
     $('#custom_link').val(customLinkValue);
   }
   if (billingEmailValue) {
-    $('#billing_email').val(billingEmailValue);
+    const emailValue = $('#billing_email').val();
+    if (emailValue === '') {
+      $('#billing_email').val(billingEmailValue);
+    } 
   }
 
   //Add pay with balance activator
