@@ -29,7 +29,6 @@
 			<div class="loader-inner"></div>
 		</div>
 	</div>
-hjgyujgjgjgjgjgjgjgh
 	<!-- header-section start -->
 	<header class="header-section">
 		<div class="header">
