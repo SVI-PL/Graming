@@ -84,3 +84,80 @@
 		</div>
 	</header>
 	<!-- header-section end -->
+
+	<?php
+// $userName="svi_pl";
+// $apiKey="SsOycN7Pejhz7xsZWzwx9TmsO";
+// $auth = base64_encode($userName.":".$apiKey);
+// $postParams = array(
+// 	"scraper" => "instagramProfile",
+// 	"account" => "k_gntv234234"
+// );
+
+// $apiEndPoint = "http://api.scraping-bot.io/scrape/data-scraper";
+
+// $json = json_encode($postParams);
+
+
+// $curl = curl_init();
+
+// curl_setopt_array($curl, array(
+//   CURLOPT_URL => $apiEndPoint,
+//   CURLOPT_RETURNTRANSFER => true,
+//   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+//   CURLOPT_CUSTOMREQUEST => "POST",
+//   CURLOPT_POSTFIELDS => $json,
+//   CURLOPT_HTTPHEADER => array(
+//     "Authorization: Basic ".$auth,
+//     "Content-Type: application/json"
+//   ),
+// ));
+
+// $response = curl_exec($curl);
+// $err = curl_error($curl);
+
+// curl_close($curl);
+
+// if ($err) {
+//   echo "cURL Error #:" . $err;
+// } else {
+//   echo $response;
+// }
+
+
+
+
+
+// $userName = "svi_pl";
+// $apiKey = "SsOycN7Pejhz7xsZWzwx9TmsO";
+// $auth = base64_encode($userName . ":" . $apiKey);
+
+// $responseId = "kcb2dt1702034682385rrdrik29tmd8";
+// $scraper = "instagramProfile";
+
+// $responseEndPoint = "http://api.scraping-bot.io/scrape/data-scraper-response?responseId={$responseId}&scraper={$scraper}";
+
+// $curl = curl_init();
+
+// curl_setopt_array($curl, array(
+//     CURLOPT_URL => $responseEndPoint,
+//     CURLOPT_RETURNTRANSFER => true,
+//     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+//     CURLOPT_CUSTOMREQUEST => "GET",
+//     CURLOPT_HTTPHEADER => array(
+//         "Authorization: Basic " . $auth,
+//         "Content-Type: application/json"
+//     ),
+// ));
+
+// $responseData = curl_exec($curl);
+// $err = curl_error($curl);
+
+// curl_close($curl);
+
+// if ($err) {
+//     echo "cURL Error #:" . $err;
+// } else {
+//     echo $responseData;
+// }
+?>
