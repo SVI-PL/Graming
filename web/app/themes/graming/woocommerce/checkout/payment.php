@@ -125,18 +125,6 @@ $cart_total = WC()->cart->get_total();
 					<?php //wc_cart_totals_order_total_html(); ?>&nbsp;- pay with card
 				</div>
 			</div> -->
-
-			<div class="form_input form_zip">
-					<?php
-					$fields = $checkout->get_checkout_fields('billing');
-					foreach ($fields as $key => $field) {
-						if ($field["label"] == "Email address") {
-							break;
-						}
-						woocommerce_form_field($key, $field, $checkout->get_value($key));
-					}
-					?>
-				</div>
 		</div>
 		<?php if (WC()->cart->needs_payment()): ?>
 			<ul class="wc_payment_methods payment_methods methods">
@@ -179,6 +167,17 @@ $cart_total = WC()->cart->get_total();
 			<?php wc_cart_totals_order_total_html(); ?>&nbsp;- pay with card
 		</div>
 		<div class="additional_info_pay">
+		<div class="form_input form_zip">
+				<?php
+				$fields = $checkout->get_checkout_fields('billing');
+				foreach ($fields as $key => $field) {
+					if ($field["label"] == "Email address") {
+						break;
+					}
+					woocommerce_form_field($key, $field, $checkout->get_value($key));
+				}
+				?>
+			</div>
 			<p>By completing your order, you agree to the terms of services and
 				privacy policy</p>
 			<p>All prices are in USD. If you're paying with a different currency, the billed amount may vary due to
