@@ -256,9 +256,12 @@ if (post_password_required()) {
 			<div class="content_part">
 				<div class="get_started_title">Get Started</div>
 				<div class="woocommerce-billing-fields">
+				<div class="input-link">
+						<input type="text" name="insta_user" id="insta_user" placeholder="Your Nickname">
+						<div class="send">send</div>
+					</div>
 					<div class="input-link">
-						<input type="text" name="custom_link" id="custom_link" placeholder="https://..."
-							value="https://graming.com/">
+						<input type="text" name="custom_link" id="custom_link" placeholder="https://...">
 						<span>Please enter a valid link</span>
 					</div>
 					<div class="input-text">

@@ -17,6 +17,8 @@ require_once('inc/order_flow.php');
 require_once('inc/remove_unset.php');
 require_once('inc/product_func.php');
 require_once('inc/klavio.php');
+require_once('inc/instaAPI.php');
+
 
 
 // Sets up theme defaults and registers support for various WordPress features.

@@ -116,7 +116,7 @@ jQuery(document).ready(function ($) {
     const emailValue = $('#billing_email').val();
     if (emailValue === '') {
       $('#billing_email').val(billingEmailValue);
-    } 
+    }
   }
 
   //Add pay with balance activator
@@ -389,6 +389,25 @@ jQuery(document).ready(function ($) {
     }
   });
 
+  //Instagram API
+  $('.send').on('click', function () {
+    var $insta_user = $('#insta_user').val();
+    if ($insta_user === '') {
+      console.log("empty");
+    } else {
+      $.ajax({
+        type: 'POST',
+        url: woocommerce_params.ajax_url,
+        data: {
+          action: 'get_instagram',
+          inst_account: $insta_user,
+        },
+        success: function (response) {
+          console.log(response);
+        }
+      });
+    }
+  });
 });
 
 
@@ -529,13 +548,11 @@ if (navigation && activeElement) {
   const navigationWidth = navigation.offsetWidth;
   const activeElementCenter = activeElement.offsetLeft + (activeElement.offsetWidth / 2);
 
-  // Позиция для прокрутки
+  // Posotion to scroll
   let scrollPosition = activeElementCenter - navigationWidth / 2;
-
-  // Гарантия, что позиция не выйдет за границы
   scrollPosition = Math.max(0, scrollPosition);
 
-  // Прокрутка
+  // Scroll
   navigation.scrollTo({
     left: scrollPosition,
     behavior: 'smooth'

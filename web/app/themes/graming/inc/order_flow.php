@@ -368,7 +368,6 @@ function update_cart_item_quantity_ajax()
 		wp_send_json_error();
 	}
 }
-
 add_action('wp_ajax_update_cart_item_quantity', 'update_cart_item_quantity_ajax');
 add_action('wp_ajax_nopriv_update_cart_item_quantity', 'update_cart_item_quantity_ajax');
 
@@ -381,6 +380,7 @@ function clear_cart_via_ajax()
 add_action('wp_ajax_clear_cart', 'clear_cart_via_ajax');
 add_action('wp_ajax_nopriv_clear_cart', 'clear_cart_via_ajax');
 
+//Klavio Add order status
 function klavio_add_order($order_id, $from_status, $to_status, $order)
 {
 	$order = wc_get_order($order_id);
@@ -463,10 +463,9 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 	$klavio = new KlavioAPI;
 	$klavio->post_klavio($url, $body);
 }
-
 add_action('woocommerce_order_status_changed', 'klavio_add_order', 20, 4);
 
-
+//Klavio checkout init
 function custom_checkout_init()
 {
 	$user_id = get_current_user_id();
@@ -538,14 +537,30 @@ function custom_checkout_init()
 	$klavio = new KlavioAPI;
 	$klavio->post_klavio($url, $body);
 }
-
 add_action('woocommerce_before_checkout_form', 'custom_checkout_init');
 
 
 //Clear cart
-function clear_cart() {
-    if (WC()->cart->get_cart_contents_count() > 0) {
-        WC()->cart->empty_cart();
-    }
+function clear_cart()
+{
+	if (WC()->cart->get_cart_contents_count() > 0) {
+		WC()->cart->empty_cart();
+	}
 }
 add_action('woocommerce_after_single_product', 'clear_cart');
+
+//Clear cart via Ajax
+function get_instagram_ajax()
+{
+	$account = $_POST["inst_account"];
+	if (empty($account)) {
+		return "404";
+	}
+	$inst = new InstaAPI();
+	$responce = $inst->set_user($account);
+	if ($responce) {
+		var_dump(json_decode($responce));
+	}
+}
+add_action('wp_ajax_get_instagram', 'get_instagram_ajax');
+add_action('wp_ajax_nopriv_get_instagram', 'get_instagram_ajax');
