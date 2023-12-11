@@ -408,6 +408,40 @@ jQuery(document).ready(function ($) {
       });
     }
   });
+  $('.send2').on('click', function () {
+    var $insta_user_id = "1645934909";
+    if ($insta_user_id === '') {
+      console.log("empty");
+    } else {
+      $.ajax({
+        type: 'POST',
+        url: woocommerce_params.ajax_url,
+        data: {
+          action: 'get_user_photo',
+          inst_account: $insta_user_id,
+        },
+        success: function (response) {
+          console.log(response);
+          var responseData = JSON.parse(response);
+          var imageBlocksContainer = $('.imageBlocks');
+
+          if ($.isArray(responseData)) {
+            $.each(responseData, function (index, item) {
+              var blockElement = $('<div>');
+              var imageElement = $('<img>').attr('src', item.local_image_path);
+              var shortcodeElement = $('<div>').attr('data-shortcode', item.shortcode);
+
+              blockElement.append(imageElement, shortcodeElement);
+              imageBlocksContainer.append(blockElement);
+            });
+          } else {
+            console.error('Response data is not an array.');
+          }
+        }
+      });
+    }
+  });
+
 });
 
 

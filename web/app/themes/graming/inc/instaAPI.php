@@ -7,12 +7,41 @@ class InstaAPI
 {
     public static $apiKey = "Id10t0GSt97JnKj6";
 
-    public function set_user(string $account)
+    //Download insta image
+    public function downloadImage(string $url, string $localPath): bool
+    {
+        $imageContent = file_get_contents($url);
+        if ($imageContent === false) {
+            return false;
+        }
+        return file_put_contents($localPath, $imageContent) !== false;
+    }
+
+    //Clean photo name
+    public function cleanFileName($filename): string
+    {
+        $filename = preg_replace("/(\.jpg).*$/", '.jpg', $filename);
+        $filename = preg_replace("/[^a-zA-Z0-9\_\-\.]/", '', $filename);
+        return $filename;
+    }
+
+    //Get local path for image
+    public function getLocalImagePath(array $item): string
+    {
+        $url = $item['thumbnail_resources']['src'];
+        $filename = basename($url);
+        $filename = $this->cleanFileName($filename);
+        $localPath = get_template_directory() . '/temp/' . $filename;
+        $success = $this->downloadImage($url, $localPath);
+        return $success ? get_template_directory_uri() . '/temp/' . $filename : '';
+    }
+
+    //Get insta user
+    public function get_user(string $account): array|string
     {
         $client = new Client();
         $auth = self::$apiKey;
         $apiEndPoint = "https://www.ensembledata.com/apis/instagram/user/info?username={$account}&token={$auth}";
-        $auth = self::$apiKey;
         try {
             $response = $client->request('GET', $apiEndPoint, [
                 'headers' => [
@@ -29,11 +58,12 @@ class InstaAPI
         }
     }
 
-    public function get_user(string $scraper, string $responseId)
+    //Get insta user photo
+    public function get_user_photo(string $responseId): array|string
     {
         $client = new Client();
         $auth = self::$apiKey;
-        $apiEndPoint = "https://www.ensembledata.com/apis/instagram/user/info?username={$responseId}&token={$auth}";
+        $apiEndPoint = "https://www.ensembledata.com/apis/instagram/user/posts?user_id={$responseId}&depth=1&chunk_size=9&start_cursor=&alternative_method=False&token={$auth}";
 
         try {
             $response = $client->request('GET', $apiEndPoint, [
@@ -41,10 +71,30 @@ class InstaAPI
                     'Content-Type' => 'application/json',
                 ],
             ]);
+            if ($response->getStatusCode() == 200) {
+                $json = json_decode($response->getBody()->getContents(), true);
 
-            $response->getBody()->getContents();
+                $originalArray = $json["data"]["posts"];
+                $newArray = [];
+                foreach ($originalArray as $item) {
+                    $newItem = [
+                        'typename' => $item['node']['__typename'],
+                        'is_video' => $item['node']['is_video'],
+                        'display_url' => $item['node']['display_url'],
+                        'shortcode' => $item['node']['shortcode'],
+                        'thumbnail_resources' => $item['node']['thumbnail_resources']['0'],
+                    ];
+                    $newItem['local_image_path'] = $this->getLocalImagePath($newItem);
+                    $newArray[] = $newItem;
+                }
+                echo json_encode($newArray, JSON_PRETTY_PRINT);
+                exit;
+
+            } else {
+                return "Guzzle Error: " . $response->getStatusCode();
+            }
         } catch (\Exception $e) {
-            "Guzzle Error: " . $e->getMessage();
+            return "Guzzle Error: " . $e->getMessage();
         }
     }
 }

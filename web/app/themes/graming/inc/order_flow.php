@@ -342,6 +342,7 @@ function add_to_cart_ajax()
 	} else {
 		wp_send_json_error();
 	}
+	wp_die();
 }
 add_action('wp_ajax_add_to_cart', 'add_to_cart_ajax');
 add_action('wp_ajax_nopriv_add_to_cart', 'add_to_cart_ajax');
@@ -367,6 +368,7 @@ function update_cart_item_quantity_ajax()
 	} else {
 		wp_send_json_error();
 	}
+	wp_die();
 }
 add_action('wp_ajax_update_cart_item_quantity', 'update_cart_item_quantity_ajax');
 add_action('wp_ajax_nopriv_update_cart_item_quantity', 'update_cart_item_quantity_ajax');
@@ -376,6 +378,7 @@ function clear_cart_via_ajax()
 {
 	WC()->cart->empty_cart();
 	wp_send_json_success();
+	wp_die();
 }
 add_action('wp_ajax_clear_cart', 'clear_cart_via_ajax');
 add_action('wp_ajax_nopriv_clear_cart', 'clear_cart_via_ajax');
@@ -462,6 +465,7 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 	$body = json_encode($data);
 	$klavio = new KlavioAPI;
 	$klavio->post_klavio($url, $body);
+	wp_die();
 }
 add_action('woocommerce_order_status_changed', 'klavio_add_order', 20, 4);
 
@@ -557,10 +561,27 @@ function get_instagram_ajax()
 		return "404";
 	}
 	$inst = new InstaAPI();
-	$responce = $inst->set_user($account);
+	$responce = $inst->get_user($account);
 	if ($responce) {
-		var_dump(json_decode($responce));
+		$responce;
 	}
+	wp_die();
 }
 add_action('wp_ajax_get_instagram', 'get_instagram_ajax');
 add_action('wp_ajax_nopriv_get_instagram', 'get_instagram_ajax');
+
+function get_user_photo_ajax()
+{
+	$account = $_POST["inst_account"];
+	if (empty($account)) {
+		return "404";
+	}
+	$inst = new InstaAPI();
+	$responce = $inst->get_user_photo($account);
+	if ($responce) {
+		echo $responce;
+	}
+	wp_die();
+}
+add_action('wp_ajax_get_user_photo', 'get_user_photo_ajax');
+add_action('wp_ajax_nopriv_get_user_photo', 'get_user_photo_ajax');
