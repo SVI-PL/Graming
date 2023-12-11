@@ -2,6 +2,7 @@
 !web/app/plugins/
 web/app/mu-plugins/*/
 web/app/themes/twentytwentythree/
+web/app/themes/graming/temp
 web/app/upgrade
 !web/app/uploads/
 !web/app/uploads/.gitkeep
