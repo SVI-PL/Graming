@@ -412,26 +412,6 @@ header.header-section {
                         top: calc(100% + 15px);
                         right: 0;
 
-                        &::before {
-                            content: "";
-                            width: 140px;
-                            height: 217px;
-                            background: url(../images/dino-mob2.svg);
-                            position: absolute;
-                            bottom: 8px;
-                            right: 10px;
-                        }
-
-                        &::after {
-                            content: "";
-                            width: 97px;
-                            height: 134px;
-                            background: url(../images/dino-mob.svg);
-                            position: absolute;
-                            right: 0;
-                            top: 80px;
-                        }
-
                         @media (max-width: 768px) {
                             display: flex;
                             flex-direction: column;
