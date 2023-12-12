@@ -336,7 +336,7 @@ if (post_password_required()) {
 					<div class="submit_mob btn-red">Confirm</div>
 				</div>
 
-				<img src="<?php echo get_template_directory_uri(); ?>/src/images/get_started.png" alt="">
+				<img src="<?php echo get_field("get_started_img"); ?>" alt="">
 			</div>
 		</div>
 		<div class="trustpilot">
