@@ -27,9 +27,9 @@ do_action('woocommerce_before_edit_account_form'); ?>
 	<div class="main_filds">
 
 		<input type="hidden" class="woocommerce-Input woocommerce-Input--text input-text" name="account_first_name"
-			id="account_first_name" autocomplete="given-name" value="<?php echo esc_attr($user->first_name); ?>" />
+			id="account_first_name" autocomplete="given-name" value="John" />
 		<input type="hidden" class="woocommerce-Input woocommerce-Input--text input-text" name="account_last_name"
-			id="account_last_name" autocomplete="family-name" value="<?php echo esc_attr($user->last_name); ?>" />
+			id="account_last_name" autocomplete="family-name" value="Doe" />
 
 		<div class="form_input form_email">
 			<label for="account_email">Account Email</label>

@@ -556,7 +556,7 @@ add_action('woocommerce_after_single_product', 'clear_cart');
 //Clear cart via Ajax
 function get_instagram_ajax()
 {
-	$account = $_POST["inst_account"];
+	$account = sanitize_text_field($_POST["inst_account"]);
 	if (empty($account)) {
 		return "404";
 	}
@@ -572,7 +572,7 @@ add_action('wp_ajax_nopriv_get_instagram', 'get_instagram_ajax');
 
 function get_user_photo_ajax()
 {
-	$account = $_POST["inst_account"];
+	$account = sanitize_text_field($_POST["inst_account"]);
 	if (empty($account)) {
 		return "404";
 	}
