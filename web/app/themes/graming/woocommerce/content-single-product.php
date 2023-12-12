@@ -259,7 +259,7 @@ if (post_password_required()) {
 					<div class="input-account">
 						<input type="text" name="insta_user" id="insta_user" placeholder="Instagram Username">
 						<div class="send_user">
-							<div class="text">Select</div>
+							<div class="text">Find</div>
 							<div class="circle-container btn_load">
 								<svg fill="none" class="circle-svg" viewBox="0 0 100 100"
 									xmlns="http://www.w3.org/2000/svg">
