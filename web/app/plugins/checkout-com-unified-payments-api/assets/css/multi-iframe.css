@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -11,9 +13,11 @@
 .card-number-frame iframe {
   height: 38px !important;
 }
+
 .expiry-date-frame iframe {
   height: 38px !important;
 }
+
 .cvv-frame iframe {
   height: 38px !important;
 }
@@ -34,10 +38,11 @@
 
 }
 
-.date-and-code > div:nth-child(1) {
+.date-and-code>div:nth-child(1) {
   width: 55.715%;
 }
-.date-and-code > div:nth-child(2) {
+
+.date-and-code>div:nth-child(2) {
   width: 45.719%;
 }
 
@@ -47,40 +52,48 @@
   height: 40px;
   padding: 0;
 }
+
 .icon-container:last-child {
   right: 0;
 }
+
 .icon-container.payment-method {
   right: 0;
 }
 
 .input-container.card-number {
   margin-bottom: 8px;
+  border: 1.5px solid #646464;
+  border-radius: 15px;
 }
+
 .input-container.expiry-date {
   margin-right: 4px;
 }
+
 .input-container.cvv {
   margin-left: 4px;
 }
 
 .card-number-frame {
   padding-left: 40px;
-  background-color:white;
-
+  background-color: white;
+  border: none !important;
 }
+
 .expiry-date-frame {
   padding-left: 40px;
-  background-color:white;
+  background-color: white;
 
 }
+
 .cvv-frame {
   padding-left: 40px;
-  background-color:white;
+  background-color: white;
 
 }
 
-div + button {
+div+button {
   margin-top: 8px;
 }
 
@@ -95,12 +108,12 @@ div + button {
   padding: 0;
 }
 
-#order_review #payment .icon-container > img,
-#add_payment_method #payment .icon-container > img {
-    max-height: 100%;
+#order_review #payment .icon-container>img,
+#add_payment_method #payment .icon-container>img {
+  max-height: 100%;
 }
 
-.icon-container.payment-method  {
+.icon-container.payment-method {
   transform: translateY(-50%) rotateY(90deg);
   transition: opacity 0.15s ease-out;
   opacity: 0;
@@ -117,7 +130,9 @@ div + button {
   width: 100%;
 }
 
-[id$="-error"] { display: none }
+[id$="-error"] {
+  display: none
+}
 
 .frame {
   opacity: 0;
@@ -128,17 +143,17 @@ div + button {
   opacity: 1;
   border: solid 1px #13395E;
   border-radius: 3px;
-  box-shadow: 0 1px 3px 0 rgba(19,57,94,0.2);
+  box-shadow: 0 1px 3px 0 rgba(19, 57, 94, 0.2);
 }
 
 .frame--activated.frame--focus {
   border: solid 1px #13395E;
-  box-shadow: 0 2px 5px 0 rgba(19,57,94,0.15);
+  box-shadow: 0 2px 5px 0 rgba(19, 57, 94, 0.15);
 }
 
 .frame--activated.frame--invalid {
   border: solid 1px #D96830;
-  box-shadow: 0 2px 5px 0 rgba(217,104,48,0.15);
+  box-shadow: 0 2px 5px 0 rgba(217, 104, 48, 0.15);
 }
 
 .error-message {
@@ -152,19 +167,24 @@ div + button {
 /**
 IE11-targeted optimisations
  */
-_:-ms-fullscreen, :root .icon-container {
+_:-ms-fullscreen,
+:root .icon-container {
   display: block;
 }
 
-_:-ms-fullscreen, :root .icon-container img {
+_:-ms-fullscreen,
+:root .icon-container img {
   top: 50%;
   -ms-transform: translateY(-50%);
   position: absolute;
 }
 
-_:-ms-fullscreen, #icon-card-number,
-_:-ms-fullscreen, #icon-expiry-date,
-_:-ms-fullscreen, #icon-cvv {
+_:-ms-fullscreen,
+#icon-card-number,
+_:-ms-fullscreen,
+#icon-expiry-date,
+_:-ms-fullscreen,
+#icon-cvv {
   left: 7px;
 }
 
