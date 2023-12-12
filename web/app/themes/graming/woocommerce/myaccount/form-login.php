@@ -31,13 +31,13 @@ do_action('woocommerce_before_customer_login_form'); ?>
 					<div class="form_input form_email">
 						<label for="username" class="form-label">Email</label>
 						<input type="text" class="form--control" name="username" id="username" autocomplete="username"
-							placeholder="Your Email"
+							placeholder="Email"
 							value="<?php echo (!empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" />
 					</div>
 					<div class="form_input form_pass">
 						<label for="password" class="form-label">Password</label>
 						<input class="form--control" type="password" name="password" id="password"
-							autocomplete="current-password" placeholder="Your Password" />
+							autocomplete="current-password" placeholder="Password" />
 					</div>
 					<?php do_action('woocommerce_login_form'); ?>
 					<?php wp_nonce_field('woocommerce-login', 'woocommerce-login-nonce'); ?>

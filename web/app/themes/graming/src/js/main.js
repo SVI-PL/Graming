@@ -392,7 +392,7 @@ jQuery(document).ready(function ($) {
 
   //Ajax get insta user
   $('.send_user').on('click', function () {
-    var $insta_user = $('#insta_user').val();
+    var $insta_user = $('#insta_user').val().trim();
     var user_pop = $('.user_pop');
     user_pop.html("").hide();
     if ($insta_user === '') {

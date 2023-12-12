@@ -631,6 +631,7 @@
                 line-height: normal;
                 transform: translateY(2.5px);
                 text-wrap: nowrap;
+                width: max-content;
             }
 
             &.woocommerce-MyAccount-navigation-link--dashboard {
