@@ -17,13 +17,14 @@ jQuery(document).ready(function ($) {
     },]
   });
 
-  //Discount clock get price
+  //Discount block get price
   $('.discount_block').on("click", function () {
     $('.discount_block').removeClass('active');
     $(this).addClass('active');
     var productQuantity = $(this).find('.product_quantity').text();
     $('input[name="quantity"]').trigger("focus").val(productQuantity).trigger('change').trigger("blur");
     $(".cart_item.first>.product-name>.product-quantity").text(productQuantity);
+    $(".item_count>.product-quantity").text(productQuantity);
   });
 
   //Firs item activator
@@ -49,11 +50,11 @@ jQuery(document).ready(function ($) {
   $('.continue_btn').on("click", function () {
     var customLink = $('#custom_link');
     var billingEmail = $('#billing_email');
-    var terms = $('#privacy');
+    // var terms = $('#privacy');
 
     var customLinkValue = customLink.val();
     var billingEmailValue = billingEmail.val();
-    var isValid = isValidCheckbox(terms[0]);
+    // var isValid = isValidCheckbox(terms[0]);
 
     if (customLinkValue === '' || !isValidURL(customLinkValue)) {
       customLink.parent().addClass('error');
@@ -71,13 +72,13 @@ jQuery(document).ready(function ($) {
       billingEmail.removeClass('error');
     }
 
-    if (!isValid) {
-      terms.parent().addClass('error');
-    } else {
-      terms.parent().removeClass('error');
-    }
+    // if (!isValid) {
+    //   terms.parent().addClass('error');
+    // } else {
+    //   terms.parent().removeClass('error');
+    // }
 
-    if (customLink.parent().hasClass('error') || billingEmail.parent().hasClass('error') || terms.parent().hasClass('error')) {
+    if (customLink.parent().hasClass('error') || billingEmail.parent().hasClass('error')) {
       return;
     }
 
@@ -389,12 +390,16 @@ jQuery(document).ready(function ($) {
     }
   });
 
-  //Instagram API
-  $('.send').on('click', function () {
+  //Ajax get insta user
+  $('.send_user').on('click', function () {
     var $insta_user = $('#insta_user').val();
+    var user_pop = $('.user_pop');
+    user_pop.html("").hide();
     if ($insta_user === '') {
       console.log("empty");
     } else {
+      $('.send_user .text').hide();
+      $('.send_user .btn_load').show();
       $.ajax({
         type: 'POST',
         url: woocommerce_params.ajax_url,
@@ -403,16 +408,39 @@ jQuery(document).ready(function ($) {
           inst_account: $insta_user,
         },
         success: function (response) {
-          console.log(response);
+          $('.send_user .text').show();
+          $('.send_user .btn_load').hide();
+          var responseData = JSON.parse(response);
+          if ($.isArray(responseData)) {
+            $.each(responseData, function (index, item) {
+              var blockElement = $('<div>').addClass('user_img').attr('data-user-id', item.pk);
+              var imageElement = $('<img>').attr('src', item.local_image_path);
+              var user_name = $('<div>').addClass('user_name').text(item.full_name);
+
+              blockElement.append(imageElement, user_name);
+              user_pop.html(blockElement);
+              user_pop.show();
+            });
+          } else {
+            console.error('Response data is not an array.');
+            var blockElement = $('<div>').addClass('user_img').text("User not found");
+            user_pop.html(blockElement);
+            user_pop.show();
+          }
         }
       });
     }
   });
-  $('.send2').on('click', function () {
-    var $insta_user_id = "1645934909";
+
+  //Ajax get insta photo
+  $(document).on('click', '.user_img', function () {
+    var $insta_user_id = $(this).data('user-id');
+    $('.user_pop').hide();
     if ($insta_user_id === '') {
       console.log("empty");
     } else {
+      $(".get_started_img>img").hide();
+      $(".get_started_img>.select_posts").show();
       $.ajax({
         type: 'POST',
         url: woocommerce_params.ajax_url,
@@ -421,17 +449,17 @@ jQuery(document).ready(function ($) {
           inst_account: $insta_user_id,
         },
         success: function (response) {
-          console.log(response);
           var responseData = JSON.parse(response);
           var imageBlocksContainer = $('.imageBlocks');
+          imageBlocksContainer.html("");
+          $(".photo_load").hide();
 
           if ($.isArray(responseData)) {
             $.each(responseData, function (index, item) {
-              var blockElement = $('<div>');
+              var blockElement = $('<div>').addClass('user_imgs').attr('data-shortcode', item.shortcode);
               var imageElement = $('<img>').attr('src', item.local_image_path);
-              var shortcodeElement = $('<div>').attr('data-shortcode', item.shortcode);
 
-              blockElement.append(imageElement, shortcodeElement);
+              blockElement.append(imageElement);
               imageBlocksContainer.append(blockElement);
             });
           } else {
@@ -442,6 +470,14 @@ jQuery(document).ready(function ($) {
     }
   });
 
+  //Fill user link
+  $(document).on('click', '.user_imgs', function () {
+    $(".user_imgs").removeClass("active");
+    $(this).addClass("active");
+    let $link = $(this).data("shortcode");
+    $("#custom_link").val("https://www.instagram.com/p/" + $link);
+  });
+  
 });
 
 

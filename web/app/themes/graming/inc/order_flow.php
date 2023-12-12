@@ -579,7 +579,7 @@ function get_user_photo_ajax()
 	$inst = new InstaAPI();
 	$responce = $inst->get_user_photo($account);
 	if ($responce) {
-		echo $responce;
+		$responce;
 	}
 	wp_die();
 }

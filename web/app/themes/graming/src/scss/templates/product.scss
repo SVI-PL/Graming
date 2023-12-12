@@ -740,6 +740,129 @@
                         }
                     }
                 }
+
+                .input-account {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    position: relative;
+                    margin-bottom: 25px;
+
+                    @media (max-width: 768px) {
+                        margin-bottom: 20px;
+                    }
+
+                    &::before {
+                        content: "";
+                        display: block;
+                        background: url(../images/contact_persone.svg);
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        width: 28px;
+                        height: 28px;
+                        position: absolute;
+                        left: 20px;
+                    }
+
+                    span {
+                        visibility: hidden;
+                        position: absolute;
+                        width: 100%;
+                        font-family: Fixel Display;
+                        bottom: -23px;
+                        font-size: 10px;
+                        color: red;
+                        left: 10px;
+                    }
+
+                    &.active::before {
+                        background: url(../images/contact_persone-hover.svg);
+                    }
+
+                    &.error {
+                        span {
+                            visibility: visible;
+                        }
+                    }
+
+                    .send_user {
+                        position: absolute;
+                        right: 15px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 10px;
+                        border: 2px solid #FE5A13;
+                        background: #FFF;
+                        cursor: pointer;
+                        padding: 8px 15px;
+                        transition: all 0.2s ease-in-out;
+
+                        .text {
+                            color: #FE5A13;
+                            font-family: Fixel Display;
+                            font-size: 18px;
+                            font-style: normal;
+                            font-weight: 500;
+                            line-height: 21px;
+                        }
+                    }
+
+                    .user_pop {
+                        position: absolute;
+                        top: calc(100% + 5px);
+                        left: 0;
+                        width: 100%;
+                        background: #fff;
+                        z-index: 1;
+                        border: 1px solid #111;
+                        border-radius: 15px;
+                        overflow: hidden;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        display: none;
+
+                        .user_img {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            padding: 5px 25px;
+                            gap: 25px;
+                            width: 100%;
+                            cursor: pointer;
+
+                            img {
+                                max-height: 50px;
+                            }
+
+                            .user_name {
+                                color: #161616;
+                                font-family: Fixel Display;
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: normal;
+                            }
+                        }
+                    }
+                }
+
+                .or_select {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    margin-bottom: 25px;
+                    color: #FE5A13;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    text-transform: capitalize;
+                }
             }
 
             .product_select {
@@ -1029,10 +1152,141 @@
 
         .get_started_img {
             display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: flex-start;
             width: auto;
+
+            .select_posts {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border-radius: 15px;
+                border: 1px solid #000;
+                width: 480px;
+                display: none;
+
+                .select_header {
+                    width: 100%;
+                    color: #161616;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 53px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 120.5%;
+                    padding: 20px;
+                    border-bottom: 1px solid #000;
+                }
+
+                .select_data {
+                    margin: 20px;
+                    border-radius: 5px;
+                    border: 1px solid #B2B2B2;
+                    width: calc(100% - 40px);
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+
+                    .select_count {
+                        color: #B2B2B2;
+                        text-align: center;
+                        font-family: Fixel Display;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 120.5%;
+                        padding: 5px;
+                        width: 50%;
+
+                        span {
+                            color: #FE5A13;
+                            font-family: Fixel Display;
+                            font-size: 20px;
+                            font-style: normal;
+                            font-weight: 600;
+                            line-height: 120.5%;
+                        }
+                    }
+
+                    .sep {
+                        width: 1px;
+                        background: #B2B2B2;
+                        height: 20px;
+                    }
+
+                    .item_count {
+                        display: flex;
+                        width: 50%;
+                        flex-direction: row;
+                        justify-content: center;
+                        text-align: center;
+                        color: #FE5A13;
+                        font-family: Fixel Display;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 120.5%;
+                    }
+                }
+
+                .imageBlocks {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10px;
+                    margin: 0 20px 20px;
+                    width: calc(100% - 40px);
+
+                    .user_imgs {
+                        width: calc(33% - 6px);
+                        border-radius: 10px;
+                        border: 1px solid #E1E1E1;
+                        overflow: hidden;
+                        display: flex;
+                        position: relative;
+                        cursor: pointer;
+
+                        img {
+                            width: 100%;
+                        }
+
+                        &.active {
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                width: 100%;
+                                height: 100%;
+                                background: url(../images/check_photo.svg);
+                                background-repeat: no-repeat;
+                                background-size: 60%;
+                                background-position: center;
+                                background-color: #00000070;
+                            }
+                        }
+                    }
+
+                }
+
+                .submit_mob {
+                    width: calc(100% - 40px);
+                    margin: 20px;
+                    color: #FE5A13;
+                    text-align: center;
+                    font-family: Fixel Display;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: normal;
+                    text-transform: capitalize;
+                    padding: 16px;
+                    display: none
+                }
+            }
 
             @media (max-width: 1250px) {
                 width: calc(45% - 25px);

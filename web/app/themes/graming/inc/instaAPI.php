@@ -36,6 +36,16 @@ class InstaAPI
         return $success ? get_template_directory_uri() . '/temp/' . $filename : '';
     }
 
+    public function getUserImagePath(array $item): string
+    {
+        $url = $item['profile_pic_url'];
+        $filename = basename($url);
+        $filename = $this->cleanFileName($filename);
+        $localPath = get_template_directory() . '/temp/' . $filename;
+        $success = $this->downloadImage($url, $localPath);
+        return $success ? get_template_directory_uri() . '/temp/' . $filename : '';
+    }
+
     //Get insta user
     public function get_user(string $account): array|string
     {
@@ -49,7 +59,25 @@ class InstaAPI
                 ],
             ]);
             if ($response->getStatusCode() == 200) {
-                return $response->getBody()->getContents();
+                $json = json_decode($response->getBody()->getContents(), true);
+                $originalArray = $json["data"];
+                if ($originalArray == NULL) {
+                    echo json_encode("404", JSON_PRETTY_PRINT);
+                    exit;
+                }
+                $newArray = [];
+                $newItem = [
+                    'pk' => $originalArray['pk'],
+                    'username' => $originalArray['username'],
+                    'full_name' => $originalArray['full_name'],
+                    'is_private' => $originalArray['is_private'],
+                    'profile_pic_url' => $originalArray['profile_pic_url'],
+                ];
+                $newItem['local_image_path'] = $this->getUserImagePath($newItem);
+                $newArray[] = $newItem;
+
+                echo json_encode($newArray, JSON_PRETTY_PRINT);
+                exit;
             } else {
                 return "Guzzle Error: " . $response->getStatusCode();
             }
