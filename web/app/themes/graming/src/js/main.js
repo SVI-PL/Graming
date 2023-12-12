@@ -642,14 +642,15 @@ if (navigation && activeElement) {
 
 //Scroll to mini cart
 const submit_mob = document.querySelector(".submit_mob");
-submit_mob.addEventListener('click', function () {
-  const miniCart = document.querySelector('.content_part');
-  if (miniCart) {
-    const activeElement = miniCart.offsetTop - 60;
-    window.scrollTo({
-      top: activeElement,
-      behavior: 'smooth'
-    });
-  }
-});
-
+if (submit_mob) {
+  submit_mob.addEventListener('click', function () {
+    const miniCart = document.querySelector('.content_part');
+    if (miniCart) {
+      const activeElement = miniCart.offsetTop - 60;
+      window.scrollTo({
+        top: activeElement,
+        behavior: 'smooth'
+      });
+    }
+  });
+}
