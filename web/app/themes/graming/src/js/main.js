@@ -441,7 +441,7 @@ jQuery(document).ready(function ($) {
     } else {
       $(".get_started_img>img").hide();
       $(".get_started_img>.select_posts").show();
-
+      $(".photo_load").show();
       //Scroll to photo
       const PhotoElement = document.querySelector('.get_started_img');
       const activeElement = PhotoElement.offsetTop - 60;
