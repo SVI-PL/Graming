@@ -8,7 +8,7 @@
  */
 
 if (!defined('_S_VERSION')) {
-	define('_S_VERSION', '1.0.3');
+	define('_S_VERSION', '1.0.4');
 }
 
 require_once('inc/user_function.php');
