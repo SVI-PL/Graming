@@ -776,6 +776,7 @@
                             font-style: normal;
                             font-weight: 600;
                             line-height: normal;
+                            flex-wrap: wrap;
 
                             @media (max-width: 960px) {
                                 font-size: 15px;
