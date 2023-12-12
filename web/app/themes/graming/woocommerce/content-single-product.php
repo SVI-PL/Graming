@@ -289,7 +289,7 @@ if (post_password_required()) {
 						<div class="product-name">
 							<strong class="product-quantity">&nbsp;</strong>
 							<?php the_title(); ?>
-							<?php echo " - <span class='deals'>click for deals</span>"; ?>
+							<?php echo "<span class='deals'>click for deals</span>"; ?>
 						</div>
 						<div class="product-total">
 							<div class="new_price">

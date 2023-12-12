@@ -86,11 +86,11 @@ do_action('woocommerce_before_customer_login_form'); ?>
 						<input type="checkbox" id="agree" name="agree" checked="checked"> <label for="agree">Send me special
 							promotions and discounts</label>
 					</div>
-					<div class="privacy">
+					<!-- <div class="privacy">
 						<input type="checkbox" id="privacy" name="privacy"> <label for="privacy">I agree to the <a
 								href="">Privacy Policy</a>, <a href="">Public Offering Agreement</a>, <a href="">Terms of
 								Use</a></label>
-					</div>
+					</div> -->
 					<div class="form-group">
 						<?php do_action('woocommerce_register_form'); ?>
 						<?php wp_nonce_field('woocommerce-register', 'woocommerce-register-nonce'); ?>

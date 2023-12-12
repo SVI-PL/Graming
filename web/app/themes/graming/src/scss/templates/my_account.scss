@@ -201,23 +201,23 @@
                     flex-direction: row;
                     align-items: center;
                     justify-content: flex-start;
-    
+
                     @media (max-width: 768px) {
                         margin: 0 20px 20px;
                     }
-    
+
                     input#agree {
                         width: 20px;
                         height: 20px;
                         margin-right: 20px;
-    
+
                         @media (max-width: 768px) {
                             width: 16px;
                             height: 16px;
                             margin-right: 10px;
                         }
                     }
-    
+
                     label {
                         color: #646464;
                         font-family: Fixel Display;
@@ -226,11 +226,11 @@
                         font-weight: 500;
                         line-height: normal;
                         margin: 0;
-    
+
                         @media (max-width: 960px) {
                             font-size: 12px;
                         }
-    
+
                         a {
                             color: #85C316;
                             text-decoration: none;
@@ -553,7 +553,7 @@
                 .show-password-input {
                     position: absolute;
                     right: 20px;
-                    top: 23px;
+                    top: 15px;
                     cursor: pointer;
                 }
             }
@@ -1152,7 +1152,7 @@
                         content: "";
                         display: flex;
                         position: absolute;
-                        bottom: 25px;
+                        bottom: 18px;
                         left: 25px;
                         background-size: contain;
                         width: 28px;
@@ -2088,7 +2088,7 @@
 
                     a.btn-red.back-to-tickets {
                         border: 1px solid #646464;
-                        color:#646464;
+                        color: #646464;
                     }
                 }
             }
