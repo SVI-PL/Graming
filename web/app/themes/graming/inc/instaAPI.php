@@ -119,10 +119,12 @@ class InstaAPI
                 exit;
 
             } else {
-                return "Guzzle Error: " . $response->getStatusCode();
+                echo json_encode($response->getStatusCode(), JSON_PRETTY_PRINT);
+                exit;
             }
         } catch (\Exception $e) {
-            return "Guzzle Error: " . $e->getMessage();
+            echo $e->getCode();
+            exit;
         }
     }
 }

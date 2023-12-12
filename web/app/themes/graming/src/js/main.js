@@ -399,7 +399,7 @@ jQuery(document).ready(function ($) {
       console.log("empty");
     } else {
       $('.send_user .text').hide();
-      $('.send_user .btn_load').show();
+      $('.send_user .btn_load').css("display", "flex");
       $.ajax({
         type: 'POST',
         url: woocommerce_params.ajax_url,
@@ -441,6 +441,15 @@ jQuery(document).ready(function ($) {
     } else {
       $(".get_started_img>img").hide();
       $(".get_started_img>.select_posts").show();
+
+      //Scroll to photo
+      const PhotoElement = document.querySelector('.get_started_img');
+      const activeElement = PhotoElement.offsetTop - 60;
+      window.scrollTo({
+        top: activeElement,
+        behavior: 'smooth'
+      });
+
       $.ajax({
         type: 'POST',
         url: woocommerce_params.ajax_url,
@@ -452,6 +461,7 @@ jQuery(document).ready(function ($) {
           var responseData = JSON.parse(response);
           var imageBlocksContainer = $('.imageBlocks');
           imageBlocksContainer.html("");
+
           $(".photo_load").hide();
 
           if ($.isArray(responseData)) {
@@ -464,6 +474,8 @@ jQuery(document).ready(function ($) {
             });
           } else {
             console.error('Response data is not an array.');
+            var blockElement = $('<div>').addClass('user_photo404').text("User error (private user or etc.)");
+            imageBlocksContainer.html(blockElement);
           }
         }
       });
@@ -477,7 +489,6 @@ jQuery(document).ready(function ($) {
     let $link = $(this).data("shortcode");
     $("#custom_link").val("https://www.instagram.com/p/" + $link);
   });
-  
 });
 
 
@@ -624,7 +635,21 @@ if (navigation && activeElement) {
 
   // Scroll
   navigation.scrollTo({
-    left: scrollPosition,
+    top: scrollPosition,
     behavior: 'smooth'
   });
 }
+
+//Scroll to mini cart
+const submit_mob = document.querySelector(".submit_mob");
+submit_mob.addEventListener('click', function () {
+  const miniCart = document.querySelector('.content_part');
+  if (miniCart) {
+    const activeElement = miniCart.offsetTop - 60;
+    window.scrollTo({
+      top: activeElement,
+      behavior: 'smooth'
+    });
+  }
+});
+
