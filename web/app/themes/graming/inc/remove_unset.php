@@ -80,3 +80,9 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type)
 }
 
 add_filter('wpcf7_autop_or_not', '__return_false');
+
+function disable_all_wp_emails($atts) {
+    return false;
+}
+
+add_filter('wp_mail', 'disable_all_wp_emails');
