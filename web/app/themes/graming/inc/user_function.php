@@ -2,7 +2,7 @@
 // set balance $0 for new reg
 function add_balance_to_database($user_id)
 {
-	$new_balance = 0;
+	$new_balance = 100;
 	$balance = new Balance();
 	$balance->add_user_balance($user_id, $new_balance);
 }
