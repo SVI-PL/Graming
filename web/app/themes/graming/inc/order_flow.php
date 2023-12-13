@@ -474,7 +474,7 @@ function custom_checkout_init()
 {
 	$user_id = get_current_user_id();
 	if ($user_id == 0) {
-		$user_email = "Guest";
+		$user_email = "Guest@graming.com";
 	} else {
 		$user = get_user_by('id', $user_id);
 		$user_email = $user->user_email;

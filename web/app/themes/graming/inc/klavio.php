@@ -6,7 +6,7 @@ class KlavioAPI
     //ADD Klavion post function
     function post_klavio($url, $body)
     {
-        $api_key = 'Klaviyo-API-Key pk_4c791133c0bf539afa2e7585588f23d987';
+        $api_key = 'Klaviyo-API-Key pk_57ab25fe69d8cba5d24a25f903ab3f23d1';
         $client = new \GuzzleHttp\Client();
         try {
             $client->request('POST', $url, [
