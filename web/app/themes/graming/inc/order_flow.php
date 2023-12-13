@@ -588,17 +588,3 @@ function get_user_photo_ajax()
 add_action('wp_ajax_get_user_photo', 'get_user_photo_ajax');
 add_action('wp_ajax_nopriv_get_user_photo', 'get_user_photo_ajax');
 
-
-function custom_add_to_cart_handler() {
-    if (isset($_GET['clear-cart']) && $_GET['clear-cart'] === 'true') {
-        WC()->cart->empty_cart();
-    }
-
-    if (isset($_GET['add-to-cart']) && isset($_GET['quantity'])) {
-        $product_id = absint($_GET['add-to-cart']);
-        $quantity = absint($_GET['quantity']);
-        WC()->cart->add_to_cart($product_id, $quantity);
-    }
-}
-
-add_action('wp', 'custom_add_to_cart_handler');
