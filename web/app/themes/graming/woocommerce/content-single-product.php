@@ -303,7 +303,7 @@ if (post_password_required()) {
 					</div>
 				</div>
 
-				<div class="mail_send">
+				<div class="mail_send <?php if(is_user_logged_in()){echo "hide";}?>">
 					<input type="checkbox" id="agree" name="agree" checked="checked"> <label for="agree">Send me special
 						promotions and discounts</label>
 				</div>
