@@ -512,6 +512,7 @@ function custom_checkout_init()
 							'properties' => [
 								'Product_type' => $product_type,
 								'Product_name' => $product_name,
+								'Product_id' => $product_id,
 								'Quantity' => $quantity,
 								'Total' => $total,
 							],
@@ -531,6 +532,7 @@ function custom_checkout_init()
 				'properties' => [
 					'Product_type' => $product_type,
 					'Product_name' => $product_name,
+					'Product_id' => $product_id,
 					'Quantity' => $quantity,
 					'Total' => $total,
 				],

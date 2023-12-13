@@ -443,7 +443,7 @@ jQuery(document).ready(function ($) {
       $(".get_started_img>.select_posts").show();
       $(".photo_load").show();
       //Scroll to photo
-      const PhotoElement = document.querySelector('.get_started_img');
+      const PhotoElement = $('.get_started_img');
       const activeElement = PhotoElement.offsetTop - 60;
       window.scrollTo({
         top: activeElement,
