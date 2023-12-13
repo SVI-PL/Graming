@@ -482,7 +482,7 @@ function custom_checkout_init()
 	$product_id = "";
 	$quantity = "";
 	$total = wp_strip_all_tags(WC()->cart->get_total());
-	$total = str_replace("$", "", $total);
+	$total = str_replace("&#36;", "", $total);
 	$cart_contests = WC()->cart->get_cart_contents();
 	foreach ($cart_contests as $cart_id => $cart_item) {
 		$product_id = $cart_item["product_id"];
