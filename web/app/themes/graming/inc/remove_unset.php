@@ -80,10 +80,3 @@ function disable_emojis_remove_dns_prefetch($urls, $relation_type)
 }
 
 add_filter('wpcf7_autop_or_not', '__return_false');
-
-// Disable pass notify
-function disable_password_change_notification() {
-    return false;
-}
-
-add_filter('wp_password_change_notification', 'disable_password_change_notification');
