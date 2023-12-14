@@ -465,7 +465,6 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 	$body = json_encode($data);
 	$klavio = new KlavioAPI;
 	$klavio->post_klavio($url, $body);
-	wp_die();
 }
 add_action('woocommerce_order_status_changed', 'klavio_add_order', 20, 4);
 

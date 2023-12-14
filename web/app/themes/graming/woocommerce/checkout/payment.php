@@ -163,7 +163,7 @@ $cart_total = WC()->cart->get_total();
 
 			<?php wp_nonce_field('woocommerce-process_checkout', 'woocommerce-process-checkout-nonce'); ?>
 		</div>
-		<div class="pay_btn btn-red">
+		<div class="pay_btn btn-red pay_order">
 			<?php wc_cart_totals_order_total_html(); ?>&nbsp;- pay with card
 		</div>
 		<div class="additional_info_pay">

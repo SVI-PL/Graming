@@ -140,13 +140,13 @@ jQuery(document).ready(function ($) {
   });
 
   //Add pay with card activator 2
-  $(document).on("mouseenter", ".payment_method_wc_checkout_com_cards, .pay_btn", function () {
+  $(document).on("mouseenter", ".payment_method_wc_checkout_com_cards, .pay_order", function () {
     let $card = $('#payment_method_wc_checkout_com_cards');
     $card.trigger("click");
   });
 
   //Add action for pay with Card
-  $(document).on("click", ".pay_btn", function () {
+  $(document).on("click", ".pay_order", function () {
     let $card = $('#payment_method_wc_checkout_com_cards');
     $card.trigger("click");
     let $place_order = $("#place_order");
