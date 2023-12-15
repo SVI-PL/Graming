@@ -5,8 +5,6 @@ use GuzzleHttp\Client;
 
 class InstaAPI
 {
-    public static $apiKey = "Id10t0GSt97JnKj6";
-
     //Download insta image
     public function downloadImage(string $url, string $localPath): bool
     {
@@ -50,7 +48,8 @@ class InstaAPI
     public function get_user(string $account): array|string
     {
         $client = new Client();
-        $auth = self::$apiKey;
+        $apiKey = get_field('insta_api','option');
+        $auth = $apiKey;
         $apiEndPoint = "https://www.ensembledata.com/apis/instagram/user/info?username={$account}&token={$auth}";
         try {
             $response = $client->request('GET', $apiEndPoint, [
@@ -90,7 +89,8 @@ class InstaAPI
     public function get_user_photo(string $responseId): array|string
     {
         $client = new Client();
-        $auth = self::$apiKey;
+        $apiKey = get_field('insta_api','option');
+        $auth = $apiKey;
         $apiEndPoint = "https://www.ensembledata.com/apis/instagram/user/posts?user_id={$responseId}&depth=1&chunk_size=9&start_cursor=&alternative_method=False&token={$auth}";
 
         try {
