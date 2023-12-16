@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			
 		<div class="orders">
 			<div class="title">Total Orders</div>
-			<div class="content"><?php get_user_order_count(); ?></div>
+			<div class="content"><?php echo get_user_order_count(); ?></div>
 		</div>
 			
 		<div class="bonus">

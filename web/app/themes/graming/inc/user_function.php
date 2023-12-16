@@ -30,7 +30,7 @@ function get_user_order_count()
 	$user_id = get_current_user_id();
 	$order_count = wc_get_customer_order_count($user_id);
 
-	echo $order_count;
+	return $order_count;
 }
 
 //Add passwors on registration

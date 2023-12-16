@@ -1143,7 +1143,7 @@
                                 }
                             }
 
-                            .payment_method_wc_checkout_com_apple_pay{
+                            .payment_method_wc_checkout_com_apple_pay {
                                 display: none;
                             }
                         }
@@ -1761,11 +1761,31 @@
 
 .woocommerce-order {
 
-    p.woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-received {
+    .woocommerce-notice.woocommerce-notice--success.woocommerce-thankyou-order-received {
         font-size: 22px;
         font-family: Fixel Display;
         text-align: center;
-        margin-top: 25px;
+        margin: 25px auto 0;
+        color: #fe5a13;
+        max-width: 610px;
+
+        h2 {
+            font-size: 22px;
+        }
+
+        p {
+            margin-top: 25px;
+            font-size: 18px;
+            color: var(--black);
+
+            span {
+                font-weight: 600;
+            }
+
+            a {
+                color: #fe5a13;
+            }
+        }
     }
 
     .account-order-view {

@@ -17,25 +17,16 @@
  * @var WC_Order|false $order
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 ?>
 
-<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">
+<div class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">
 	<?php
-	/**
-	 * Filter the message shown after a checkout is complete.
-	 *
-	 * @since 2.2.0
-	 *
-	 * @param string         $message The message.
-	 * @param WC_Order|false $order   The order created during checkout, or false if order data is not available.
-	 */
-	$message = apply_filters(
-		'woocommerce_thankyou_order_received_text',
-		__( 'Thank you. Your order has been received.', 'woocommerce' ),
-		$order
-	);
-
-	echo esc_html( $message );
-	?>
-</p>
+	if (get_user_order_count() == 0): ?>
+		<h2>Thanks and congrats with your first order on Gramy!</h2>
+		<p><span>We have automatically created an account for your convenience</span>, you can set your unique password via
+			this link - <a href="/my-account/edit-account/">Click Here</a></p>
+	<?php else: ?>
+		<h2>Thanks for your order on Gramy!</h2>
+	<?php endif; ?>
+</div>

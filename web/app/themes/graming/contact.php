@@ -7,7 +7,7 @@ get_header();
     <div class="container">
         <div class="contact_header">
             <div class="title">Get in Touch</div>
-            <div class="text">Building better services starts with your feedback. Please share your thoughts or ask any questions about our services below.</div>
+            <div class="text">We are always open to new business cooperation and your feedback. To contact our support, please create an account and go to our panel - <a href="/my-account/support/">Click Here</a></div>
         </div>
         <div class="contact_form">
             <?php echo do_shortcode('[wpforms id="77" title="false"]');?>

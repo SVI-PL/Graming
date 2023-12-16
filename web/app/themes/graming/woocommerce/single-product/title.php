@@ -19,5 +19,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 ?>
-<div class="title_product"><?php the_title();?> with <span>Instant Delivery</span></div>
+<div class="title_product"><?php the_field("custom_title");?></div>
 
