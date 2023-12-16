@@ -1340,6 +1340,9 @@
                 }
             }
 
+            >img{
+                max-width: 480px;
+            }
             @media (max-width: 1250px) {
                 width: calc(45% - 25px);
 
