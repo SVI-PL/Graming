@@ -284,7 +284,7 @@ if (post_password_required()) {
 									</svg>
 								</div>
 							</div>
-							<div class="user_pop <?php echo $insta_active_folowers ? "inst_active_folowers" : ""; ?> <?php echo $insta_active_posts ? "inst_active_posts" : ""; ?>></div>
+							<div class="user_pop" <?php echo $insta_active_folowers ? "inst_active_folowers" : "";?> <?php echo $insta_active_posts ? "inst_active_posts" : "";?> ></div>
 						</div>
 					<?php endif; ?>
 					<div class=" or_select">OR</div>
