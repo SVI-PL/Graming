@@ -433,7 +433,7 @@ jQuery(document).ready(function ($) {
   });
 
   //Ajax get insta photo
-  $(document).on('click', '.user_img', function () {
+  $(document).on('click', '.inst_active_posts .user_img', function () {
     var $insta_user_id = $(this).data('user-id');
     $('.user_pop').hide();
     if ($insta_user_id === '') {
@@ -488,6 +488,12 @@ jQuery(document).ready(function ($) {
     $(this).addClass("active");
     let $link = $(this).data("shortcode");
     $("#custom_link").val("https://www.instagram.com/p/" + $link);
+  });
+
+  $(document).on('click', '.inst_active_folowers .user_img', function () {
+    $('.user_pop').hide();
+    let $link = $('#insta_user').val().trim();
+    $("#custom_link").val("https://www.instagram.com/" + $link);
   });
 });
 
