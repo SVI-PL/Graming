@@ -489,7 +489,7 @@ jQuery(document).ready(function ($) {
     let $link = $(this).data("shortcode");
     $("#custom_link").val("https://www.instagram.com/p/" + $link);
   });
-
+  //Fill user link
   $(document).on('click', '.inst_active_folowers .user_img', function () {
     $('.user_pop').hide();
     let $link = $('#insta_user').val().trim();

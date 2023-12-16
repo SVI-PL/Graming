@@ -447,7 +447,8 @@
                 .trust_img {
                     display: flex;
                     width: 70%;
-                    img{
+
+                    img {
                         width: 100%;
                     }
                 }
@@ -1077,7 +1078,7 @@
                     }
                 }
 
-                &.hide{
+                &.hide {
                     display: none;
                 }
             }
@@ -1342,9 +1343,11 @@
                 }
             }
 
-            >img{
+            >img {
                 max-width: 480px;
+                border-radius: 15px;
             }
+
             @media (max-width: 1250px) {
                 width: calc(45% - 25px);
 
