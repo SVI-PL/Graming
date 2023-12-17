@@ -284,86 +284,88 @@ if (post_password_required()) {
 									</svg>
 								</div>
 							</div>
-							<div class='user_pop <?php echo $insta_active_folowers ? "inst_active_folowers" : "";?> <?php echo $insta_active_posts ? "inst_active_posts" : "";?>' ></div>
+							<div
+								class='user_pop <?php echo $insta_active_folowers ? "inst_active_folowers" : ""; ?> <?php echo $insta_active_posts ? "inst_active_posts" : ""; ?>'>
+							</div>
 						</div>
-					<?php endif; ?>
 					<div class=" or_select">OR</div>
-						<div class="input-link">
-							<input type="text" name="custom_link" id="custom_link" placeholder="https://...">
-							<span>Please enter a valid link</span>
+					<?php endif; ?>
+					<div class="input-link">
+						<input type="text" name="custom_link" id="custom_link" placeholder="https://...">
+						<span>Please enter a valid link</span>
+					</div>
+					<div class="input-text">
+						<input type="email" name="billing_email" id="billing_email" placeholder="email@gmail.com" value="<?php $user = wp_get_current_user();
+						if (isset($user)) {
+							echo esc_attr($user->user_email);
+						} ?>" data-user-email="<?php if (isset($user)) {
+							 echo esc_attr($user->user_email);
+						 } ?>" autocomplete="email username">
+						<span>Please enter a valid email</span>
+					</div>
+				</div>
+				<div class="product_select">
+					<div class="cart_item first">
+						<div class="product-name">
+							<strong class="product-quantity">&nbsp;</strong>
+							<?php the_title(); ?>
+							<?php echo "<span class='deals'>click for deals</span>"; ?>
 						</div>
-						<div class="input-text">
-							<input type="email" name="billing_email" id="billing_email" placeholder="email@gmail.com" value="<?php $user = wp_get_current_user();
-							if (isset($user)) {
-								echo esc_attr($user->user_email);
-							} ?>" data-user-email="<?php if (isset($user)) {
-								 echo esc_attr($user->user_email);
-							 } ?>" autocomplete="email username">
-							<span>Please enter a valid email</span>
+						<div class="product-total">
+							<div class="new_price">
+								<?php echo get_first_price($product->get_id()); ?>
+							</div>
+							<div class="arrow_down"></div>
 						</div>
 					</div>
-					<div class="product_select">
-						<div class="cart_item first">
-							<div class="product-name">
-								<strong class="product-quantity">&nbsp;</strong>
-								<?php the_title(); ?>
-								<?php echo "<span class='deals'>click for deals</span>"; ?>
-							</div>
-							<div class="product-total">
-								<div class="new_price">
-									<?php echo get_first_price($product->get_id()); ?>
-								</div>
-								<div class="arrow_down"></div>
-							</div>
-						</div>
-						<div class="dropdown_products">
-							<?php echo custom_checkout_dropdown($product->get_id()); ?>
-						</div>
+					<div class="dropdown_products">
+						<?php echo custom_checkout_dropdown($product->get_id()); ?>
 					</div>
+				</div>
 
-					<div class="mail_send <?php if (is_user_logged_in()) {
-						echo "hide";
-					} ?>">
-						<input type="checkbox" id="agree" name="agree" checked="checked"> <label for="agree">Send me special
-							promotions and discounts</label>
-					</div>
-					<!-- <div class="privacy">
+				<div class="mail_send <?php if (is_user_logged_in()) {
+					echo "hide";
+				} ?>">
+					<input type="checkbox" id="agree" name="agree" checked="checked"> <label for="agree">Send me special
+						promotions and discounts</label>
+				</div>
+				<!-- <div class="privacy">
 						<input type="checkbox" id="privacy" name="privacy"> <label for="privacy">I agree to the <a
 								href="#">Privacy Policy</a>, <a href="#">Public Offering Agreement</a>, <a href="#">Terms of
 								Use</a></label>
 						<span>Check this box, and click to agree</span>
 					</div> -->
-					<div class="continue">
-						<div class="continue_btn btn-red">Continue</div>
-					</div>
+				<div class="continue">
+					<div class="continue_btn btn-red">Continue</div>
 				</div>
-				<div class="get_started_img">
-					<div class="select_posts">
-						<div class="select_header">
-							Select Posts
-						</div>
-						<div class="select_data">
-							<div class="select_count">Select <span>1 post</span></div>
-							<div class="sep"></div>
-							<div class="item_count">
-								<div class="product-quantity"></div>&nbsp;Likes
-							</div>
-						</div>
-						<div class="imageBlocks"></div>
-						<div class="circle-container photo_load">
-							<svg fill="none" class="circle-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-								<circle class="circle" cx="50" cy="50" r="45" />
-							</svg>
-						</div>
-						<div class="submit_mob btn-red">Confirm</div>
+			</div>
+			<div class="get_started_img">
+				<div class="select_posts">
+					<div class="select_header">
+						Select Posts
 					</div>
+					<div class="select_data">
+						<div class="select_count">Select <span>1 post</span></div>
+						<div class="sep"></div>
+						<div class="item_count">
+							<div class="product-quantity"></div>&nbsp;Likes
+						</div>
+					</div>
+					<div class="imageBlocks"></div>
+					<div class="circle-container photo_load">
+						<svg fill="none" class="circle-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+							<circle class="circle" cx="50" cy="50" r="45" />
+						</svg>
+					</div>
+					<div class="submit_mob btn-red">Confirm</div>
+				</div>
 
-					<img src="<?php echo get_field("get_started_img"); ?>" alt="">
-				</div>
+				<img src="<?php echo get_field("get_started_img"); ?>" alt="">
 			</div>
-			<div class="trustpilot">
-				<img src="<?php echo get_template_directory_uri(); ?>/src/images/trustpilot.svg" alt="">
-			</div>
+		</div>
+		<div class="trustpilot">
+			<img src="<?php echo get_template_directory_uri(); ?>/src/images/trustpilot.svg" alt="">
+		</div>
 	</section>
 
 	<?php do_action('woocommerce_after_single_product'); ?>
