@@ -257,8 +257,8 @@ if (post_password_required()) {
 				<div class="get_started_title">Get Started</div>
 				<div class="woocommerce-billing-fields">
 					<?php
-					$insta_posts = [14];
-					$insta_folowers = [173, 178];
+					$insta_posts = [14, 275, 274, 273, 272, 178];
+					$insta_folowers = [173, 379];
 					$product_id = $product->get_id();
 					$insta_active = false;
 					$insta_active_posts = false;
