@@ -173,7 +173,7 @@ function create_user_account($order_id)
 add_action('woocommerce_new_order', 'create_user_account');
 
 //Order status changed to Processing
-function my_custom_order_status_changed($order_id, $from_status, $to_status, $order)
+function my_order_status_changed($order_id, $from_status, $to_status, $order)
 {
 	if ($to_status === 'processing') {
 
@@ -249,7 +249,7 @@ function my_custom_order_status_changed($order_id, $from_status, $to_status, $or
 		}
 	}
 }
-add_action('woocommerce_order_status_changed', 'my_custom_order_status_changed', 10, 4);
+add_action('woocommerce_order_status_changed', 'my_order_status_changed', 10, 4);
 
 //Get API service ID
 function get_api_service_id($product_id, $quantity)
