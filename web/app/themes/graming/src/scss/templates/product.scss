@@ -865,6 +865,28 @@
                                     font-size: 13px;
                                 }
                             }
+
+                            &::after {
+                                content: "Select";
+                                position: absolute;
+                                right: 15px;
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: center;
+                                border-radius: 10px;
+                                border: 2px solid #FE5A13;
+                                background: #FFF;
+                                cursor: pointer;
+                                padding: 8px 15px;
+                                color: #FE5A13;
+                                font-family: Fixel Display;
+                                font-size: 18px;
+                                font-style: normal;
+                                font-weight: 500;
+                                line-height: 21px;
+                                transition: all 0.2s ease-in-out;
+                            }
                         }
                     }
                 }
