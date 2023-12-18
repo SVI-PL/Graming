@@ -81,6 +81,24 @@ main.main-content {
         .container>#support-tickets-container {
             display: none;
         }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+
+            p {
+                margin: 25px 0;
+            }
+
+            ul {
+                margin: 25px 0;
+
+                li {
+                    margin-left: 25px;
+                }
+            }
+        }
+
     }
 }
 
