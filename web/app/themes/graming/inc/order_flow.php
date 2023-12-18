@@ -123,6 +123,7 @@ function create_user_account($order_id)
 
 		$user_id = $user->ID;
 		$user_email = $user->user_email;
+		add_balance_to_database($user_id);
 
 		$url = 'https://a.klaviyo.com/api/events/';
 		$data = [
