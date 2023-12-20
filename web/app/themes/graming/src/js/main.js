@@ -444,7 +444,7 @@ jQuery(document).ready(function ($) {
       $(".photo_load").show();
       //Scroll to photo
       const PhotoElement = $('.get_started_img');
-      const activeElement = PhotoElement.offsetTop - 60;
+      const activeElement = PhotoElement.offset().top - 60;
       window.scrollTo({
         top: activeElement,
         behavior: 'smooth'
