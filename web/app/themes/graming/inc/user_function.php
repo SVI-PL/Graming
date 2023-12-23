@@ -132,7 +132,7 @@ function reset_pass_event($user_login, $key)
 	$data = [
 		'attributes' => [
 			'name' => 'Reset password',
-			'RECOVERY LINK' => $reset_url,
+			'RECOVERY_LINK' => $reset_url,
 		],
 		'updateEnabled' => true,
 		'email' => $user_email,
