@@ -45,7 +45,7 @@ function password_in_registration($customer_id)
 		$marketing = "Yes";
 	}
 	$user = get_user_by('id', $customer_id);
-	$user_id = $user->ID;
+	$user_id = (string) $user->ID;
 	$user_email = $user->user_email;
 
 	$url = 'https://api.brevo.com/v3/contacts';
@@ -63,7 +63,8 @@ function password_in_registration($customer_id)
 	];
 	$body = json_encode($data);
 	$klavio = new KlavioAPI;
-	$klavio->post_klavio($url, $body);
+	var_dump($klavio->post_klavio($url, $body));
+die;
 
 }
 add_action('woocommerce_created_customer', 'password_in_registration');
@@ -123,7 +124,7 @@ add_action('template_redirect', 'custom_shop_redirect_to_home');
 function reset_pass_event($user_login, $key)
 {
 	$user = get_user_by('login', $user_login);
-	$user_id = $user->ID;
+	$user_id = (string) $user->ID;
 	$user_email = $user->user_email;
 	$reset_url = url() . "?key=" . $key . "&id=" . $user_id;
 
@@ -149,7 +150,7 @@ add_action('retrieve_password_key', 'reset_pass_event', 10, 2);
 function user_login_event($user_login, $user)
 {
 	$user = get_user_by('login', $user_login);
-	$user_id = $user->ID;
+	$user_id = (string) $user->ID;
 	$user_email = $user->user_email;
 
 	$url = 'https://api.brevo.com/v3/contacts';

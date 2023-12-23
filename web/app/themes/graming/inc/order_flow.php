@@ -121,7 +121,7 @@ function create_user_account($order_id)
 
 		$user = get_user_by('id', $user_id);
 
-		$user_id = $user->ID;
+		$user_id = (string) $user->ID;
 		$user_email = $user->user_email;
 		add_balance_to_database($user_id);
 
@@ -364,7 +364,7 @@ add_action('wp_ajax_nopriv_clear_cart', 'clear_cart_via_ajax');
 function klavio_add_order($order_id, $from_status, $to_status, $order)
 {
 	$order = wc_get_order($order_id);
-	$user_id = $order->get_customer_id();
+	$user_id = (string) $order->get_customer_id();
 	$user_email = $order->get_billing_email();
 	$items = $order->get_items();
 	$total = $order->get_total();
@@ -420,7 +420,7 @@ add_action('woocommerce_order_status_changed', 'klavio_add_order', 20, 4);
 //Klavio checkout init
 function custom_checkout_init()
 {
-	$user_id = get_current_user_id();
+	$user_id = (string) get_current_user_id();
 	if ($user_id == 0) {
 		$user_email = "Guest@graming.com";
 	} else {
