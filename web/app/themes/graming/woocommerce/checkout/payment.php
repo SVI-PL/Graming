@@ -172,6 +172,7 @@ $cart_total = WC()->cart->get_total();
 			<p>All prices are in USD. If you're paying with a different currency, the billed amount may vary due to
 				exchange rates and potential additional fees.</p>
 		</div>
+		<div class="pay_btn btn-red pay_crypto">Pay With Crypto</div>
 	</div>
 </div>
 

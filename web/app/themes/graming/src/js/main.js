@@ -161,17 +161,25 @@ jQuery(document).ready(function ($) {
 
   //Add action for pay with Google pay
   $(document).on("click", ".btn-google", function () {
-    let $card = $('#payment_method_wc_checkout_com_google_pay');
-    $card.trigger("click");
+    let $google = $('#payment_method_wc_checkout_com_google_pay');
+    $google.trigger("click");
     let $place_order = $("#ckocom_googlePay");
     $place_order.trigger("click");
   });
 
   //Add action for pay with Apple pay
   $(document).on("click", ".apple_pay", function () {
-    let $card = $('#payment_method_wc_checkout_com_apple_pay');
-    $card.trigger("click");
+    let $apple = $('#payment_method_wc_checkout_com_apple_pay');
+    $apple.trigger("click");
     let $place_order = $("#ckocom_applePay");
+    $place_order.trigger("click");
+  });
+
+  //Add action for pay with Crypto
+  $(document).on("click", ".pay_crypto", function () {
+    let $crypto = $('#payment_method_cryptomus');
+    $crypto.trigger("click");
+    let $place_order = $("#place_order");
     $place_order.trigger("click");
   });
 
