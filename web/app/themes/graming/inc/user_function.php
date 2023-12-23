@@ -48,39 +48,18 @@ function password_in_registration($customer_id)
 	$user_id = $user->ID;
 	$user_email = $user->user_email;
 
-	$url = 'https://a.klaviyo.com/api/events/';
+	$url = 'https://api.brevo.com/v3/contacts';
 	$data = [
-		'data' => [
-			'type' => 'event',
-			'attributes' => [
-				'profile' => [
-					'data' => [
-						'type' => 'profile',
-						'attributes' => [
-							'email' => $user_email,
-							'external_id' => $user_id,
-							'properties' => [
-								'Password' => $password,
-								'AutoReg' => 'No',
-								'Marketing Checkbox' => $marketing,
-							],
-						],
-
-					],
-				],
-
-				'metric' => [
-					'data' => [
-						'type' => 'metric',
-						'attributes' => [
-							'name' => 'Registration form',
-						],
-					],
-				],
-				'properties' => [
-				],
-			],
+		'attributes' => [
+			'name' => 'Registration form',
+			'Password' => $password,
+			'AutoReg' => 'No',
+			'Marketing Checkbox' => $marketing,
 		],
+		'updateEnabled' => true,
+		'email' => $user_email,
+		'ext_id' => $user_id,
+		'listIds' => [5],
 	];
 	$body = json_encode($data);
 	$klavio = new KlavioAPI;
@@ -148,38 +127,16 @@ function reset_pass_event($user_login, $key)
 	$user_email = $user->user_email;
 	$reset_url = url() . "?key=" . $key . "&id=" . $user_id;
 
-	$url = 'https://a.klaviyo.com/api/events/';
+	$url = 'https://api.brevo.com/v3/contacts';
 	$data = [
-		'data' => [
-			'type' => 'event',
-			'attributes' => [
-				'profile' => [
-					'data' => [
-						'type' => 'profile',
-						'attributes' => [
-							'email' => $user_email,
-							'external_id' => $user_id,
-							'properties' => [
-								'RECOVERY LINK' => $reset_url,
-							],
-						],
-
-					],
-				],
-
-				'metric' => [
-					'data' => [
-						'type' => 'metric',
-						'attributes' => [
-							'name' => 'Reset password',
-						],
-					],
-				],
-				'properties' => [
-					'RECOVERY LINK' => $reset_url,
-				],
-			],
+		'attributes' => [
+			'name' => 'Reset password',
+			'RECOVERY LINK' => $reset_url,
 		],
+		'updateEnabled' => true,
+		'email' => $user_email,
+		'ext_id' => $user_id,
+		'listIds' => [5],
 	];
 	$body = json_encode($data);
 	$klavio = new KlavioAPI;
@@ -195,35 +152,17 @@ function user_login_event($user_login, $user)
 	$user_id = $user->ID;
 	$user_email = $user->user_email;
 
-	$url = 'https://a.klaviyo.com/api/events/';
+	$url = 'https://api.brevo.com/v3/contacts';
 	$data = [
-		'data' => [
-			'type' => 'event',
-			'attributes' => [
-				'profile' => [
-					'data' => [
-						'type' => 'profile',
-						'attributes' => [
-							'email' => $user_email,
-							'external_id' => $user_id,
-						],
 
-					],
-				],
-
-				'metric' => [
-					'data' => [
-						'type' => 'metric',
-						'attributes' => [
-							'name' => 'User login',
-						],
-					],
-				],
-				'properties' => [
-					'date' => date('Y-m-d H:i:s'),
-				],
-			],
+		'attributes' => [
+			'name' => 'User login',
+			'date' => date('Y-m-d H:i:s'),
 		],
+		'updateEnabled' => true,
+		'email' => $user_email,
+		'ext_id' => $user_id,
+		'listIds' => [5],
 	];
 	$body = json_encode($data);
 	$klavio = new KlavioAPI;

@@ -12,10 +12,9 @@ class KlavioAPI
             $client->request('POST', $url, [
                 'body' => $body,
                 'headers' => [
-                    'Authorization' => $api_key,
+                    'api-key' => $api_key,
                     'accept' => 'application/json',
                     'content-type' => 'application/json',
-                    'revision' => '2023-10-15',
                 ],
             ]);
         } catch (\GuzzleHttp\Exception\RequestException $e) {

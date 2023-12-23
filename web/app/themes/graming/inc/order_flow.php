@@ -125,42 +125,18 @@ function create_user_account($order_id)
 		$user_email = $user->user_email;
 		add_balance_to_database($user_id);
 
-		$url = 'https://a.klaviyo.com/api/events/';
+		$url = 'https://api.brevo.com/v3/contacts';
 		$data = [
-			'data' => [
-				'type' => 'event',
-				'attributes' => [
-					'profile' => [
-						'data' => [
-							'type' => 'profile',
-							'attributes' => [
-								'email' => $user_email,
-								'external_id' => $user_id,
-								'properties' => [
-									'Password' => $password,
-									'AutoReg' => 'yes',
-									'Marketing_Checkbox' => 'No',
-								],
-							],
-
-						],
-					],
-
-					'metric' => [
-						'data' => [
-							'type' => 'metric',
-							'attributes' => [
-								'name' => 'Registration on order',
-							],
-						],
-					],
-					'properties' => [
-						'Password' => $password,
-						'AutoReg' => 'yes',
-						'Marketing_Checkbox' => 'No',
-					],
-				],
+			'attributes' => [
+				'name' => 'Registration on order',
+				'Password' => $password,
+				'AutoReg' => 'yes',
+				'Marketing_Checkbox' => 'No',
 			],
+			'updateEnabled' => true,
+			'email' => $user_email,
+			'ext_id' => $user_id,
+			'listIds' => [5],
 		];
 		$body = json_encode($data);
 		$klavio = new KlavioAPI;
@@ -418,50 +394,22 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 
 
 
-	$url = 'https://a.klaviyo.com/api/events/';
+	$url = 'https://api.brevo.com/v3/contacts';
 	$data = [
-		'data' => [
-			'type' => 'event',
-			'attributes' => [
-				'profile' => [
-					'data' => [
-						'type' => 'profile',
-						'attributes' => [
-							'email' => $user_email,
-							'external_id' => $user_id,
-							'properties' => [
-								'Product_type' => $product_type,
-								'Order_id' => $order_id,
-								'Product_name' => $product_name,
-								'Quantity' => $quantity,
-								'Upsale' => $upsale,
-								'Total' => $total,
-								'Deposite_total' => $deposite_total,
-							],
-						],
-
-					],
-				],
-
-				'metric' => [
-					'data' => [
-						'type' => 'metric',
-						'attributes' => [
-							'name' => $event_name,
-						],
-					],
-				],
-				'properties' => [
-					'Product_type' => $product_type,
-					'Order_id' => $order_id,
-					'Product_name' => $product_name,
-					'Quantity' => $quantity,
-					'Upsale' => $upsale,
-					'Total' => $total,
-					'Deposite_total' => $deposite_total,
-				],
-			],
+		'attributes' => [
+			'name' => $event_name,
+			'Product_type' => $product_type,
+			'Order_id' => $order_id,
+			'Product_name' => $product_name,
+			'Quantity' => $quantity,
+			'Upsale' => $upsale,
+			'Total' => $total,
+			'Deposite_total' => $deposite_total,
 		],
+		'updateEnabled' => true,
+		'email' => $user_email,
+		'ext_id' => $user_id,
+		'listIds' => [5],
 	];
 	$body = json_encode($data);
 	$klavio = new KlavioAPI;
@@ -498,46 +446,20 @@ function custom_checkout_init()
 		$event_name = 'Checkout Deposite init';
 	}
 
-	$url = 'https://a.klaviyo.com/api/events/';
+	$url = 'https://api.brevo.com/v3/contacts';
 	$data = [
-		'data' => [
-			'type' => 'event',
-			'attributes' => [
-				'profile' => [
-					'data' => [
-						'type' => 'profile',
-						'attributes' => [
-							'email' => $user_email,
-							'external_id' => $user_id,
-							'properties' => [
-								'Product_type' => $product_type,
-								'Product_name' => $product_name,
-								'Product_id' => $product_id,
-								'Quantity' => $quantity,
-								'Total' => $total,
-							],
-						],
-
-					],
-				],
-
-				'metric' => [
-					'data' => [
-						'type' => 'metric',
-						'attributes' => [
-							'name' => $event_name,
-						],
-					],
-				],
-				'properties' => [
-					'Product_type' => $product_type,
-					'Product_name' => $product_name,
-					'Product_id' => $product_id,
-					'Quantity' => $quantity,
-					'Total' => $total,
-				],
-			],
+		'attributes' => [
+			'name' => $event_name,
+			'Product_type' => $product_type,
+			'Product_name' => $product_name,
+			'Product_id' => $product_id,
+			'Quantity' => $quantity,
+			'Total' => $total,
 		],
+		'updateEnabled' => true,
+		'email' => $user_email,
+		'ext_id' => $user_id,
+		'listIds' => [5],
 	];
 	$body = json_encode($data);
 	$klavio = new KlavioAPI;
@@ -587,4 +509,3 @@ function get_user_photo_ajax()
 }
 add_action('wp_ajax_get_user_photo', 'get_user_photo_ajax');
 add_action('wp_ajax_nopriv_get_user_photo', 'get_user_photo_ajax');
-
