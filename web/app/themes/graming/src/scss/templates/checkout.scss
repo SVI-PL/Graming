@@ -1060,7 +1060,7 @@
                             }
 
                             >label {
-                                display: none;
+                                display: none !important;
                             }
 
                             &.payment_method_wc_checkout_com_cards {
