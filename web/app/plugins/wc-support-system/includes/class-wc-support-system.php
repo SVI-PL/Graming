@@ -297,6 +297,7 @@ class wc_support_system
 			while ($loop->have_posts()):
 				$loop->the_post();
 
+				//TODO: rebuild for any statuses
 				$bought = wc_customer_bought_product($current_user->user_email, $current_user->ID, get_the_ID());
 
 				if ($bought) {

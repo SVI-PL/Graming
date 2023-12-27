@@ -39,7 +39,9 @@ $totals = $order->get_order_item_totals();
 <div class="account-order-view">
 	<div class="buy_now_acc">
 		<div class="back_btn btn-gray">Back</div>
+		<?php if ( is_user_logged_in() ) : ?>
 		<div class="btn-red"><a href="/service/usd/">Deposit Now</a></div>
+		<?php endif; ?>
 	</div>
 	<div class="account-orders">
 		<div class="acc_title">
