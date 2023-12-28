@@ -51,15 +51,27 @@ function password_in_registration($customer_id)
 	$url = 'https://esputnik.com/api/v1/contact';
 
 	$data = [
-		'channels' => [
+		'channels' => [[
 			'type' => 'email',
 			'value' => $user_email,
-		],
+		]],
 		'fields' => [
-			'248184' => 'Registration form',
-			'248185' => $password,
-			'248186' => 'No',
-			'248187' => $marketing,
+			[
+				"id" => 248184,
+				"value" => 'Registration form'
+			],
+			[
+				"id" => 248185,
+				"value" => $password
+			],
+			[
+				"id" => 248186,
+				"value" => 'No'
+			],
+			[
+				"id" => 248187,
+				"value" => $marketing
+			],
 		],
 		'externalCustomerId' => $user_id,
 	];
@@ -135,13 +147,19 @@ function reset_pass_event($user_login, $key)
 	$url = 'https://esputnik.com/api/v1/contact';
 
 	$data = [
-		'channels' => [
+		'channels' => [[
 			'type' => 'email',
 			'value' => $user_email,
-		],
+		]],
 		'fields' => [
-			'248184' => 'Reset password',
-			'248197' => $reset_url,
+			[
+				"id" => 248184,
+				"value" => 'Reset password'
+			],
+			[
+				"id" => 248197,
+				"value" => $reset_url
+			],
 		],
 		'externalCustomerId' => $user_id,
 	];
@@ -163,13 +181,19 @@ function user_login_event($user_login, $user)
 	$url = 'https://esputnik.com/api/v1/contact';
 
 	$data = [
-		'channels' => [
+		'channels' => [[
 			'type' => 'User login',
 			'value' => $user_email,
-		],
+		]],
 		'fields' => [
-			'248184' => 'Registration on order',
-			'248198' => date('Y-m-d H:i:s'),
+			[
+				"id" => 248184,
+				"value" => 'User login'
+			],
+			[
+				"id" => 248198,
+				"value" => date('Y-m-d H:i:s')
+			],
 		],
 		'externalCustomerId' => $user_id,
 	];

@@ -128,15 +128,27 @@ function create_user_account($order_id)
 		$url = 'https://esputnik.com/api/v1/contact';
 
 		$data = [
-			'channels' => [
+			'channels' => [[
 				'type' => 'email',
 				'value' => $user_email,
-			],
+			]],
 			'fields' => [
-				'248184' => 'Registration on order',
-				'248185' => $password,
-				'248186' => 'yes',
-				'248187' => 'No',
+				[
+					"id" => 248184,
+					"value" => 'Registration on order'
+				],
+				[
+					"id" => 248185,
+					"value" => $password
+				],
+				[
+					"id" => 248186,
+					"value" => 'yes'
+				],
+				[
+					"id" => 248187,
+					"value" => 'No'
+				],
 			],
 			'externalCustomerId' => $user_id,
 		];
@@ -401,20 +413,47 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 	$url = 'https://esputnik.com/api/v1/contact';
 
 	$data = [
-		'channels' => [
+		'channels' => [[
 			'type' => 'email',
 			'value' => $user_email,
-		],
+		]],
 		'fields' => [
-			'248184' => $event_name,
-			'248188' => $product_type,
-			'248195' => $product_name,
-			'248196' => $product_id,
-			'248191' => $quantity,
-			'248199' => $total,
-			'248190' => $order_id,
-			'248192' => $upsale,
-			'248200' => $deposite_total,
+			[
+				"id" => 248184,
+				"value" => $event_name
+			],
+			[
+				"id" => 248188,
+				"value" => $product_type
+			],
+			[
+				"id" => 248195,
+				"value" => $product_name
+			],
+			[
+				"id" => 248196,
+				"value" => $product_id
+			],
+			[
+				"id" => 248191,
+				"value" => $quantity
+			],
+			[
+				"id" => 248199,
+				"value" => $total
+			],
+			[
+				"id" => 248190,
+				"value" => $order_id
+			],
+			[
+				"id" => 248192,
+				"value" => $upsale
+			],
+			[
+				"id" => 248200,
+				"value" => $deposite_total
+			],
 		],
 		'externalCustomerId' => $user_id,
 	];
@@ -456,24 +495,42 @@ function custom_checkout_init()
 
 	$url = 'https://esputnik.com/api/v1/contact';
 	$data = [
-		'channels' => [
+		'channels' => [[
 			'type' => 'email',
 			'value' => $user_email,
-		],
+		]],
 		'fields' => [
-			'248184' => $event_name,
-			'248188' => $product_type,
-			'248195' => $product_name,
-			'248196' => $product_id,
-			'248191' => $quantity,
-			'248199' => $total,
+			[
+				"id" => 248184,
+				"value" => $event_name
+			],
+			[
+				"id" => 248188,
+				"value" => $product_type
+			],
+			[
+				"id" => 248195,
+				"value" => $product_name
+			],
+			[
+				"id" => 248196,
+				"value" => $product_id
+			],
+			[
+				"id" => 248191,
+				"value" => $quantity
+			],
+			[
+				"id" => 248199,
+				"value" => $total
+			],
 		],
 		'externalCustomerId' => $user_id,
 	];
 
 	$body = json_encode($data);
 	$klavio = new KlavioAPI;
-	$klavio->post_klavio($url, $body);
+	var_dump($klavio->post_klavio($url, $body));
 }
 add_action('woocommerce_before_checkout_form', 'custom_checkout_init');
 
