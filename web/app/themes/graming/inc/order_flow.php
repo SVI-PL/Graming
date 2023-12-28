@@ -125,19 +125,23 @@ function create_user_account($order_id)
 		$user_email = $user->user_email;
 		add_balance_to_database($user_id);
 
-		$url = 'https://api.brevo.com/v3/contacts';
+		$url = 'https://esputnik.com/api/v1/contact';
+
 		$data = [
-			'attributes' => [
-				'name' => 'Registration on order',
-				'Password' => $password,
-				'AutoReg' => 'yes',
-				'Marketing_Checkbox' => 'No',
+			'channels' => [
+				'type' => 'email',
+				'value' => $user_email,
 			],
-			'updateEnabled' => true,
-			'email' => $user_email,
-			'ext_id' => $user_id,
-			'listIds' => [5],
+			'fields' => [
+				'248184' => 'Registration on order',
+				'248185' => $password,
+				'248186' => 'yes',
+				'248187' => 'No',
+			],
+			'externalCustomerId' => $user_id,
 		];
+
+
 		$body = json_encode($data);
 		$klavio = new KlavioAPI;
 		$klavio->post_klavio($url, $body);
@@ -394,23 +398,27 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 
 
 
-	$url = 'https://api.brevo.com/v3/contacts';
+	$url = 'https://esputnik.com/api/v1/contact';
+
 	$data = [
-		'attributes' => [
-			'name' => $event_name,
-			'Product_type' => $product_type,
-			'Order_id' => $order_id,
-			'Product_name' => $product_name,
-			'Quantity' => $quantity,
-			'Upsale' => $upsale,
-			'Total' => $total,
-			'Deposite_total' => $deposite_total,
+		'channels' => [
+			'type' => 'email',
+			'value' => $user_email,
 		],
-		'updateEnabled' => true,
-		'email' => $user_email,
-		'ext_id' => $user_id,
-		'listIds' => [5],
+		'fields' => [
+			'248184' => $event_name,
+			'248188' => $product_type,
+			'248195' => $product_name,
+			'248196' => $product_id,
+			'248191' => $quantity,
+			'248199' => $total,
+			'248190' => $order_id,
+			'248192' => $upsale,
+			'248200' => $deposite_total,
+		],
+		'externalCustomerId' => $user_id,
 	];
+
 	$body = json_encode($data);
 	$klavio = new KlavioAPI;
 	$klavio->post_klavio($url, $body);
@@ -446,21 +454,23 @@ function custom_checkout_init()
 		$event_name = 'Checkout Deposite init';
 	}
 
-	$url = 'https://api.brevo.com/v3/contacts';
+	$url = 'https://esputnik.com/api/v1/contact';
 	$data = [
-		'attributes' => [
-			'name' => $event_name,
-			'Product_type' => $product_type,
-			'Product_name' => $product_name,
-			'Product_id' => $product_id,
-			'Quantity' => $quantity,
-			'Total' => $total,
+		'channels' => [
+			'type' => 'email',
+			'value' => $user_email,
 		],
-		'updateEnabled' => true,
-		'email' => $user_email,
-		'ext_id' => $user_id,
-		'listIds' => [5],
+		'fields' => [
+			'248184' => $event_name,
+			'248188' => $product_type,
+			'248195' => $product_name,
+			'248196' => $product_id,
+			'248191' => $quantity,
+			'248199' => $total,
+		],
+		'externalCustomerId' => $user_id,
 	];
+
 	$body = json_encode($data);
 	$klavio = new KlavioAPI;
 	$klavio->post_klavio($url, $body);

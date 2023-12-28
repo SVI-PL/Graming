@@ -12,8 +12,8 @@ class KlavioAPI
             $client->request('POST', $url, [
                 'body' => $body,
                 'headers' => [
-                    'api-key' => $api_key,
-                    'accept' => 'application/json',
+                    'authorization' => $api_key,
+                    'accept' => 'application/json; charset=UTF-8',
                     'content-type' => 'application/json',
                 ],
             ]);

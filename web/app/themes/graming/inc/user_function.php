@@ -48,23 +48,27 @@ function password_in_registration($customer_id)
 	$user_id = (string) $user->ID;
 	$user_email = $user->user_email;
 
-	$url = 'https://api.brevo.com/v3/contacts';
+	$url = 'https://esputnik.com/api/v1/contact';
+
 	$data = [
-		'attributes' => [
-			'name' => 'Registration form',
-			'Password' => $password,
-			'AutoReg' => 'No',
-			'Marketing Checkbox' => $marketing,
+		'channels' => [
+			'type' => 'email',
+			'value' => $user_email,
 		],
-		'updateEnabled' => true,
-		'email' => $user_email,
-		'ext_id' => $user_id,
-		'listIds' => [5],
+		'fields' => [
+			'248184' => 'Registration form',
+			'248185' => $password,
+			'248186' => 'No',
+			'248187' => $marketing,
+		],
+		'externalCustomerId' => $user_id,
 	];
+
+
 	$body = json_encode($data);
 	$klavio = new KlavioAPI;
 	var_dump($klavio->post_klavio($url, $body));
-die;
+	die;
 
 }
 add_action('woocommerce_created_customer', 'password_in_registration');
@@ -128,17 +132,20 @@ function reset_pass_event($user_login, $key)
 	$user_email = $user->user_email;
 	$reset_url = url() . "?key=" . $key . "&id=" . $user_id;
 
-	$url = 'https://api.brevo.com/v3/contacts';
+	$url = 'https://esputnik.com/api/v1/contact';
+
 	$data = [
-		'attributes' => [
-			'name' => 'Reset password',
-			'RECOVERY_LINK' => $reset_url,
+		'channels' => [
+			'type' => 'email',
+			'value' => $user_email,
 		],
-		'updateEnabled' => true,
-		'email' => $user_email,
-		'ext_id' => $user_id,
-		'listIds' => [5],
+		'fields' => [
+			'248184' => 'Reset password',
+			'248197' => $reset_url,
+		],
+		'externalCustomerId' => $user_id,
 	];
+
 	$body = json_encode($data);
 	$klavio = new KlavioAPI;
 	$klavio->post_klavio($url, $body);
@@ -153,18 +160,20 @@ function user_login_event($user_login, $user)
 	$user_id = (string) $user->ID;
 	$user_email = $user->user_email;
 
-	$url = 'https://api.brevo.com/v3/contacts';
-	$data = [
+	$url = 'https://esputnik.com/api/v1/contact';
 
-		'attributes' => [
-			'name' => 'User login',
-			'date' => date('Y-m-d H:i:s'),
+	$data = [
+		'channels' => [
+			'type' => 'User login',
+			'value' => $user_email,
 		],
-		'updateEnabled' => true,
-		'email' => $user_email,
-		'ext_id' => $user_id,
-		'listIds' => [5],
+		'fields' => [
+			'248184' => 'Registration on order',
+			'248198' => date('Y-m-d H:i:s'),
+		],
+		'externalCustomerId' => $user_id,
 	];
+
 	$body = json_encode($data);
 	$klavio = new KlavioAPI;
 	$klavio->post_klavio($url, $body);
