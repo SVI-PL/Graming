@@ -1,4 +1,5 @@
 <?php
+use Automattic\WooCommerce\Utilities\OrderUtil;
 // set balance $0 for new reg
 function add_balance_to_database($user_id)
 {
@@ -33,7 +34,7 @@ function get_user_order_count()
 	return $order_count;
 }
 
-//Add passwors on registration
+//Add password on registration
 function password_in_registration($customer_id)
 {
 	if (isset($_POST['password']) && !empty($_POST['password'])) {
