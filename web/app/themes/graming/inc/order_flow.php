@@ -528,7 +528,7 @@ function custom_checkout_init()
 
 	$body = json_encode($data);
 	$klavio = new KlavioAPI;
-	var_dump($klavio->post_klavio($url, $body));
+	$klavio->post_klavio($url, $body);
 }
 add_action('woocommerce_before_checkout_form', 'custom_checkout_init');
 
