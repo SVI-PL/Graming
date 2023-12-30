@@ -275,3 +275,88 @@ function custom_top_up_endpoint_url($url, $endpoint, $value)
 }
 add_filter('woocommerce_get_endpoint_url', 'custom_top_up_endpoint_url', 10, 3);
 
+function wc_customer_bought_product_custom( $customer_email, $user_id, $product_id ) {
+	global $wpdb;
+
+	$result = apply_filters( 'woocommerce_pre_customer_bought_product', null, $customer_email, $user_id, $product_id );
+
+	if ( null !== $result ) {
+		return $result;
+	}
+
+	$transient_name    = 'wc_customer_bought_product_' . md5( $customer_email . $user_id );
+	$transient_version = WC_Cache_Helper::get_transient_version( 'orders' );
+	$transient_value   = get_transient( $transient_name );
+
+	if ( isset( $transient_value['value'], $transient_value['version'] ) && $transient_value['version'] === $transient_version ) {
+		$result = $transient_value['value'];
+	} else {
+		$customer_data = array( $user_id );
+
+		if ( $user_id ) {
+			$user = get_user_by( 'id', $user_id );
+
+			if ( isset( $user->user_email ) ) {
+				$customer_data[] = $user->user_email;
+			}
+		}
+
+		if ( is_email( $customer_email ) ) {
+			$customer_data[] = $customer_email;
+		}
+
+		$customer_data = array_map( 'esc_sql', array_filter( array_unique( $customer_data ) ) );
+		$statuses      = array_map( 'esc_sql', array( 'processing', 'completed', 'on-hold', 'failed', "pending", 'cancelled') );
+
+		if ( count( $customer_data ) === 0 ) {
+			return false;
+		}
+
+		if ( OrderUtil::custom_orders_table_usage_is_enabled() ) {
+			$statuses = array_map(
+				function ( $status ) {
+					return "wc-$status";
+				},
+				$statuses
+			);
+			$order_table = OrdersTableDataStore::get_orders_table_name();
+			$user_id_clause = '';
+			if ( $user_id ) {
+				$user_id_clause = 'OR o.customer_id = ' . absint( $user_id );
+			}
+			$sql = "
+SELECT im.meta_value FROM $order_table AS o
+INNER JOIN {$wpdb->prefix}woocommerce_order_items AS i ON o.id = i.order_id
+INNER JOIN {$wpdb->prefix}woocommerce_order_itemmeta AS im ON i.order_item_id = im.order_item_id
+WHERE o.status IN ('" . implode( "','", $statuses ) . "')
+AND im.meta_key IN ('_product_id', '_variation_id' )
+AND im.meta_value != 0
+AND ( o.billing_email IN ('" . implode( "','", $customer_data ) . "') $user_id_clause )
+";
+			$result = $wpdb->get_col( $sql );
+		} else {
+			$result = $wpdb->get_col(
+				"
+SELECT im.meta_value FROM {$wpdb->posts} AS p
+INNER JOIN {$wpdb->postmeta} AS pm ON p.ID = pm.post_id
+INNER JOIN {$wpdb->prefix}woocommerce_order_items AS i ON p.ID = i.order_id
+INNER JOIN {$wpdb->prefix}woocommerce_order_itemmeta AS im ON i.order_item_id = im.order_item_id
+WHERE p.post_status IN ( 'wc-" . implode( "','wc-", $statuses ) . "' )
+AND pm.meta_key IN ( '_billing_email', '_customer_user' )
+AND im.meta_key IN ( '_product_id', '_variation_id' )
+AND im.meta_value != 0
+AND pm.meta_value IN ( '" . implode( "','", $customer_data ) . "' )
+		"
+			); // WPCS: unprepared SQL ok.
+		}
+		$result = array_map( 'absint', $result );
+
+		$transient_value = array(
+			'version' => $transient_version,
+			'value'   => $result,
+		);
+
+		set_transient( $transient_name, $transient_value, DAY_IN_SECONDS * 30 );
+	}
+	return in_array( absint( $product_id ), $result, true );
+}
