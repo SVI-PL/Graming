@@ -49,39 +49,44 @@ function password_in_registration($customer_id)
 	$user_email = $user->user_email;
 
 	$url = 'https://esputnik.com/api/v1/contact';
+	$url2 = 'https://esputnik.com/api/v1/event';
 
 	$data = [
-		'channels' => [[
-			'type' => 'email',
-			'value' => $user_email,
-		]],
-		'fields' => [
+		'channels' => [
 			[
-				"id" => 248184,
-				"value" => 'Registration form'
+				'type' => 'email',
+				'value' => $user_email,
+			]
+		],
+		'id' => $user_id,
+	];
+	$data2 = [
+		"params" => [
+			[
+				"name" => "email",
+				"value" => $user_email
 			],
 			[
-				"id" => 248185,
+				"name" => "Password",
 				"value" => $password
 			],
 			[
-				"id" => 248186,
+				"name" => "AutoReg",
 				"value" => 'No'
 			],
 			[
-				"id" => 248187,
+				"name" => "Marketing Checkbox",
 				"value" => $marketing
-			],
+			]
 		],
-		'externalCustomerId' => $user_id,
+		"eventTypeKey" => 'Registration form'
 	];
 
-
 	$body = json_encode($data);
+	$body2 = json_encode($data2);
 	$klavio = new KlavioAPI;
-	var_dump($klavio->post_klavio($url, $body));
-	die;
-
+	$klavio->post_klavio($url, $body);
+	$klavio->post_klavio($url2, $body2);
 }
 add_action('woocommerce_created_customer', 'password_in_registration');
 
@@ -144,24 +149,20 @@ function reset_pass_event($user_login, $key)
 	$user_email = $user->user_email;
 	$reset_url = url() . "?key=" . $key . "&id=" . $user_id;
 
-	$url = 'https://esputnik.com/api/v1/contact';
+	$url = 'https://esputnik.com/api/v1/event';
 
 	$data = [
-		'channels' => [[
-			'type' => 'email',
-			'value' => $user_email,
-		]],
-		'fields' => [
+		"params" => [
 			[
-				"id" => 248184,
-				"value" => 'Reset password'
+				"name" => "email",
+				"value" => $user_email
 			],
 			[
-				"id" => 248197,
+				"name" => "RECOVERY LINK",
 				"value" => $reset_url
 			],
 		],
-		'externalCustomerId' => $user_id,
+		"eventTypeKey" => 'Reset password'
 	];
 
 	$body = json_encode($data);
@@ -178,24 +179,20 @@ function user_login_event($user_login, $user)
 	$user_id = (string) $user->ID;
 	$user_email = $user->user_email;
 
-	$url = 'https://esputnik.com/api/v1/contact';
+	$url = 'https://esputnik.com/api/v1/event';
 
 	$data = [
-		'channels' => [[
-			'type' => 'User login',
-			'value' => $user_email,
-		]],
-		'fields' => [
+		"params" => [
 			[
-				"id" => 248184,
-				"value" => 'User login'
+				"name" => "email",
+				"value" => $user_email
 			],
 			[
-				"id" => 248198,
+				"name" => "date",
 				"value" => date('Y-m-d H:i:s')
-			],
+			]
 		],
-		'externalCustomerId' => $user_id,
+		"eventTypeKey" => 'User login'
 	];
 
 	$body = json_encode($data);

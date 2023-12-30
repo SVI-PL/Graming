@@ -126,37 +126,45 @@ function create_user_account($order_id)
 		add_balance_to_database($user_id);
 
 		$url = 'https://esputnik.com/api/v1/contact';
+		$url2 = 'https://esputnik.com/api/v1/event';
 
 		$data = [
-			'channels' => [[
-				'type' => 'email',
-				'value' => $user_email,
-			]],
-			'fields' => [
+			'channels' => [
 				[
-					"id" => 248184,
-					"value" => 'Registration on order'
+					'type' => 'email',
+					'value' => $user_email,
+				]
+			],
+			'id' => $user_id,
+		];
+
+		$data2 = [
+			"params" => [
+				[
+					"name" => "email",
+					"value" => $user_email
 				],
 				[
-					"id" => 248185,
+					"name" => "Password",
 					"value" => $password
 				],
 				[
-					"id" => 248186,
+					"name" => "AutoReg",
 					"value" => 'yes'
 				],
 				[
-					"id" => 248187,
+					"name" => "Marketing Checkbox",
 					"value" => 'No'
 				],
 			],
-			'externalCustomerId' => $user_id,
+			"eventTypeKey" => 'Registration on order'
 		];
 
-
 		$body = json_encode($data);
+		$body2 = json_encode($data2);
 		$klavio = new KlavioAPI;
 		$klavio->post_klavio($url, $body);
+		$klavio->post_klavio($url2, $body2);
 
 		wp_set_current_user($user_id, $user->user_login);
 		wp_set_auth_cookie($user_id);
@@ -408,54 +416,48 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 		$upsale = "yes";
 	}
 
-
-
-	$url = 'https://esputnik.com/api/v1/contact';
+	$url = 'https://esputnik.com/api/v1/event';
 
 	$data = [
-		'channels' => [[
-			'type' => 'email',
-			'value' => $user_email,
-		]],
-		'fields' => [
+		"params" => [
 			[
-				"id" => 248184,
-				"value" => $event_name
+				"name" => "email",
+				"value" => $user_email
 			],
 			[
-				"id" => 248188,
+				"name" => "Product_type",
 				"value" => $product_type
 			],
 			[
-				"id" => 248195,
+				"name" => "Product_name",
 				"value" => $product_name
 			],
 			[
-				"id" => 248196,
+				"name" => "Product_id",
 				"value" => $product_id
 			],
 			[
-				"id" => 248191,
+				"name" => "Quantity",
 				"value" => $quantity
 			],
 			[
-				"id" => 248199,
+				"name" => "Total",
 				"value" => $total
 			],
 			[
-				"id" => 248190,
+				"name" => "Order_id",
 				"value" => $order_id
 			],
 			[
-				"id" => 248192,
+				"name" => "Upsale",
 				"value" => $upsale
 			],
 			[
-				"id" => 248200,
+				"name" => "Deposite_total",
 				"value" => $deposite_total
 			],
 		],
-		'externalCustomerId' => $user_id,
+		"eventTypeKey" => $event_name
 	];
 
 	$body = json_encode($data);
@@ -493,39 +495,35 @@ function custom_checkout_init()
 		$event_name = 'Checkout Deposite init';
 	}
 
-	$url = 'https://esputnik.com/api/v1/contact';
+	$url = 'https://esputnik.com/api/v1/event';
 	$data = [
-		'channels' => [[
-			'type' => 'email',
-			'value' => $user_email,
-		]],
-		'fields' => [
+		"params" => [
 			[
-				"id" => 248184,
-				"value" => $event_name
+				"name" => "email",
+				"value" => $user_email
 			],
 			[
-				"id" => 248188,
+				"name" => "Product_type",
 				"value" => $product_type
 			],
 			[
-				"id" => 248195,
+				"name" => "Product_name",
 				"value" => $product_name
 			],
 			[
-				"id" => 248196,
+				"name" => "Product_id",
 				"value" => $product_id
 			],
 			[
-				"id" => 248191,
+				"name" => "Quantity",
 				"value" => $quantity
 			],
 			[
-				"id" => 248199,
+				"name" => "Total",
 				"value" => $total
-			],
+			]
 		],
-		'externalCustomerId' => $user_id,
+		"eventTypeKey" => $event_name
 	];
 
 	$body = json_encode($data);
