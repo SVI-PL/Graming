@@ -1153,11 +1153,6 @@
                         }
                     }
 
-                    #ckocom_googlePay,
-                    #ckocom_applePay {
-                        display: none !important;
-                    }
-
                     .pay_btn {
                         color: #FE5A13;
                         text-align: center;
@@ -1207,6 +1202,11 @@
                             }
                         }
                     }
+                }
+
+                #ckocom_googlePay,
+                #ckocom_applePay {
+                    display: none !important;
                 }
             }
 
