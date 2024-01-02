@@ -1947,12 +1947,13 @@
                     display: flex;
                     align-items: center;
                     font-family: Fixel Display;
-                    font-size: 30px;
+                    font-size: 22px;
                     font-style: normal;
                     font-weight: 600;
                     line-height: normal;
 
                     &::before {
+                        display: none;
                         content: "";
                         width: 30px;
                         height: 30px;

@@ -39,8 +39,8 @@ $totals = $order->get_order_item_totals();
 <div class="account-order-view">
 	<div class="buy_now_acc">
 		<div class="back_btn btn-gray">Back</div>
-		<?php if ( is_user_logged_in() ) : ?>
-		<div class="btn-red"><a href="/service/usd/">Deposit Now</a></div>
+		<?php if (is_user_logged_in()): ?>
+			<div class="btn-red"><a href="/service/usd/">Deposit Now</a></div>
 		<?php endif; ?>
 	</div>
 	<div class="account-orders">
@@ -55,9 +55,24 @@ $totals = $order->get_order_item_totals();
 		</div>
 		<div class="order_bottom">
 			<div class="order_status <?php echo esc_html(wc_get_order_status_name($order->get_status())); ?>">
-				<?php echo esc_html(wc_get_order_status_name($order->get_status())); ?>
+				<?php $status = esc_html(wc_get_order_status_name($order->get_status()));
+				if ($status == "On hold") {
+					echo "Payment In Process";
+				} elseif ($status == "Suspected Fraud") {
+					echo "Payment Declined by Your Bank";
+				} else {
+					echo $status;
+				} ?>
 			</div>
-
+			<?php if ($status == "On hold"): ?>
+				<div class="text_status">Reload this page or track your order on our panel for the latest delivery status.
+				</div>
+			<?php elseif ($status == "Suspected Fraud"): ?>
+				<div class="text_status">Please contact us via email at support@graming.com for further instructions. If
+					you've been charged for the order, your bank may have temporarily held the funds, and they will be
+					refunded in approximately 2 weeks.
+				</div>
+			<?php endif; ?>
 			<div class="order_summ">
 				<div class="text">Order summary</div>
 				<div class="price">
