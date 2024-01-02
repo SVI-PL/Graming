@@ -68,7 +68,7 @@ $totals = $order->get_order_item_totals();
 				<div class="text_status">Reload this page or track your order on our panel for the latest delivery status.
 				</div>
 			<?php elseif ($status == "Suspected Fraud"): ?>
-				<div class="text_status">Please contact us via email at support@graming.com for further instructions. If
+				<div class="text_status">Please contact us via email at <strong>support@graming.com</strong> for further instructions. If
 					you've been charged for the order, your bank may have temporarily held the funds, and they will be
 					refunded in approximately 2 weeks.
 				</div>
