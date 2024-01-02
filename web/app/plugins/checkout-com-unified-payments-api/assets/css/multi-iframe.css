@@ -39,11 +39,11 @@
 }
 
 .date-and-code>div:nth-child(1) {
-  width: 55.715%;
+  width: calc(50% - 2px);
 }
 
 .date-and-code>div:nth-child(2) {
-  width: 45.719%;
+  width: calc(50% - 2px);
 }
 
 .input-container {
@@ -65,6 +65,10 @@
   margin-bottom: 8px;
   border: 1.5px solid #646464;
   border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+  .input-container.card-number { border-radius: 8px;}
 }
 
 .input-container.expiry-date {
