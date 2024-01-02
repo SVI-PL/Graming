@@ -405,6 +405,7 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 	$product_name = $product->get_title();
 	$order_status = $to_status;
 	$event_name = 'Order status ' . $order_status;
+	$order_num = wc_get_customer_order_count($user_id);
 	$deposite_total = "";
 	if ($product_id == 75) {
 		$product_type = "Deposite";
@@ -455,6 +456,10 @@ function klavio_add_order($order_id, $from_status, $to_status, $order)
 			[
 				"name" => "Deposite_total",
 				"value" => $deposite_total
+			],
+			[
+				"name" => "Order number",
+				"value" => $order_num
 			],
 		],
 		"eventTypeKey" => $event_name
