@@ -307,7 +307,7 @@ function wc_customer_bought_product_custom( $customer_email, $user_id, $product_
 		}
 
 		$customer_data = array_map( 'esc_sql', array_filter( array_unique( $customer_data ) ) );
-		$statuses      = array_map( 'esc_sql', array( 'processing', 'completed', 'on-hold', 'failed', "pending", 'cancelled') );
+		$statuses      = array_map( 'esc_sql', array( 'processing', 'completed', 'on-hold', 'failed', "pending", 'cancelled', 'suspected-fraud') );
 
 		if ( count( $customer_data ) === 0 ) {
 			return false;
