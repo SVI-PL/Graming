@@ -1053,7 +1053,7 @@
                         list-style: none;
 
                         >li {
-                            display: none;
+                            display: none !important;
 
                             >input {
                                 display: none;
