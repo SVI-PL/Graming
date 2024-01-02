@@ -1073,6 +1073,10 @@
                         .pay_crypto{
                             color: #85c316;
                             border: 2px solid #85c316;
+
+                            &:hover {
+                                box-shadow: 6px 6px 0px 0px #85c316;
+                            }
                         }
                     }
 
