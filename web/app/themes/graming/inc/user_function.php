@@ -1,5 +1,7 @@
 <?php
 use Automattic\WooCommerce\Utilities\OrderUtil;
+use Automattic\WooCommerce\Internal\DataStores\Orders\OrdersTableDataStore;
+
 // set balance $0 for new reg
 function add_balance_to_database($user_id)
 {
@@ -307,7 +309,7 @@ function wc_customer_bought_product_custom( $customer_email, $user_id, $product_
 		}
 
 		$customer_data = array_map( 'esc_sql', array_filter( array_unique( $customer_data ) ) );
-		$statuses      = array_map( 'esc_sql', array( 'processing', 'completed', 'on-hold', 'failed', "pending", 'cancelled', 'flagged') );
+		$statuses      = array_map( 'esc_sql', array( 'processing', 'completed', 'on-hold', 'failed', "pending", 'cancelled') );
 
 		if ( count( $customer_data ) === 0 ) {
 			return false;
