@@ -166,13 +166,16 @@ $cart_total = WC()->cart->get_total();
 		<div class="pay_btn btn-red pay_order">
 			<?php wc_cart_totals_order_total_html(); ?>&nbsp;- pay with card
 		</div>
+		<div class="pay_with_crypto">
+			<div class="pay_title">We accept crypto</div>
+			<div class="pay_btn btn-red pay_crypto">Pay With Crypto</div>
+		</div>
 		<div class="additional_info_pay">
 			<p>By completing your order, you agree to the terms of services and
 				privacy policy</p>
 			<p>All prices are in USD. If you're paying with a different currency, the billed amount may vary due to
 				exchange rates and potential additional fees.</p>
 		</div>
-		<div class="pay_btn btn-red pay_crypto">Pay With Crypto</div>
 	</div>
 </div>
 
