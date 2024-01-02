@@ -1103,10 +1103,6 @@
                                         font-weight: 600;
                                         line-height: normal;
 
-                                        @media (max-width: 768px) {
-                                            border-radius: 8px;
-                                        }
-
                                         &.active {
                                             border: 1.5px solid #FE5A13;
                                             color: #FE5A13;
@@ -1142,6 +1138,10 @@
                                             transition: all 0.3s ease-in-out;
                                             color: #646464;
                                             box-shadow: none;
+
+                                            @media (max-width: 768px) {
+                                                border-radius: 8px;
+                                            }
                                         }
                                     }
                                 }
