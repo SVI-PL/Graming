@@ -24,6 +24,7 @@ defined('ABSPATH') || exit;
 	<?php
 	if (get_user_order_count() <= 1): ?>
 		<h2>Thanks and congrats with your first order on Gramy!</h2>
+		<p>ALSO! We provide a 10% BONUS to every DEPOSIT!</p>
 		<p><span>We have automatically created an account for your convenience</span>, you can set your unique password via
 			this link - <a href="/my-account/edit-account/">Click Here</a></p>
 	<?php else: ?>
