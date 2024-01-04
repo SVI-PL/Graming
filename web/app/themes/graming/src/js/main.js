@@ -239,7 +239,7 @@ jQuery(document).ready(function ($) {
     $(".dropdown_products").toggleClass("active");
   });
 
-  //Apply cupon code on checkout
+  //Apply coupon code on checkout
   $(document).on('click', '.btn_apply', function () {
     let $cupon = $("input.coupon_input").val();
     $("input#coupon_code").val($cupon);
