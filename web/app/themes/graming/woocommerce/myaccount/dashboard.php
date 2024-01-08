@@ -49,4 +49,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</div>
 </div>
-<?php get_api_order_status();?>

@@ -298,8 +298,6 @@ function update_order_status($order_id)
 			$response_body = wp_remote_retrieve_body($response);
 			$api_response = json_decode($response_body);
 
-			var_dump($api_response->status);
-
 			if ($api_response->status == 'Completed') {
 				$order->update_status('completed');
 				$order->add_order_note('Order successfully completed');
@@ -311,6 +309,8 @@ function update_order_status($order_id)
 			$order->add_order_note($response->get_error_message());
 			error_log('API Request Error: ' . $response->get_error_message());
 		}
+
+		echo  'Order id:' . $api_id . " Status: " . $api_response->status;
 	}
 }
 
