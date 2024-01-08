@@ -19,5 +19,4 @@
 
 defined('ABSPATH') || exit;
 ?>
-<?php get_api_order_status();?>
 <?php do_action( 'woocommerce_view_order', $order_id ); ?>

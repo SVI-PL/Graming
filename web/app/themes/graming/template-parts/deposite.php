@@ -6,7 +6,6 @@
         'limit' => -1,
     )
 ); ?>
-<?php get_api_order_status();?>
 <?php if ($customer_orders): ?>
     <div class="buy_now_acc">
         <div class="btn-red"><a href="/service/usd/">Deposit Now</a></div>

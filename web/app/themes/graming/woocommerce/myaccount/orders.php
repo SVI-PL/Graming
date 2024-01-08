@@ -27,7 +27,6 @@ defined('ABSPATH') || exit;
         'limit' => -1,
     )
 ); ?>
-<?php get_api_order_status();?>
 <?php if ($has_orders): ?>
 	<div class="buy_now_acc"><div class="btn-red"><a href="/my-account/services/">Order Now</a></div></div>
 	<div class="account-orders">

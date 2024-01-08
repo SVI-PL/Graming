@@ -278,7 +278,7 @@ function get_api_service_id($product_id, $quantity)
 function update_order_status($order_id)
 {
 	$order = wc_get_order($order_id);
-	$api_id = get_post_meta($order->get_id(), 'Order id', true);
+	$api_id = get_post_meta($order_id, 'Order id', true);
 	if ($api_id) {
 		//API setting
 		$api_url = get_field('api_endpoint', 'option');
@@ -298,11 +298,17 @@ function update_order_status($order_id)
 			$response_body = wp_remote_retrieve_body($response);
 			$api_response = json_decode($response_body);
 
+			var_dump($api_response->status);
+
 			if ($api_response->status == 'Completed') {
 				$order->update_status('completed');
 				$order->add_order_note('Order successfully completed');
+			} elseif ($api_response->status == "Canceled") {
+				$order->update_status('cancelled');
+				$order->add_order_note('Order Cancelled');
 			}
 		} else {
+			$order->add_order_note($response->get_error_message());
 			error_log('API Request Error: ' . $response->get_error_message());
 		}
 	}
@@ -311,16 +317,16 @@ function update_order_status($order_id)
 //Get Order status 
 function get_api_order_status()
 {
-	$user_id = get_current_user_id();
 	$customer_orders = wc_get_orders(
 		array(
-			'customer' => $user_id,
 			'status' => array('wc-processing'),
 			'return' => 'ids',
 		)
 	);
-	foreach ($customer_orders as $order_id) {
-		update_order_status($order_id);
+	if (!empty($customer_orders)) {
+		foreach ($customer_orders as $order_id) {
+			update_order_status($order_id);
+		}
 	}
 }
 
