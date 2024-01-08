@@ -310,7 +310,7 @@ function update_order_status($order_id)
 			error_log('API Request Error: ' . $response->get_error_message());
 		}
 
-		echo  'Order id:' . $api_id . " Status: " . $api_response->status . "<br><br>";
+		echo  'Order id:' . $api_id . " Status: " . $api_response->status . "<br>";
 	}
 }
 
