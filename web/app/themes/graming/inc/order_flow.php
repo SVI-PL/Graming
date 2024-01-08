@@ -323,11 +323,13 @@ function get_api_order_status()
 			'return' => 'ids',
 		)
 	);
+	var_dump($customer_orders);
 	if (!empty($customer_orders)) {
 		foreach ($customer_orders as $order_id) {
 			update_order_status($order_id);
 		}
 	}
+	
 }
 
 //Ajax add to card upsale product
