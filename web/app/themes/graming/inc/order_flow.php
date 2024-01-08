@@ -319,6 +319,9 @@ function get_api_order_status()
 {
 	$customer_orders = wc_get_orders(
 		array(
+			'limit' => 30,
+			'orderby' => 'date',
+			'order' => 'DESC',
 			'status' => array('wc-processing'),
 			'return' => 'ids',
 		)
