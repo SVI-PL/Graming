@@ -363,3 +363,22 @@ AND pm.meta_value IN ( '" . implode( "','", $customer_data ) . "' )
 	}
 	return in_array( absint( $product_id ), $result, true );
 }
+
+//Add balance to profile
+function add_user_balance_field($user) {
+    ?>
+    <h3><?php _e('User Balance', 'your_text_domain'); ?></h3>
+
+    <table class="form-table">
+        <tr>
+            <th><label for="user_balance"><?php _e('Balance', 'your_text_domain'); ?></label></th>
+            <td><?php 
+			$balance = new Balance();
+			echo "$" . $balance->get_user_balance($user->ID);
+			?></td>
+        </tr>
+    </table>
+    <?php
+}
+add_action('show_user_profile', 'add_user_balance_field');
+add_action('edit_user_profile', 'add_user_balance_field');
